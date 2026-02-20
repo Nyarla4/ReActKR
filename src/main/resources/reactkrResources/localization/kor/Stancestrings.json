@@ -1,0 +1,38 @@
+{
+  "${ModID}:None": {
+    "NAME": "마용",
+    "DESCRIPTION": [
+      "기본 태세입니다.(효과없음)"
+    ]
+  },
+  "${ModID}:Overwatch": {
+    "NAME": "오XX치",
+    "DESCRIPTION": [
+      "피해를 주고 받거나 턴 종료시 궁극기 포인트를 얻습니다."
+    ]
+  },
+  "${ModID}:Apex": {
+    "NAME": "에XX스",
+    "DESCRIPTION": [
+      "탄창을 사용합니다. 탄창은 조준에 영향을 줍니다."
+    ]
+  },
+  "${ModID}:Latte": {
+    "NAME": "아오토 라떼",
+    "DESCRIPTION": [
+      "기본 라떼의 모습입니다."
+    ]
+  },
+  "${ModID}:Mocha": {
+    "NAME": "아오토 모카",
+    "DESCRIPTION": [
+      "주고 받는 공격 피해가 2배가 됩니다. 일부 카드가 사용불가 상태가 됩니다."
+    ]
+  },
+  "${ModID}:Aoto": {
+    "NAME": "아오토상",
+    "DESCRIPTION": [
+      "주고 받는 공격 피해가 반이 됩니다. 일부 카드가 사용불가 상태가 됩니다."
+    ]
+  }
+}

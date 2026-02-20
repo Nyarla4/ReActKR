@@ -1,0 +1,121 @@
+{
+  "${ModID}:KurokaStartItemRelic": {
+    "NAME": "청초",
+    "FLAVOR": "리액트KR에서는 여기밖에 없습니다.",
+    "DESCRIPTIONS": [
+      "전투 시작 시 무작위 적 하나에게 #y주문을 1 겁니다."
+    ]
+  },
+  "${ModID}:MajitomoRelic": {
+    "NAME": "마지토모",
+    "FLAVOR": "엉덩이 비비기 금지",
+    "DESCRIPTIONS": [
+      "전투 시작 시 무작위 적 하나에게 #y주문을 1 걸고 #y망상인자를 1 얻습니다."
+    ]
+  },
+  "${ModID}:BibRelic": {
+    "NAME": "턱받이",
+    "FLAVOR": "리본으로 할까 고민했습니다.",
+    "DESCRIPTIONS": [
+      "획득 시 #y로로카의 최대 체력 +15."
+    ]
+  },
+  "${ModID}:RoroRibbonRelic": {
+    "NAME": "로로카의 리본",
+    "FLAVOR": "리본은 여기에 썼습니다.",
+    "DESCRIPTIONS": [
+      "매 턴 종료 시 #y로로카 체력 3 회복."
+    ]
+  },
+  "${ModID}:MayoStartItemRelic": {
+    "NAME": "화변기",
+    "FLAVOR": "머잖아 양변기가 됩니다.",
+    "DESCRIPTIONS": [
+      "첫 턴에만 1장의 카드를 추가로 뽑습니다. 이후 카드를 2장까지 버릴 수 있습니다."
+    ]
+  },
+  "${ModID}:NezmingRelic": {
+    "NAME": "네즈밍",
+    "FLAVOR": "콘매용 찍찍",
+    "DESCRIPTIONS": [
+      "#y조준의 범위가 1장 늘어납니다."
+    ]
+  },
+  "${ModID}:LatteStartItemRelic": {
+    "NAME": "주문한 메뉴",
+    "FLAVOR": "주문하신 아오토 라떼.",
+    "DESCRIPTIONS": [
+      "시작 유물을 주문합니다."
+    ]
+  },
+  "${ModID}:IceAmeriacanoRelic": {
+    "NAME": "아이스 아메리카노",
+    "FLAVOR": "겨울에도 차갑습니다.",
+    "DESCRIPTIONS": [
+      "전투 중 1번, 우클릭 시 체력을 5 회복합니다."
+    ]
+  },
+  "${ModID}:PaisenRelic": {
+    "NAME": "파이센",
+    "FLAVOR": "떼디의 빛과 소금.",
+    "DESCRIPTIONS": [
+      "전투 시작 시 #y힘과 #y민첩과 #y가시와 #y금속화를 1 얻습니다."
+    ]
+  },
+  "${ModID}:TtediRelic": {
+    "NAME": "떼디",
+    "FLAVOR": "떼디들 가엽서ㅠㅠㅠ",
+    "DESCRIPTIONS": [
+      "#y아침의 범위가 1장 늘어납니다."
+    ]
+  },
+  "${ModID}:CursePassRelic": {
+    "NAME": "라떼 양초",
+    "FLAVOR": "네크로노미콘은 제외",
+    "DESCRIPTIONS": [
+      "사용 불가인 저주 카드를 사용할 수 있게 됩니다. 저주 카드를 사용하면 그 카드를 소멸시킵니다."
+    ]
+  },
+  "${ModID}:DurianRelic": {
+    "NAME": "두리안",
+    "FLAVOR": "어떤 락스타가 떠오릅니다.",
+    "DESCRIPTIONS": [
+      "획득 시 최대 체력 +20."
+    ]
+  },
+  "${ModID}:SiahRelic": {
+    "NAME": "검은 깃털",
+    "FLAVOR": "빛과 어둠의 경계에서",
+    "DESCRIPTIONS": [
+      "획득 시 #y시아 카드를 획득합니다."
+    ]
+  },
+  "${ModID}:UruRelic": {
+    "NAME": "푸른 테루테루보즈",
+    "FLAVOR": "날씨도 맑게하는",
+    "DESCRIPTIONS": [
+      "획득 시 #y우루 카드를 획득합니다."
+    ]
+  },
+  "${ModID}:KurokaRelic": {
+    "NAME": "보라색 리본",
+    "FLAVOR": "마지하이",
+    "DESCRIPTIONS": [
+      "획득 시 #y쿠로카 카드를 획득합니다."
+    ]
+  },
+  "${ModID}:MayoRelic": {
+    "NAME": "녹색 네잎클로버",
+    "FLAVOR": "걱정마요 이제는 미도마요",
+    "DESCRIPTIONS": [
+      "획득 시 #y마요 카드를 획득합니다."
+    ]
+  },
+  "${ModID}:P2WRelic": {
+    "NAME": "천원 펀치",
+    "FLAVOR": "양심에 맡깁니다.",
+    "DESCRIPTIONS": [
+      "#b우클릭으로 #b사용합니다. NL 무작위 버프를 1 획득합니다."
+    ]
+  }
+}

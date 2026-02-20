@@ -1,0 +1,16 @@
+{
+  "modid": "${ModID}",
+  "name": "${project.name}",
+  "author_list": [
+    "신사, 마지토모, 대충 그 긴거"
+  ],
+  "description": "${project.description}",
+  "version": "${project.version}",
+  "sts_version": "${SlayTheSpire.version}",
+  "mts_version": "${ModTheSpire.version}",
+  "dependencies": [
+    "basemod",
+    "stslib"
+  ]
+}
+

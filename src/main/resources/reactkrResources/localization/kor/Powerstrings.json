@@ -1,0 +1,174 @@
+{
+  "${ModID}:ExampleTwoAmountPower": {
+    "NAME": "Example 2",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yStrength and #b",
+      " #yDexterity."
+    ]
+  },
+  "${ModID}:MajinaiPower": {
+    "NAME": "주문",
+    "DESCRIPTIONS": [
+      "걸린 주문 "
+    ]
+  },
+  "${ModID}:MajinaiStrengthPower": {
+    "NAME": "주문 강화",
+    "DESCRIPTIONS": [
+      "주문에 걸린 적의 수 (",
+      ")만큼 피해량이 증가합니다."
+    ]
+  },
+  "${ModID}:DelusionFactorPower": {
+    "NAME": "망상인자",
+    "DESCRIPTIONS": [
+      "인 외 좋 아 ",
+      "백 합 좋 아"
+    ]
+  },
+  "${ModID}:WitchificationPower": {
+    "NAME": "마녀화",
+    "DESCRIPTIONS": [
+      "정신의 마녀화 ",
+      "육체의 마녀화"
+    ]
+  },
+  "${ModID}:ThreeMeterPower": {
+    "NAME": "키가 3미터",
+    "DESCRIPTIONS": [
+      "이번 턴에 공격한 적에게 ",
+      "의 피해를 줍니다"
+    ]
+  },
+  "${ModID}:MajinaiAmplifyPower": {
+    "NAME": "주문 증폭",
+    "DESCRIPTIONS": [
+      "주문을 걸 때 ",
+      "만큼 더 겁니다."
+    ]
+  },
+  "${ModID}:DestinyPower": {
+    "NAME": "운명의 사람은 나",
+    "DESCRIPTIONS": [
+      "이번 턴에 공격한 적에게 ",
+      "의 주문을 겁니다"
+    ]
+  },
+  "${ModID}:NeredKurokaPower": {
+    "NAME": "네르진쿠로카",
+    "DESCRIPTIONS": [
+      "카드 사용 후 적 전체에게 주문을 ",
+      "겁니다."
+    ]
+  },
+  "${ModID}:SecomMasadaPower": {
+    "NAME": "세콤마사다",
+    "DESCRIPTIONS": [
+      "턴 시작시 적 전체에게 ",
+      " 피해를 줍니다."
+    ]
+  },
+  "${ModID}:XMoePower": {
+    "NAME": "XX모에",
+    "DESCRIPTIONS": [
+      "체력이 줄어든 경우 다음 턴이 시작할 때 망상인자를 ",
+      "얻습니다."
+    ]
+  },
+  "${ModID}:RoroMajinaiPower": {
+    "NAME": "로로카식 주문",
+    "DESCRIPTIONS": [
+      "턴 시작 시 로로카의 체력이 남아있다면 무작위 적에게 주문을 ",
+      "겁니다."
+    ]
+  },
+  "${ModID}:RoroCutePower": {
+    "NAME": "로로카식 애교",
+    "DESCRIPTIONS": [
+      "턴 시작 시 로로카의 체력이 남아있다면 무작위 적에게 약화를 ",
+      "겁니다."
+    ]
+  },
+  "${ModID}:RoroDenouncePower": {
+    "NAME": "로로카식 매도",
+    "DESCRIPTIONS": [
+      "턴 시작 시 로로카의 체력이 남아있다면 무작위 적에게 취약을 ",
+      "겁니다."
+    ]
+  },
+  "${ModID}:RoroHochiPower": {
+    "NAME": "로로카 홋치",
+    "DESCRIPTIONS": [
+      "턴 시작 시 로로카의 체력이 남아있다면 적 전체에게 피해를 ",
+      "줍니다."
+    ]
+  },
+  "${ModID}:NanikaFormPower": {
+    "NAME": "나니카",
+    "DESCRIPTIONS": [
+      "턴 시작 시 무작위 나니카 특제 포션을 ",
+      "개 획득합니다."
+    ]
+  },
+  "${ModID}:RoroGlowingPower": {
+    "NAME": "야광 로로카",
+    "DESCRIPTIONS": [
+      "턴 시작 시 로로카의 체력이 남아있다면 로로카의 체력을 ",
+      "회복합니다."
+    ]
+  },
+
+  "${ModID}:OWUltPower": {
+    "NAME": "궁극기 포인트",
+    "DESCRIPTIONS": [
+      "궁극기 ",
+      "충전중 ",
+      " 준비 완료"
+    ]
+  },
+  "${ModID}:ParticleBarrierUltPower": {
+    "NAME": "입자 방벽",
+    "DESCRIPTIONS": [
+      "턴간 피해를 받을 때마다 힘을 ",
+      "얻습니다"
+    ]
+  },
+
+  "${ModID}:NoBadWordPower": {
+    "NAME": "나쁜 말 금지",
+    "DESCRIPTIONS": [
+      "턴 시작시 에너지를 ",
+      "얻습니다."
+    ]
+  },
+
+  "${ModID}:GainArtifactPower": {
+    "NAME": "인공물 복구",
+    "DESCRIPTIONS": [
+      "이번 턴 종료 시 인공물을 ",
+      " 얻습니다."
+    ]
+  },
+
+  "${ModID}:MPower": {
+    "NAME": "시아 M",
+    "DESCRIPTIONS": [
+      "다음 턴 시작 시 ",
+      "만큼 회복합니다."
+    ]
+  },
+  "${ModID}:RainPower": {
+    "NAME": "비",
+    "DESCRIPTIONS": [
+      "효과는 ",
+      "없습니다."
+    ]
+  },
+  "${ModID}:ReactKRRangersPower": {
+    "NAME": "리액트KR 레인저스",
+    "DESCRIPTIONS": [
+      "일부 카드 효과가 강화됩니다."
+    ]
+  }
+}

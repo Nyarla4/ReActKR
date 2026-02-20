@@ -1,0 +1,32 @@
+{
+  "${ModID}:Overwatch": {
+    "NAME": "오XX치",
+    "DESCRIPTION": [
+      "고오급 시계."
+    ]
+  },
+  "${ModID}:Apex": {
+    "NAME": "에XX스",
+    "DESCRIPTION": [
+      "재미 원툴."
+    ]
+  },
+  "${ModID}:Latte": {
+    "NAME": "아오토 라떼",
+    "DESCRIPTION": [
+      "기본 라떼의 모습입니다."
+    ]
+  },
+  "${ModID}:Mocha": {
+    "NAME": "아오토 모카",
+    "DESCRIPTION": [
+      "공격 피해가 2배가 됩니다. 일부 카드가 사용불가 상태가 됩니다."
+    ]
+  },
+  "${ModID}:Aoto": {
+    "NAME": "아오토상",
+    "DESCRIPTION": [
+      "받는 공격 피해가 반이 됩니다. 일부 카드가 사용불가 상태가 됩니다."
+    ]
+  }
+}

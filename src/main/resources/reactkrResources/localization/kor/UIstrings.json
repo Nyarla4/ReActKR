@@ -1,0 +1,9 @@
+{
+  "LimitedGamblingChipAction": {
+    "NAME": "갬블링 액션",
+    "TEXT": [
+      "교체(최대 ",
+      "장)"
+    ]
+  }
+}
