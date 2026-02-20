@@ -118,6 +118,27 @@
       "회복합니다."
     ]
   },
+  "${ModID}:PepZeLiPower": {
+    "NAME": "펩제라",
+    "DESCRIPTIONS": [
+      "다음 턴에 #b",
+      " 에너지를 추가로 얻습니다. "
+    ]
+  },
+  "${ModID}:WoaHooPower": {
+    "NAME": "워후!",
+    "DESCRIPTIONS": [
+      "주문이 걸린 대상을 공격할 시 ",
+      "장 드로우 합니다."
+    ]
+  },
+  "${ModID}:SpicyNakjiKimchiJookPower": {
+    "NAME": "매콤낙지김치죽!",
+    "DESCRIPTIONS": [
+      "카드를 쓸 때마다 방어도를 ",
+      "얻습니다."
+    ]
+  },
 
   "${ModID}:OWUltPower": {
     "NAME": "궁극기 포인트",

@@ -14,7 +14,10 @@ public enum ProAudio {
     RORO_PUNCH,
     KURO_PUNCH,
     ROROHI,
-    KUROKA_CHOP
+    KUROKA_CHOP,
+    YURIATKDEF,
+    KAWAIIERAITENSAI,
+    FLICK
     /*
     Add any audio you add to your files here!
     For example, if you add "reactkrResources/audio/boing.ogg", you'd add it here as BOING

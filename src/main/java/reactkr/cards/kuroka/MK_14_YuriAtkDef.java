@@ -8,8 +8,10 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import reactkr.cards.AbstractEasyCard_Kuroka;
 import reactkr.powers.kuroka.MK_03_DelusionFactor_Power;
+import reactkr.util.ProAudio;
 
 import static reactkr.ModFile.makeID;
+import static reactkr.util.Wiz.playAudio;
 
 public class MK_14_YuriAtkDef extends AbstractWitchificateCard {
     public final static String ID = makeID("YuriAtkDef");
@@ -23,6 +25,7 @@ public class MK_14_YuriAtkDef extends AbstractWitchificateCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        playAudio(ProAudio.YURIATKDEF);
         //this.addToBot(new RemoveAllPowersAction(p, true));
         if (!witchificated) {
             addToBot(new ApplyPowerAction(p, p, new MK_03_DelusionFactor_Power(p, 3), 3));

@@ -14,12 +14,14 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import reactkr.powers.kuroka.MK_03_DelusionFactor_Power;
+import reactkr.util.ProAudio;
 
 import java.util.ArrayList;
 
 import static java.lang.Math.min;
 import static reactkr.ModFile.makeID;
 import static reactkr.util.Wiz.applyToSelf;
+import static reactkr.util.Wiz.playAudio;
 
 public class MK_42_KurokachanKawaii extends AbstractWitchificateCard {
     public final static String ID = makeID("KurokachanKawaii");
@@ -33,6 +35,7 @@ public class MK_42_KurokachanKawaii extends AbstractWitchificateCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        playAudio(ProAudio.KAWAIIERAITENSAI);
         if (!witchificated)
             applyToSelf(new MK_03_DelusionFactor_Power(p, magicNumber));
         this.addToBot(new ArmamentsAction(witchificated));

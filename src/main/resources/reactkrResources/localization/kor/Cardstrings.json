@@ -221,12 +221,7 @@
   },
   "${ModID}:WoaHoo": {
     "NAME": "워후",
-    "DESCRIPTION": "${ModID}:주문이 걸린 적을 공격할 때마다 카드를 1장 뽑습니다.",
-    "EXTENDED_DESCRIPTION": [
-      "워후!",
-      "주문이 걸린 대상을 공격할 시 ",
-      "장 드로우 합니다."
-    ]
+    "DESCRIPTION": "${ModID}:주문이 걸린 적을 공격할 때마다 카드를 1장 뽑습니다."
   },
   "${ModID}:Kazoo": {
     "NAME": "카주",
@@ -293,6 +288,21 @@
   "${ModID}:NanikaForm": {
     "NAME": "나니카의 형상",
     "DESCRIPTION": "턴 시작 시 무작위 나니카 특제 포션을 !M! 개 획득합니다."
+  },
+  "${ModID}:PepZeLi": {
+    "NAME": "펩제라",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. 다음 턴에 에너지를 !M! 얻습니다."
+  },
+  "${ModID}:SpicyNakjiKimchiJook": {
+    "NAME": "매콤낙지김치죽",
+    "DESCRIPTION": "이번 턴 카드를 쓸 때마다 방어도를 !M! 얻습니다."
+  },
+  "${ModID}:Flick": {
+    "NAME": "딱콩",
+    "DESCRIPTION": "피해를 !D! 줍니다. 망상인자 3을 소모하여 2배의 피해를 줍니다.",
+    "EXTENDED_DESCRIPTION": [
+      "피해를 !${ModID}:sd! 줍니다. 망상인자 3을 소모하여 2배의 피해를 줍니다."
+    ]
   },
   "${ModID}:RoroGaki": {
     "NAME": "로로가키",
@@ -560,11 +570,6 @@
       "*쭈글호랭이을 1장 얻습니다. ",
       "*쭈글호랭이+을 1장 얻습니다. "
     ]
-  },
-  "${ModID}:PepZeLi": {
-    "NAME": "펩제라",
-    "DESCRIPTION": "쿠로카/라떼 다르게 할것인디",
-    "UPGRADE_DESCRIPTION": "쿠로카는 좋아하고 라떼는 싫어하니"
   },
 
   "${ModID}:WimpyTiger": {
