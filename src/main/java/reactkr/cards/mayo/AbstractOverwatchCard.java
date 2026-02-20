@@ -2,19 +2,12 @@ package reactkr.cards.mayo;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import reactkr.cards.AbstractEasyCard_Mayo;
-import reactkr.powers.AbstractEasyPower;
 import reactkr.powers.mayo.MM_01_OWUltPower;
-import reactkr.powers.mayo.MM_02_ParticleBarrierUltPower;
-import reactkr.relics.mayo.MM_01_NezmingRelic;
-import reactkr.stances.mayo.OverwatchStance;
-
-import static reactkr.util.Wiz.applyToSelf;
 
 public abstract class AbstractOverwatchCard extends AbstractEasyCard_Mayo {
 
@@ -24,15 +17,11 @@ public abstract class AbstractOverwatchCard extends AbstractEasyCard_Mayo {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!p.stance.ID.equals(OverwatchStance.STANCE_ID)) {
-            addToBot(new ChangeStanceAction(new OverwatchStance()));
-        }
-
         normalUse(p, m);
         if (p.hasPower(MM_01_OWUltPower.POWER_ID)) {
             if (p.getPower(MM_01_OWUltPower.POWER_ID).amount >= MM_01_OWUltPower.maxAmount) {
                 ultUse(p, m);
-                addToBot(new RemoveSpecificPowerAction(p,p,MM_01_OWUltPower.POWER_ID));
+                addToBot(new RemoveSpecificPowerAction(p, p, MM_01_OWUltPower.POWER_ID));
                 addToBot(new ApplyPowerAction(p, p, new MM_01_OWUltPower(p, 1), 1));
             }
         }
@@ -44,9 +33,8 @@ public abstract class AbstractOverwatchCard extends AbstractEasyCard_Mayo {
 
     protected boolean ultCharged() {
         AbstractPlayer p = AbstractDungeon.player;
-        // 유물 보유 여부에 따른 거리(n) 결정 로직을 구조적으로 분리
-        if(!p.hasPower(MM_01_OWUltPower.POWER_ID)){
-            return  false;
+        if (!p.hasPower(MM_01_OWUltPower.POWER_ID)) {
+            return false;
         }
         return p.getPower(MM_01_OWUltPower.POWER_ID).amount >= MM_01_OWUltPower.maxAmount;
     }

@@ -2,6 +2,8 @@ package reactkr.cards.mayo;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
@@ -16,12 +18,13 @@ public class MM_00_WarningShot extends AbstractAimedCard {
     public MM_00_WarningShot() {
         super(ID, 0, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
         baseDamage = damage = 6;
+        baseSecondDamage = secondDamage = 8;
         baseMagicNumber = magicNumber = 1;
     }
 
     @Override
     void normalUse(AbstractPlayer p, AbstractMonster m) {
-        dmg(m, AbstractGameAction.AttackEffect.NONE);
+        addToBot(new DamageAction(m, new DamageInfo(p, finalDamage)));
     }
 
     @Override
@@ -32,6 +35,7 @@ public class MM_00_WarningShot extends AbstractAimedCard {
     @Override
     public void upp() {
         upgradeDamage(3);
+        upgradeSecondDamage(3);
         upgradeMagicNumber(1);
     }
 }

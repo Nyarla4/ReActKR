@@ -1,12 +1,9 @@
 package reactkr.cards.mayo;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.IntangiblePower;
-import reactkr.cards.AbstractEasyCard_Mayo;
 import reactkr.powers.AbstractEasyPower;
 import reactkr.powers.mayo.MM_02_ParticleBarrierUltPower;
 

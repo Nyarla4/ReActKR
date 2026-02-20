@@ -313,7 +313,7 @@
   },
   "${ModID}:WarningShot": {
     "NAME": "위협사격",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL ${ModID}:조준 : 취약을 !M! 줍니다."
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 취약을 !M! 줍니다."
   },
   "${ModID}:PiercingLaugh": {
     "NAME": "낑낑",
@@ -328,9 +328,34 @@
   },
   "${ModID}:ParticleBarrier": {
     "NAME": "입자방벽",
-    "DESCRIPTION": "${ModID}:오버워치를 켭니다. 방어도를 !B! 줍니다. NL ${ModID}:궁극기 : 불가침을 얻고 !M! 턴간 공격을 받은 횟수만큼 NL 일시적으로 힘을 !${ModID}:m2! 얻습니다",
+    "DESCRIPTION": "${ModID}:오버워치를 켭니다. 방어도를 !B! 줍니다. NL ${ModID}:궁극기 : 불가침을 얻고 !M! 턴간 공격을 받은 횟수만큼 NL 일시적으로 힘을 !${ModID}:m2! 얻습니다."
+  },
+  "${ModID}:8192": {
+    "NAME": "1/8192",
+    "DESCRIPTION": "1/2 확률로 피해를 !D! 줍니다. NL 최대 13번 반복합니다."
+  },
+  "${ModID}:GetSniper": {
+    "NAME": "저격탄",
+    "DESCRIPTION": "${ModID}:저격탄을 !M! 얻습니다."
+  },
+  "${ModID}:GetLight": {
+    "NAME": "경량탄",
+    "DESCRIPTION": "${ModID}:경량탄을 !M! 얻습니다."
+  },
+  "${ModID}:R301": {
+    "NAME": "R-301 카빈",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL ${ModID}:조준 : 방어도를 !B! 얻습니다."
+  },
+  "${ModID}:EVA": {
+    "NAME": "EVA 샷건",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL ${ModID}:고갈이 1일때 피해를 한 번 더 줍니다."
+  },
+  "${ModID}:SevenOrFive": {
+    "NAME": "7시 볼거야 5시 볼거야",
+    "DESCRIPTION": "선택합니다. NL 강화없음",
     "EXTENDED_DESCRIPTION": [
-      "마요왔어요"
+      "피해를 !M! 입고 힘을 !${ModID}:m2! 얻습니다.",
+      "기쁩니다!"
     ]
   },
 

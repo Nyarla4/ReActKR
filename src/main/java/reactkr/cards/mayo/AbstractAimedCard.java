@@ -13,11 +13,10 @@ import reactkr.orbs.kuroka.MK_00_RorokaOrb;
 import reactkr.orbs.mayo.MM_01_SniperBulletOrb;
 import reactkr.orbs.mayo.MM_02_LightBulletOrb;
 import reactkr.relics.mayo.MM_01_NezmingRelic;
-import reactkr.stances.mayo.ApexStance;
-import reactkr.stances.mayo.OverwatchStance;
 
 public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
 
+    protected int finalDamage;
     private static final Logger logger = LogManager.getLogger(AbstractAimedCard.class.getName());
 
     public AbstractAimedCard(String cardID, int cost, CardType type, CardRarity rarity, CardTarget target) {
@@ -32,7 +31,10 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
             // 1. [흐름] 플레이어의 모든 구체 슬롯을 순회
             for (AbstractOrb orb : AbstractDungeon.player.orbs) {
                 // 2. [구조 확인] 빈 슬롯이 아니고, 찾고 있는 특정 ID의 구체인지 확인
-                if (!(orb instanceof EmptyOrbSlot) && orb.ID.equals(MM_01_SniperBulletOrb.ID)) {
+                if (!(orb instanceof EmptyOrbSlot) &&
+                        (orb.ID.equals(MM_01_SniperBulletOrb.ID) ||
+                                orb.ID.equals(MM_02_LightBulletOrb.ID)
+                        )) {
 
                     // 3. [데이터 수정] amount(passiveAmount)를 1 감소
                     // 슬더스 기본 구체들은 passiveAmount를 주 수치로 사용합니다.
@@ -75,8 +77,11 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
 
     // [핵심 로직 분리] 구조와 흐름을 일치시키기 위해 계산 로직을 별도 메서드로 추출
     private void applyCustomModifiers() {
-        if(!isAimed())
+        if (!isAimed())
+        {
+            finalDamage = AbstractDungeon.cardRandomRng.random(damage, secondDamage);
             return;
+        }
 
         boolean sniperBullet = AbstractDungeon.player.orbs.stream()
                 .anyMatch(orb -> !(orb instanceof EmptyOrbSlot) && orb.ID.equals(MM_01_SniperBulletOrb.ID));
@@ -85,14 +90,18 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
 
         if (sniperBullet) {
             this.damage *= 2;
+            this.secondDamage *= 2;
             this.isDamageModified = true;
+            this.isSecondDamageModified = true;
 
             // 코스트 변경 흐름
             this.costForTurn = this.cost + 1;
             this.isCostModifiedForTurn = true;
         } else if (lightBullet) {
             this.damage /= 2;
+            this.secondDamage /= 2;
             this.isDamageModified = true;
+            this.isSecondDamageModified = true;
 
             // 코스트 변경 흐름
             if (this.cost > 0) {
@@ -104,6 +113,7 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
             this.costForTurn = this.cost;
             this.isCostModifiedForTurn = false;
         }
+        finalDamage = secondDamage;
     }
 
     @Override

@@ -1,14 +1,9 @@
 package reactkr.orbs.mayo;
 
 import basemod.abstracts.CustomOrb;
-import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
-import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import reactkr.stances.mayo.ApexStance;
-import reactkr.stances.mayo.OverwatchStance;
 
 import static reactkr.ModFile.makeID;
 import static reactkr.ModFile.makePath;
@@ -20,7 +15,6 @@ public abstract class AbstractBulletOrb extends CustomOrb {
                 amount, 0,
                 "", "",
                 makePath("images/orbs/"+ID+".png"));
-        AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new ApexStance()));
         updateDescription();
     }
 
