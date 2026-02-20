@@ -67,15 +67,6 @@ public class Event_DontBelieveInR extends AbstractImageEvent {
         imageEventText.setDialogOption(OPTIONS[2]);
     }
 
-//    "DESCRIPTIONS": [
-//      "의문의 여인?이 당신에게 선택지를 줍니다. NL 작은 소리가 함께 들려옵니다. R씨의 말을 믿지마...",
-//      "아직 텍스트를 못정했답니다~."
-//    ],
-//    "OPTIONS": [
-//      "[K씨] 최대체력이 96이 됩니다. 스꼴라를 1장 얻습니다.",
-//      "[R씨] 최대체력이 66이 됩니다. 희귀 카드를 하나 얻습니다.",
-//      "[M씨] 덱에서 카드를 2장 선택합니다. 선택한 카드를 변화시킵니다."
-//    ]
     @Override
     protected void buttonEffect(int buttonPressed) {
         switch (screenNum) {
