@@ -93,7 +93,10 @@ public class P2WRelic extends AbstractEasyRelic implements ClickableRelic {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 
             AbstractPlayer p = AbstractDungeon.player;
-            int randomValue = AbstractDungeon.cardRandomRng.random(powersToApply.length);
+            if (powersToApply == null) {
+                this.atBattleStart();
+            }
+            int randomValue = AbstractDungeon.cardRandomRng.random(powersToApply.length - 1);
             AbstractPower powerToApply = powersToApply[randomValue];
 
             // 2. 액션 실행
