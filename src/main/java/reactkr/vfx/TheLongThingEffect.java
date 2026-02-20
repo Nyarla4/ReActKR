@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
@@ -32,52 +33,39 @@ public class TheLongThingEffect extends AbstractGameEffect {
         }
 
         this.flipHorizontal = flipHorizontal;
-        this.x = x;
-        this.y = y + 50;
+        this.x = x - 125;
+        this.y = y - 25;
         this.color = Color.WHITE.cpy();
         this.duration = 1.0F;
         this.startingDuration = 1.0F;
     }
 
     public void update() {
-        if (!this.playedSfx) {
-            AbstractDungeon.effectsQueue.add(new BorderLongFlashEffect(Color.SKY));
-            this.playedSfx = true;
-            CardCrawlGame.sound.play("ATTACK_MAGIC_BEAM_SHORT");
-            CardCrawlGame.screenShake.rumble(2.0F);
-        }
-
         this.duration -= Gdx.graphics.getDeltaTime();
-        if (this.duration > this.startingDuration / 2.0F) {
-            this.color.a = Interpolation.pow2In.apply(1.0F, 0.0F, this.duration - 0.5F);
-        } else {
-            this.color.a = Interpolation.pow2Out.apply(0.0F, 1.0F, this.duration);
-        }
 
+        // [흐름 제어] 남은 시간에 따라 투명도를 선형적으로 감소 (페이드아웃)
         if (this.duration < 0.0F) {
             this.isDone = true;
-        }
+        } else {
+            // duration이 1.0에서 0으로 갈 때 투명도도 1.0에서 0으로
+            this.color.a = this.duration / this.startingDuration;
 
+            // 선택 사항: 살짝 위로 떠오르는 연출을 원한다면
+            this.y += Gdx.graphics.getDeltaTime() * 20.0F * Settings.scale;
+        }
     }
 
     public void render(SpriteBatch sb) {
-        sb.setBlendFunction(770, 1);
-        sb.setColor(new Color(0.5F, 0.7F, 1.0F, this.color.a));
-        if (!this.flipHorizontal) {
-            sb.draw(img, this.x, this.y - (float)(img.packedHeight / 2), 0.0F, (float)img.packedHeight / 2.0F, (float)img.packedWidth, (float)img.packedHeight, this.scale * 2.0F + MathUtils.random(-0.05F, 0.05F), this.scale * 1.5F + MathUtils.random(-0.1F, 0.1F), MathUtils.random(-4.0F, 4.0F));
-            sb.draw(img, this.x, this.y - (float)(img.packedHeight / 2), 0.0F, (float)img.packedHeight / 2.0F, (float)img.packedWidth, (float)img.packedHeight, this.scale * 2.0F + MathUtils.random(-0.05F, 0.05F), this.scale * 1.5F + MathUtils.random(-0.1F, 0.1F), MathUtils.random(-4.0F, 4.0F));
-            sb.setColor(this.color);
-            sb.draw(img, this.x, this.y - (float)(img.packedHeight / 2), 0.0F, (float)img.packedHeight / 2.0F, (float)img.packedWidth, (float)img.packedHeight, this.scale * 2.0F, this.scale / 2.0F, MathUtils.random(-2.0F, 2.0F));
-            sb.draw(img, this.x, this.y - (float)(img.packedHeight / 2), 0.0F, (float)img.packedHeight / 2.0F, (float)img.packedWidth, (float)img.packedHeight, this.scale * 2.0F, this.scale / 2.0F, MathUtils.random(-2.0F, 2.0F));
-        } else {
-            sb.draw(img, this.x, this.y - (float)(img.packedHeight / 2), 0.0F, (float)img.packedHeight / 2.0F, (float)img.packedWidth, (float)img.packedHeight, this.scale * 2.0F + MathUtils.random(-0.05F, 0.05F), this.scale * 1.5F + MathUtils.random(-0.1F, 0.1F), MathUtils.random(186.0F, 189.0F));
-            sb.draw(img, this.x, this.y - (float)(img.packedHeight / 2), 0.0F, (float)img.packedHeight / 2.0F, (float)img.packedWidth, (float)img.packedHeight, this.scale * 2.0F + MathUtils.random(-0.05F, 0.05F), this.scale * 1.5F + MathUtils.random(-0.1F, 0.1F), MathUtils.random(186.0F, 189.0F));
-            sb.setColor(this.color);
-            sb.draw(img, this.x, this.y - (float)(img.packedHeight / 2), 0.0F, (float)img.packedHeight / 2.0F, (float)img.packedWidth, (float)img.packedHeight, this.scale * 2.0F, this.scale / 2.0F, MathUtils.random(187.0F, 188.0F));
-            sb.draw(img, this.x, this.y - (float)(img.packedHeight / 2), 0.0F, (float)img.packedHeight / 2.0F, (float)img.packedWidth, (float)img.packedHeight, this.scale * 2.0F, this.scale / 2.0F, MathUtils.random(187.0F, 188.0F));
-        }
+        // 1. [상태 설정] 현재 계산된 투명도가 포함된 색상을 적용
+        sb.setColor(this.color);
 
-        sb.setBlendFunction(770, 771);
+        // 2. [그리기] 가산 혼합(770, 1)이 필요 없다면 기본값으로 그립니다.
+        if (img != null) {
+            sb.draw(img, this.x, this.y,
+                    (float)img.packedWidth / 2.0F, (float)img.packedHeight / 2.0F,
+                    (float)img.packedWidth, (float)img.packedHeight,
+                    this.scale, this.scale, this.rotation);
+        }
     }
 
     public void dispose() {
