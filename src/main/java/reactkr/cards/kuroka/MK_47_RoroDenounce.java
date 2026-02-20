@@ -29,7 +29,7 @@ public class MK_47_RoroDenounce extends AbstractEasyCard_Kuroka {
             pow = new MK_13_RoroDenounce_Power(p, magicNumber);
             pow.amount2 = secondMagic;
         }
-        pow.additionalEffect();
+        //pow.additionalEffect();
         if (p.hasPower(MK_13_RoroDenounce_Power.POWER_ID)) {
             pow.amount += magicNumber;
             pow.amount2 += secondMagic;

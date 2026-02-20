@@ -29,7 +29,7 @@ public class MK_45_RoroMajinai extends AbstractEasyCard_Kuroka {
             pow = new MK_11_RoroMajinai_Power(p, magicNumber);
             pow.amount2 = secondMagic;
         }
-        pow.additionalEffect();
+        //pow.additionalEffect();
         if (p.hasPower(MK_11_RoroMajinai_Power.POWER_ID)) {
             pow.amount += magicNumber;
             pow.amount2 += secondMagic;

@@ -29,7 +29,7 @@ public class MK_46_RoroCute extends AbstractEasyCard_Kuroka {
             pow = new MK_12_RoroCute_Power(p, magicNumber);
             pow.amount2 = secondMagic;
         }
-        pow.additionalEffect();
+        //pow.additionalEffect();
         if (p.hasPower(MK_12_RoroCute_Power.POWER_ID)) {
             pow.amount += magicNumber;
             pow.amount2 += secondMagic;
