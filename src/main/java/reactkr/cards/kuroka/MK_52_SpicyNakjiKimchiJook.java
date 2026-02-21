@@ -23,7 +23,7 @@ public class MK_52_SpicyNakjiKimchiJook extends AbstractEasyCard_Kuroka {
     // intellij stuff skill, self, common, , , , , 1, 2
 
     public MK_52_SpicyNakjiKimchiJook() {
-        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 2;
     }
 //이번 턴 카드를 쓸 때마다 방어도를 2 얻습니다.

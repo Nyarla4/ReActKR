@@ -304,6 +304,14 @@
       "피해를 !${ModID}:sd! 줍니다. 망상인자 3을 소모하여 2배의 피해를 줍니다."
     ]
   },
+  "${ModID}:Delusioning": {
+    "NAME": "망상중...",
+    "DESCRIPTION": "턴 시작시 망상인자를 !M! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "망상폭주",
+      "턴 시작시 방어도를 !${ModID}:m2! 얻습니다."
+    ]
+  },
   "${ModID}:RoroGaki": {
     "NAME": "로로가키",
     "DESCRIPTION": "힘을 !M! 얻습니다. NL 힘은 !${ModID}:m2! 턴동안 유지됩니다. NL 소멸"

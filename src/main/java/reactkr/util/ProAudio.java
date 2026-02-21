@@ -17,7 +17,8 @@ public enum ProAudio {
     KUROKA_CHOP,
     YURIATKDEF,
     KAWAIIERAITENSAI,
-    FLICK
+    FLICK,
+    DELUSIONING
     /*
     Add any audio you add to your files here!
     For example, if you add "reactkrResources/audio/boing.ogg", you'd add it here as BOING

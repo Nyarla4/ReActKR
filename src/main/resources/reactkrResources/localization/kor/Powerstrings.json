@@ -139,6 +139,15 @@
       "얻습니다."
     ]
   },
+  "${ModID}:DelusioningPower": {
+    "NAME": "망상중...",
+    "DESCRIPTIONS": [
+      "망상폭주",
+      "턴 시작 시 #b망상인자를 ",
+      "턴 시작 시 #b방어도를 ",
+      " 얻습니다."
+    ]
+  },
 
   "${ModID}:OWUltPower": {
     "NAME": "궁극기 포인트",

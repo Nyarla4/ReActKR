@@ -46,6 +46,9 @@ public class MK_03_DelusionFactor_Power extends AbstractEasyPower {
             MK_04_Witchification_Power witch = (MK_04_Witchification_Power) this.owner.getPower(MK_04_Witchification_Power.POWER_ID);
             addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, witch.ID));
         }
+        if (this.amount < 1) {
+            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+        }
     }
 
     @Override
