@@ -384,6 +384,10 @@
     "NAME": "EVA 샷건",
     "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL ${ModID}:고갈이 1일때 피해를 한 번 더 줍니다."
   },
+  "${ModID}:Midoba": {
+    "NAME": "체포!",
+    "DESCRIPTION": "!${ModID}:m2! 턴동안 힘을 !M! 감소시킵니다."
+  },
   "${ModID}:SevenOrFive": {
     "NAME": "7시 볼거야 5시 볼거야",
     "DESCRIPTION": "선택합니다. NL 강화없음",
