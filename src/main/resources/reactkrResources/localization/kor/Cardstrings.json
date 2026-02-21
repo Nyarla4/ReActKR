@@ -312,6 +312,22 @@
       "턴 시작시 방어도를 !${ModID}:m2! 얻습니다."
     ]
   },
+  "${ModID}:NanikaSuki": {
+    "NAME": "나니카스키",
+    "DESCRIPTION": "3가지 디저트중 랜덤으로 !M! 장을 얻습니다."
+  },
+  "${ModID}:Strawberry": {
+    "NAME": "스트로베리",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 소멸."
+  },
+  "${ModID}:Chocomint": {
+    "NAME": "쵸코민트",
+    "DESCRIPTION": "에너지를 !M! 얻습니다. NL 소멸."
+  },
+  "${ModID}:Cookiecream": {
+    "NAME": "쿠키앤크림",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 소멸."
+  },
   "${ModID}:RoroGaki": {
     "NAME": "로로가키",
     "DESCRIPTION": "힘을 !M! 얻습니다. NL 힘은 !${ModID}:m2! 턴동안 유지됩니다. NL 소멸"

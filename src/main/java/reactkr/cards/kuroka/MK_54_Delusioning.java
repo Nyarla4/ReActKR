@@ -20,7 +20,7 @@ public class MK_54_Delusioning extends AbstractWitchificateCard {
     // intellij stuff skill, self, common, , , , , 1, 2
 
     public MK_54_Delusioning() {
-        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.NONE);
+        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
 
         baseMagicNumber = magicNumber = 1;
         baseSecondMagic = secondMagic = 8;

@@ -69,7 +69,7 @@ public class MK_21_ColorKurokaLike extends AbstractEasyCard_Kuroka {
     @Override
     public void upp() {
         this.previewCard01.upgrade();
-        this.previewCard01.upgrade();
+        this.previewCard02.upgrade();
         MultiCardPreview.multiCardPreview.get(this).forEach(AbstractCard::upgrade); // here, we show upgraded smite and safeties.
     }
 }
