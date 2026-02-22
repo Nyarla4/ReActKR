@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import reactkr.Mayo;
 import reactkr.cards.AbstractEasyCard_Mayo;
 import reactkr.orbs.kuroka.MK_00_RorokaOrb;
 import reactkr.orbs.mayo.MM_01_SniperBulletOrb;
@@ -20,7 +21,11 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
     private static final Logger logger = LogManager.getLogger(AbstractAimedCard.class.getName());
 
     public AbstractAimedCard(String cardID, int cost, CardType type, CardRarity rarity, CardTarget target) {
-        super(cardID, cost, type, rarity, target);
+        this(cardID, cost, type, rarity, target, Mayo.Enums.MAYO_COLOR);
+    }
+
+    public AbstractAimedCard(String cardID, int cost, CardType type, CardRarity rarity, CardTarget target, CardColor color) {
+        super(cardID, cost, type, rarity, target, color);
     }
 
     @Override
@@ -52,10 +57,11 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
         }
     }
 
-    abstract void normalUse(AbstractPlayer p, AbstractMonster m);
+    abstract public void normalUse(AbstractPlayer p, AbstractMonster m);
 
-    abstract void aimedUse(AbstractPlayer p, AbstractMonster m);
+    abstract public void aimedUse(AbstractPlayer p, AbstractMonster m);
 
+    /// 조준 여부
     protected boolean isAimed() {
         AbstractPlayer p = AbstractDungeon.player;
         // 유물 보유 여부에 따른 거리(n) 결정 로직을 구조적으로 분리
@@ -75,7 +81,7 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
                 AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
     }
 
-    // [핵심 로직 분리] 구조와 흐름을 일치시키기 위해 계산 로직을 별도 메서드로 추출
+    /// 피해량 계산
     private void applyCustomModifiers() {
         if (!isAimed())
         {
@@ -127,4 +133,8 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
         super.calculateCardDamage(mo);
         applyCustomModifiers();
     }
+
+    /// 고갈 초기치
+    /// 고갈하지 않으면 -1
+    public abstract int basicDepletion();
 }

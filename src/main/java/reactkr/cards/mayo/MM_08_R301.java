@@ -17,17 +17,17 @@ public class MM_08_R301 extends AbstractAimedCard {
         baseDamage = damage = 6;
         baseSecondDamage = secondDamage = 8;
         baseBlock = block = 6;
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 2;
     }
 
     @Override
-    void normalUse(AbstractPlayer p, AbstractMonster m) {
+    public void normalUse(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, finalDamage)));
         addToBot(new ModifiyMagicNumberAction(this.uuid, -1));
     }
 
     @Override
-    void aimedUse(AbstractPlayer p, AbstractMonster m) {
+    public void aimedUse(AbstractPlayer p, AbstractMonster m) {
         blck();
     }
 
@@ -41,8 +41,13 @@ public class MM_08_R301 extends AbstractAimedCard {
     @Override
     public void applyPowers() {
         super.applyPowers();
-        if(magicNumber == 1){
+        if (magicNumber == 1) {
             exhaust = true;
         }
+    }
+
+    @Override
+    public int basicDepletion() {
+        return upgraded ? 3 : 2;
     }
 }

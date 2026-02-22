@@ -27,7 +27,6 @@ public class MK_22_NumberKurokaLike extends AbstractEasyCard_Kuroka {
     public MK_22_NumberKurokaLike() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
         MultiCardPreview.add(this,previewCard01 ,previewCard02 );
-        isMultiDamage = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

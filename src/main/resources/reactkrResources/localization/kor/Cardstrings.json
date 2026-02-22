@@ -384,17 +384,32 @@
     "NAME": "EVA 샷건",
     "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL ${ModID}:고갈이 1일때 피해를 한 번 더 줍니다."
   },
+  "${ModID}:VK47": {
+    "NAME": "VK-47 플랫라인",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL 얘는 추가효과도 없고 조준도 없고"
+  },
   "${ModID}:Midoba": {
     "NAME": "체포!",
     "DESCRIPTION": "!${ModID}:m2! 턴동안 힘을 !M! 감소시킵니다."
   },
   "${ModID}:SevenOrFive": {
-    "NAME": "7시 볼거야 5시 볼거야",
-    "DESCRIPTION": "선택합니다. NL 강화없음",
+    "NAME": "볼거야?",
+    "DESCRIPTION": "하나 선택: NL *7시 를 얻거나 *5시 를 얻습니다. NL 소멸",
+    "UPGRADE_DESCRIPTION": "*7시 와 *5시 를 얻습니다. NL 소멸",
     "EXTENDED_DESCRIPTION": [
-      "피해를 !M! 입고 힘을 !${ModID}:m2! 얻습니다.",
+      "피해를 입고 힘을 얻습니다.",
+      "힘을 얻습니다.",
       "기쁩니다!"
     ]
+  },
+  "${ModID}:Seven": {
+    "NAME": "7시",
+    "DESCRIPTION": "피해를 !M! 입고 힘을 !${ModID}:m2! 얻습니다. NL 소멸",
+    "UPGRADE_DESCRIPTION" : "힘을 !${ModID}:m2! 얻습니다. NL 소멸"
+  },
+  "${ModID}:Five": {
+    "NAME": "5시",
+    "DESCRIPTION": "체력을 !M! 회복합니다. NL 소멸"
   },
 
   "${ModID}:Latte_Strike": {
@@ -569,9 +584,9 @@
   },
   "${ModID}:Mayo": {
     "NAME": "마요",
-    "DESCRIPTION": "${ModID}:조준 : 취약을 !M! 줍니다. NL 피해를 !D! 줍니다.",
+    "DESCRIPTION": "${ModID}:조준 : 취약을 !M! 줍니다. NL 피해를 !D! ~ !${ModID}:sd! 줍니다.",
     "EXTENDED_DESCRIPTION": [
-      "${ModID}:조준 : 취약을 !${ModID}:m2! 줍니다. NL 피해를 !D! 줍니다."
+      "${ModID}:조준 : 취약을 !${ModID}:m2! 줍니다. NL 피해를 !D! ~ !${ModID}:sd! 줍니다."
     ]
   },
 

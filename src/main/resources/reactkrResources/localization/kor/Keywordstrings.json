@@ -88,12 +88,12 @@
     "DESCRIPTION": "#y조준 카드의 비용이 1 줄고 피해가 반이 됩니다."
   },
   {
-    "PROPER_NAME": "고갈",
+    "PROPER_NAME": "고갈 X",
     "NAMES": [
       "고갈",
       "고갈이"
     ],
-    "DESCRIPTION": "n번 사용하면 소멸합니다."
+    "DESCRIPTION": "X번 사용하면 소멸합니다."
   },
   {
     "PROPER_NAME": "아침",

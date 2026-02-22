@@ -23,13 +23,18 @@ public class MM_00_WarningShot extends AbstractAimedCard {
     }
 
     @Override
-    void normalUse(AbstractPlayer p, AbstractMonster m) {
+    public void normalUse(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, finalDamage)));
     }
 
     @Override
-    void aimedUse(AbstractPlayer p, AbstractMonster m) {
+    public void aimedUse(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
+    }
+
+    @Override
+    public int basicDepletion() {
+        return -1;
     }
 
     @Override

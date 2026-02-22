@@ -22,7 +22,10 @@ public class HideCardLibrary {
         __result.removeIf(c -> {
             boolean result;
             result = c.cardID.startsWith(makeID("TheThing")) ||
-                    c.cardID.startsWith(makeID("Select"));
+                    c.cardID.startsWith(makeID("Select")) ||
+                    c.cardID.equals(makeID("Seven")) ||
+                    c.cardID.equals(makeID("Five"))
+            ;
             if (!ModConfig.showMayo) {
                 result = result || c.color == MAYO_COLOR;
             }

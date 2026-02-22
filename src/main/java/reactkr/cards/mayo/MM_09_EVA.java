@@ -17,20 +17,20 @@ public class MM_09_EVA extends AbstractAimedCard {
         baseDamage = damage = 6;
         baseSecondDamage = secondDamage = 8;
         baseBlock = block = 6;
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 6;
     }
 
     @Override
-    void normalUse(AbstractPlayer p, AbstractMonster m) {
+    public void normalUse(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, finalDamage)));
-        if(magicNumber == 1){
+        if (magicNumber == 1) {
             addToBot(new DamageAction(m, new DamageInfo(p, finalDamage)));
         }
         addToBot(new ModifiyMagicNumberAction(this.uuid, -1));
     }
 
     @Override
-    void aimedUse(AbstractPlayer p, AbstractMonster m) {
+    public void aimedUse(AbstractPlayer p, AbstractMonster m) {
         blck();
     }
 
@@ -38,7 +38,7 @@ public class MM_09_EVA extends AbstractAimedCard {
     public void upp() {
         upgradeDamage(3);
         upgradeSecondDamage(3);
-        upgradeMagicNumber(1);
+        upgradeMagicNumber(-1);
     }
 
     @Override
@@ -47,5 +47,10 @@ public class MM_09_EVA extends AbstractAimedCard {
         if (magicNumber == 1) {
             exhaust = true;
         }
+    }
+
+    @Override
+    public int basicDepletion() {
+        return upgraded ? 5 : 6;
     }
 }
