@@ -56,12 +56,12 @@ public class ModFile implements
     private static final String MK_ATTACK_S_ART = makeImagePath("512/mk_attack.png");
     private static final String MK_SKILL_S_ART = makeImagePath("512/mk_skill.png");
     private static final String MK_POWER_S_ART = makeImagePath("512/mk_power.png");
-    private static final String MK_CARD_ENERGY_S = makeImagePath("512/energy.png");
-    private static final String MK_TEXT_ENERGY = makeImagePath("512/text_energy.png");
+    private static final String MK_CARD_ENERGY_S = makeImagePath("512/mk_1_energy.png");
+    private static final String MK_TEXT_ENERGY = makeImagePath("512/mk_1_text_energy.png");
     private static final String MK_ATTACK_L_ART = makeImagePath("1024/mk_attack.png");
     private static final String MK_SKILL_L_ART = makeImagePath("1024/mk_skill.png");
     private static final String MK_POWER_L_ART = makeImagePath("1024/mk_power.png");
-    private static final String MK_CARD_ENERGY_L = makeImagePath("1024/energy.png");
+    private static final String MK_CARD_ENERGY_L = makeImagePath("1024/mk_1_energy.png");
     private static final String MK_CHARSELECT_BUTTON = makeImagePath("charSelect/mk_charButton.png");
     private static final String MK_CHARSELECT_PORTRAIT = makeImagePath("charSelect/temp_mk_charBG.png");
 
@@ -71,12 +71,12 @@ public class ModFile implements
     private static final String MM_ATTACK_S_ART = makeImagePath("512/mm_attack.png");
     private static final String MM_SKILL_S_ART = makeImagePath("512/mm_skill.png");
     private static final String MM_POWER_S_ART = makeImagePath("512/mm_power.png");
-    private static final String MM_CARD_ENERGY_S = makeImagePath("512/energy.png");
-    private static final String MM_TEXT_ENERGY = makeImagePath("512/text_energy.png");
+    private static final String MM_CARD_ENERGY_S = makeImagePath("512/mm_1_energy.png");
+    private static final String MM_TEXT_ENERGY = makeImagePath("512/mm_1_text_energy.png");
     private static final String MM_ATTACK_L_ART = makeImagePath("1024/mm_attack.png");
     private static final String MM_SKILL_L_ART = makeImagePath("1024/mm_skill.png");
     private static final String MM_POWER_L_ART = makeImagePath("1024/mm_power.png");
-    private static final String MM_CARD_ENERGY_L = makeImagePath("1024/energy.png");
+    private static final String MM_CARD_ENERGY_L = makeImagePath("1024/mm_1_energy.png");
     private static final String MM_CHARSELECT_BUTTON = makeImagePath("charSelect/charButton.png");
     private static final String MM_CHARSELECT_PORTRAIT = makeImagePath("charSelect/warning_charBG.png");
 
