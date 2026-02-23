@@ -9,10 +9,13 @@ import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.Mayo;
+import reactkr.actions.ModifiyMagicNumberAction;
 import reactkr.cards.AbstractEasyCard_Mayo;
 import reactkr.orbs.kuroka.MK_00_RorokaOrb;
 import reactkr.orbs.mayo.MM_01_SniperBulletOrb;
 import reactkr.orbs.mayo.MM_02_LightBulletOrb;
+import reactkr.orbs.mayo.MM_03_HPBulletOrb;
+import reactkr.orbs.mayo.MM_04_TCBulletOrb;
 import reactkr.relics.mayo.MM_01_NezmingRelic;
 
 public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
@@ -31,7 +34,9 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         normalUse(p, m);
-
+        if (basicDepletion() != -1) {
+            addToBot(new ModifiyMagicNumberAction(this.uuid, -1));
+        }
         if (isAimed()) {
             // 1. [흐름] 플레이어의 모든 구체 슬롯을 순회
             for (AbstractOrb orb : AbstractDungeon.player.orbs) {
@@ -122,6 +127,49 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
         finalDamage = secondDamage;
     }
 
+    /// 피해량 계산
+    private void applyCustomModifiers(AbstractMonster m) {
+        boolean hpBullet = AbstractDungeon.player.orbs.stream()
+                .anyMatch(orb -> !(orb instanceof EmptyOrbSlot) && orb.ID.equals(MM_03_HPBulletOrb.ID));
+        boolean tcBullet = AbstractDungeon.player.orbs.stream()
+                .anyMatch(orb -> !(orb instanceof EmptyOrbSlot) && orb.ID.equals(MM_04_TCBulletOrb.ID));
+
+        if (hpBullet) {
+            if (m.currentBlock > 0){
+                this.damage *= 2;
+                this.secondDamage *= 2;
+            }
+            else{
+                this.damage /= 2;
+                this.secondDamage /= 2;
+            }
+            this.isDamageModified = true;
+            this.isSecondDamageModified = true;
+
+        } else if (tcBullet) {
+            if (m.currentBlock == 0){
+                this.damage *= 2;
+                this.secondDamage *= 2;
+            }
+            else{
+                this.damage /= 2;
+                this.secondDamage /= 2;
+            }
+            this.isDamageModified = true;
+            this.isSecondDamageModified = true;
+        } else {
+            // 조건 미충족 시 복구 구조
+            this.costForTurn = this.cost;
+            this.isCostModifiedForTurn = false;
+        }
+
+        if (isAimed()) {
+            finalDamage = secondDamage;
+        } else {
+            finalDamage = AbstractDungeon.cardRandomRng.random(damage, secondDamage);
+        }
+    }
+
     @Override
     public void applyPowers() {
         super.applyPowers();
@@ -132,6 +180,7 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
     public void calculateCardDamage(AbstractMonster mo) {
         super.calculateCardDamage(mo);
         applyCustomModifiers();
+        applyCustomModifiers(mo);
     }
 
     /// 고갈 초기치

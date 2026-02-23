@@ -17,6 +17,9 @@ public abstract class AbstractOverwatchCard extends AbstractEasyCard_Mayo {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if(!p.hasPower(MM_01_OWUltPower.POWER_ID)){
+            addToBot(new ApplyPowerAction(p, p, new MM_01_OWUltPower(p, 1), 1));
+        }
         normalUse(p, m);
         if (p.hasPower(MM_01_OWUltPower.POWER_ID)) {
             if (p.getPower(MM_01_OWUltPower.POWER_ID).amount >= MM_01_OWUltPower.maxAmount) {

@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import reactkr.actions.ModifiyMagicNumberAction;
 
 import static reactkr.ModFile.makeID;
 
@@ -23,7 +22,6 @@ public class MM_08_R301 extends AbstractAimedCard {
     @Override
     public void normalUse(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, finalDamage)));
-        addToBot(new ModifiyMagicNumberAction(this.uuid, -1));
     }
 
     @Override

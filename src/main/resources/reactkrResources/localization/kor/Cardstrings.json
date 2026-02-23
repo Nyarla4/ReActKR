@@ -411,6 +411,37 @@
     "NAME": "5시",
     "DESCRIPTION": "체력을 !M! 회복합니다. NL 소멸"
   },
+  "${ModID}:MayoJump": {
+    "NAME": "마용점프",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL ${ModID}:조준 : 대신 !${ModID}:m2! 장 뽑습니다."
+  },
+  "${ModID}:EffortGenious": {
+    "NAME": "노력의 천재",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL 강화 횟수에 제한이 없습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "적 전체에게 피해를 !D! ~ !${ModID}:sd! 줍니다. NL 강화 횟수에 제한이 없습니다."
+    ]
+  },
+  "${ModID}:HapticSuit": {
+    "NAME": "촉각슈트",
+    "DESCRIPTION": "취약을 !M! 받습니다. NL 카드를 !${ModID}:m2! 장 뽑습니다."
+  },
+  "${ModID}:CallMeMama": {
+    "NAME": "마망이라고 불러",
+    "DESCRIPTION": "카드를 !M! 장 소멸시킵니다. 무작위 다른 멤버 카드 !${ModID}:m2!장을 얻습니다."
+  },
+  "${ModID}:MayoSaintSword": {
+    "NAME": "마요 성검",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL 얘는 추가효과도 없고 조준도 없고"
+  },
+  "${ModID}:GetHP": {
+    "NAME": "분쇄탄",
+    "DESCRIPTION": "${ModID}:분쇄탄을 !M! 얻습니다."
+  },
+  "${ModID}:GetTC": {
+    "NAME": "추공탄",
+    "DESCRIPTION": "${ModID}:추공탄을 !M! 얻습니다."
+  },
 
   "${ModID}:Latte_Strike": {
     "NAME": "타격",

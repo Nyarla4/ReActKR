@@ -34,13 +34,6 @@ public class MM_02_MagazineRelic extends AbstractEasyRelic implements ClickableR
     }
 
     @Override
-    public boolean canSpawn() {
-        return AbstractDungeon.player.chosenClass == Kuroka.Enums.THE_KUROKA ||
-                AbstractDungeon.player.chosenClass == Mayo.Enums.THE_MAYO ||
-                AbstractDungeon.player.chosenClass == Latte.Enums.THE_LATTE;
-    }
-
-    @Override
     public void onRightClick() {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !this.usedThisCombat) {
             AbstractPlayer p = AbstractDungeon.player;

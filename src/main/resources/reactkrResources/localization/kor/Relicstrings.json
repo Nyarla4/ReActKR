@@ -49,6 +49,13 @@
       "#b우클릭으로 #b사용합니다. NL 전투 중 1번, 카드 한장의 #y고갈을 회복합니다."
     ]
   },
+  "${ModID}:BanRelic": {
+    "NAME": "영정",
+    "FLAVOR": "개잘핵",
+    "DESCRIPTIONS": [
+      "매 턴 시작 시 에너지를 1 추가로 얻습니다. 더 이상 궁극기 포인트를 획득할 수 없게 됩니다."
+    ]
+  },
 
   "${ModID}:LatteStartItemRelic": {
     "NAME": "주문한 메뉴",

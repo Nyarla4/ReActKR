@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.powers.AbstractEasyPower;
+import reactkr.relics.mayo.MM_03_BanRelic;
 
 import static reactkr.ModFile.makeID;
 
@@ -27,7 +28,7 @@ public class MM_01_OWUltPower extends AbstractEasyPower {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        if (amount >= maxAmount)
+        if (amount >= maxAmount || AbstractDungeon.player.hasRelic(MM_03_BanRelic.ID))
             return;
         if (isPlayer) {
             AbstractDungeon.actionManager.addToBottom(
@@ -38,7 +39,8 @@ public class MM_01_OWUltPower extends AbstractEasyPower {
 
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
-        if (amount >= maxAmount)
+        logger.info("test");
+        if (amount >= maxAmount || AbstractDungeon.player.hasRelic(MM_03_BanRelic.ID))
             return;
         // 흐름: 내가 공격을 완료한 시점
         if (damageAmount > 0 && target != this.owner && info.type == DamageInfo.DamageType.NORMAL) {
@@ -50,7 +52,7 @@ public class MM_01_OWUltPower extends AbstractEasyPower {
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        if (amount >= maxAmount)
+        if (amount >= maxAmount || AbstractDungeon.player.hasRelic(MM_03_BanRelic.ID))
             return damageAmount;
         // 흐름: 실제로 데미지 판정이 일어나는 시점 (atDamageReceive와 달리 한 번만 실행됨)
         if (info.type != DamageInfo.DamageType.HP_LOSS && info.type != DamageInfo.DamageType.THORNS) {

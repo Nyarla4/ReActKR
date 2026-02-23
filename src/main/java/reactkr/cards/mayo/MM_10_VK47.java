@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import reactkr.actions.ModifiyMagicNumberAction;
 
 import static reactkr.ModFile.makeID;
 
@@ -25,7 +24,6 @@ public class MM_10_VK47 extends AbstractAimedCard {
 //        if(magicNumber == 1){
 //            addToBot(new DamageAction(m, new DamageInfo(p, finalDamage)));
 //        }
-        addToBot(new ModifiyMagicNumberAction(this.uuid, -1));
     }
 
     @Override
