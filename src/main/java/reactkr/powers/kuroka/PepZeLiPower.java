@@ -1,10 +1,11 @@
-package reactkr.powers;
+package reactkr.powers.kuroka;
 
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import reactkr.powers.AbstractEasyPower;
 
 import static reactkr.ModFile.makeID;
 
@@ -31,11 +32,7 @@ public class PepZeLiPower extends AbstractEasyPower {
 
     @Override
     public void updateDescription() {
-        if (this.amount == 1) {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
-        } else {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];
-        }
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
     public void onEnergyRecharge() {

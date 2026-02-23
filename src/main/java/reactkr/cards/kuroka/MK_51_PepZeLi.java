@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import reactkr.cards.AbstractEasyCard_Kuroka;
-import reactkr.powers.PepZeLiPower;
+import reactkr.powers.kuroka.PepZeLiPower;
 
 import static reactkr.ModFile.makeID;
 
