@@ -30,6 +30,6 @@ public class MM_03_HPBulletOrb extends AbstractBulletOrb {
 
     @Override
     public void updateDescription() {
-        this.description = "피해량이 0.5배가 됩니다. 방어도가 있는 적에게는 2배가 됩니다.";
+        this.description = "방어도가 없는 적에게는 피해량이 0.5배가 되고 방어도가 있는 적에게는 2배가 됩니다.";
     }
 }
