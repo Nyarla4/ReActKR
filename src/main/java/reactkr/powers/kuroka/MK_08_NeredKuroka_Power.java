@@ -38,7 +38,7 @@ public class MK_08_NeredKuroka_Power extends AbstractEasyPower {
     }
 
     @Override
-    public void onAfterUseCard(AbstractCard c, UseCardAction a) {
+    public void onAfterCardPlayed(AbstractCard card) {
         this.flash();
 
         for (AbstractMonster mon : AbstractDungeon.getMonsters().monsters) {
