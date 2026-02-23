@@ -32,6 +32,7 @@ public class MK_55_NanikaSuki extends AbstractEasyCard_Kuroka {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
         baseMagicNumber = magicNumber = 1;
         MultiCardPreview.add(this,true, this.previewCard01 ,this.previewCard02, this.previewCard03 );
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

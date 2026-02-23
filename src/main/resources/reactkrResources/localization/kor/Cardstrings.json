@@ -314,7 +314,7 @@
   },
   "${ModID}:NanikaSuki": {
     "NAME": "나니카스키",
-    "DESCRIPTION": "3가지 디저트중 랜덤으로 !M! 장을 얻습니다."
+    "DESCRIPTION": "3가지 디저트중 랜덤으로 !M! 장을 얻습니다. NL 소멸."
   },
   "${ModID}:Strawberry": {
     "NAME": "스트로베리",
