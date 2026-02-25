@@ -136,8 +136,8 @@
   },
   "${ModID}:NumberKurokaLike": {
     "NAME": "좋아하는 숫자",
-    "DESCRIPTION": "하나 선택: NL *4 를 얻거나 *6 을 얻습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "4와 6을 얻습니다. NL 소멸",
+    "DESCRIPTION": "하나 선택: NL *4 를 얻거나 *6 을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "4와 6을 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       "4! NL 방어도를 얻습니다. NL 소멸",
       "6! NL 피해를 줍니다. NL 소멸"
