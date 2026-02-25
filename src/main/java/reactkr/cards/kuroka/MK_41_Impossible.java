@@ -43,7 +43,7 @@ public class MK_41_Impossible extends AbstractWitchificateCard {
             addToBot(new ApplyPowerAction(p, p, new MK_03_DelusionFactor_Power(p, -delusionLoseAmount)));
             //applyToSelf(new IntangiblePlayerPower(p, 1));
             addToBot(new GainBlockAction(p, 30));
-            applyToSelf(new BlurPower(AbstractDungeon.player, 1));//흐릿함(다음 턴 시작시 방어도 잃지않음)
+            applyToSelf(new BlurPower(AbstractDungeon.player, upgraded ? 2 : 1));//흐릿함(다음 턴 시작시 방어도 잃지않음)
         }
     }
 
@@ -55,7 +55,7 @@ public class MK_41_Impossible extends AbstractWitchificateCard {
     void Witchification() {
         if (witchificated) {
             this.name = cardStrings.EXTENDED_DESCRIPTION[0];
-            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
+            this.rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[2] : cardStrings.EXTENDED_DESCRIPTION[1];
         } else {
             this.name = cardStrings.NAME;
             this.rawDescription = cardStrings.DESCRIPTION;

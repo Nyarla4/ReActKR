@@ -24,6 +24,8 @@ public class MK_54_Delusioning extends AbstractWitchificateCard {
 
         baseMagicNumber = magicNumber = 1;
         baseSecondMagic = secondMagic = 8;
+
+        initializeWitchPreview();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -41,6 +43,7 @@ public class MK_54_Delusioning extends AbstractWitchificateCard {
 
     public void upp() {
         upgradeMagicNumber(1);
+        upgradeSecondMagic(4);
     }
 
     @Override

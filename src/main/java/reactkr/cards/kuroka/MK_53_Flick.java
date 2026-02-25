@@ -23,6 +23,7 @@ public class MK_53_Flick extends AbstractWitchificateCard {
         baseDamage = damage = 10;
         baseSecondDamage = secondDamage = 15;
         baseMagicNumber = magicNumber = 3;
+        initializeWitchPreview();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

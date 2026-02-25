@@ -239,7 +239,8 @@
     "DESCRIPTION": "${ModID}:망상인자를 !M! 잃습니다. 잃은 인자 × !B! 방어도를 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       "현자타임",
-      "${ModID}:망상인자를 !${ModID}:m2! 잃습니다. 방어도를 30 얻고 흐릿함을 1 얻습니다."
+      "${ModID}:망상인자를 !${ModID}:m2! 잃습니다. 방어도를 30 얻고 흐릿함을 1 얻습니다.",
+      "${ModID}:망상인자를 !${ModID}:m2! 잃습니다. 방어도를 30 얻고 흐릿함을 2 얻습니다."
     ]
   },
   "${ModID}:KurokachanKawaii": {
@@ -314,7 +315,8 @@
   },
   "${ModID}:NanikaSuki": {
     "NAME": "나니카스키",
-    "DESCRIPTION": "3가지 디저트중 랜덤으로 !M! 장을 얻습니다. NL 소멸."
+    "DESCRIPTION": "3가지 디저트중 랜덤으로 X 장을 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "3가지 디저트중 랜덤으로 X + !M! 장을 얻습니다. NL 소멸."
   },
   "${ModID}:Strawberry": {
     "NAME": "스트로베리",

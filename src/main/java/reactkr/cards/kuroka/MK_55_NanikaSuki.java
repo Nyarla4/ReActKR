@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.actions.EasyModalChoiceAction;
@@ -29,15 +30,31 @@ public class MK_55_NanikaSuki extends AbstractEasyCard_Kuroka {
     private static final Logger logger = LogManager.getLogger(MK_55_NanikaSuki.class.getName());
 
     public MK_55_NanikaSuki() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
-        baseMagicNumber = magicNumber = 1;
+        super(ID, -1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
+        baseMagicNumber = magicNumber = 0;
         MultiCardPreview.add(this,true, this.previewCard01 ,this.previewCard02, this.previewCard03 );
         this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         playAudio(ProAudio.NANIKASUKI);
-        for (int i = 0; i < magicNumber; i++) {
+
+        int effectCount = EnergyPanel.totalCount;
+
+        if (this.energyOnUse != -1) {
+            effectCount = this.energyOnUse;
+        }
+        if (p.hasRelic("Chemical X")) { // 케미컬 X 유물 대응 구조
+            effectCount += 2;
+        }
+
+        effectCount += magicNumber;
+
+        if (!this.freeToPlayOnce) {
+            p.energy.use(EnergyPanel.totalCount);
+        }
+
+        for (int i = 0; i < effectCount; i++) {
             int randomValue = AbstractDungeon.cardRandomRng.random(2);
             AbstractCard card;
             switch (randomValue){
