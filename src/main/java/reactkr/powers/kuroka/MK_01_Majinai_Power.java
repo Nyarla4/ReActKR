@@ -1,6 +1,9 @@
 package reactkr.powers.kuroka;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerToRandomEnemyAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -8,11 +11,14 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.PoisonPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.actions.MajinaiDamageAction;
 import reactkr.powers.AbstractEasyPower;
+import reactkr.relics.kuroka.MK_04_TempKurokaRelic;
 
 import static reactkr.ModFile.makeID;
 
@@ -44,10 +50,19 @@ public class MK_01_Majinai_Power extends AbstractEasyPower {
 
     @Override
     public void atEndOfRound() {
+        int overKill = this.amount - this.owner.currentHealth;
         addToBot(new MajinaiDamageAction(
                 this.owner,
                 new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.HP_LOSS)
         ));
+
+        if (overKill > 0 && AbstractDungeon.player.hasRelic(MK_04_TempKurokaRelic.ID)) {
+            AbstractRelic r = AbstractDungeon.player.getRelic(MK_04_TempKurokaRelic.ID);
+            r.flash();
+            this.addToBot(new RelicAboveCreatureAction(this.owner, r));
+            this.addToBot(new ApplyPowerToRandomEnemyAction(AbstractDungeon.player, new MK_01_Majinai_Power(null, overKill), overKill, false, AbstractGameAction.AttackEffect.POISON));
+        }
+
         addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MK_02_MajinaiStrength_Power(AbstractDungeon.player)));
     }

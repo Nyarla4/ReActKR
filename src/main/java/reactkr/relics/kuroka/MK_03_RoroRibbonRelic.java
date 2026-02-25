@@ -9,10 +9,10 @@ import reactkr.relics.AbstractEasyRelic;
 
 import static reactkr.ModFile.makeID;
 
-public class MK_02_RoroRibbonRelic extends AbstractEasyRelic {
+public class MK_03_RoroRibbonRelic extends AbstractEasyRelic {
     public static final String ID = makeID("RoroRibbonRelic");
 
-    public MK_02_RoroRibbonRelic() {
+    public MK_03_RoroRibbonRelic() {
         super(ID, RelicTier.RARE, LandingSound.FLAT, Kuroka.Enums.KUROKA_COLOR);
     }
 

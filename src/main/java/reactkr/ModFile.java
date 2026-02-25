@@ -205,6 +205,14 @@ public class ModFile implements
                 .any(AbstractEasyRelic.class, (info, relic) -> {
                     if (relic.color == null) {
                         BaseMod.addRelic(relic, RelicType.SHARED);
+                    } else if(relic.color == Mayo.Enums.MAYO_COLOR) {
+                        if(ModConfig.showMayo){
+                            BaseMod.addRelicToCustomPool(relic, relic.color);
+                        }
+                    } else if(relic.color == Latte.Enums.LATTE_COLOR) {
+                        if(ModConfig.showLatte){
+                            BaseMod.addRelicToCustomPool(relic, relic.color);
+                        }
                     } else {
                         BaseMod.addRelicToCustomPool(relic, relic.color);
                     }
