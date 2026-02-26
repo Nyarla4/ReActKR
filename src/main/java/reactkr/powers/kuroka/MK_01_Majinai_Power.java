@@ -11,14 +11,13 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.actions.MajinaiDamageAction;
 import reactkr.powers.AbstractEasyPower;
-import reactkr.relics.kuroka.MK_04_TempKurokaRelic;
+import reactkr.relics.kuroka.MK_04_MagicStickHammerRelic;
 
 import static reactkr.ModFile.makeID;
 
@@ -56,8 +55,8 @@ public class MK_01_Majinai_Power extends AbstractEasyPower {
                 new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.HP_LOSS)
         ));
 
-        if (overKill > 0 && AbstractDungeon.player.hasRelic(MK_04_TempKurokaRelic.ID)) {
-            AbstractRelic r = AbstractDungeon.player.getRelic(MK_04_TempKurokaRelic.ID);
+        if (overKill > 0 && AbstractDungeon.player.hasRelic(MK_04_MagicStickHammerRelic.ID)) {
+            AbstractRelic r = AbstractDungeon.player.getRelic(MK_04_MagicStickHammerRelic.ID);
             r.flash();
             this.addToBot(new RelicAboveCreatureAction(this.owner, r));
             this.addToBot(new ApplyPowerToRandomEnemyAction(AbstractDungeon.player, new MK_01_Majinai_Power(null, overKill), overKill, false, AbstractGameAction.AttackEffect.POISON));

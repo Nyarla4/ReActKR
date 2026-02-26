@@ -1,13 +1,8 @@
 package reactkr.cards.kuroka;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import reactkr.powers.AbstractEasyPower;
-import reactkr.powers.kuroka.MK_03_DelusionFactor_Power;
 import reactkr.powers.kuroka.MK_19_Delusioning_Power;
 import reactkr.util.ProAudio;
 
@@ -20,10 +15,9 @@ public class MK_54_Delusioning extends AbstractWitchificateCard {
     // intellij stuff skill, self, common, , , , , 1, 2
 
     public MK_54_Delusioning() {
-        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
 
         baseMagicNumber = magicNumber = 1;
-        baseSecondMagic = secondMagic = 8;
 
         initializeWitchPreview();
     }
@@ -33,17 +27,15 @@ public class MK_54_Delusioning extends AbstractWitchificateCard {
         AbstractPower pow = p.getPower(MK_19_Delusioning_Power.POWER_ID);
         if (pow == null) {
             pow = new MK_19_Delusioning_Power(p);
-            ((AbstractEasyPower) pow).amount2 = secondMagic;
             applyToSelf(pow);
         } else {
             pow.amount += magicNumber;
-            ((AbstractEasyPower) pow).amount2 += secondMagic;
+            pow.updateDescription();
         }
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
-        upgradeSecondMagic(4);
+        updateCost(-1);
     }
 
     @Override

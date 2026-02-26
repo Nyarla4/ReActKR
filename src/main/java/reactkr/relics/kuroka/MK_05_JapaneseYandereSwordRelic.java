@@ -3,7 +3,6 @@ package reactkr.relics.kuroka;
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerToRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,10 +13,10 @@ import reactkr.relics.AbstractEasyRelic;
 
 import static reactkr.ModFile.makeID;
 
-public class MK_05_TempKuroka2Relic extends AbstractEasyRelic {
-    public static final String ID = makeID("TempKuroka2Relic");
+public class MK_05_JapaneseYandereSwordRelic extends AbstractEasyRelic {
+    public static final String ID = makeID("JapaneseYandereSwordRelic");
 
-    public MK_05_TempKuroka2Relic() {
+    public MK_05_JapaneseYandereSwordRelic() {
         super(ID, RelicTier.UNCOMMON, LandingSound.FLAT, Kuroka.Enums.KUROKA_COLOR);
     }
 

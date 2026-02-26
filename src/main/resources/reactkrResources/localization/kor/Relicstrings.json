@@ -27,18 +27,18 @@
       "매 턴 종료 시 #y로로카 체력 3 회복."
     ]
   },
-  "${ModID}:TempKurokaRelic": {
-    "NAME": "이름없음",
-    "FLAVOR": "이름없어...",
+  "${ModID}:MagicStickHammerRelic": {
+    "NAME": "쿠로카의 마법소녀 지팡이 망치",
+    "FLAVOR": "이마스구린네",
     "DESCRIPTIONS": [
       "적이 #y주문으로 죽을 때 초과한 만큼의 #y주문을 무작위로 다른 적에게 옮겨집니다."
     ]
   },
-  "${ModID}:TempKuroka2Relic": {
-    "NAME": "이름없음2",
-    "FLAVOR": "이름없어...",
+  "${ModID}:JapaneseYandereSwordRelic": {
+    "NAME": "재패니즈얀데레소드",
+    "FLAVOR": "식칼과 닮았지만 다릅니다.",
     "DESCRIPTIONS": [
-      "카드가 소멸될 때마다 무작위 적에게 7 만큼의 주문을 겁니다."
+      "카드가 소멸될 때마다 무작위 적에게 7 만큼의 #y주문을 겁니다."
     ]
   },
 

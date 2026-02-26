@@ -1,18 +1,16 @@
 package reactkr.relics.kuroka;
 
 import basemod.BaseMod;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import reactkr.Kuroka;
-import reactkr.actions.AddRorokaHPAction;
 import reactkr.relics.AbstractEasyRelic;
 
 import static reactkr.ModFile.makeID;
 
-public class MK_04_TempKurokaRelic extends AbstractEasyRelic {
-    public static final String ID = makeID("TempKurokaRelic");
+public class MK_04_MagicStickHammerRelic extends AbstractEasyRelic {
+    public static final String ID = makeID("MagicStickHammerRelic");
 
-    public MK_04_TempKurokaRelic() {
+    public MK_04_MagicStickHammerRelic() {
         super(ID, RelicTier.UNCOMMON, LandingSound.FLAT, Kuroka.Enums.KUROKA_COLOR);
     }
 

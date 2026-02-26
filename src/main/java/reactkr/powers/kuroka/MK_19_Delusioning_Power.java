@@ -1,19 +1,23 @@
 package reactkr.powers.kuroka;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.powers.AbstractEasyPower;
 
+import static com.badlogic.gdx.math.MathUtils.floor;
 import static reactkr.ModFile.makeID;
 
 public class MK_19_Delusioning_Power extends AbstractEasyPower {
@@ -45,8 +49,10 @@ public class MK_19_Delusioning_Power extends AbstractEasyPower {
 
     @Override
     public void atStartOfTurn() {
-        if (owner.hasPower(MK_04_Witchification_Power.POWER_ID)) {
-            addToBot(new GainBlockAction(owner, amount2));
+        if (owner.hasPower(MK_04_Witchification_Power.POWER_ID) || witchificated) {
+            AbstractPower pow = owner.getPower(MK_03_DelusionFactor_Power.POWER_ID);
+            addToBot(new DamageAction(owner, new DamageInfo(owner, (pow.amount * amount))));
+            this.addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, pow.amount * amount), pow.amount * amount));
         } else {
             addToBot(new ApplyPowerAction(owner, owner, new MK_03_DelusionFactor_Power(owner, amount), amount));
         }
@@ -55,9 +61,10 @@ public class MK_19_Delusioning_Power extends AbstractEasyPower {
     public void updateDescription() {
         if (owner.hasPower(MK_04_Witchification_Power.POWER_ID) || witchificated) {
             this.name = DESCRIPTIONS[0];
-            this.description = DESCRIPTIONS[2] + this.amount2 + DESCRIPTIONS[3];
+            AbstractPower pow = owner.getPower(MK_03_DelusionFactor_Power.POWER_ID);
+            this.description = DESCRIPTIONS[3] + (pow.amount * amount) + DESCRIPTIONS[4] + (pow.amount * amount) + DESCRIPTIONS[5];
         } else {
-            this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[3];
+            this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
         }
     }
 
