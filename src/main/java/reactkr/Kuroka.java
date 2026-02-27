@@ -205,6 +205,12 @@ public class Kuroka extends CustomPlayer {
 
     @Override
     public String getVampireText() {
+        Random rand = new Random();
+        int perc = rand.nextInt(100);
+        logger.info("vampire perc: " + perc);
+        if (perc < 5) {
+            return TEXT[3];
+        }
         return TEXT[2];
     }
 

@@ -12,6 +12,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -26,7 +27,10 @@ import reactkr.potions.AbstractEasyPotion;
 import reactkr.potions.nanikaSpecial.NanikaFirePotion;
 import reactkr.relics.AbstractEasyRelic;
 import reactkr.util.ProAudio;
+
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 @SpireInitializer
@@ -147,8 +151,7 @@ public class ModFile implements
         return modID + "Resources/images/powers/" + resourcePath;
     }
 
-    public static String makeCharacterPath(String resourcePath)
-    {
+    public static String makeCharacterPath(String resourcePath) {
         return modID + "Resources/images/char/" + resourcePath;
     }
 
@@ -188,11 +191,10 @@ public class ModFile implements
                     if (potion instanceof NanikaFirePotion) {
                         // 이 포션은 시스템엔 존재하지만, 어떤 캐릭터의 무작위 보상 풀에도 들어가지 않음
                         BaseMod.addPotion(potion.getClass(), potion.liquidColor, potion.hybridColor, potion.spotsColor, potion.ID, null);
-                    } else if (potion instanceof AbstractEasyPotion){
+                    } else if (potion instanceof AbstractEasyPotion) {
                         // 기존 등록 흐름 유지
                         BaseMod.addPotion(potion.getClass(), potion.liquidColor, potion.hybridColor, potion.spotsColor, potion.ID, ((AbstractEasyPotion) potion).pool);
-                    }
-                    else{
+                    } else {
                         BaseMod.addPotion(potion.getClass(), potion.liquidColor, potion.hybridColor, potion.spotsColor, potion.ID, null);
                     }
                 });
@@ -205,12 +207,12 @@ public class ModFile implements
                 .any(AbstractEasyRelic.class, (info, relic) -> {
                     if (relic.color == null) {
                         BaseMod.addRelic(relic, RelicType.SHARED);
-                    } else if(relic.color == Mayo.Enums.MAYO_COLOR) {
-                        if(ModConfig.showMayo){
+                    } else if (relic.color == Mayo.Enums.MAYO_COLOR) {
+                        if (ModConfig.showMayo) {
                             BaseMod.addRelicToCustomPool(relic, relic.color);
                         }
-                    } else if(relic.color == Latte.Enums.LATTE_COLOR) {
-                        if(ModConfig.showLatte){
+                    } else if (relic.color == Latte.Enums.LATTE_COLOR) {
+                        if (ModConfig.showLatte) {
                             BaseMod.addRelicToCustomPool(relic, relic.color);
                         }
                     } else {
@@ -263,7 +265,7 @@ public class ModFile implements
 
     @Override
     public void receiveAddAudio() {
-        for (ProAudio a : ProAudio.values()){
+        for (ProAudio a : ProAudio.values()) {
             BaseMod.addAudio(makeID(a.name()), makePath("audio/" + a.name().toLowerCase() + ".mp3"));
         }
     }
@@ -282,7 +284,13 @@ public class ModFile implements
     }
 
     @Override
-    public void receivePostInitialize(){
+    public void receivePostInitialize() {
+        AddEvent();
+        AddModConfig();
+        ReplaceDate();
+    }
+
+    private void AddEvent() {
         // 이벤트 ID, 클래스명, 등장할 던전 ID (Exordium, City, Beyond)
         BaseMod.addEvent(new AddEventParams.Builder(Event_Roroka.ID, Event_Roroka.class)
                 .spawnCondition(Event_Roroka::canSpawn)
@@ -299,14 +307,15 @@ public class ModFile implements
         BaseMod.addEvent(new AddEventParams.Builder(Event_Tenten.ID, Event_Tenten.class)
                 .spawnCondition(Event_Tenten::canSpawn)
                 .create());
-
-
+    }
+    private void AddModConfig() {
         Texture badgeTexture = ImageMaster.loadImage("reactkrResources/images/powers/ReactKRRangersPower32.png");
         ModPanel settingsPanel = new ModPanel();
         // 1번 버튼 흐름: 마요 캐릭터 제어
         ModLabeledToggleButton mayoBtn = new ModLabeledToggleButton(
                 "마요 보기(재시작 필요)", 700f, 700f, mayoColor, FontHelper.charDescFont,
-                ModConfig.showMayo, settingsPanel, (label) -> {},
+                ModConfig.showMayo, settingsPanel, (label) -> {
+        },
                 (button) -> {
                     ModConfig.showMayo = button.enabled; // 마요 구조 데이터 갱신
                     ModConfig.save();
@@ -315,7 +324,8 @@ public class ModFile implements
         // 2번 버튼 흐름: 라떼 캐릭터 제어 (Y축 좌표를 다르게 하여 아래에 배치)
         ModLabeledToggleButton latteBtn = new ModLabeledToggleButton(
                 "라떼 보기(재시작 필요)", 700f, 650f, latteColor, FontHelper.charDescFont,
-                 ModConfig.showLatte, settingsPanel, (label) -> {},
+                ModConfig.showLatte, settingsPanel, (label) -> {
+        },
                 (button) -> {
                     ModConfig.showLatte = button.enabled; // 라떼 구조 데이터 갱신
                     ModConfig.save();
@@ -324,5 +334,13 @@ public class ModFile implements
         settingsPanel.addUIElement(latteBtn);
         settingsPanel.addUIElement(mayoBtn);
         BaseMod.registerModBadge(badgeTexture, "ReActKR", "SinsaTomo", "Desc", settingsPanel);
+    }
+    private void ReplaceDate(){
+        CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString(Latte.ID);
+        if (charStrings != null && charStrings.TEXT != null && charStrings.TEXT.length > 0) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("Mdd");
+            String todayDate = LocalDate.now().format(formatter);
+            charStrings.TEXT[0] = charStrings.TEXT[0].replace("{DATE}", todayDate);
+        }
     }
 }
