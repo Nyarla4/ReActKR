@@ -603,9 +603,9 @@
   },
   "${ModID}:Uru": {
     "NAME": "우루",
-    "DESCRIPTION": "무작위 적들에게 피해를 !D! 만큼 !M! 번 줍니다. NL ${ModID}:비 : 1코스트 감소합니다.",
+    "DESCRIPTION": "무작위 적들에게 피해를 !D! 만큼 !M! 번 줍니다. NL ${ModID}:비 : 비용이 1 감소합니다.",
     "EXTENDED_DESCRIPTION": [
-      "무작위 적들에게 피해를 !D! 만큼 !M! 번 줍니다. NL ${ModID}:비 : 2코스트 감소합니다."
+      "무작위 적들에게 피해를 !D! 만큼 !M! 번 줍니다. NL ${ModID}:비 : 비용이 2 감소합니다."
     ]
   },
   "${ModID}:Kuroka": {
