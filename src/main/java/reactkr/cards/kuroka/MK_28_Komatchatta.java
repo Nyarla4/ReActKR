@@ -9,11 +9,11 @@ import reactkr.powers.kuroka.MK_01_Majinai_Power;
 
 import static reactkr.ModFile.makeID;
 
-public class MK_28_Komatchau extends AbstractEasyCard_Kuroka {
-    public final static String ID = makeID("Komatchau");
+public class MK_28_Komatchatta extends AbstractEasyCard_Kuroka {
+    public final static String ID = makeID("Komatchatta");
     // intellij stuff skill, self, uncommon, , , , , ,
 
-    public MK_28_Komatchau() {
+    public MK_28_Komatchatta() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = damage = 6;
         baseMagicNumber = magicNumber = 6;

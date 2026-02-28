@@ -17,7 +17,6 @@ public class Kira_Chat extends AbstractPreviewCard {
     public Kira_Chat() {
         super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, CardColor.COLORLESS);
         baseMagicNumber = magicNumber = 6;
-        cardsToPreview = new Kira_Song();
         selfRetain = true;
     }
 

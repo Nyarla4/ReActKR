@@ -36,7 +36,7 @@ public class MK_10_KurokaPunch extends AbstractEasyCard_Kuroka {
             public void update() {
             for (int i = 0; i < finalRepeatAmount; i++) {
                 // addToTop을 사용해 다른 액션보다 먼저 차례대로 실행되게 함
-                this.addToTop(new DamageAction(m, new DamageInfo(p, damage, damageType), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                this.addToTop(new DamageAction(m, new DamageInfo(p, damage, damageType), AttackEffect.BLUNT_LIGHT));
             }
             this.isDone = true;
             }

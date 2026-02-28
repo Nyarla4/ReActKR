@@ -4,12 +4,12 @@
     <groupId>UnimportantInfo</groupId>
 
     <artifactId>ReActKR</artifactId>
-    <version>0.1.21</version>
+    <version>1.0.0</version>
     <name>Re:Act KR Fan mode</name>
     <description>
 ReAct KR 팬모드에요
 영어는 없어요 한글 복사해서 넣엇어요
-쿠로카 개발중
+쿠로카 개발 완료
 마요 개발중
 라떼 개발중
     </description>

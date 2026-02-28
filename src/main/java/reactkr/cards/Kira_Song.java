@@ -12,6 +12,7 @@ public class Kira_Song extends AbstractPreviewCard {
     public Kira_Song() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE, CardColor.COLORLESS);
         baseBlock = block = 6;
+        cardsToPreview = new Kira_Chat();
         selfRetain = true;
     }
 

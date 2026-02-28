@@ -104,8 +104,8 @@
   },
   "${ModID}:RorokaPunch": {
     "NAME": "로로펀치",
-    "DESCRIPTION": "${ModID}:로로카의 체력만큼 적에게 피해를 줍니다.",
-    "UPGRADE_DESCRIPTION": "${ModID}:로로카의 체력의 2배만큼 적에게 피해를 줍니다."
+    "DESCRIPTION": "${ModID}:로로카의 체력의 반만큼 적에게 피해를 줍니다.",
+    "UPGRADE_DESCRIPTION": "${ModID}:로로카의 체력만큼 적에게 피해를 줍니다."
   },
   "${ModID}:RorokaBeam": {
     "NAME": "로로빔",
@@ -120,8 +120,8 @@
     "DESCRIPTION": "하나 선택: NL *검정 을 얻거나 *빨강 을 얻습니다. NL 소멸",
     "UPGRADE_DESCRIPTION": "*검정 과 *빨강 을 얻습니다. NL 소멸",
     "EXTENDED_DESCRIPTION": [
-      "검정색!",
-      "빨간색!"
+      "검정색! NL 피해와 약화를 줍니다. NL 소멸",
+      "빨간색! NL 피해와 취약을 줍니다. NL 소멸"
     ]
   },
   "${ModID}:ColorBlack": {
@@ -136,11 +136,11 @@
   },
   "${ModID}:NumberKurokaLike": {
     "NAME": "좋아하는 숫자",
-    "DESCRIPTION": "하나 선택: NL *4 를 얻거나 *6 을 얻습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "4와 6을 얻습니다. NL 소멸",
+    "DESCRIPTION": "하나 선택: NL *4 를 얻거나 *6 을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "4와 6을 얻습니다.",
     "EXTENDED_DESCRIPTION": [
-      "4!",
-      "6!"
+      "4! NL 방어도를 얻습니다. NL 소멸",
+      "6! NL 피해를 줍니다. NL 소멸"
     ]
   },
   "${ModID}:NumberFour": {
@@ -173,7 +173,7 @@
     "NAME": "주문 증폭",
     "DESCRIPTION": "${ModID}:주문을 걸때마다 거는 ${ModID}:주문 수치가 !M! 증가합니다."
   },
-  "${ModID}:Komatchau": {
+  "${ModID}:Komatchatta": {
     "NAME": "곤란해지겠네",
     "DESCRIPTION": "피해를 !D! 줍니다. ${ModID}:주문을 !M! 겁니다."
   },
@@ -217,16 +217,11 @@
   },
   "${ModID}:Cutie": {
     "NAME": "깜찍이!",
-    "DESCRIPTION": "피해를 !M! 받고, 재생을 !M! 얻습니다. NL 소멸"
+    "DESCRIPTION": "재생을 !M! 얻습니다. NL 소멸"
   },
   "${ModID}:WoaHoo": {
     "NAME": "워후",
-    "DESCRIPTION": "${ModID}:주문이 걸린 적을 공격할 때마다 카드를 1장 뽑습니다.",
-    "EXTENDED_DESCRIPTION": [
-      "워후!",
-      "주문이 걸린 대상을 공격할 시 ",
-      "장 드로우 합니다."
-    ]
+    "DESCRIPTION": "${ModID}:주문이 걸린 적에게 막히지 않은 피해를 줄 때마다 카드를 1장 뽑습니다."
   },
   "${ModID}:Kazoo": {
     "NAME": "카주",
@@ -244,13 +239,14 @@
     "DESCRIPTION": "${ModID}:망상인자를 !M! 잃습니다. 잃은 인자 × !B! 방어도를 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       "현자타임",
-      "${ModID}:망상인자를 !${ModID}:m2! 잃습니다. 방어도를 30 얻고 흐릿함을 1 얻습니다."
+      "${ModID}:망상인자를 !${ModID}:m2! 잃습니다. 방어도를 30 얻고 흐릿함을 1 얻습니다.",
+      "${ModID}:망상인자를 !${ModID}:m2! 잃습니다. 방어도를 30 얻고 흐릿함을 2 얻습니다."
     ]
   },
   "${ModID}:KurokachanKawaii": {
     "NAME": "쿠로카쨩귀여워사랑해잘했어대단해천재야",
-    "DESCRIPTION": "${ModID}:망상인자를 !M! 얻습니다. NL 패의 무작위 카드를 전투가 끝날 때까지 강화합니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "${ModID}:망상인자를 !M! 얻습니다. NL 패의 무작위 카드를 전투가 끝날 때까지 강화합니다.",
+    "DESCRIPTION": "${ModID}:망상인자를 !M! 얻습니다. NL 패의 카드 1장을 전투가 끝날 때까지 강화합니다. NL 소멸",
+    "UPGRADE_DESCRIPTION": "${ModID}:망상인자를 !M! 얻습니다. NL 패의 카드 1장을 전투가 끝날 때까지 강화합니다.",
     "EXTENDED_DESCRIPTION": [
       "패의 모든 카드를 전투가 끝날 때까지 강화합니다. NL 소멸",
       "패의 모든 카드를 전투가 끝날 때까지 강화합니다. NL 카드를 1장 뽑습니다."
@@ -290,6 +286,51 @@
     "NAME": "야광 로로카",
     "DESCRIPTION": "${ModID}:로로카의 최대체력이 !M! 증가합니다. NL 로로카가 살아있다면 NL 턴 시작 시 로로카의 체력을 !${ModID}:m2! 회복합니다."
   },
+  "${ModID}:NanikaForm": {
+    "NAME": "나니카의 형상",
+    "DESCRIPTION": "턴 시작 시 무작위 나니카 특제 포션을 !M! 개 획득합니다."
+  },
+  "${ModID}:PepZeLi": {
+    "NAME": "펩제라",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. 다음 턴에 에너지를 !M! 얻습니다."
+  },
+  "${ModID}:SpicyNakjiKimchiJook": {
+    "NAME": "매콤낙지김치죽",
+    "DESCRIPTION": "다음 턴 시작까지 ${ModID}:주문이 유지됩니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "다음 턴 시작까지 ${ModID}:주문이 유지됩니다."
+  },
+  "${ModID}:Flick": {
+    "NAME": "딱콩",
+    "DESCRIPTION": "피해를 !D! 줍니다. ${ModID}:망상인자 3을 소모하여 2배의 피해를 줍니다.",
+    "EXTENDED_DESCRIPTION": [
+      "피해를 !${ModID}:sd! 줍니다. ${ModID}:망상인자 3을 소모하여 2배의 피해를 줍니다."
+    ]
+  },
+  "${ModID}:Delusioning": {
+    "NAME": "망상중...",
+    "DESCRIPTION": "턴 시작시 ${ModID}:망상인자를 !M! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "망상폭주",
+      "턴 시작시, 다음에 사용하는 공격 카드의 피해량이 ${ModID}:망상인자만큼 증가합니다."
+    ]
+  },
+  "${ModID}:NanikaSuki": {
+    "NAME": "나니카스키",
+    "DESCRIPTION": "3가지 디저트중 랜덤으로 X 장을 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "3가지 디저트중 랜덤으로 X + !M! 장을 얻습니다. NL 소멸."
+  },
+  "${ModID}:Strawberry": {
+    "NAME": "스트로베리",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 소멸."
+  },
+  "${ModID}:Chocomint": {
+    "NAME": "쵸코민트",
+    "DESCRIPTION": "에너지를 !M! 얻습니다. NL 소멸."
+  },
+  "${ModID}:Cookiecream": {
+    "NAME": "쿠키앤크림",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 소멸."
+  },
   "${ModID}:RoroGaki": {
     "NAME": "로로가키",
     "DESCRIPTION": "힘을 !M! 얻습니다. NL 힘은 !${ModID}:m2! 턴동안 유지됩니다. NL 소멸"
@@ -309,7 +350,7 @@
   },
   "${ModID}:WarningShot": {
     "NAME": "위협사격",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL ${ModID}:조준 : 취약을 !M! 줍니다."
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 취약을 !M! 줍니다."
   },
   "${ModID}:PiercingLaugh": {
     "NAME": "낑낑",
@@ -321,6 +362,96 @@
     "EXTENDED_DESCRIPTION": [
       "마요왔어요"
     ]
+  },
+  "${ModID}:ParticleBarrier": {
+    "NAME": "입자방벽",
+    "DESCRIPTION": "방어도를 !B! 줍니다. NL ${ModID}:궁극기 : 불가침을 얻고 !M! 턴간 공격을 받은 횟수만큼 NL 일시적으로 힘을 !${ModID}:m2! 얻습니다."
+  },
+  "${ModID}:8192": {
+    "NAME": "1/8192",
+    "DESCRIPTION": "1/2 확률로 피해를 !D! 줍니다. NL 최대 13번 반복합니다."
+  },
+  "${ModID}:GetSniper": {
+    "NAME": "저격탄",
+    "DESCRIPTION": "${ModID}:저격탄을 !M! 얻습니다."
+  },
+  "${ModID}:GetLight": {
+    "NAME": "경량탄",
+    "DESCRIPTION": "${ModID}:경량탄을 !M! 얻습니다."
+  },
+  "${ModID}:R301": {
+    "NAME": "R-301 카빈",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL ${ModID}:조준 : 방어도를 !B! 얻습니다."
+  },
+  "${ModID}:EVA": {
+    "NAME": "EVA 샷건",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL ${ModID}:고갈이 1일때 피해를 한 번 더 줍니다."
+  },
+  "${ModID}:VK47": {
+    "NAME": "VK-47 플랫라인",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL 얘는 추가효과도 없고 조준도 없고"
+  },
+  "${ModID}:Midoba": {
+    "NAME": "체포!",
+    "DESCRIPTION": "!${ModID}:m2! 턴동안 힘을 !M! 감소시킵니다."
+  },
+  "${ModID}:SevenOrFive": {
+    "NAME": "볼거야?",
+    "DESCRIPTION": "하나 선택: NL *7시 를 얻거나 *5시 를 얻습니다. NL 소멸",
+    "UPGRADE_DESCRIPTION": "*7시 와 *5시 를 얻습니다. NL 소멸",
+    "EXTENDED_DESCRIPTION": [
+      "피해를 입고 힘을 얻습니다.",
+      "힘을 얻습니다.",
+      "기쁩니다!"
+    ]
+  },
+  "${ModID}:Seven": {
+    "NAME": "7시",
+    "DESCRIPTION": "피해를 !M! 입고 힘을 !${ModID}:m2! 얻습니다. NL 소멸",
+    "UPGRADE_DESCRIPTION" : "힘을 !${ModID}:m2! 얻습니다. NL 소멸"
+  },
+  "${ModID}:Five": {
+    "NAME": "5시",
+    "DESCRIPTION": "체력을 !M! 회복합니다. NL 소멸"
+  },
+  "${ModID}:MayoJump": {
+    "NAME": "마용점프",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL ${ModID}:조준 : 대신 !${ModID}:m2! 장 뽑습니다."
+  },
+  "${ModID}:EffortGenious": {
+    "NAME": "노력의 천재",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL 강화 횟수에 제한이 없습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "적 전체에게 피해를 !D! ~ !${ModID}:sd! 줍니다. NL 강화 횟수에 제한이 없습니다."
+    ]
+  },
+  "${ModID}:HapticSuit": {
+    "NAME": "촉각슈트",
+    "DESCRIPTION": "취약을 !M! 받습니다. NL 카드를 !${ModID}:m2! 장 뽑습니다."
+  },
+  "${ModID}:CallMeMama": {
+    "NAME": "마망이라고 불러",
+    "DESCRIPTION": "카드를 !M! 장 소멸시킵니다. 무작위 다른 멤버 카드 !${ModID}:m2!장을 얻습니다."
+  },
+  "${ModID}:MayoSaintSword": {
+    "NAME": "마요 성검",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL 얘는 추가효과도 없고 조준도 없고"
+  },
+  "${ModID}:GetHP": {
+    "NAME": "분쇄탄",
+    "DESCRIPTION": "${ModID}:분쇄탄을 !M! 얻습니다."
+  },
+  "${ModID}:GetTC": {
+    "NAME": "추공탄",
+    "DESCRIPTION": "${ModID}:추공탄을 !M! 얻습니다."
+  },
+  "${ModID}:BunnyHop": {
+    "NAME": "버니합",
+    "DESCRIPTION": "휘발성 NL 흐릿함을 얻습니다. NL ${ModID}:궁극기 : 대신 흐릿함을 3 얻습니다."
+  },
+  "${ModID}:Obscuration": {
+    "NAME": "엄폐",
+    "DESCRIPTION": "방어도를 !D! ~ !${ModID}:sd! 얻습니다. NL ${ModID}:조준 : 방어도를 !M! 더 얻습니다."
   },
 
   "${ModID}:Latte_Strike": {
@@ -344,15 +475,6 @@
     "UPGRADE_DESCRIPTION": "피해를 !M! 받습니다. ${ModID}:아침 : 피해를 !${ModID}:m2! 더 받습니다. NL 받은 피해의 2배만큼 피해를 줍니다.",
     "EXTENDED_DESCRIPTION": [
       "솔직히 미친소리지 NL 뭐 왜 뭐"
-    ]
-  },
-  "${ModID}:PepZeLi": {
-    "NAME": "펩제라",
-    "DESCRIPTION": "피해를 !M! 받습니다. 방어도를 !B! 얻습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "피해를 !M! 받습니다. 방어도를 !B! 얻습니다.",
-    "EXTENDED_DESCRIPTION": [
-      "피 까이고 방어도 NL 1회용",
-      "피 까이고 방어도"
     ]
   },
   "${ModID}:McMorning": {
@@ -394,7 +516,7 @@
     "NAME": "칸사이벤",
     "DESCRIPTION": "${ModID}:아오토상을 부릅니다.",
     "EXTENDED_DESCRIPTION": [
-      "あととさん"
+      "あおとさん"
     ]
   },
   "${ModID}:NoBadWord": {
@@ -402,6 +524,27 @@
     "DESCRIPTION": "다음 턴 시작까지 피해를 받지 않으면 에너지를 !M! 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       "라떼는 못해"
+    ]
+  },
+  "${ModID}:TtediAdvice": {
+    "NAME": "떼디의 훈수",
+    "DESCRIPTION": "내 덱에서 무작위로 카드를 !M! 장을 사용합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "뭐 할지 모르겠으면 쓰시지요"
+    ]
+  },
+  "${ModID}:CardBack": {
+    "NAME": "카드 돌려드립니다",
+    "DESCRIPTION": "임의의 카드 중 !M! 장을 획득합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "카드 돌려드렸지요?"
+    ]
+  },
+  "${ModID}:GiveCardBack": {
+    "NAME": "내 카드 돌려내",
+    "DESCRIPTION": "임의의 카드 중 !M! 장을 사용합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "카드 많이 돌려드렸지요?"
     ]
   },
 
@@ -469,9 +612,9 @@
   },
   "${ModID}:Uru": {
     "NAME": "우루",
-    "DESCRIPTION": "무작위 적들에게 피해를 !D! 만큼 !M! 번 줍니다. NL ${ModID}:비 : 1코스트 감소합니다.",
+    "DESCRIPTION": "무작위 적들에게 피해를 !D! 만큼 !M! 번 줍니다. NL ${ModID}:비 : 비용이 1 감소합니다.",
     "EXTENDED_DESCRIPTION": [
-      "무작위 적들에게 피해를 !D! 만큼 !M! 번 줍니다. NL ${ModID}:비 : 2코스트 감소합니다."
+      "무작위 적들에게 피해를 !D! 만큼 !M! 번 줍니다. NL ${ModID}:비 : 비용이 2 감소합니다."
     ]
   },
   "${ModID}:Kuroka": {
@@ -483,9 +626,9 @@
   },
   "${ModID}:Mayo": {
     "NAME": "마요",
-    "DESCRIPTION": "${ModID}:조준 : 취약을 !M! 줍니다. NL 피해를 !D! 줍니다.",
+    "DESCRIPTION": "${ModID}:조준 : 취약을 !M! 줍니다. NL 피해를 !D! ~ !${ModID}:sd! 줍니다.",
     "EXTENDED_DESCRIPTION": [
-      "${ModID}:조준 : 취약을 !${ModID}:m2! 줍니다. NL 피해를 !D! 줍니다."
+      "${ModID}:조준 : 취약을 !${ModID}:m2! 줍니다. NL 피해를 !D! ~ !${ModID}:sd! 줍니다."
     ]
   },
 
@@ -506,13 +649,14 @@
     "DESCRIPTION": "사용 캐릭터에 따라 효과가 달라집니다.",
     "EXTENDED_DESCRIPTION": [
       "방어도를 !B! 얻습니다. NL ",
-      "체력을 !M! 회복합니다.",
+      "체력을 !M! 회복합니다. NL 이번 전투 동안 이 카드의 회복량이 2 감소합니다.",
       "50% 확률로 *낑낑을 얻습니다.",
       "75% 확률로 *낑낑+을 얻습니다.",
       "*쭈글호랭이을 1장 얻습니다. ",
       "*쭈글호랭이+을 1장 얻습니다. "
     ]
   },
+
   "${ModID}:WimpyTiger": {
     "NAME": "쭈글호랭이",
     "DESCRIPTION": "땅굴파는바부멍탱구리호랭이 NL 소멸"

@@ -20,6 +20,28 @@
       "획득 시 #y로로카의 최대 체력 +15."
     ]
   },
+  "${ModID}:RoroRibbonRelic": {
+    "NAME": "로로카의 리본",
+    "FLAVOR": "리본은 여기에 썼습니다.",
+    "DESCRIPTIONS": [
+      "매 턴 종료 시 #y로로카 체력 3 회복."
+    ]
+  },
+  "${ModID}:MagicStickHammerRelic": {
+    "NAME": "쿠로카의 마법소녀 지팡이 망치",
+    "FLAVOR": "이마스구린네",
+    "DESCRIPTIONS": [
+      "적이 #y주문으로 죽을 때 초과한 만큼의 #y주문을 무작위로 다른 적에게 옮겨집니다."
+    ]
+  },
+  "${ModID}:JapaneseYandereSwordRelic": {
+    "NAME": "재패니즈얀데레소드",
+    "FLAVOR": "식칼과 닮았지만 다릅니다.",
+    "DESCRIPTIONS": [
+      "카드가 소멸될 때마다 무작위 적에게 7 만큼의 #y주문을 겁니다."
+    ]
+  },
+
   "${ModID}:MayoStartItemRelic": {
     "NAME": "화변기",
     "FLAVOR": "머잖아 양변기가 됩니다.",
@@ -34,6 +56,21 @@
       "#y조준의 범위가 1장 늘어납니다."
     ]
   },
+  "${ModID}:MagazineRelic": {
+    "NAME": "탄창",
+    "FLAVOR": "재장전 중!",
+    "DESCRIPTIONS": [
+      "#b우클릭으로 #b사용합니다. NL 전투 중 1번, 카드 한장의 #y고갈을 회복합니다."
+    ]
+  },
+  "${ModID}:BanRelic": {
+    "NAME": "영정",
+    "FLAVOR": "개잘핵",
+    "DESCRIPTIONS": [
+      "매 턴 시작 시 에너지를 1 추가로 얻습니다. 더 이상 궁극기 포인트를 획득할 수 없게 됩니다."
+    ]
+  },
+
   "${ModID}:LatteStartItemRelic": {
     "NAME": "주문한 메뉴",
     "FLAVOR": "주문하신 아오토 라떼.",
@@ -45,7 +82,7 @@
     "NAME": "아이스 아메리카노",
     "FLAVOR": "겨울에도 차갑습니다.",
     "DESCRIPTIONS": [
-      "전투 중 1번, 우클릭 시 체력을 5 회복합니다."
+      "#b우클릭으로 #b사용합니다. NL 전투 중 1번, 체력을 5 회복합니다."
     ]
   },
   "${ModID}:PaisenRelic": {
@@ -69,6 +106,7 @@
       "사용 불가인 저주 카드를 사용할 수 있게 됩니다. 저주 카드를 사용하면 그 카드를 소멸시킵니다."
     ]
   },
+
   "${ModID}:DurianRelic": {
     "NAME": "두리안",
     "FLAVOR": "어떤 락스타가 떠오릅니다.",
@@ -105,10 +143,18 @@
     ]
   },
   "${ModID}:P2WRelic": {
-    "NAME": "천원 펀치 받으면 우클릭",
+    "NAME": "천원 펀치",
     "FLAVOR": "양심에 맡깁니다.",
     "DESCRIPTIONS": [
-      "우클릭 시 무작위 버프를 1 획득합니다."
+      "#b우클릭으로 #b사용합니다. NL 무작위 버프를 1 획득합니다."
+    ]
+  },
+  "${ModID}:SulkTentenRelic": {
+    "NAME": "삐진 텐이",
+    "FLAVOR": "어떻게 텐이 이름도 몰라요?",
+    "DESCRIPTIONS": [
+      "앞으로 #b3 번의 전투 동안 적에게 힘을 #b1 줍니다..",
+      "이제 풀렸습니다."
     ]
   }
 }

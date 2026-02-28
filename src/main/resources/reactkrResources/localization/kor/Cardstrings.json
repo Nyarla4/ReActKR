@@ -173,7 +173,7 @@
     "NAME": "주문 증폭",
     "DESCRIPTION": "${ModID}:주문을 걸때마다 거는 ${ModID}:주문 수치가 !M! 증가합니다."
   },
-  "${ModID}:Komatchau": {
+  "${ModID}:Komatchatta": {
     "NAME": "곤란해지겠네",
     "DESCRIPTION": "피해를 !D! 줍니다. ${ModID}:주문을 !M! 겁니다."
   },

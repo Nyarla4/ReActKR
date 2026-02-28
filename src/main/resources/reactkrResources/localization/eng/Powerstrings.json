@@ -104,11 +104,64 @@
       "줍니다."
     ]
   },
+  "${ModID}:NanikaFormPower": {
+    "NAME": "나니카",
+    "DESCRIPTIONS": [
+      "턴 시작 시 무작위 나니카 특제 포션을 ",
+      "개 획득합니다."
+    ]
+  },
   "${ModID}:RoroGlowingPower": {
     "NAME": "야광 로로카",
     "DESCRIPTIONS": [
       "턴 시작 시 로로카의 체력이 남아있다면 로로카의 체력을 ",
       "회복합니다."
+    ]
+  },
+  "${ModID}:PepZeLiPower": {
+    "NAME": "펩제라",
+    "DESCRIPTIONS": [
+      "다음 턴에 #b",
+      " 에너지를 추가로 얻습니다. "
+    ]
+  },
+  "${ModID}:WoaHooPower": {
+    "NAME": "워후!",
+    "DESCRIPTIONS": [
+      "주문이 걸린 대상에게 막히지 않은 피해를 줄 시 ",
+      "장 드로우 합니다."
+    ]
+  },
+  "${ModID}:SpicyNakjiKimchiJookPower": {
+    "NAME": "매콤낙지김치죽!",
+    "DESCRIPTIONS": [
+      "다음 턴 시작까지 #y주문이 유지됩니다."
+    ]
+  },
+  "${ModID}:DelusioningPower": {
+    "NAME": "망상중...",
+    "DESCRIPTIONS": [
+      "망상폭주",
+      "턴 시작 시 #b망상인자를 ",
+      " 얻습니다.",
+      "턴 시작 시 다음 공격이 추가로 #b",
+      " 피해를 줍니다."
+    ]
+  },
+
+  "${ModID}:UltPower": {
+    "NAME": "궁극기 포인트",
+    "DESCRIPTIONS": [
+      "궁극기 ",
+      "충전중 ",
+      " 준비 완료"
+    ]
+  },
+  "${ModID}:ParticleBarrierUltPower": {
+    "NAME": "입자 방벽",
+    "DESCRIPTIONS": [
+      "턴간 피해를 받을 때마다 힘을 ",
+      "얻습니다"
     ]
   },
 

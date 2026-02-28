@@ -27,7 +27,7 @@ public class Event_Roroka extends AbstractImageEvent {
     AbstractCard previewCard = new MK_98_RoroGaki();
 
     public Event_Roroka() {
-        super(NAME, DESCRIPTIONS[0], "reactkrResources/images/events/event_img.png");
+        super(NAME, DESCRIPTIONS[0], "reactkrResources/images/events/Roroka.png");
 
         // 첫 번째 선택지: 로로 도발 획득
         imageEventText.setDialogOption(OPTIONS[0], previewCard);
