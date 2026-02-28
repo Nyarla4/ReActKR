@@ -444,6 +444,14 @@
     "NAME": "추공탄",
     "DESCRIPTION": "${ModID}:추공탄을 !M! 얻습니다."
   },
+  "${ModID}:BunnyHop": {
+    "NAME": "버니합",
+    "DESCRIPTION": "휘발성 NL 흐릿함을 얻습니다. NL ${ModID}:궁극기 : 대신 흐릿함을 3 얻습니다."
+  },
+  "${ModID}:Obscuration": {
+    "NAME": "엄폐",
+    "DESCRIPTION": "방어도를 !D! ~ !${ModID}:sd! 얻습니다. NL ${ModID}:조준 : 방어도를 !M! 더 얻습니다."
+  },
 
   "${ModID}:Latte_Strike": {
     "NAME": "타격",
