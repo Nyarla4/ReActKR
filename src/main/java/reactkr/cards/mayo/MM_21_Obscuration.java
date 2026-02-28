@@ -43,4 +43,9 @@ public class MM_21_Obscuration extends AbstractAimedCard {
     public int basicDepletion() {
         return -1;
     }
+
+    @Override
+    protected CardKind Kind() {
+        return CardKind.DEF;
+    }
 }

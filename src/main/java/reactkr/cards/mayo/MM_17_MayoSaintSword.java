@@ -41,6 +41,11 @@ public class MM_17_MayoSaintSword extends AbstractAimedCard {
     }
 
     @Override
+    protected CardKind Kind() {
+        return CardKind.ATK;
+    }
+
+    @Override
     public void upp() {
         upgradeSecondMagic(1);
     }

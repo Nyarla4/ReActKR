@@ -32,6 +32,11 @@ public class MM_10_VK47 extends AbstractAimedCard {
     }
 
     @Override
+    protected CardKind Kind() {
+        return CardKind.ATK;
+    }
+
+    @Override
     public void upp() {
         upgradeDamage(-2);
         upgradeSecondDamage(5);

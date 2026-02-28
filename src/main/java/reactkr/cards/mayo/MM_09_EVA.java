@@ -33,6 +33,11 @@ public class MM_09_EVA extends AbstractAimedCard {
     }
 
     @Override
+    protected CardKind Kind() {
+        return CardKind.ATK;
+    }
+
+    @Override
     public void upp() {
         upgradeDamage(3);
         upgradeSecondDamage(3);

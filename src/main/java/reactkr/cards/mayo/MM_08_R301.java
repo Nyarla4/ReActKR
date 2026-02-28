@@ -30,6 +30,11 @@ public class MM_08_R301 extends AbstractAimedCard {
     }
 
     @Override
+    protected CardKind Kind() {
+        return CardKind.ATK;
+    }
+
+    @Override
     public void upp() {
         upgradeDamage(3);
         upgradeSecondDamage(3);

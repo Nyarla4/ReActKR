@@ -11,7 +11,6 @@ import org.apache.logging.log4j.Logger;
 import reactkr.Mayo;
 import reactkr.actions.ModifiyMagicNumberAction;
 import reactkr.cards.AbstractEasyCard_Mayo;
-import reactkr.orbs.kuroka.MK_00_RorokaOrb;
 import reactkr.orbs.mayo.MM_01_SniperBulletOrb;
 import reactkr.orbs.mayo.MM_02_LightBulletOrb;
 import reactkr.orbs.mayo.MM_03_HPBulletOrb;
@@ -19,9 +18,14 @@ import reactkr.orbs.mayo.MM_04_TCBulletOrb;
 import reactkr.relics.mayo.MM_01_NezmingRelic;
 
 public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
+    protected enum CardKind {
+        ATK, DEF, ETC
+    }
 
     protected int finalDamage;
     private static final Logger logger = LogManager.getLogger(AbstractAimedCard.class.getName());
+
+    protected abstract CardKind Kind();
 
     public AbstractAimedCard(String cardID, int cost, CardType type, CardRarity rarity, CardTarget target) {
         this(cardID, cost, type, rarity, target, Mayo.Enums.MAYO_COLOR);
@@ -88,41 +92,42 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
 
     /// 피해량 계산
     private void applyCustomModifiers() {
-        if (!isAimed())
-        {
+        if (!isAimed()) {
             finalDamage = AbstractDungeon.cardRandomRng.random(damage, secondDamage);
             return;
         }
 
-        boolean sniperBullet = AbstractDungeon.player.orbs.stream()
-                .anyMatch(orb -> !(orb instanceof EmptyOrbSlot) && orb.ID.equals(MM_01_SniperBulletOrb.ID));
-        boolean lightBullet = AbstractDungeon.player.orbs.stream()
-                .anyMatch(orb -> !(orb instanceof EmptyOrbSlot) && orb.ID.equals(MM_02_LightBulletOrb.ID));
+        if (Kind() == CardKind.ATK) {
+            boolean sniperBullet = AbstractDungeon.player.orbs.stream()
+                    .anyMatch(orb -> !(orb instanceof EmptyOrbSlot) && orb.ID.equals(MM_01_SniperBulletOrb.ID));
+            boolean lightBullet = AbstractDungeon.player.orbs.stream()
+                    .anyMatch(orb -> !(orb instanceof EmptyOrbSlot) && orb.ID.equals(MM_02_LightBulletOrb.ID));
 
-        if (sniperBullet) {
-            this.damage *= 2;
-            this.secondDamage *= 2;
-            this.isDamageModified = true;
-            this.isSecondDamageModified = true;
+            if (sniperBullet) {
+                this.damage *= 2;
+                this.secondDamage *= 2;
+                this.isDamageModified = true;
+                this.isSecondDamageModified = true;
 
-            // 코스트 변경 흐름
-            this.costForTurn = this.cost + 1;
-            this.isCostModifiedForTurn = true;
-        } else if (lightBullet) {
-            this.damage /= 2;
-            this.secondDamage /= 2;
-            this.isDamageModified = true;
-            this.isSecondDamageModified = true;
+                // 코스트 변경 흐름
+                this.costForTurn = this.cost + 1;
+                this.isCostModifiedForTurn = true;
+            } else if (lightBullet) {
+                this.damage /= 2;
+                this.secondDamage /= 2;
+                this.isDamageModified = true;
+                this.isSecondDamageModified = true;
 
-            // 코스트 변경 흐름
-            if (this.cost > 0) {
-                this.costForTurn = this.cost - 1;
+                // 코스트 변경 흐름
+                if (this.cost > 0) {
+                    this.costForTurn = this.cost - 1;
+                }
+                this.isCostModifiedForTurn = true;
+            } else {
+                // 조건 미충족 시 복구 구조
+                this.costForTurn = this.cost;
+                this.isCostModifiedForTurn = false;
             }
-            this.isCostModifiedForTurn = true;
-        } else {
-            // 조건 미충족 시 복구 구조
-            this.costForTurn = this.cost;
-            this.isCostModifiedForTurn = false;
         }
         finalDamage = secondDamage;
     }
@@ -135,11 +140,10 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
                 .anyMatch(orb -> !(orb instanceof EmptyOrbSlot) && orb.ID.equals(MM_04_TCBulletOrb.ID));
 
         if (hpBullet) {
-            if (m.currentBlock > 0){
+            if (m.currentBlock > 0) {
                 this.damage *= 2;
                 this.secondDamage *= 2;
-            }
-            else{
+            } else {
                 this.damage /= 2;
                 this.secondDamage /= 2;
             }
@@ -147,11 +151,10 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
             this.isSecondDamageModified = true;
 
         } else if (tcBullet) {
-            if (m.currentBlock == 0){
+            if (m.currentBlock == 0) {
                 this.damage *= 2;
                 this.secondDamage *= 2;
-            }
-            else{
+            } else {
                 this.damage /= 2;
                 this.secondDamage /= 2;
             }

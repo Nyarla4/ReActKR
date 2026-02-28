@@ -46,6 +46,11 @@ public class MM_13_MayoJump extends AbstractAimedCard {
     }
 
     @Override
+    protected CardKind Kind() {
+        return CardKind.ETC;
+    }
+
+    @Override
     public void upp() {
         upgradeBaseCost(0);
     }

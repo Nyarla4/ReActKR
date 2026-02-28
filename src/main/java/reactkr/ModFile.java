@@ -287,7 +287,9 @@ public class ModFile implements
     public void receivePostInitialize() {
         AddEvent();
         AddModConfig();
-        ReplaceDate();
+        if(ModConfig.showLatte){
+            ReplaceDate();
+        }
     }
 
     private void AddEvent() {

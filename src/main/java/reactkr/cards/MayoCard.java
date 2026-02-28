@@ -38,6 +38,11 @@ public class MayoCard extends AbstractAimedCard {
     }
 
     @Override
+    protected CardKind Kind() {
+        return CardKind.ATK;
+    }
+
+    @Override
     public void normalUse(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, finalDamage)));
     }
