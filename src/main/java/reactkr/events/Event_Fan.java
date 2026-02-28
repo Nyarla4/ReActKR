@@ -31,7 +31,7 @@ public class Event_Fan extends AbstractImageEvent {
     AbstractRelic previewRelic;
 
     public Event_Fan() {
-        super(NAME, DESCRIPTIONS[0], "reactkrResources/images/events/event_img.png");
+        super(NAME, DESCRIPTIONS[0], "reactkrResources/images/events/Fan.png");
 
         AbstractPlayer p = AbstractDungeon.player;
         String option = "";
