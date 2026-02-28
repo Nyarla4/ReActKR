@@ -19,7 +19,6 @@ public class MK_20_PepZeLiPower extends AbstractEasyPower {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, Math.min(energyAmt, 999));
 
         this.updateDescription();
-        this.loadRegion("energized_blue");
     }
 
     @Override
