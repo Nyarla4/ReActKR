@@ -10,7 +10,7 @@ import reactkr.powers.mayo.MM_02_ParticleBarrierUltPower;
 import static reactkr.ModFile.makeID;
 import static reactkr.util.Wiz.applyToSelf;
 
-public class MM_03_ParticleBarrier extends AbstractOverwatchCard {
+public class MM_03_ParticleBarrier extends AbstractUltCard {
     public final static String ID = makeID("ParticleBarrier");
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 

@@ -151,7 +151,7 @@
     ]
   },
 
-  "${ModID}:OWUltPower": {
+  "${ModID}:UltPower": {
     "NAME": "궁극기 포인트",
     "DESCRIPTIONS": [
       "궁극기 ",

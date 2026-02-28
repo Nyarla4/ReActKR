@@ -2,17 +2,13 @@ package reactkr.cards.mayo;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.BlurPower;
-import com.megacrit.cardcrawl.powers.IntangiblePower;
-import reactkr.powers.AbstractEasyPower;
-import reactkr.powers.mayo.MM_01_OWUltPower;
-import reactkr.powers.mayo.MM_02_ParticleBarrierUltPower;
+import reactkr.powers.mayo.MM_01_UltPower;
 
 import static reactkr.ModFile.makeID;
 import static reactkr.util.Wiz.applyToSelf;
 
-public class MM_20_BunnyHop extends AbstractOverwatchCard {
+public class MM_20_BunnyHop extends AbstractUltCard {
     public final static String ID = makeID("BunnyHop");
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
@@ -29,7 +25,7 @@ public class MM_20_BunnyHop extends AbstractOverwatchCard {
 
     @Override
     void normalUse(AbstractPlayer p, AbstractMonster m) {
-        if(p.hasPower(MM_01_OWUltPower.POWER_ID))
+        if (ultCharged())
             return;
         applyToSelf(new BlurPower(p, 1));
     }

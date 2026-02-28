@@ -1,16 +1,4 @@
 {
-  "${ModID}:Overwatch": {
-    "NAME": "오XX치",
-    "DESCRIPTION": [
-      "고오급 시계."
-    ]
-  },
-  "${ModID}:Apex": {
-    "NAME": "에XX스",
-    "DESCRIPTION": [
-      "재미 원툴."
-    ]
-  },
   "${ModID}:Latte": {
     "NAME": "아오토 라떼",
     "DESCRIPTION": [

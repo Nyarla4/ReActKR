@@ -364,7 +364,7 @@
   },
   "${ModID}:ParticleBarrier": {
     "NAME": "입자방벽",
-    "DESCRIPTION": "${ModID}:오버워치를 켭니다. 방어도를 !B! 줍니다. NL ${ModID}:궁극기 : 불가침을 얻고 !M! 턴간 공격을 받은 횟수만큼 NL 일시적으로 힘을 !${ModID}:m2! 얻습니다."
+    "DESCRIPTION": "방어도를 !B! 줍니다. NL ${ModID}:궁극기 : 불가침을 얻고 !M! 턴간 공격을 받은 횟수만큼 NL 일시적으로 힘을 !${ModID}:m2! 얻습니다."
   },
   "${ModID}:8192": {
     "NAME": "1/8192",

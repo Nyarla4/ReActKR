@@ -13,7 +13,7 @@ public class MM_21_Obscuration extends AbstractAimedCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public MM_21_Obscuration() {
-        super(ID, 0, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
+        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.SELF);
         baseDamage = damage = 6;
         baseSecondDamage = secondDamage = 10;
         baseMagicNumber = magicNumber = 3;

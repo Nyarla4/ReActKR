@@ -13,16 +13,16 @@ import reactkr.relics.mayo.MM_03_BanRelic;
 
 import static reactkr.ModFile.makeID;
 
-public class MM_01_OWUltPower extends AbstractEasyPower {
+public class MM_01_UltPower extends AbstractEasyPower {
 
-    public static final String POWER_ID = makeID("OWUltPower");
+    public static final String POWER_ID = makeID("UltPower");
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
-    private static final Logger logger = LogManager.getLogger(MM_01_OWUltPower.class.getName());
+    private static final Logger logger = LogManager.getLogger(MM_01_UltPower.class.getName());
     public static final int maxAmount = 10;
 
-    public MM_01_OWUltPower(AbstractCreature owner, int amount) {
+    public MM_01_UltPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
     }
 
@@ -32,7 +32,7 @@ public class MM_01_OWUltPower extends AbstractEasyPower {
             return;
         if (isPlayer) {
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(this.owner, this.owner, new MM_01_OWUltPower(this.owner, 1), 1)
+                    new ApplyPowerAction(this.owner, this.owner, new MM_01_UltPower(this.owner, 1), 1)
             );
         }
     }
@@ -46,7 +46,7 @@ public class MM_01_OWUltPower extends AbstractEasyPower {
         if (damageAmount > 0 && target != this.owner && info.type == DamageInfo.DamageType.NORMAL) {
             this.flash();
             // 구조 변경: 울트 게이지 파워 추가
-            this.addToBot(new ApplyPowerAction(this.owner, this.owner, new MM_01_OWUltPower(this.owner, 1), 1));
+            this.addToBot(new ApplyPowerAction(this.owner, this.owner, new MM_01_UltPower(this.owner, 1), 1));
         }
     }
 
@@ -58,7 +58,7 @@ public class MM_01_OWUltPower extends AbstractEasyPower {
         if (info.type != DamageInfo.DamageType.HP_LOSS && info.type != DamageInfo.DamageType.THORNS) {
             this.flash();
             // 구조 변경: 울트 게이지 파워 추가
-            this.addToTop(new ApplyPowerAction(this.owner, this.owner, new MM_01_OWUltPower(this.owner, 1), 1));
+            this.addToTop(new ApplyPowerAction(this.owner, this.owner, new MM_01_UltPower(this.owner, 1), 1));
         }
         return damageAmount; // 중요: 받은 데미지를 그대로 반환해야 구조가 깨지지 않음
     }
