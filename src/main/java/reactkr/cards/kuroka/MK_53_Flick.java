@@ -7,11 +7,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import reactkr.powers.kuroka.MK_03_DelusionFactor_Power;
-import reactkr.powers.kuroka.MK_18_SpicyNakjiKimchiJook_Power;
 import reactkr.util.ProAudio;
 
 import static reactkr.ModFile.makeID;
-import static reactkr.util.Wiz.applyToSelf;
 import static reactkr.util.Wiz.playAudio;
 
 public class MK_53_Flick extends AbstractWitchificateCard {

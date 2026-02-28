@@ -50,16 +50,23 @@ public class MK_01_Majinai_Power extends AbstractEasyPower {
     @Override
     public void atEndOfRound() {
         int overKill = this.amount - this.owner.currentHealth;
+
         addToBot(new MajinaiDamageAction(
                 this.owner,
                 new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.HP_LOSS)
         ));
 
+        //주문 전파 유물
         if (overKill > 0 && AbstractDungeon.player.hasRelic(MK_04_MagicStickHammerRelic.ID)) {
             AbstractRelic r = AbstractDungeon.player.getRelic(MK_04_MagicStickHammerRelic.ID);
             r.flash();
             this.addToBot(new RelicAboveCreatureAction(this.owner, r));
             this.addToBot(new ApplyPowerToRandomEnemyAction(AbstractDungeon.player, new MK_01_Majinai_Power(null, overKill), overKill, false, AbstractGameAction.AttackEffect.POISON));
+        }
+
+        //주문 유지 버프
+        if(AbstractDungeon.player.hasPower(MK_18_SpicyNakjiKimchiJook_Power.POWER_ID)){
+            return;
         }
 
         addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));

@@ -8,8 +8,6 @@ public enum ProAudio {
     KUROKA_SUPERDEFEND,
     KUROKA_WOAHOO,
     KUROKA_KAZOO,
-    PIERCINGLAUGH,
-    MAYO_KKINGKKING,
     NODATA,
     RORO_PUNCH,
     KURO_PUNCH,
@@ -23,6 +21,10 @@ public enum ProAudio {
     STRAWBERRY,
     CHOCOMINT,
     COOKIECREAM,
+    MAENAKJOOK,
+
+    PIERCINGLAUGH,
+    MAYO_KKINGKKING,
     SEVENORFIVE,
     SASI,
     YAMI

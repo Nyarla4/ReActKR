@@ -49,9 +49,9 @@ public class MK_19_Delusioning_Power extends AbstractEasyPower {
 
     @Override
     public void atStartOfTurn() {
-        if (owner.hasPower(MK_04_Witchification_Power.POWER_ID) || witchificated) {
+        if (owner.hasPower(MK_04_Witchification_Power.POWER_ID)) {
             AbstractPower pow = owner.getPower(MK_03_DelusionFactor_Power.POWER_ID);
-            addToBot(new DamageAction(owner, new DamageInfo(owner, (pow.amount * amount))));
+            //addToBot(new DamageAction(owner, new DamageInfo(owner, (pow.amount * amount))));
             this.addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, pow.amount * amount), pow.amount * amount));
         } else {
             addToBot(new ApplyPowerAction(owner, owner, new MK_03_DelusionFactor_Power(owner, amount), amount));
@@ -62,7 +62,7 @@ public class MK_19_Delusioning_Power extends AbstractEasyPower {
         if (owner.hasPower(MK_04_Witchification_Power.POWER_ID) || witchificated) {
             this.name = DESCRIPTIONS[0];
             AbstractPower pow = owner.getPower(MK_03_DelusionFactor_Power.POWER_ID);
-            this.description = DESCRIPTIONS[3] + (pow.amount * amount) + DESCRIPTIONS[4] + (pow.amount * amount) + DESCRIPTIONS[5];
+            this.description = DESCRIPTIONS[3] + (pow.amount * amount) + DESCRIPTIONS[4];
         } else {
             this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
         }

@@ -15,7 +15,7 @@ public class MK_51_PepZeLi extends AbstractEasyCard_Kuroka {
 
     public MK_51_PepZeLi() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseBlock = block = 5;
+        baseBlock = block = 7;
         baseMagicNumber = magicNumber = 1;
     }
 

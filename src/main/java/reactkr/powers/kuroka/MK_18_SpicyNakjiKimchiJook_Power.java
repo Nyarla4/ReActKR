@@ -26,33 +26,18 @@ public class MK_18_SpicyNakjiKimchiJook_Power extends AbstractEasyPower {
     public static final String[] DESCRIPTIONS;
     private static final Logger logger = LogManager.getLogger(MK_18_SpicyNakjiKimchiJook_Power.class.getName());
 
-    public MK_18_SpicyNakjiKimchiJook_Power(AbstractCreature owner, int amount) {
-        super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+    public MK_18_SpicyNakjiKimchiJook_Power(AbstractCreature owner) {
+        super(POWER_ID, NAME, PowerType.BUFF, false, owner, -1);
         updateDescription();
     }
 
     @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        if (owner == AbstractDungeon.player) {
-            this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.amount));
-        }
-    }
-
-    @Override
-    public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
-        updateDescription();
-    }
-
-    @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        if (isPlayer) {
-            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-        }
+    public void atStartOfTurn() {
+        this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, POWER_ID));
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0];
     }
 
     static {

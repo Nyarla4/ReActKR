@@ -23,17 +23,17 @@ public class MK_52_SpicyNakjiKimchiJook extends AbstractEasyCard_Kuroka {
     // intellij stuff skill, self, common, , , , , 1, 2
 
     public MK_52_SpicyNakjiKimchiJook() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 2;
+        super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+        this.exhaust = true;
     }
-//이번 턴 카드를 쓸 때마다 방어도를 2 얻습니다.
+
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //playAudio(ProAudio.KUROKA_WOAHOO);
-        applyToSelf(new MK_18_SpicyNakjiKimchiJook_Power(p, magicNumber));
+        playAudio(ProAudio.MAENAKJOOK);
+        applyToSelf(new MK_18_SpicyNakjiKimchiJook_Power(p));
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+        this.exhaust = false;
     }
 
 }
