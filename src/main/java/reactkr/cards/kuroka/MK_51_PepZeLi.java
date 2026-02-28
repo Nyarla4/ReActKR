@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import reactkr.cards.AbstractEasyCard_Kuroka;
-import reactkr.powers.kuroka.PepZeLiPower;
+import reactkr.powers.kuroka.MK_20_PepZeLiPower;
 
 import static reactkr.ModFile.makeID;
 
@@ -21,7 +21,7 @@ public class MK_51_PepZeLi extends AbstractEasyCard_Kuroka {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new GainBlockAction(p, p, this.block));
-        this.addToBot(new ApplyPowerAction(p, p, new PepZeLiPower(p, magicNumber), magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new MK_20_PepZeLiPower(p, magicNumber), magicNumber));
     }
 
     @Override

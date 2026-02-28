@@ -9,13 +9,13 @@ import reactkr.powers.AbstractEasyPower;
 
 import static reactkr.ModFile.makeID;
 
-public class PepZeLiPower extends AbstractEasyPower {
+public class MK_20_PepZeLiPower extends AbstractEasyPower {
     public static final String POWER_ID = makeID("PepZeLiPower");
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
 
-    public PepZeLiPower(AbstractCreature owner, int energyAmt) {
+    public MK_20_PepZeLiPower(AbstractCreature owner, int energyAmt) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, Math.min(energyAmt, 999));
 
         this.updateDescription();
