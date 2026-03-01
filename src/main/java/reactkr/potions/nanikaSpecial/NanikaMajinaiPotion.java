@@ -33,7 +33,7 @@ public class NanikaMajinaiPotion extends AbstractPotion {
     }
 
     public void use(AbstractCreature target) {
-        this.addToBot(new ApplyPowerAction(target, AbstractDungeon.player, new MK_01_Majinai_Power(AbstractDungeon.player, this.potency)));
+        this.addToBot(new ApplyPowerAction(target, AbstractDungeon.player, new MK_01_Majinai_Power(target, this.potency)));
     }
 
     public int getPotency(int ascensionLevel) {

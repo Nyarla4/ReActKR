@@ -239,8 +239,8 @@
     "DESCRIPTION": "${ModID}:망상인자를 !M! 잃습니다. 잃은 인자 × !B! 방어도를 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       "현자타임",
-      "${ModID}:망상인자를 !${ModID}:m2! 잃습니다. 방어도를 30 얻고 흐릿함을 1 얻습니다.",
-      "${ModID}:망상인자를 !${ModID}:m2! 잃습니다. 방어도를 30 얻고 흐릿함을 2 얻습니다."
+      "${ModID}:망상인자를 !${ModID}:m2! 잃습니다. 방어도를 30 얻고 ${ModID}:흐릿함을 1 얻습니다.",
+      "${ModID}:망상인자를 !${ModID}:m2! 잃습니다. 방어도를 30 얻고 ${ModID}:흐릿함을 2 얻습니다."
     ]
   },
   "${ModID}:KurokachanKawaii": {
@@ -447,7 +447,7 @@
   },
   "${ModID}:BunnyHop": {
     "NAME": "버니합",
-    "DESCRIPTION": "휘발성 NL 흐릿함을 얻습니다. NL ${ModID}:궁극기 : 대신 흐릿함을 3 얻습니다."
+    "DESCRIPTION": "휘발성 NL ${ModID}:흐릿함을 얻습니다. NL ${ModID}:궁극기 : 대신 ${ModID}:흐릿함을 3 얻습니다."
   },
   "${ModID}:Obscuration": {
     "NAME": "엄폐",

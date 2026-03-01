@@ -32,6 +32,9 @@ public class MK_01_Majinai_Power extends AbstractEasyPower {
 
     public MK_01_Majinai_Power(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.DEBUFF, true, owner, amount);
+        if(owner == AbstractDungeon.player){
+            logger.warn("주문의 대상은 플레이어가 아니라 몬스터입니다.");
+        }
         if (AbstractDungeon.player.hasPower(MK_06_MajinaiAmplify_Power.POWER_ID)) {
             ampified = AbstractDungeon.player.getPower(MK_06_MajinaiAmplify_Power.POWER_ID).amount;
         }
