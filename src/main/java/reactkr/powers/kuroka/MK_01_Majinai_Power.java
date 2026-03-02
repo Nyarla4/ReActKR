@@ -59,6 +59,7 @@ public class MK_01_Majinai_Power extends AbstractEasyPower {
                 new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.HP_LOSS)
         ));
 
+        logger.info(overKill);
         //주문 전파 유물
         if (overKill > 0 && AbstractDungeon.player.hasRelic(MK_04_MagicStickHammerRelic.ID)) {
             AbstractRelic r = AbstractDungeon.player.getRelic(MK_04_MagicStickHammerRelic.ID);

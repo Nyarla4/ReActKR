@@ -40,21 +40,26 @@ public class Event_Fan extends AbstractImageEvent {
                     p.chosenClass == Mayo.Enums.THE_MAYO ? new MM_01_NezmingRelic() :
                     p.chosenClass == Latte.Enums.THE_LATTE ? new AL_01_TtediRelic() :
                     null;
-            option = p.chosenClass == Kuroka.Enums.THE_KUROKA ? OPTIONS[0] :
-                    p.chosenClass == Mayo.Enums.THE_MAYO ? OPTIONS[1] :
-                            p.chosenClass == Latte.Enums.THE_LATTE ? OPTIONS[2] :
-                                    null;
         }
 
-        imageEventText.setDialogOption(option, previewRelic);
+        imageEventText.setDialogOption(OPTIONS[0], previewRelic);
+        imageEventText.setDialogOption(OPTIONS[1]);
     }
 
     @Override
     protected void buttonEffect(int buttonPressed) {
         switch (screenNum) {
             case 0:
-                if (buttonPressed == 0) { // 첫 번째 선택지 클릭 시
-                    this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
+                if (buttonPressed == 0) {
+                    String selectedDesc;
+
+                    AbstractPlayer p = AbstractDungeon.player;
+
+                    selectedDesc = p.chosenClass == Kuroka.Enums.THE_KUROKA ? DESCRIPTIONS[1] :
+                            p.chosenClass == Mayo.Enums.THE_MAYO ? DESCRIPTIONS[2] :
+                                    p.chosenClass == Latte.Enums.THE_LATTE ? DESCRIPTIONS[3] : null;
+
+                    this.imageEventText.updateBodyText(selectedDesc);
 
                     AbstractDungeon.getCurrRoom().spawnRelicAndObtain(
                             Settings.WIDTH / 2.0f,
@@ -62,14 +67,26 @@ public class Event_Fan extends AbstractImageEvent {
                             previewRelic
                     );
 
-                    this.imageEventText.updateDialogOption(0, OPTIONS[3]);
+                    this.imageEventText.updateDialogOption(0, OPTIONS[2]);
                     this.imageEventText.clearRemainingOptions();
-                    screenNum = 1;
+                    screenNum = 2;
+                } else if (buttonPressed == 1) {
+                    this.imageEventText.updateBodyText(DESCRIPTIONS[4]);
+
+                    AbstractDungeon.getCurrRoom().spawnRelicAndObtain(
+                            Settings.WIDTH / 2.0f,
+                            Settings.HEIGHT / 2.0f,
+                            previewRelic
+                    );
+
+                    this.imageEventText.updateDialogOption(0, OPTIONS[2]);
+                    this.imageEventText.clearRemainingOptions();
+                    screenNum = 2;
                 } else { // 떠나기 클릭 시
                     openMap();
                 }
                 break;
-            case 1:
+            case 2:
                 openMap();
                 break;
         }
