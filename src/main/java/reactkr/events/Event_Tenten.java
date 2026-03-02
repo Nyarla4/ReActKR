@@ -8,15 +8,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.EventStrings;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import reactkr.Kuroka;
 import reactkr.Latte;
 import reactkr.Mayo;
 import reactkr.relics.SulkTentenRelic;
-import reactkr.relics.kuroka.MK_01_MajitomoRelic;
-import reactkr.relics.latte.AL_01_TtediRelic;
-import reactkr.relics.mayo.MM_01_NezmingRelic;
 
 import java.util.ArrayList;
 import java.util.Map;

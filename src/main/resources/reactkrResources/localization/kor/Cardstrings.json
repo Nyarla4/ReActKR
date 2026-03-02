@@ -456,11 +456,17 @@
 
   "${ModID}:Latte_Strike": {
     "NAME": "타격",
-    "DESCRIPTION": "피해를 !D! 줍니다."
+    "DESCRIPTION": "피해를 !D! 줍니다.",
+    "EXTENDED_DESCRIPTION": [
+      "라떼라서 타격 피해량 늘렸지요"
+    ]
   },
   "${ModID}:Latte_Defend": {
     "NAME": "수비",
-    "DESCRIPTION": "방어도를 !B! 얻습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "라떼라서 수비 방어도 늘렸지요"
+    ]
   },
   "${ModID}:GoWorkSong": {
     "NAME": "출근송",
@@ -545,6 +551,27 @@
     "DESCRIPTION": "임의의 카드 중 !M! 장을 사용합니다.",
     "EXTENDED_DESCRIPTION": [
       "카드 많이 돌려드렸지요?"
+    ]
+  },
+  "${ModID}:RetainBlock": {
+    "NAME": "보존 방어",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 소멸. 보존. NL 턴 종료 시 패에 있을 경우 방어도를 !B! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "안쓰면 방어도 얻지요"
+    ]
+  },
+  "${ModID}:AutoDraw": {
+    "NAME": "자동 드로우",
+    "DESCRIPTION": "이 카드를 뽑으면, 카드를 !M!장 뽑습니다. NL 소멸합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "자동으로 !M!장 뽑지요"
+    ]
+  },
+  "${ModID}:LatteRepair": {
+    "NAME": "라떼 수리",
+    "DESCRIPTION": "턴 종료 시 체력을 !M! 회복합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "자가 수리 쪼잔하지 않은 버전"
     ]
   },
 

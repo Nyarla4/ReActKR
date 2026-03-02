@@ -39,7 +39,7 @@ public class SulkTentenRelic extends AbstractEasyRelic {
 
             AbstractPlayer p = AbstractDungeon.player;
             for(AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                m.currentHealth = 1;
+                //m.currentHealth = 1;
                 addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, 1)));
             }
 

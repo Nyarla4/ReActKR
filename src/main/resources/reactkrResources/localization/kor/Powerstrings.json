@@ -172,6 +172,13 @@
       "얻습니다."
     ]
   },
+  "${ModID}:LatteRepairPower": {
+    "NAME": "라떼 수리",
+    "DESCRIPTIONS": [
+      "턴 종료 시 체력을 ",
+      "회복합니다."
+    ]
+  },
 
   "${ModID}:GainArtifactPower": {
     "NAME": "인공물 복구",

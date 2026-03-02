@@ -13,9 +13,10 @@ public class Latte_Strike extends AbstractEasyCard_Latte {
 
     public Latte_Strike() {
         super(ID, 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
-        baseDamage = 6;
+        baseDamage = 12;
         tags.add(CardTags.STRIKE);
         tags.add(CardTags.STARTER_STRIKE);
+        initializeSummaryPreview();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -24,12 +25,12 @@ public class Latte_Strike extends AbstractEasyCard_Latte {
 
     @Override
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(6);
     }
 
     @Override
     protected int getPreviewDescriptionIndex() {
-        return -1;
+        return 0;
     }
 
     @Override

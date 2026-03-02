@@ -12,8 +12,9 @@ public class Latte_Defend extends AbstractEasyCard_Latte {
 
     public Latte_Defend() {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
-        baseBlock = 5;
+        baseBlock = 10;
         tags.add(CardTags.STARTER_DEFEND);
+        initializeSummaryPreview();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -22,12 +23,12 @@ public class Latte_Defend extends AbstractEasyCard_Latte {
 
     @Override
     public void upp() {
-        upgradeBlock(3);
+        upgradeBlock(6);
     }
 
     @Override
     protected int getPreviewDescriptionIndex() {
-        return -1;
+        return 0;
     }
 
     @Override
