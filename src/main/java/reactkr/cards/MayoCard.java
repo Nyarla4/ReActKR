@@ -60,5 +60,6 @@ public class MayoCard extends AbstractAimedCard {
     public void upp() {
         updateCost(-1);
         upgradeDamage(6);
+        upgradeSecondDamage(6);
     }
 }

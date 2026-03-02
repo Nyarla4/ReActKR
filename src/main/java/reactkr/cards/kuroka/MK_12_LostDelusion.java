@@ -8,9 +8,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import reactkr.Latte;
+import reactkr.Mayo;
 import reactkr.actions.EasyModalChoiceAction;
 import reactkr.cards.AbstractEasyCard_Kuroka;
 import reactkr.cards.EasyModalChoiceCard;
+import reactkr.configs.ModConfig;
 
 import java.util.ArrayList;
 
@@ -48,6 +51,12 @@ public class MK_12_LostDelusion extends AbstractEasyCard_Kuroka {
                 for (int i = 0; i < finalCount; i++) {
                     // 무작위 카드 생성
                     AbstractCard cb = AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
+                    while(
+                            (cb.color == Mayo.Enums.MAYO_COLOR && !ModConfig.showMayo) ||
+                            (cb.color == Latte.Enums.LATTE_COLOR && !ModConfig.showLatte)
+                    ){
+                        cb = AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
+                    }
 
                     cb.updateCost(-1);
 
