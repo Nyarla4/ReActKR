@@ -32,7 +32,7 @@ public class MK_05_ThreeMeter_Power extends AbstractEasyPower {
         super(POWER_ID,NAME,PowerType.BUFF,true,owner,thornsDamage);
 
         this.updateDescription();
-        this.loadRegion("flameBarrier");
+        //this.loadRegion("flameBarrier");
 
         if (owner.hasPower(MK_03_DelusionFactor_Power.POWER_ID)) {
             buff = owner.getPower(MK_03_DelusionFactor_Power.POWER_ID).amount;
@@ -59,12 +59,9 @@ public class MK_05_ThreeMeter_Power extends AbstractEasyPower {
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner) {
+        if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner) {
             this.flash();
-            if (owner.hasPower(MK_03_DelusionFactor_Power.POWER_ID)) {
-                buff = owner.getPower(MK_03_DelusionFactor_Power.POWER_ID).amount;
-            }
-            this.addToTop(new DamageAction(info.owner, new DamageInfo(this.owner, this.amount * this.buff, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+            this.addToTop(new DamageAction(info.owner, new DamageInfo(this.owner, this.amount * this.buff, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true));
         }
 
         return damageAmount;
