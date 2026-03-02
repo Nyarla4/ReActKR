@@ -74,6 +74,7 @@ public class Event_Tenten extends AbstractImageEvent {
                             new SulkTentenRelic()
                     );
 
+                    this.imageEventText.loadImage("reactkrResources/images/events/tenten2.png");
                     this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
                     this.imageEventText.updateDialogOption(0, OPTIONS[4]);
                     this.imageEventText.clearRemainingOptions();
