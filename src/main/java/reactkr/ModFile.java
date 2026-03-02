@@ -82,7 +82,7 @@ public class ModFile implements
     private static final String MM_POWER_L_ART = makeImagePath("1024/mm_power.png");
     private static final String MM_CARD_ENERGY_L = makeImagePath("1024/mm_1_energy.png");
     private static final String MM_CHARSELECT_BUTTON = makeImagePath("charSelect/charButton.png");
-    private static final String MM_CHARSELECT_PORTRAIT = makeImagePath("charSelect/warning_charBG.png");
+    private static final String MM_CHARSELECT_PORTRAIT = makeImagePath("charSelect/temp_mm_charBG.png");
 
     public static final String AL_SHOULDER1 = makeCharacterPath("latte/shoulder.png");
     public static final String AL_SHOULDER2 = makeCharacterPath("latte/shoulder2.png");
@@ -97,7 +97,7 @@ public class ModFile implements
     private static final String AL_POWER_L_ART = makeImagePath("1024/al_power.png");
     private static final String AL_CARD_ENERGY_L = makeImagePath("1024/energy.png");
     private static final String AL_CHARSELECT_BUTTON = makeImagePath("charSelect/charButton.png");
-    private static final String AL_CHARSELECT_PORTRAIT = makeImagePath("charSelect/warning_charBG.png");
+    private static final String AL_CHARSELECT_PORTRAIT = makeImagePath("charSelect/temp_al_charBG.png");
 
     public static Settings.GameLanguage[] SupportedLanguages = {
             Settings.GameLanguage.ENG,
