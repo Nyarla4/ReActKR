@@ -6,15 +6,17 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import reactkr.powers.ReactKRRangersPower;
 import reactkr.powers.kuroka.MK_01_Majinai_Power;
+import reactkr.util.ProAudio;
 
 import static reactkr.ModFile.makeID;
+import static reactkr.util.Wiz.playAudio;
 
 public class KurokaCard extends AbstractEasyCard {
     public final static String ID = makeID("Kuroka");
 
     public KurokaCard() {
         super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS);
-        baseMagicNumber = magicNumber = 42;
+        baseMagicNumber = magicNumber = 37;
         this.exhaust = true;
     }
 
@@ -28,12 +30,13 @@ public class KurokaCard extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        playAudio(ProAudio.KUROKA);
         addToBot(new ApplyPowerAction(m, p, new MK_01_Majinai_Power(m, magicNumber)));
     }
 
     @Override
     public void upp() {
-        updateCost(-1);
+        upgradeMagicNumber(10);
     }
 
     @Override

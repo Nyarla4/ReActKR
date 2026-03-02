@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import reactkr.powers.ReactKRRangersPower;
 import reactkr.powers.siah.AS_00_MPower;
+import reactkr.util.ProAudio;
 
 import static reactkr.ModFile.makeID;
-import static reactkr.util.Wiz.applyToSelf;
-import static reactkr.util.Wiz.atb;
+import static reactkr.util.Wiz.*;
 
 public class SiahCard extends AbstractEasyCard {
     public final static String ID = makeID("Siah");
@@ -32,6 +32,7 @@ public class SiahCard extends AbstractEasyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        playAudio(ProAudio.SIAH);
         if (!p.hasPower(ReactKRRangersPower.POWER_ID)) {
             atb(new DamageAction(p, new DamageInfo(p, magicNumber, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.NONE));
         }

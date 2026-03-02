@@ -9,8 +9,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import reactkr.cards.mayo.AbstractAimedCard;
 import reactkr.powers.ReactKRRangersPower;
+import reactkr.util.ProAudio;
 
 import static reactkr.ModFile.makeID;
+import static reactkr.util.Wiz.playAudio;
 
 public class MayoCard extends AbstractAimedCard {
     public final static String ID = makeID("Mayo");
@@ -44,6 +46,7 @@ public class MayoCard extends AbstractAimedCard {
 
     @Override
     public void normalUse(AbstractPlayer p, AbstractMonster m) {
+        playAudio(ProAudio.MAYO);
         addToBot(new DamageAction(m, new DamageInfo(p, finalDamage)));
     }
 
@@ -58,7 +61,7 @@ public class MayoCard extends AbstractAimedCard {
 
     @Override
     public void upp() {
-        updateCost(-1);
+        //updateCost(-1);
         upgradeDamage(6);
         upgradeSecondDamage(6);
     }

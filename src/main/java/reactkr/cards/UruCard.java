@@ -7,14 +7,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import reactkr.powers.ReactKRRangersPower;
 import reactkr.powers.uru.MU_00_RainPower;
+import reactkr.util.ProAudio;
 
 import static reactkr.ModFile.makeID;
+import static reactkr.util.Wiz.playAudio;
 
 public class UruCard extends AbstractEasyCard {
     public final static String ID = makeID("Uru");
 
     public UruCard() {
-        super(ID, 3, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ALL_ENEMY, CardColor.COLORLESS);
+        super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ALL_ENEMY, CardColor.COLORLESS);
         baseDamage = damage = 3;
         baseMagicNumber = magicNumber = 8;
     }
@@ -30,6 +32,7 @@ public class UruCard extends AbstractEasyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        playAudio(ProAudio.URU);
         for(int i = 0; i < this.magicNumber; ++i) {
             this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.NONE));
         }

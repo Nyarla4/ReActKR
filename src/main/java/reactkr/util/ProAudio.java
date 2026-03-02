@@ -28,7 +28,12 @@ public enum ProAudio {
     MAYO_KKINGKKING,
     SEVENORFIVE,
     SASI,
-    YAMI
+    YAMI,
+
+    SIAH,
+    URU,
+    KUROKA,
+    MAYO
     /*
     Add any audio you add to your files here!
     For example, if you add "reactkrResources/audio/boing.ogg", you'd add it here as BOING
