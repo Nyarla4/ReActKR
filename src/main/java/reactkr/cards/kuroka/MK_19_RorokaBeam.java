@@ -19,7 +19,9 @@ import reactkr.patches.RorokaTag;
 import reactkr.vfx.RoroblastEffect;
 
 import static reactkr.ModFile.makeID;
+import static reactkr.util.ProAudio.ROROKABEAM;
 import static reactkr.util.Wiz.atb;
+import static reactkr.util.Wiz.playAudio;
 
 public class MK_19_RorokaBeam extends AbstractEasyCard_Kuroka {
     public final static String ID = makeID("RorokaBeam");
@@ -76,6 +78,7 @@ public class MK_19_RorokaBeam extends AbstractEasyCard_Kuroka {
 //                }
 //            }
 //        });
+        playAudio(ROROKABEAM);
         this.addToBot(new VFXAction(p, new RoroblastEffect(p.dialogX, p.dialogY, p.flipHorizontal), 0.1F));
         // [흐름] 1. 전체 공격 액션을 먼저 수행
         this.addToBot(new DamageAllEnemiesAction(

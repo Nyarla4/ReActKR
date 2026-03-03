@@ -25,6 +25,6 @@ public class MK_01_Majinai extends AbstractEasyCard_Kuroka {
 
     @Override
     public void upp() {
-        upgradeMagicNumber(10);
+        upgradeMagicNumber(12);
     }
 }

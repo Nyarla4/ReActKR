@@ -24,6 +24,7 @@ public enum ProAudio {
     MAENAKJOOK,
     DONTNER,
     DAISUKICHU,
+    ROROKABEAM,
 
     PIERCINGLAUGH,
     MAYO_KKINGKKING,
