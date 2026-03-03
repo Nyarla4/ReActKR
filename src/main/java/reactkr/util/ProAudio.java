@@ -23,6 +23,7 @@ public enum ProAudio {
     COOKIECREAM,
     MAENAKJOOK,
     DONTNER,
+    DAISUKICHU,
 
     PIERCINGLAUGH,
     MAYO_KKINGKKING,

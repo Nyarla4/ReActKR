@@ -6,8 +6,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.NoDrawPower;
 import reactkr.cards.AbstractEasyCard_Kuroka;
+import reactkr.util.ProAudio;
 
 import static reactkr.ModFile.makeID;
+import static reactkr.util.Wiz.playAudio;
 
 public class MK_36_DaisukiChu extends AbstractEasyCard_Kuroka {
     public final static String ID = makeID("DaisukiChu");
@@ -18,6 +20,7 @@ public class MK_36_DaisukiChu extends AbstractEasyCard_Kuroka {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        playAudio(ProAudio.DAISUKICHU);
         addToBot(new ApplyPowerAction(p,p,new NoDrawPower(p)));
         for (AbstractCard hand : p.hand.group) {
             hand.setCostForTurn(0);
