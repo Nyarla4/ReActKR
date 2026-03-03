@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.city.Snecko;
 import reactkr.cards.AbstractEasyCard_Kuroka;
 import reactkr.powers.kuroka.MK_01_Majinai_Power;
 import reactkr.util.ProAudio;
@@ -23,10 +24,13 @@ public class MK_23_MajinaiChop extends AbstractEasyCard_Kuroka {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         playAudio(ProAudio.KUROKA_CHOP);
-        if(m.hasPower(MK_01_Majinai_Power.POWER_ID)){
+        if (m.hasPower(MK_01_Majinai_Power.POWER_ID)) {
             damage *= magicNumber;
         }
-        addToBot(new DamageAction(m,new DamageInfo(p,damage,damageTypeForTurn)));
+        if (m.id.equals(Snecko.ID)) {
+            damage *= 10;
+        }
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
     }
 
     @Override

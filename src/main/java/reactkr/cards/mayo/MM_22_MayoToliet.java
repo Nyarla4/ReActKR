@@ -32,8 +32,6 @@ public class MM_22_MayoToliet extends AbstractEasyCard_Mayo {
 
     @Override
     public void upp() {
-        upgradeDamage(-2);
-        upgradeSecondDamage(5);
         upgradeMagicNumber(1);
     }
 }

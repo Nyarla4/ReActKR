@@ -29,19 +29,18 @@ public class MK_20_RorokaDraw extends AbstractEasyCard_Kuroka {
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                // 손패의 가장 마지막 카드(방금 뽑은 카드)를 가져옴
-                if (!AbstractDungeon.player.hand.isEmpty()) {
-                    AbstractCard drawnCard = AbstractDungeon.player.hand.getTopCard();
+                for (AbstractCard c : DrawCardAction.drawnCards) {
 
-                    // 3. 특정 태그(PARRY_CARD)가 있는지 확인
-                    if (drawnCard.hasTag(ROROKA)) {
-                        //drawnCard.flash(com.badlogic.gdx.graphics.Color.GOLD.cpy()); // 효과 강조
+                    // 3. [판단 흐름] 각각의 카드가 ROROKA 태그를 가졌는지 검사
+                    if (c.hasTag(ROROKA)) {
+                        // c.flash(com.badlogic.gdx.graphics.Color.GOLD.cpy()); // 효과 강조
 
-                        // 4. magicNumber만큼 추가 드로우 실행
-                        // addToTop을 사용해야 이 액션이 현재 큐의 가장 처음에 배치되어 즉시 실행됩니다.
-                        this.addToTop(new DrawCardAction(magicNumber));
+                        // 4. [수행 과정] 태그가 있다면 magicNumber만큼 추가 드로우
+                        // addToTop을 쓰면 현재 진행 중인 드로우 흐름 바로 다음에 최우선으로 끼어듭니다.
+                        AbstractDungeon.actionManager.addToTop(new DrawCardAction(AbstractDungeon.player, magicNumber));
                     }
                 }
+                // 액션 종료 처리
                 this.isDone = true;
             }
         });
