@@ -39,7 +39,7 @@ public class MK_43_DiaTomo extends AbstractWitchificateCard {
     }
 
     public void upp() {
-        upgradeBaseCost(1);
+        updateCost(-1);
     }
 
     @Override
