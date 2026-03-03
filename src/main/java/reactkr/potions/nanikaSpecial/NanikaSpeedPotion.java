@@ -20,7 +20,7 @@ public class NanikaSpeedPotion extends AbstractPotion {
     private static final PotionStrings potionStrings;
 
     public NanikaSpeedPotion() {
-        super(potionStrings.NAME, POTION_ID, PotionRarity.PLACEHOLDER, PotionSize.FAIRY, PotionColor.STEROID);
+        super(potionStrings.NAME, POTION_ID, PotionRarity.PLACEHOLDER, PotionSize.BOLT, PotionColor.SKILL);
         this.isThrown = false;
     }
 
