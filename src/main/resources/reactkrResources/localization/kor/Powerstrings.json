@@ -164,6 +164,12 @@
       "얻습니다"
     ]
   },
+  "${ModID}:EvasionPower": {
+    "NAME": "회피",
+    "DESCRIPTIONS": [
+      "% 확률로 적의 공격을 회피합니다. 회피 성공시 반을 잃습니다."
+    ]
+  },
 
   "${ModID}:NoBadWordPower": {
     "NAME": "나쁜 말 금지",

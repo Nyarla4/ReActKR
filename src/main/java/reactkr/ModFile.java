@@ -14,15 +14,20 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import reactkr.cards.AbstractEasyCard;
 import reactkr.cards.cardvars.AbstractEasyDynamicVariable;
 import reactkr.configs.ModConfig;
 import reactkr.events.*;
+import reactkr.monsters.tempMonster;
 import reactkr.potions.AbstractEasyPotion;
 import reactkr.potions.nanikaSpecial.NanikaFirePotion;
 import reactkr.relics.AbstractEasyRelic;
@@ -259,6 +264,7 @@ public class ModFile implements
         BaseMod.loadCustomStringsFile(StanceStrings.class, modID + "Resources/localization/" + getLangString() + "/Stancestrings.json");
         BaseMod.loadCustomStringsFile(PotionStrings.class, modID + "Resources/localization/" + getLangString() + "/Potionstrings.json");
         BaseMod.loadCustomStringsFile(EventStrings.class, modID + "Resources/localization/" + getLangString() + "/Eventstrings.json");
+        BaseMod.loadCustomStringsFile(MonsterStrings.class, modID + "Resources/localization/" + getLangString() + "/Monsterstrings.json");
 
         ModConfig.initialize();
     }
@@ -287,9 +293,11 @@ public class ModFile implements
     public void receivePostInitialize() {
         AddEvent();
         AddModConfig();
-        if(ModConfig.showLatte){
+        if (ModConfig.showLatte) {
             ReplaceDate();
         }
+        AddMonsters();
+        //AddEncounters();
     }
 
     private void AddEvent() {
@@ -310,6 +318,7 @@ public class ModFile implements
                 .spawnCondition(Event_Tenten::canSpawn)
                 .create());
     }
+
     private void AddModConfig() {
         Texture badgeTexture = ImageMaster.loadImage("reactkrResources/images/powers/ReactKRRangersPower32.png");
         ModPanel settingsPanel = new ModPanel();
@@ -337,12 +346,34 @@ public class ModFile implements
         settingsPanel.addUIElement(mayoBtn);
         BaseMod.registerModBadge(badgeTexture, "ReActKR", "SinsaTomo", "Desc", settingsPanel);
     }
-    private void ReplaceDate(){
+
+    private void ReplaceDate() {
         CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString(Latte.ID);
         if (charStrings != null && charStrings.TEXT != null && charStrings.TEXT.length > 0) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("Mdd");
             String todayDate = LocalDate.now().format(formatter);
             charStrings.TEXT[0] = charStrings.TEXT[0].replace("{DATE}", todayDate);
         }
+    }
+
+    //몬스터 추가
+    private void AddMonsters() {
+
+        String encounterId = makeID("TempEncounter");
+        BaseMod.addMonster(encounterId, "기묘한 만남", () -> new tempMonster(0.0F, 0.0F, true));
+
+        String encounter2Id = makeID("TempEncounter2");
+        BaseMod.addMonster(encounter2Id, "기묘한 만남들", () -> new MonsterGroup(
+            new AbstractMonster[] {
+                    new tempMonster(100.0F, 0.0F, true),
+                    new tempMonster(-100.0F, 0.0F, true)
+            }
+        ));
+    }
+
+    //인카운터(맵에서 나오도록) 추가
+    private void AddEncounters(){
+        String encounterId = makeID("TempEncounter");
+        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(encounterId, 2.0F));
     }
 }

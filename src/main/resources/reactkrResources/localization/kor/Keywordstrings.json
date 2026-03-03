@@ -104,6 +104,14 @@
     "DESCRIPTION": "X번 사용하면 소멸합니다."
   },
   {
+    "PROPER_NAME": "회피 X",
+    "NAMES": [
+      "회피",
+      "회피를"
+    ],
+    "DESCRIPTION": "X%의 확률로 적의 공격을 피합니다. 회피에 성공하면 반을 잃습니다."
+  },
+  {
     "PROPER_NAME": "아침",
     "NAMES": [
       "아침"

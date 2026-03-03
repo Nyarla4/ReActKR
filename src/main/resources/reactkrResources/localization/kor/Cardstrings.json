@@ -457,6 +457,10 @@
     "NAME": "마요의 화장실",
     "DESCRIPTION": "약화를 1 받습니다. 적 전체에게 취약 !M! 을 줍니다."
   },
+  "${ModID}:Rolling": {
+    "NAME": "구르기",
+    "DESCRIPTION": "${ModID}:회피를 !M! 얻습니다."
+  },
 
   "${ModID}:Latte_Strike": {
     "NAME": "타격",
