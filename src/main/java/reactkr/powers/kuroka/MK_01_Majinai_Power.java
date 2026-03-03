@@ -92,6 +92,11 @@ public class MK_01_Majinai_Power extends AbstractEasyPower {
     }
 
     @Override
+    public void onDeath() {
+        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MK_02_MajinaiStrength_Power(AbstractDungeon.player)));
+    }
+
+    @Override
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;
         //logger.info("stacked " + stackAmount + ampified);
