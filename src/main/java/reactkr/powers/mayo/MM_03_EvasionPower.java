@@ -1,6 +1,9 @@
 package reactkr.powers.mayo;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -24,28 +27,14 @@ public class MM_03_EvasionPower extends AbstractEasyPower {
     private static final Logger logger = LogManager.getLogger(MM_03_EvasionPower.class.getName());
     private static final int maxAmount = 100;
 
+    public boolean isEvade = false;
+
     public MM_03_EvasionPower(AbstractCreature owner, int amount) {
-        super(POWER_ID, NAME, PowerType.BUFF, true, owner, amount);
+        super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
     }
 
     @Override
-    public int onAttacked(DamageInfo info, int damageAmount) {
-        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner) {
-
-            float ran = AbstractDungeon.cardRandomRng.random(1f,100f);
-            logger.info("ran: "+ran);
-            if (ran < this.amount) {
-                this.flash();
-                this.amount /= 2;
-                return 0;
-            }
-        }
-
-        return damageAmount;
-    }
-
-    @Override
-    public void stackPower(int amount){
+    public void stackPower(int amount) {
         this.amount = Math.min(amount + this.amount, maxAmount);
     }
 

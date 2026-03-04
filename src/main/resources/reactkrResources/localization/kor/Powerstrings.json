@@ -170,6 +170,33 @@
       "% 확률로 적의 공격을 회피합니다. 회피 성공시 반을 잃습니다."
     ]
   },
+  "${ModID}:CounterPower": {
+    "NAME": "반격",
+    "DESCRIPTIONS": [
+      "회피 성공시 ",
+      " 의 피해를 줍니다."
+    ]
+  },
+  "${ModID}:ConfidencePower": {
+    "NAME": "자신감",
+    "DESCRIPTIONS": [
+      "피해를 2배로 받습니다."
+    ]
+  },
+  "${ModID}:RollerPower": {
+    "NAME": "회전초",
+    "DESCRIPTIONS": [
+      "회피하지 못한 공격을 받을 때마다 회피를 ",
+      " 얻습니다."
+    ]
+  },
+  "${ModID}:tempExaustPower": {
+    "NAME": "이름없음",
+    "DESCRIPTIONS": [
+      "패가 비었을 때 카드를 ",
+      "장 뽑습니다."
+    ]
+  },
 
   "${ModID}:NoBadWordPower": {
     "NAME": "나쁜 말 금지",

@@ -42,24 +42,26 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
             addToBot(new ModifiyMagicNumberAction(this.uuid, -1));
         }
         if (isAimed()) {
-            // 1. [흐름] 플레이어의 모든 구체 슬롯을 순회
-            for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-                // 2. [구조 확인] 빈 슬롯이 아니고, 찾고 있는 특정 ID의 구체인지 확인
-                if (!(orb instanceof EmptyOrbSlot) &&
-                        (orb.ID.equals(MM_01_SniperBulletOrb.ID) ||
-                                orb.ID.equals(MM_02_LightBulletOrb.ID)
-                        )) {
+            if (Kind() == CardKind.ATK) {
+                // 1. [흐름] 플레이어의 모든 구체 슬롯을 순회
+                for (AbstractOrb orb : AbstractDungeon.player.orbs) {
+                    // 2. [구조 확인] 빈 슬롯이 아니고, 찾고 있는 특정 ID의 구체인지 확인
+                    if (!(orb instanceof EmptyOrbSlot) &&
+                            (orb.ID.equals(MM_01_SniperBulletOrb.ID) ||
+                                    orb.ID.equals(MM_02_LightBulletOrb.ID)
+                            )) {
 
-                    // 3. [데이터 수정] amount(passiveAmount)를 1 감소
-                    // 슬더스 기본 구체들은 passiveAmount를 주 수치로 사용합니다.
-                    orb.passiveAmount -= 1;
+                        // 3. [데이터 수정] amount(passiveAmount)를 1 감소
+                        // 슬더스 기본 구체들은 passiveAmount를 주 수치로 사용합니다.
+                        orb.passiveAmount -= 1;
 
-                    // 4. [흐름 갱신] 수치가 변했으므로 시각적 요소와 텍스트를 업데이트
-                    orb.updateDescription(); // 마우스를 올렸을 때 나오는 설명 갱신
+                        // 4. [흐름 갱신] 수치가 변했으므로 시각적 요소와 텍스트를 업데이트
+                        orb.updateDescription(); // 마우스를 올렸을 때 나오는 설명 갱신
 
-                    // 5. [피드백] 수치가 변했음을 유저가 인지하도록 효과 추가
-                    orb.showEvokeValue();    // 수치 변화 연출
-                    break; // 하나만 깎을 경우 루프 종료
+                        // 5. [피드백] 수치가 변했음을 유저가 인지하도록 효과 추가
+                        orb.showEvokeValue();    // 수치 변화 연출
+                        break; // 루프 종료
+                    }
                 }
             }
             aimedUse(p, m);

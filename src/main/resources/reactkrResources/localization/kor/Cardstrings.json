@@ -461,6 +461,38 @@
     "NAME": "구르기",
     "DESCRIPTION": "${ModID}:회피를 !M! 얻습니다."
   },
+  "${ModID}:LuckyDice": {
+    "NAME": "럭키 다이스",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL 방어도를 !D! ~ !${ModID}:sd! 얻습니다. NL ${ModID}:회피를 !D! ~ !${ModID}:sd! 얻습니다. NL 소멸."
+  },
+  "${ModID}:Counter": {
+    "NAME": "카운터!",
+    "DESCRIPTION": "공격을 ${ModID}:회피할 때 마다 피해를 !M! 줍니다."
+  },
+  "${ModID}:Confidence": {
+    "NAME": "자신감",
+    "DESCRIPTION": "${ModID}:회피를 !M! 얻습니다. NL 이번 턴 받는 피해가 2배가 됩니다."
+  },
+  "${ModID}:Roller": {
+    "NAME": "회전초",
+    "DESCRIPTION": "${ModID}:회피하지 못한 공격을 받을 때마다 ${ModID}:회피를 !M! 얻습니다."
+  },
+  "${ModID}:LuckySeven": {
+    "NAME": "럭키세븐",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL 1/7 확률로 피해가 !M! 배가 됩니다."
+  },
+  "${ModID}:TenPerc": {
+    "NAME": "10%",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL 10% 확률로 빗나갑니다. NL 10% 확률로 피해가 !M! 배가 됩니다. NL ${ModID}:조준 : 공격이 빗나가지 않습니다."
+  },
+  "${ModID}:tempDraw": {
+    "NAME": "이름없음1",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. 무작위로 !${ModID}:m2! 장 버립니다."
+  },
+  "${ModID}:tempExaust": {
+    "NAME": "이름없음2",
+    "DESCRIPTION": "패를 전부 소멸시킵니다. NL 이번 턴 패가 비었을 때 카드를 1장 뽑습니다. NL 소멸."
+  },
 
   "${ModID}:Latte_Strike": {
     "NAME": "타격",
