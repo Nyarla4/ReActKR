@@ -62,7 +62,7 @@
   },
   "${ModID}:LostDelusion": {
     "NAME": "로스트=딜루전",
-    "DESCRIPTION": "손의 카드를 모두 소멸시킵니다. 소멸한만큼 무작위 카드를 생성합니다. NL 생성된 카드의 비용을 1 감소합니다. NL 휘발성 NL 소멸"
+    "DESCRIPTION": "손의 카드를 모두 소멸시킵니다. 소멸한만큼 무작위 카드를 생성합니다. NL 생성된 카드의 비용을 1 감소합니다. NL 휘발성 NL 소멸."
   },
   "${ModID}:YuriJoa": {
     "NAME": "백합좋아",
@@ -73,7 +73,7 @@
   },
   "${ModID}:YuriAtkDef": {
     "NAME": "백합공수론",
-    "DESCRIPTION": "${ModID}:망상인자를 3 얻습니다. 힘을 민첩으로, 민첩을 힘으로 바꿉니다. NL 소멸",
+    "DESCRIPTION": "${ModID}:망상인자를 3 얻습니다. 힘을 민첩으로, 민첩을 힘으로 바꿉니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
       "힘과 민첩을 1 얻습니다. 힘과 민첩이 더 높은 쪽으로 맞춰집니다. NL 소멸."
     ]
@@ -87,11 +87,11 @@
   },
   "${ModID}:SixArms": {
     "NAME": "팔은 6개가 좋아",
-    "DESCRIPTION": "피해를 !D! 줍니다. 버린 카드 더미에 있는 카드 1장을 선택하여 손으로 가져옵니다. NL 소멸",
+    "DESCRIPTION": "피해를 !D! 줍니다. 버린 카드 더미에 있는 카드 1장을 선택하여 손으로 가져옵니다. NL 소멸.",
     "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 버린 카드 더미에 있는 카드 1장을 선택하여 손으로 가져옵니다.",
     "EXTENDED_DESCRIPTION": [
       "피해를 ${ModID}:망상인자 (",
-      ")만큼 줍니다. 버린 카드 더미에 있는 카드 1장을 선택하여 손으로 가져옵니다. NL 소멸",
+      ")만큼 줍니다. 버린 카드 더미에 있는 카드 1장을 선택하여 손으로 가져옵니다. NL 소멸.",
       ")만큼 줍니다. 버린 카드 더미에 있는 카드 1장을 선택하여 손으로 가져옵니다."
     ]
   },
@@ -104,8 +104,8 @@
   },
   "${ModID}:RorokaPunch": {
     "NAME": "로로펀치",
-    "DESCRIPTION": "${ModID}:로로카의 체력의 반만큼 적에게 피해를 줍니다.",
-    "UPGRADE_DESCRIPTION": "${ModID}:로로카의 체력만큼 적에게 피해를 줍니다."
+    "DESCRIPTION": "${ModID}:로로카의 체력의 반만큼 피해를 줍니다.",
+    "UPGRADE_DESCRIPTION": "${ModID}:로로카의 체력만큼 피해를 줍니다."
   },
   "${ModID}:RorokaBeam": {
     "NAME": "로로빔",
@@ -117,41 +117,41 @@
   },
   "${ModID}:ColorKurokaLike": {
     "NAME": "좋아하는 색",
-    "DESCRIPTION": "하나 선택: NL *검정 을 얻거나 *빨강 을 얻습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "*검정 과 *빨강 을 얻습니다. NL 소멸",
+    "DESCRIPTION": "하나 선택: NL *검정 을 얻거나 *빨강 을 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "*검정 과 *빨강 을 얻습니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
-      "검정색! NL 피해와 약화를 줍니다. NL 소멸",
-      "빨간색! NL 피해와 취약을 줍니다. NL 소멸"
+      "검정색! NL 피해와 약화를 줍니다. NL 소멸.",
+      "빨간색! NL 피해와 취약을 줍니다. NL 소멸."
     ]
   },
   "${ModID}:ColorBlack": {
     "NAME": "검정",
-    "DESCRIPTION": "피해를 !D! 줍니다. 약화를 !M! 줍니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 약화를 !M! 줍니다. NL 소멸 보존"
+    "DESCRIPTION": "피해를 !D! 줍니다. 약화를 !M! 줍니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 약화를 !M! 줍니다. NL 소멸. 보존."
   },
   "${ModID}:ColorRed": {
     "NAME": "빨강",
-    "DESCRIPTION": "피해를 !D! 줍니다. 취약을 !M! 줍니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 취약을 !M! 줍니다. NL 소멸 보존"
+    "DESCRIPTION": "피해를 !D! 줍니다. 취약을 !M! 줍니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 취약을 !M! 줍니다. NL 소멸. 보존."
   },
   "${ModID}:NumberKurokaLike": {
     "NAME": "좋아하는 숫자",
     "DESCRIPTION": "하나 선택: NL *4 를 얻거나 *6 을 얻습니다.",
     "UPGRADE_DESCRIPTION": "4와 6을 얻습니다.",
     "EXTENDED_DESCRIPTION": [
-      "4! NL 방어도를 얻습니다. NL 소멸",
-      "6! NL 피해를 줍니다. NL 소멸"
+      "4! NL 방어도를 얻습니다. NL 소멸.",
+      "6! NL 피해를 줍니다. NL 소멸."
     ]
   },
   "${ModID}:NumberFour": {
     "NAME": "4",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "보존 NL 방어도를 !B! 얻습니다. NL 소멸"
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "보존. NL 방어도를 !B! 얻습니다. NL 소멸."
   },
   "${ModID}:NumberSix": {
     "NAME": "6",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "보존 NL 피해를 !D! 줍니다. NL 소멸"
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "보존. NL 피해를 !D! 줍니다. NL 소멸."
   },
   "${ModID}:MajinaiChop": {
     "NAME": "마지나이 춉",
@@ -187,7 +187,7 @@
   },
   "${ModID}:DokkaItte": {
     "NAME": "어디로 좀 가버려",
-    "DESCRIPTION": "손의 카드를 모두 소멸시킵니다. 소멸된만큼 *주술(회전안함) 을 생성합니다. NL 소멸"
+    "DESCRIPTION": "손의 카드를 모두 소멸시킵니다. 소멸된만큼 *주술(회전안함) 을 생성합니다. NL 소멸."
   },
   "${ModID}:NandeWatashi": {
     "NAME": "어째서 어째서 나만",
@@ -195,7 +195,7 @@
   },
   "${ModID}:Jujutsu": {
     "NAME": "주술(회전안함)",
-    "DESCRIPTION": "${ModID}:주문을 !M! 겁니다. NL 소멸"
+    "DESCRIPTION": "${ModID}:주문을 !M! 겁니다. NL 소멸."
   },
   "${ModID}:BrokenDie": {
     "NAME": "풀려버렸으니까, 죽어",
@@ -217,7 +217,7 @@
   },
   "${ModID}:Cutie": {
     "NAME": "깜찍이!",
-    "DESCRIPTION": "재생을 !M! 얻습니다. NL 소멸"
+    "DESCRIPTION": "재생을 !M! 얻습니다. NL 소멸."
   },
   "${ModID}:WoaHoo": {
     "NAME": "워후",
@@ -245,10 +245,10 @@
   },
   "${ModID}:KurokachanKawaii": {
     "NAME": "쿠로카쨩귀여워사랑해잘했어대단해천재야",
-    "DESCRIPTION": "${ModID}:망상인자를 !M! 얻습니다. NL 패의 카드 1장을 전투가 끝날 때까지 강화합니다. NL 소멸",
+    "DESCRIPTION": "${ModID}:망상인자를 !M! 얻습니다. NL 패의 카드 1장을 전투가 끝날 때까지 강화합니다. NL 소멸.",
     "UPGRADE_DESCRIPTION": "${ModID}:망상인자를 !M! 얻습니다. NL 패의 카드 1장을 전투가 끝날 때까지 강화합니다.",
     "EXTENDED_DESCRIPTION": [
-      "패의 모든 카드를 전투가 끝날 때까지 강화합니다. NL 소멸",
+      "패의 모든 카드를 전투가 끝날 때까지 강화합니다. NL 소멸.",
       "패의 모든 카드를 전투가 끝날 때까지 강화합니다. NL 카드를 1장 뽑습니다."
     ]
   },
@@ -333,7 +333,7 @@
   },
   "${ModID}:RoroGaki": {
     "NAME": "로로가키",
-    "DESCRIPTION": "힘을 !M! 얻습니다. NL 힘은 !${ModID}:m2! 턴동안 유지됩니다. NL 소멸"
+    "DESCRIPTION": "힘을 !M! 얻습니다. NL 힘은 !${ModID}:m2! 턴동안 유지됩니다. NL 소멸."
   },
   "${ModID}:Scholar": {
     "NAME": "스꼴라",
@@ -365,7 +365,7 @@
   },
   "${ModID}:ParticleBarrier": {
     "NAME": "입자방벽",
-    "DESCRIPTION": "방어도를 !B! 줍니다. NL ${ModID}:궁극기 : 불가침을 얻고 !M! 턴간 공격을 받은 횟수만큼 NL 일시적으로 힘을 !${ModID}:m2! 얻습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL ${ModID}:궁극기 : 불가침을 얻고 !M! 턴간 공격을 받은 횟수만큼 NL 일시적으로 힘을 !${ModID}:m2! 얻습니다."
   },
   "${ModID}:8192": {
     "NAME": "1/8192",
@@ -397,8 +397,8 @@
   },
   "${ModID}:SevenOrFive": {
     "NAME": "볼거야?",
-    "DESCRIPTION": "하나 선택: NL *7시 를 얻거나 *5시 를 얻습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "*7시 와 *5시 를 얻습니다. NL 소멸",
+    "DESCRIPTION": "하나 선택: NL *7시 를 얻거나 *5시 를 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "*7시 와 *5시 를 얻습니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
       "피해를 입고 힘을 얻습니다.",
       "힘을 얻습니다.",
@@ -407,12 +407,12 @@
   },
   "${ModID}:Seven": {
     "NAME": "7시",
-    "DESCRIPTION": "피해를 !M! 입고 힘을 !${ModID}:m2! 얻습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION" : "힘을 !${ModID}:m2! 얻습니다. NL 소멸"
+    "DESCRIPTION": "피해를 !M! 입고 힘을 !${ModID}:m2! 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION" : "힘을 !${ModID}:m2! 얻습니다. NL 소멸."
   },
   "${ModID}:Five": {
     "NAME": "5시",
-    "DESCRIPTION": "체력을 !M! 회복합니다. NL 소멸"
+    "DESCRIPTION": "체력을 !M! 회복합니다. NL 소멸."
   },
   "${ModID}:MayoJump": {
     "NAME": "마용점프",
@@ -594,15 +594,15 @@
     ]
   },
   "${ModID}:RetainBlock": {
-    "NAME": "보존 방어",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 소멸. 보존. NL 턴 종료 시 패에 있을 경우 방어도를 !B! 얻습니다.",
+    "NAME": "방어 보존",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 소멸. 보존. NL ${ModID}:지속 : 방어도를 !B! 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       "안쓰면 방어도 얻지요"
     ]
   },
   "${ModID}:AutoDraw": {
     "NAME": "자동 드로우",
-    "DESCRIPTION": "이 카드를 뽑으면, 카드를 !M!장 뽑습니다. NL 소멸합니다.",
+    "DESCRIPTION": "${ModID}:자동 : 카드를 !M!장 뽑습니다. NL 소멸합니다.",
     "EXTENDED_DESCRIPTION": [
       "자동으로 !M!장 뽑지요"
     ]
@@ -626,8 +626,8 @@
 
   "${ModID}:TheLongThing": {
     "NAME": "그 긴거",
-    "DESCRIPTION": "그 긴거를 성창합니다 NL 소멸.",
-    "UPGRADE_DESCRIPTION": "선천성 NL 그 긴거를 성창합니다 NL 소멸."
+    "DESCRIPTION": "그 긴거를 성창합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "선천성 NL 그 긴거를 성창합니다. NL 소멸."
   },
   "${ModID}:TheThing1": {
     "NAME": "다크소울",
@@ -705,11 +705,11 @@
   },
   "${ModID}:Kira_Chat": {
     "NAME": "저챗키라",
-    "DESCRIPTION": "1턴간 힘을 !M! 얻습니다. NL 턴 종료시 *노래키라로 바뀝니다. NL 보존"
+    "DESCRIPTION": "1턴간 힘을 !M! 얻습니다. NL 턴 종료시 *노래키라로 바뀝니다. NL 보존."
   },
   "${ModID}:Kira_Song": {
     "NAME": "노래키라",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 턴 종료시 *저챗키라로 바뀝니다. NL 보존"
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 턴 종료시 *저챗키라로 바뀝니다. NL 보존."
   },
   "${ModID}:UtaWaku": {
     "NAME": "우타와꾸",

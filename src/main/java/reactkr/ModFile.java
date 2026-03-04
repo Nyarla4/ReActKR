@@ -107,6 +107,7 @@ public class ModFile implements
     public static Settings.GameLanguage[] SupportedLanguages = {
             Settings.GameLanguage.ENG,
             Settings.GameLanguage.KOR,
+            Settings.GameLanguage.JPN
     };
 
     private String getLangString() {

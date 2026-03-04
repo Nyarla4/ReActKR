@@ -1,0 +1,9 @@
+{
+  "${ModID}:RorokaOrb": {
+    "NAME": "로로카",
+    "DESCRIPTION": [
+      "로로카 방어중! [",
+      "]"
+    ]
+  }
+}
