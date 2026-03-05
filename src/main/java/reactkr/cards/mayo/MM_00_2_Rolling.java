@@ -21,12 +21,12 @@ public class MM_00_2_Rolling extends AbstractEasyCard_Mayo {
     }
 
     @Override
-    public void upp() {
-        upgradeMagicNumber(6);
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new ApplyPowerAction(p, p, new MM_03_EvasionPower(p, magicNumber)));
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new MM_03_EvasionPower(p, magicNumber)));
+    public void upp() {
+        upgradeMagicNumber(6);
     }
 }

@@ -14,12 +14,14 @@ import java.util.ArrayList;
 
 public class ExhaustAndGenerateAction extends AbstractGameAction {
     private ArrayList<AbstractCard.CardColor> targetColors;
+    private int exhaust;
     private int count;
 
-    public ExhaustAndGenerateAction(ArrayList<AbstractCard.CardColor> colors, int count) {
+    public ExhaustAndGenerateAction(ArrayList<AbstractCard.CardColor> colors, int exhaust, int count) {
         this.targetColors = colors;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
+        this.exhaust = exhaust;
         this.count = count;
     }
 
@@ -31,7 +33,7 @@ public class ExhaustAndGenerateAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
-            AbstractDungeon.handCardSelectScreen.open("소멸시킬 카드를 선택하세요.", 1, false, false);
+            AbstractDungeon.handCardSelectScreen.open("소멸시킬 카드를 선택하세요.", exhaust, false, false);
             this.tickDuration();
             return;
         }

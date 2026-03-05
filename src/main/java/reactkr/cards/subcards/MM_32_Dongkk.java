@@ -1,8 +1,7 @@
-package reactkr.cards.mayo;
+package reactkr.cards.subcards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -11,25 +10,25 @@ import reactkr.cards.AbstractEasyCard_Mayo;
 
 import static reactkr.ModFile.makeID;
 
-public class MM_33_Dongkk extends AbstractEasyCard_Mayo {
+public class MM_32_Dongkk extends AbstractEasyCard_Mayo {
     public final static String ID = makeID("Dongkk");
 
-    public MM_33_Dongkk() {
+    public MM_32_Dongkk() {
         this(false);
     }
 
-    public MM_33_Dongkk(boolean isPreview) {
+    public MM_32_Dongkk(boolean isPreview) {
         super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ENEMY);
         baseMagicNumber = magicNumber = 6;
         if (!isPreview) {
-            cardsToPreview = new MM_34_Chongkk(true);
+            cardsToPreview = new MM_32_Chongkk(true);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
-        AbstractCard target = new MM_34_Chongkk();
+        AbstractCard target = new MM_32_Chongkk();
         if(upgraded)
             target.upgrade();
         addToBot(new MakeTempCardInDrawPileAction(target.makeStatEquivalentCopy(), 1, true, true));
@@ -46,6 +45,6 @@ public class MM_33_Dongkk extends AbstractEasyCard_Mayo {
 
     @Override
     public AbstractCard makeCopy() {
-        return new MM_33_Dongkk();
+        return new MM_32_Dongkk();
     }
 }

@@ -22,7 +22,6 @@ public class MM_17_MayoSaintSword extends AbstractAimedCard {
         super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = damage = 15;
         baseSecondDamage = secondDamage = 20;
-        baseMagicNumber = magicNumber = 10;
     }
 
     @Override
@@ -31,22 +30,17 @@ public class MM_17_MayoSaintSword extends AbstractAimedCard {
     }
 
     @Override
-    public void aimedUse(AbstractPlayer p, AbstractMonster m) {
-
-    }
-
-    @Override
     public int basicDepletion() {
-        return 10;
-    }
-
-    @Override
-    protected CardKind Kind() {
-        return CardKind.ATK;
+        return -1;
     }
 
     @Override
     public void upp() {
-        upgradeSecondMagic(1);
+
+    }
+
+    @Override
+    protected boolean useBullet() {
+        return false;
     }
 }

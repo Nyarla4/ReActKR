@@ -28,11 +28,6 @@ public class MM_23_LuckyDice extends AbstractAimedCard {
     }
 
     @Override
-    protected CardKind Kind() {
-        return CardKind.ATK;
-    }
-
-    @Override
     public void normalUse(AbstractPlayer p, AbstractMonster m) {
         int[] results = new int[3];
 
@@ -65,17 +60,17 @@ public class MM_23_LuckyDice extends AbstractAimedCard {
     }
 
     @Override
-    public void aimedUse(AbstractPlayer p, AbstractMonster m) {
+    public void upp() {
+        upgradeSecondMagic(2);
+    }
 
+    @Override
+    protected boolean useBullet() {
+        return false;
     }
 
     @Override
     public int basicDepletion() {
         return -1;
-    }
-
-    @Override
-    public void upp() {
-        upgradeSecondMagic(2);
     }
 }

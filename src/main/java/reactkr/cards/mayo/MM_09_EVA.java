@@ -28,16 +28,6 @@ public class MM_09_EVA extends AbstractAimedCard {
     }
 
     @Override
-    public void aimedUse(AbstractPlayer p, AbstractMonster m) {
-        blck();
-    }
-
-    @Override
-    protected CardKind Kind() {
-        return CardKind.ATK;
-    }
-
-    @Override
     public void upp() {
         upgradeDamage(3);
         upgradeSecondDamage(3);
@@ -55,5 +45,10 @@ public class MM_09_EVA extends AbstractAimedCard {
     @Override
     public int basicDepletion() {
         return upgraded ? 5 : 6;
+    }
+
+    @Override
+    protected boolean useBullet() {
+        return true;
     }
 }

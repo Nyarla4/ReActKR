@@ -38,14 +38,14 @@ public class MM_00_WarningShot extends AbstractAimedCard {
     }
 
     @Override
-    protected CardKind Kind() {
-        return CardKind.ATK;
-    }
-
-    @Override
     public void upp() {
         upgradeDamage(3);
         upgradeSecondDamage(3);
         upgradeMagicNumber(1);
+    }
+
+    @Override
+    protected boolean useBullet() {
+        return true;
     }
 }

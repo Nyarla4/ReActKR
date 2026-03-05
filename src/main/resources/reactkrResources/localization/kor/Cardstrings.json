@@ -350,7 +350,7 @@
   },
   "${ModID}:WarningShot": {
     "NAME": "위협사격",
-    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 취약을 !M! 부여합니다."
+    "DESCRIPTION": "${ModID}:총기 NL 피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 취약을 !M! 부여합니다."
   },
   "${ModID}:PiercingLaugh": {
     "NAME": "낑낑",
@@ -381,15 +381,15 @@
   },
   "${ModID}:R301": {
     "NAME": "R-301 카빈",
-    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL ${ModID}:조준 : 방어도를 !B! 얻습니다."
+    "DESCRIPTION": "${ModID}:총기 NL 피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL ${ModID}:조준 : 방어도를 !B! 얻습니다."
   },
   "${ModID}:EVA": {
     "NAME": "EVA 샷건",
-    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL ${ModID}:고갈이 1일때 피해를 한 번 더 줍니다."
+    "DESCRIPTION": "${ModID}:총기 NL 피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL ${ModID}:고갈이 1일때 피해를 한 번 더 줍니다."
   },
   "${ModID}:VK47": {
     "NAME": "VK-47 플랫라인",
-    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL 얘는 추가효과도 없고 조준도 없고"
+    "DESCRIPTION": "${ModID}:총기 NL 피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M!"
   },
   "${ModID}:Midoba": {
     "NAME": "체포!",
@@ -435,7 +435,7 @@
   },
   "${ModID}:MayoSaintSword": {
     "NAME": "마요 성검",
-    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. ${ModID}:고갈 !M! NL 얘는 추가효과도 없고 조준도 없고"
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다."
   },
   "${ModID}:GetHP": {
     "NAME": "분쇄탄",
@@ -447,11 +447,11 @@
   },
   "${ModID}:BunnyHop": {
     "NAME": "버니합",
-    "DESCRIPTION": "휘발성 NL ${ModID}:흐릿함을 얻습니다. NL ${ModID}:궁극기 : 대신 ${ModID}:흐릿함을 3 얻습니다."
+    "DESCRIPTION": "휘발성. NL ${ModID}:흐릿함을 얻습니다. NL ${ModID}:궁극기 : 대신 ${ModID}:흐릿함을 3 얻습니다."
   },
   "${ModID}:Obscuration": {
     "NAME": "엄폐",
-    "DESCRIPTION": "방어도를 !D! ~ !${ModID}:sd! 얻습니다. NL ${ModID}:조준 : 방어도를 !M! 더 얻습니다."
+    "DESCRIPTION": "방어도를 !D! ~ !${ModID}:sd! 얻습니다. NL ${ModID}:조준 / ${ModID}:퀵드로 : 방어도를 !M! 더 얻습니다."
   },
   "${ModID}:MayoToliet": {
     "NAME": "마요의 화장실",
@@ -491,11 +491,11 @@
   },
   "${ModID}:tempExaust": {
     "NAME": "이름없음2",
-    "DESCRIPTION": "패를 전부 소멸시킵니다. NL 이번 턴 패가 비었을 때 카드를 1장 뽑습니다. NL 소멸."
+    "DESCRIPTION": "패를 전부 소멸시킵니다. NL 이번 턴 패가 비었을 때 카드를 !M! 장 뽑습니다. NL 소멸."
   },
   "${ModID}:WingMan": {
     "NAME": "윙맨",
-    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL 10% 확률로 피해가 !M! 배가 됩니다."
+    "DESCRIPTION": "${ModID}:총기 NL 피해를 !D! ~ !${ModID}:sd! 줍니다. NL 10% 확률로 피해가 !M! 배가 됩니다. NL 소멸."
   },
   "${ModID}:Babkk": {
     "NAME": "밥ㅋㅋ",
@@ -510,9 +510,12 @@
     "DESCRIPTION": "피해를 !D! 줍니다. NL *밥ㅋㅋ를 덱에 넣습니다."
   },
   "${ModID}:OIIA": {
-    "NAME": "OIIA",
-    "DESCRIPTION": "턴 시작 시 1장을 뽑고 무작위로 1장을 버립니다.",
-    "UPGRADE_DESCRIPTION": "턴 시작 시 1장을 뽑고 1장을 버립니다."
+    "NAME": "O I I A",
+    "DESCRIPTION": "턴 시작 시 !M! 장을 뽑고 에너지 !M! 을 얻습니다."
+  },
+  "${ModID}:Reload": {
+    "NAME": "장전",
+    "DESCRIPTION": "이번 턴 종료 시 공격 카드 !M! 장을 보존합니다."
   },
 
   "${ModID}:Latte_Strike": {
@@ -714,9 +717,9 @@
   },
   "${ModID}:Mayo": {
     "NAME": "마요",
-    "DESCRIPTION": "${ModID}:조준 : 취약을 !M! 부여합니다. NL 피해를 !D! ~ !${ModID}:sd! 줍니다.",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 취약을 !M! 부여합니다. NL ${ModID}:퀵드로 : 약화를 !M! 부여합니다.",
     "EXTENDED_DESCRIPTION": [
-      "${ModID}:조준 : 취약을 !${ModID}:m2! 부여합니다. NL 피해를 !D! ~ !${ModID}:sd! 줍니다."
+      "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 취약을 !M! 부여합니다. NL ${ModID}:퀵드로 : 약화를 !${ModID}:m2! 부여합니다."
     ]
   },
 

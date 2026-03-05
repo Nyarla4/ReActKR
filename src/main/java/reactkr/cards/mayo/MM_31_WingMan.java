@@ -21,11 +21,6 @@ public class MM_31_WingMan extends AbstractAimedCard{
     }
 
     @Override
-    protected CardKind Kind() {
-        return null;
-    }
-
-    @Override
     public void normalUse(AbstractPlayer p, AbstractMonster m) {
         int rand1 = AbstractDungeon.cardRandomRng.random(1, 100);
         if (rand1 <= 10) {
@@ -35,8 +30,8 @@ public class MM_31_WingMan extends AbstractAimedCard{
     }
 
     @Override
-    public void aimedUse(AbstractPlayer p, AbstractMonster m) {
-
+    protected boolean useBullet() {
+        return true;
     }
 
     @Override

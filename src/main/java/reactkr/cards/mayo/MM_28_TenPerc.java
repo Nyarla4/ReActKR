@@ -22,11 +22,6 @@ public class MM_28_TenPerc extends AbstractAimedCard {
     }
 
     @Override
-    protected CardKind Kind() {
-        return CardKind.ATK;
-    }
-
-    @Override
     public void normalUse(AbstractPlayer p, AbstractMonster m) {
         int rand1 = AbstractDungeon.cardRandomRng.random(1, 100);
         logger.info("감나빗 " + rand1);
@@ -34,7 +29,7 @@ public class MM_28_TenPerc extends AbstractAimedCard {
             return;
         }
         int rand2 = AbstractDungeon.cardRandomRng.random(1, 100);
-        logger.info("2배 " + rand2);
+        logger.info("배 " + rand2);
         if (rand2 <= 10) {
             finalDamage *= magicNumber;
         }
@@ -42,8 +37,8 @@ public class MM_28_TenPerc extends AbstractAimedCard {
     }
 
     @Override
-    public void aimedUse(AbstractPlayer p, AbstractMonster m) {
-
+    protected boolean useBullet() {
+        return false;
     }
 
     @Override

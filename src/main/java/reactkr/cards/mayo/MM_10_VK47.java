@@ -27,16 +27,6 @@ public class MM_10_VK47 extends AbstractAimedCard {
     }
 
     @Override
-    public void aimedUse(AbstractPlayer p, AbstractMonster m) {
-
-    }
-
-    @Override
-    protected CardKind Kind() {
-        return CardKind.ATK;
-    }
-
-    @Override
     public void upp() {
         upgradeDamage(-2);
         upgradeSecondDamage(5);
@@ -54,5 +44,10 @@ public class MM_10_VK47 extends AbstractAimedCard {
     @Override
     public int basicDepletion() {
         return upgraded ? 4 : 3;
+    }
+
+    @Override
+    protected boolean useBullet() {
+        return true;
     }
 }

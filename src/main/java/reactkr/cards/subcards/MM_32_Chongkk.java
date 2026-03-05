@@ -1,23 +1,23 @@
-package reactkr.cards.mayo;
+package reactkr.cards.subcards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import reactkr.cards.AbstractEasyCard_Mayo;
+import reactkr.cards.mayo.MM_32_Babkk;
 
 import static reactkr.ModFile.makeID;
 
-public class MM_34_Chongkk extends AbstractEasyCard_Mayo {
+public class MM_32_Chongkk extends AbstractEasyCard_Mayo {
     public final static String ID = makeID("Chongkk");
 
-    public MM_34_Chongkk() {
+    public MM_32_Chongkk() {
         this(false);
     }
 
-    public MM_34_Chongkk(boolean isPreview) {
+    public MM_32_Chongkk(boolean isPreview) {
         super(ID, 1, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY);
         baseDamage = damage = 6;
         if (!isPreview) {
@@ -45,6 +45,6 @@ public class MM_34_Chongkk extends AbstractEasyCard_Mayo {
 
     @Override
     public AbstractCard makeCopy() {
-        return new MM_34_Chongkk();
+        return new MM_32_Chongkk();
     }
 }

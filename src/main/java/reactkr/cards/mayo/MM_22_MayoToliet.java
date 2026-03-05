@@ -26,7 +26,7 @@ public class MM_22_MayoToliet extends AbstractEasyCard_Mayo {
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new WeakPower(p, 1, false));
         for(AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(m, 1, false)));
+            addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(m, magicNumber, false)));
         }
     }
 

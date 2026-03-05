@@ -30,8 +30,8 @@ public class MM_08_R301 extends AbstractAimedCard {
     }
 
     @Override
-    protected CardKind Kind() {
-        return CardKind.ATK;
+    public void quickUse(AbstractPlayer p, AbstractMonster m) {
+
     }
 
     @Override
@@ -42,15 +42,12 @@ public class MM_08_R301 extends AbstractAimedCard {
     }
 
     @Override
-    public void applyPowers() {
-        super.applyPowers();
-        if (magicNumber == 1) {
-            exhaust = true;
-        }
+    public int basicDepletion() {
+        return upgraded ? 3 : 2;
     }
 
     @Override
-    public int basicDepletion() {
-        return upgraded ? 3 : 2;
+    protected boolean useBullet() {
+        return true;
     }
 }

@@ -67,7 +67,7 @@
     "NAME": "네즈밍",
     "FLAVOR": "콘매용 찍찍",
     "DESCRIPTIONS": [
-      "#y조준의 범위가 1장 늘어납니다."
+      "#y조준과 #y퀵드로의 범위가 1장 늘어납니다."
     ]
   },
   "${ModID}:MagazineRelic": {

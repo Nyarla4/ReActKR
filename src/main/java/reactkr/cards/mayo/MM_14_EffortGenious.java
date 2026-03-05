@@ -39,8 +39,8 @@ public class MM_14_EffortGenious extends AbstractEasyCard_Mayo {
     }
 
     public void upgrade() {
-        this.upgradeDamage(4 + this.timesUpgraded);//4+(강화수치-1)
-        this.upgradeSecondDamage(4 + this.timesUpgraded);
+        this.upgradeDamage(3);//4+(강화수치-1)
+        this.upgradeSecondDamage(3);
         ++this.timesUpgraded;
         this.upgraded = true;
         this.name = cardStrings.NAME + "+" + this.timesUpgraded;

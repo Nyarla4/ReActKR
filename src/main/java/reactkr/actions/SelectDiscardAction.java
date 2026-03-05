@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class RelicSelectDiscardAction extends AbstractGameAction {
-    private AbstractPlayer p;
+public class SelectDiscardAction extends AbstractGameAction {
+    private final AbstractPlayer p;
 
-    public RelicSelectDiscardAction(int amount) {
+    public SelectDiscardAction(int amount) {
         this.p = AbstractDungeon.player;
         this.amount = amount; // 최대 선택 가능 장수 (2장)
         this.duration = Settings.ACTION_DUR_XFAST;
@@ -29,7 +29,7 @@ public class RelicSelectDiscardAction extends AbstractGameAction {
                - anyNumber: true일 경우, 정해진 amount보다 적게 선택해도 '확인' 버튼이 활성화됩니다.
                - canPickZero: true일 경우, 한 장도 선택하지 않고 '확인'을 누를 수 있습니다.
             */
-            AbstractDungeon.handCardSelectScreen.open("버릴 카드를 선택하세요 (최대 2장).", this.amount, true, true);
+            AbstractDungeon.handCardSelectScreen.open("버릴 카드를 선택하세요 (최대 "+amount+"장).", this.amount, true, true);
             this.tickDuration();
             return;
         }

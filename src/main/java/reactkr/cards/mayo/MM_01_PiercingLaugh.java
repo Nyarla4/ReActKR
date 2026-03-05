@@ -22,7 +22,7 @@ public class MM_01_PiercingLaugh extends AbstractEasyCard_Mayo {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public MM_01_PiercingLaugh() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY);
         baseMagicNumber = magicNumber = 7;
         baseSecondMagic = secondMagic = 1;
         this.exhaust = true;

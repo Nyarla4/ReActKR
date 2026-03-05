@@ -19,7 +19,10 @@ public class MM_01_NezmingRelic extends AbstractEasyRelic {
         super.initializeTips();
 
         String keyword = makeID("조준");
+        String keyword2 = makeID("퀵드로");
         this.tips.add(new PowerTip(BaseMod.getKeywordProper(keyword),
                 BaseMod.getKeywordDescription(keyword)));
+        this.tips.add(new PowerTip(BaseMod.getKeywordProper(keyword2),
+                BaseMod.getKeywordDescription(keyword2)));
     }
 }

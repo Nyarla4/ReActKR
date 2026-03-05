@@ -22,11 +22,6 @@ public class MM_27_LuckySeven extends AbstractAimedCard {
     }
 
     @Override
-    protected CardKind Kind() {
-        return CardKind.ATK;
-    }
-
-    @Override
     public void normalUse(AbstractPlayer p, AbstractMonster m) {
         int rand = AbstractDungeon.cardRandomRng.random(1, 7);
         logger.info(rand);
@@ -37,8 +32,8 @@ public class MM_27_LuckySeven extends AbstractAimedCard {
     }
 
     @Override
-    public void aimedUse(AbstractPlayer p, AbstractMonster m) {
-
+    protected boolean useBullet() {
+        return false;
     }
 
     @Override

@@ -30,7 +30,7 @@ public class MM_16_CallMeMama extends AbstractEasyCard_Mayo {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ExhaustAndGenerateAction(colors, secondMagic));
+        addToBot(new ExhaustAndGenerateAction(colors, magicNumber, secondMagic));
     }
 
     @Override

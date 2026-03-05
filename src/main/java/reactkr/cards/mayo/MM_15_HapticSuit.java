@@ -34,8 +34,4 @@ public class MM_15_HapticSuit extends AbstractEasyCard_Mayo {
     public void upp() {
         upgradeSecondMagic(1);
     }
-
-    public boolean canUpgrade() {
-        return true;
-    }
 }

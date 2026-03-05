@@ -13,7 +13,7 @@ public class MM_21_Obscuration extends AbstractAimedCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public MM_21_Obscuration() {
-        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         baseDamage = damage = 6;
         baseSecondDamage = secondDamage = 10;
         baseMagicNumber = magicNumber = 3;
@@ -33,6 +33,16 @@ public class MM_21_Obscuration extends AbstractAimedCard {
     }
 
     @Override
+    public void quickUse(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new GainBlockAction(p, magicNumber));
+    }
+
+    @Override
+    protected boolean useBullet() {
+        return false;
+    }
+
+    @Override
     public void upp() {
         upgradeDamage(-2);
         upgradeSecondDamage(5);
@@ -42,10 +52,5 @@ public class MM_21_Obscuration extends AbstractAimedCard {
     @Override
     public int basicDepletion() {
         return -1;
-    }
-
-    @Override
-    protected CardKind Kind() {
-        return CardKind.DEF;
     }
 }
