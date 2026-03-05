@@ -11,20 +11,19 @@ import reactkr.actions.TransformCardInHandAction;
 import static reactkr.ModFile.makeID;
 import static reactkr.util.Wiz.applyToSelf;
 
-public class Kira_Chat extends AbstractPreviewCard {
+public class Kira_Chat extends AbstractEasyCard {
     public final static String ID = makeID("Kira_Chat");
 
     public Kira_Chat() {
+        this(false);
+    }
+
+    public Kira_Chat(boolean isPreview) {
         super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, CardColor.COLORLESS);
         baseMagicNumber = magicNumber = 6;
         selfRetain = true;
-    }
-
-    @Override
-    public void update(){
-        super.update();
-        if(this.cardsToPreview == null){
-            initializePreview(new Kira_Song());
+        if (!isPreview) {
+            cardsToPreview = new Kira_Song(true);
         }
     }
 
@@ -36,12 +35,18 @@ public class Kira_Chat extends AbstractPreviewCard {
 
     @Override
     public void upp() {
-        this.cardsToPreview = null;
+        if (cardsToPreview != null) {
+            cardsToPreview.upgrade();
+        }
         upgradeMagicNumber(2);
     }
 
     @Override
     public void onRetained() {
-        addToTop(new TransformCardInHandAction(this,new Kira_Song()));
+        AbstractCard target = new Kira_Song();
+        if(upgraded){
+            target.upgrade();
+        }
+        addToTop(new TransformCardInHandAction(this, target.makeStatEquivalentCopy()));
     }
 }

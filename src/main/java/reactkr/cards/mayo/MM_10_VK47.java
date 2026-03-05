@@ -12,7 +12,7 @@ public class MM_10_VK47 extends AbstractAimedCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public MM_10_VK47() {
-        super(ID, 0, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
+        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = damage = 5;
         baseSecondDamage = secondDamage = 9;
         baseMagicNumber = magicNumber = 3;

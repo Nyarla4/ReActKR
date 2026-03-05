@@ -18,7 +18,7 @@
   },
   "${ModID}:Majinai": {
     "NAME": "주문",
-    "DESCRIPTION": "${ModID}:주문을 !M! 겁니다. NL 소멸"
+    "DESCRIPTION": "${ModID}:주문을 !M! 겁니다. NL 소멸."
   },
   "${ModID}:SuperStrike": {
     "NAME": "공격할때소리촥",
@@ -30,8 +30,8 @@
   },
   "${ModID}:ParryMan": {
     "NAME": "패링맨",
-    "DESCRIPTION": "가장 좌측의 공격을 ${ModID}:패링합니다. NL 보존 NL 패링시 소멸",
-    "UPGRADE_DESCRIPTION": "가장 좌측의 공격을 ${ModID}:패링합니다. NL 보존 NL 패링시 소멸 NL 패링 가능 시간이 길어집니다."
+    "DESCRIPTION": "가장 좌측의 공격을 ${ModID}:패링합니다. NL 보존 NL 패링시 소멸.",
+    "UPGRADE_DESCRIPTION": "가장 좌측의 공격을 ${ModID}:패링합니다. NL 보존 NL 패링시 소멸. NL 패링 가능 시간이 길어집니다."
   },
   "${ModID}:SecomMasada": {
     "NAME": "센티멘탈코무로마이클사카모토다다선생",
@@ -131,8 +131,8 @@
   },
   "${ModID}:ColorRed": {
     "NAME": "빨강",
-    "DESCRIPTION": "피해를 !D! 줍니다. 취약을 !M! 줍니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 취약을 !M! 줍니다. NL 소멸. 보존."
+    "DESCRIPTION": "피해를 !D! 줍니다. 취약을 !M! 부여합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 취약을 !M! 부여합니다. NL 소멸. 보존."
   },
   "${ModID}:NumberKurokaLike": {
     "NAME": "좋아하는 숫자",
@@ -276,7 +276,7 @@
   },
   "${ModID}:RoroDenounce": {
     "NAME": "로로카식 매도",
-    "DESCRIPTION": "${ModID}:로로카의 최대체력이 !M! 증가합니다. NL 로로카가 살아있다면 NL 턴 시작 시 무작위 적에게 취약을 !${ModID}:m2! 겁니다."
+    "DESCRIPTION": "${ModID}:로로카의 최대체력이 !M! 증가합니다. NL 로로카가 살아있다면 NL 턴 시작 시 무작위 적에게 취약을 !${ModID}:m2! 부여합니다."
   },
   "${ModID}:RoroHochi": {
     "NAME": "로로카 홋치",
@@ -350,7 +350,7 @@
   },
   "${ModID}:WarningShot": {
     "NAME": "위협사격",
-    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 취약을 !M! 줍니다."
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 취약을 !M! 부여합니다."
   },
   "${ModID}:PiercingLaugh": {
     "NAME": "낑낑",
@@ -492,6 +492,27 @@
   "${ModID}:tempExaust": {
     "NAME": "이름없음2",
     "DESCRIPTION": "패를 전부 소멸시킵니다. NL 이번 턴 패가 비었을 때 카드를 1장 뽑습니다. NL 소멸."
+  },
+  "${ModID}:WingMan": {
+    "NAME": "윙맨",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL 10% 확률로 피해가 !M! 배가 됩니다."
+  },
+  "${ModID}:Babkk": {
+    "NAME": "밥ㅋㅋ",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL *똥ㅋㅋ를 덱에 넣습니다."
+  },
+  "${ModID}:Dongkk": {
+    "NAME": "똥ㅋㅋ",
+    "DESCRIPTION": "취약을 !M! 부여합니다. NL *총ㅋㅋ를 덱에 넣습니다."
+  },
+  "${ModID}:Chongkk": {
+    "NAME": "총ㅋㅋ",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL *밥ㅋㅋ를 덱에 넣습니다."
+  },
+  "${ModID}:OIIA": {
+    "NAME": "OIIA",
+    "DESCRIPTION": "턴 시작 시 1장을 뽑고 무작위로 1장을 버립니다.",
+    "UPGRADE_DESCRIPTION": "턴 시작 시 1장을 뽑고 1장을 버립니다."
   },
 
   "${ModID}:Latte_Strike": {
@@ -686,16 +707,16 @@
   },
   "${ModID}:Kuroka": {
     "NAME": "쿠로카",
-    "DESCRIPTION": "${ModID}:주문을 !M! 겁니다. NL 소멸",
+    "DESCRIPTION": "${ModID}:주문을 !M! 겁니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
       "${ModID}:주문을 !M! 겁니다."
     ]
   },
   "${ModID}:Mayo": {
     "NAME": "마요",
-    "DESCRIPTION": "${ModID}:조준 : 취약을 !M! 줍니다. NL 피해를 !D! ~ !${ModID}:sd! 줍니다.",
+    "DESCRIPTION": "${ModID}:조준 : 취약을 !M! 부여합니다. NL 피해를 !D! ~ !${ModID}:sd! 줍니다.",
     "EXTENDED_DESCRIPTION": [
-      "${ModID}:조준 : 취약을 !${ModID}:m2! 줍니다. NL 피해를 !D! ~ !${ModID}:sd! 줍니다."
+      "${ModID}:조준 : 취약을 !${ModID}:m2! 부여합니다. NL 피해를 !D! ~ !${ModID}:sd! 줍니다."
     ]
   },
 
@@ -726,6 +747,6 @@
 
   "${ModID}:WimpyTiger": {
     "NAME": "쭈글호랭이",
-    "DESCRIPTION": "땅굴파는바부멍탱구리호랭이 NL 소멸"
+    "DESCRIPTION": "땅굴파는 NL 바부멍탱구리 NL 호랭이 NL 소멸."
   }
 }

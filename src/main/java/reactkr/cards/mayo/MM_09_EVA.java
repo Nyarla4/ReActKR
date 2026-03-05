@@ -12,7 +12,7 @@ public class MM_09_EVA extends AbstractAimedCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public MM_09_EVA() {
-        super(ID, 0, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
+        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = damage = 6;
         baseSecondDamage = secondDamage = 8;
         baseBlock = block = 6;

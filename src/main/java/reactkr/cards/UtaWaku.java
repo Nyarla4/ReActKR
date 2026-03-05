@@ -25,7 +25,7 @@ import reactkr.util.ProAudio;
 import static reactkr.ModFile.makeID;
 import static reactkr.util.Wiz.playAudio;
 
-public class UtaWaku extends AbstractPreviewCard {
+public class UtaWaku extends AbstractEasyCard {
     public final static String ID = makeID("UtaWaku");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private float previewTimer = 0f;

@@ -197,6 +197,14 @@
       "장 뽑습니다."
     ]
   },
+  "${ModID}:OIIAPower": {
+    "NAME": "OIIA",
+    "DESCRIPTIONS": [
+      "턴 시작 시 카드를 1장 뽑고 1장을 ",
+      "무작위로 ",
+      "버립니다."
+    ]
+  },
 
   "${ModID}:NoBadWordPower": {
     "NAME": "나쁜 말 금지",

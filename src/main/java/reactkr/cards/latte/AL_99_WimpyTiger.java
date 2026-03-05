@@ -13,7 +13,8 @@ public class AL_99_WimpyTiger extends AbstractEasyCard_Latte {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public AL_99_WimpyTiger() {
-        super(ID, 1, CardType.CURSE, CardRarity.CURSE, CardTarget.NONE);
+        super(ID, 0, CardType.CURSE, CardRarity.CURSE, CardTarget.NONE);
+        this.exhaust = true;
         initializeSummaryPreview();
     }
 
