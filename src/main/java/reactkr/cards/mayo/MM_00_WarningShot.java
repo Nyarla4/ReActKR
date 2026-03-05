@@ -20,6 +20,7 @@ public class MM_00_WarningShot extends AbstractAimedCard {
         baseDamage = damage = 6;
         baseSecondDamage = secondDamage = 8;
         baseMagicNumber = magicNumber = 1;
+        useAim = true;
     }
 
     @Override

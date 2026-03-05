@@ -26,6 +26,7 @@ public class MM_13_MayoJump extends AbstractAimedCard {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
         baseMagicNumber = magicNumber = 1;
         baseSecondMagic = secondMagic = 3;
+        useAim = true;
     }
 
     @Override

@@ -20,6 +20,8 @@ import reactkr.relics.mayo.MM_01_NezmingRelic;
 public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
     protected int finalDamage;
     private static final Logger logger = LogManager.getLogger(AbstractAimedCard.class.getName());
+    protected boolean useAim = false;
+    protected boolean useQuick = false;
 
     public AbstractAimedCard(String cardID, int cost, CardType type, CardRarity rarity, CardTarget target) {
         this(cardID, cost, type, rarity, target, Mayo.Enums.MAYO_COLOR);
@@ -94,8 +96,10 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
 
     @Override
     public void triggerOnGlowCheck() {
-        this.glowColor = isAimed() ?
+        this.glowColor = isAimed()&&useAim ?
                 AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy() :
+                isQuick()&&useQuick ?
+                AbstractCard.GREEN_BORDER_GLOW_COLOR.cpy() :
                 AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
     }
 

@@ -17,6 +17,8 @@ public class MM_21_Obscuration extends AbstractAimedCard {
         baseDamage = damage = 6;
         baseSecondDamage = secondDamage = 10;
         baseMagicNumber = magicNumber = 3;
+        useAim = true;
+        useQuick = true;
     }
 
     @Override

@@ -17,6 +17,7 @@ public class MM_08_R301 extends AbstractAimedCard {
         baseSecondDamage = secondDamage = 8;
         baseBlock = block = 6;
         baseMagicNumber = magicNumber = 2;
+        useAim = true;
     }
 
     @Override
@@ -27,11 +28,6 @@ public class MM_08_R301 extends AbstractAimedCard {
     @Override
     public void aimedUse(AbstractPlayer p, AbstractMonster m) {
         blck();
-    }
-
-    @Override
-    public void quickUse(AbstractPlayer p, AbstractMonster m) {
-
     }
 
     @Override
