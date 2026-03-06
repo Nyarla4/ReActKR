@@ -17,7 +17,7 @@ public class MM_24_Counter extends AbstractEasyCard_Mayo {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public MM_24_Counter() {
-        super(ID, 0, CardType.POWER, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 0, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 3;
     }
 

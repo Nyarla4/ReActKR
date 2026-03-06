@@ -15,7 +15,7 @@ public class MM_26_Roller extends AbstractEasyCard_Mayo {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public MM_26_Roller() {
-        super(ID, 0, CardType.POWER, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 0, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 5;
     }
 

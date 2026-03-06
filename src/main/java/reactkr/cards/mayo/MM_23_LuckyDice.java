@@ -20,7 +20,7 @@ public class MM_23_LuckyDice extends AbstractAimedCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public MM_23_LuckyDice() {
-        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = damage = 1;
         baseSecondDamage = secondDamage = 6;
         baseSecondMagic = secondMagic = 5;

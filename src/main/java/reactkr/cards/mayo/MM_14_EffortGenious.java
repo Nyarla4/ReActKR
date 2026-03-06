@@ -19,7 +19,7 @@ public class MM_14_EffortGenious extends AbstractEasyCard_Mayo {
     private static final Logger logger = LogManager.getLogger(MM_14_EffortGenious.class.getName());
 
     public MM_14_EffortGenious() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = damage = 7;
         baseSecondDamage = secondDamage = 9;
     }

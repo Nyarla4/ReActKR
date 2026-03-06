@@ -435,7 +435,7 @@
   },
   "${ModID}:MayoSaintSword": {
     "NAME": "마요 성검",
-    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다."
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 적 전체에 피해를 !M! 줍니다. NL ${ModID}:퀵드로 : 기절을 !${ModID}:m2! 부여합니다."
   },
   "${ModID}:GetHP": {
     "NAME": "분쇄탄",
@@ -516,6 +516,32 @@
   "${ModID}:Reload": {
     "NAME": "장전",
     "DESCRIPTION": "이번 턴 종료 시 공격 카드 !M! 장을 보존합니다."
+  },
+  "${ModID}:EchoDrone": {
+    "NAME": "전설의 마요드론",
+    "DESCRIPTION": "회피를 !M! 얻습니다. NL 적을 !${ModID}:m2! 턴 ${ModID}:기절 시킵니다."
+  },
+  "${ModID}:Ricochet": {
+    "NAME": "도탄",
+    "DESCRIPTION": "사용불가. NL 이 카드가 버려지면 무작위 적에게 피해를 !D! 줍니다.",
+    "EXTENDED_DESCRIPTION": [
+      "여기 적을 메시지 추천받음"
+    ]
+  },
+  "${ModID}:Twisted": {
+    "NAME": "삐끗",
+    "DESCRIPTION": "사용불가. NL 이 카드가 버려지면 ${ModID}:회피를 !M! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "여기 적을 메시지 추천받음"
+    ]
+  },
+  "${ModID}:Smoke": {
+    "NAME": "연막탄",
+    "DESCRIPTION": "이번 턴에만 ${ModID}:회피를 !M! 얻습니다. NL 소멸."
+  },
+  "${ModID}:Stylish": {
+    "NAME": "스타일리시",
+    "DESCRIPTION": "${ModID}:랭크가 오를 때마다 방어도를 !B! 얻습니다."
   },
 
   "${ModID}:Latte_Strike": {

@@ -35,6 +35,10 @@ public class MM_03_EvasionPower extends AbstractEasyPower {
 
     @Override
     public void stackPower(int amount) {
+        if(this.amount + amount <= 0) {
+            this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, POWER_ID));
+            return;
+        }
         this.amount = Math.min(amount + this.amount, maxAmount);
     }
 
