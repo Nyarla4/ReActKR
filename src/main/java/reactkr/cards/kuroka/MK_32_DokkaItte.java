@@ -33,10 +33,11 @@ public class MK_32_DokkaItte extends AbstractEasyCard_Kuroka {
             count++;
         }
 
-        atb(new MakeTempCardInHandAction(previewCard.makeCopy(), count));
+        atb(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), count));
     }
 
     public void upp() {
+        this.cardsToPreview.upgrade();
         upgradeBaseCost(1);
     }
 }
