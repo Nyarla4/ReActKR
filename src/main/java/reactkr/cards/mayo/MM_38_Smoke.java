@@ -8,10 +8,6 @@ import reactkr.cards.AbstractEasyCard_Mayo;
 import reactkr.powers.DelayedPower;
 import reactkr.powers.mayo.MM_03_EvasionPower;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
-
 import static reactkr.ModFile.makeID;
 
 public class MM_38_Smoke extends AbstractEasyCard_Mayo {

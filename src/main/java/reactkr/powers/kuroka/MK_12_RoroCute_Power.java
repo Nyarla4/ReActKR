@@ -11,8 +11,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 
 import static reactkr.ModFile.makeID;
 
@@ -48,8 +46,8 @@ public class MK_12_RoroCute_Power extends AbstractRorokaPower {
             }
         }
         if (!aliveMonsters.isEmpty()) {
-            Collections.shuffle(aliveMonsters, new Random(AbstractDungeon.cardRandomRng.randomLong()));
-            AbstractMonster randomMonster = aliveMonsters.get(0);
+            int randomIndex = AbstractDungeon.miscRng.random(0, aliveMonsters.size() - 1);
+            AbstractMonster randomMonster = aliveMonsters.get(randomIndex);
 
             if (randomMonster != null) {
                 addToBot(new ApplyPowerAction(randomMonster, this.owner, new WeakPower(randomMonster, amount2, false)));

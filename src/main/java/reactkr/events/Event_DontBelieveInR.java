@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.EventStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import reactkr.Kuroka;
 import reactkr.cards.kuroka.MK_99_Scholar;
@@ -19,7 +20,6 @@ import reactkr.cards.subcards.AL_00_1_SelectIceAmericano;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import static reactkr.ModFile.makeID;
 
@@ -91,9 +91,9 @@ public class Event_DontBelieveInR extends AbstractImageEvent {
                     int decValue = AbstractDungeon.player.maxHealth - 66;
                     AbstractDungeon.player.decreaseMaxHealth(decValue);
 
-                    Random r = new Random();
-                    int idx = r.nextInt(colorlessCards.size());
-                    previewCard = colorlessCards.get(idx);
+                    int randomIndex = AbstractDungeon.eventRng.random(0, colorlessCards.size() - 1);
+
+                    previewCard = colorlessCards.get(randomIndex);
 
                     AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(previewCard, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f));
 

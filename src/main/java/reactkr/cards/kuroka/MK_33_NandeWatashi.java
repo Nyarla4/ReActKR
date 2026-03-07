@@ -15,8 +15,6 @@ import reactkr.orbs.kuroka.MK_00_RorokaOrb;
 import reactkr.powers.kuroka.MK_01_Majinai_Power;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 
 import static reactkr.ModFile.makeID;
 import static reactkr.util.Wiz.atb;

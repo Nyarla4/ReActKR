@@ -9,8 +9,6 @@ import reactkr.cards.AbstractEasyCard_Kuroka;
 import reactkr.powers.kuroka.MK_01_Majinai_Power;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 
 import static reactkr.ModFile.makeID;
 
@@ -35,8 +33,9 @@ public class MK_25_MajinaiDraw extends AbstractEasyCard_Kuroka {
         if (!aliveMonsters.isEmpty()) {
             //System.out.println("DEBUG: 현재 살아있는 적의 수 = " + aliveMonsters.size());
             for (int i = 0; i < 2; i++) {
-                Collections.shuffle(aliveMonsters, new Random(AbstractDungeon.cardRandomRng.randomLong()));
-                AbstractMonster randomMonster = aliveMonsters.get(0);
+                int randomIndex = AbstractDungeon.miscRng.random(0, aliveMonsters.size() - 1);
+
+                AbstractMonster randomMonster = aliveMonsters.get(randomIndex);
 
                 if (randomMonster != null) {
                     this.addToBot(new ApplyPowerAction(randomMonster, p, new MK_01_Majinai_Power(randomMonster, secondMagic), secondMagic));

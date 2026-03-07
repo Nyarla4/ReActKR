@@ -1,22 +1,12 @@
 package reactkr.powers.kuroka;
 
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.powers.AbstractEasyPower;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
-
-import static reactkr.ModFile.makeID;
 
 public abstract class AbstractRorokaPower extends AbstractEasyPower {
     private static final PowerStrings powerStrings;

@@ -13,8 +13,6 @@ import reactkr.powers.kuroka.MK_01_Majinai_Power;
 import reactkr.powers.mayo.MM_03_EvasionPower;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 
 import static reactkr.ModFile.makeID;
 
@@ -49,8 +47,8 @@ public class MM_36_Ricochet extends AbstractEasyCard_Mayo {
             }
         }
         if (!aliveMonsters.isEmpty()) {
-            Collections.shuffle(aliveMonsters, new Random(AbstractDungeon.cardRandomRng.randomLong()));
-            AbstractMonster randomMonster = aliveMonsters.get(0);
+            int randomIndex = AbstractDungeon.miscRng.random(0, aliveMonsters.size() - 1);
+            AbstractMonster randomMonster = aliveMonsters.get(randomIndex);
 
             if (randomMonster != null) {
                 addToBot(new DamageAction(randomMonster, new DamageInfo(AbstractDungeon.player, damage)));

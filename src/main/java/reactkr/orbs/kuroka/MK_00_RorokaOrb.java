@@ -15,18 +15,10 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.Kuroka;
-import reactkr.actions.AddRorokaHPAction;
 import reactkr.powers.kuroka.AbstractRorokaPower;
-import reactkr.powers.kuroka.MK_01_Majinai_Power;
-import reactkr.powers.kuroka.MK_14_RoroHochi_Power;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 
 import static reactkr.ModFile.makeID;
 import static reactkr.ModFile.makePath;
-import static reactkr.util.Wiz.atb;
 
 public class MK_00_RorokaOrb extends CustomOrb {
 

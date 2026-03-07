@@ -16,7 +16,6 @@ import reactkr.relics.SulkTentenRelic;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Random;
 
 import static reactkr.ModFile.makeID;
 
@@ -56,8 +55,7 @@ public class Event_Tenten extends AbstractImageEvent {
             case 0:
                 if (buttonPressed == 2) { // 정답 선택 시
 
-                    Random r = new Random();
-                    int idx = r.nextInt(rareCards.size());
+                    int idx = AbstractDungeon.eventRng.random(0, rareCards.size()-1);
                     AbstractCard targetCard = rareCards.get(idx);
 
                     AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(targetCard, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f));

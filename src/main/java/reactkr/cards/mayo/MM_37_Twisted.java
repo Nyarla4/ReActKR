@@ -10,8 +10,6 @@ import reactkr.cards.AbstractEasyCard_Mayo;
 import reactkr.powers.mayo.MM_03_EvasionPower;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 
 import static reactkr.ModFile.makeID;
 
@@ -46,8 +44,8 @@ public class MM_37_Twisted extends AbstractEasyCard_Mayo {
             }
         }
         if (!aliveMonsters.isEmpty()) {
-            Collections.shuffle(aliveMonsters, new Random(AbstractDungeon.cardRandomRng.randomLong()));
-            AbstractMonster randomMonster = aliveMonsters.get(0);
+            int randomIndex = AbstractDungeon.miscRng.random(0, aliveMonsters.size() - 1);
+            AbstractMonster randomMonster = aliveMonsters.get(randomIndex);
 
             if (randomMonster != null) {
                 AbstractPlayer p = AbstractDungeon.player;
