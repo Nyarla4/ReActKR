@@ -1,19 +1,10 @@
 package reactkr.relics.mayo;
 
 import basemod.BaseMod;
-import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.vfx.SpeechBubble;
-import reactkr.Kuroka;
-import reactkr.Latte;
 import reactkr.Mayo;
-import reactkr.actions.SelectAndResetMagicNumberAction;
-import reactkr.cards.mayo.AbstractAimedCard;
 import reactkr.relics.AbstractEasyRelic;
 
 import static reactkr.ModFile.makeID;

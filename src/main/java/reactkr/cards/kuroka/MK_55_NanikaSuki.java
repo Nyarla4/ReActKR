@@ -44,7 +44,7 @@ public class MK_55_NanikaSuki extends AbstractEasyCard_Kuroka {
         if (this.energyOnUse != -1) {
             effectCount = this.energyOnUse;
         }
-        if (p.hasRelic("Chemical X")) { // 케미컬 X 유물 대응 구조
+        if (p.hasRelic("Chemical X")) {
             effectCount += 2;
         }
 

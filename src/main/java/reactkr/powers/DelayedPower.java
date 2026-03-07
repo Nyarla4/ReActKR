@@ -16,14 +16,14 @@ public class DelayedPower extends AbstractPower {
     private static final Logger logger = LogManager.getLogger(DelayedPower.class.getName());
     private int delayedTurn;
     private boolean isLose;
-    private boolean untilNext;
+    private boolean atStart;
 
     // 파라미터: 소유자, 유지 턴 수, 나중에 실행할 파워 객체
     public DelayedPower(AbstractCreature owner, int turns, AbstractPower powerToApply) {
         this(owner, turns, powerToApply, false);
     }
 
-    public DelayedPower(AbstractCreature owner, int turns, AbstractPower powerToApply, boolean untilNext) {
+    public DelayedPower(AbstractCreature owner, int turns, AbstractPower powerToApply, boolean atStart) {
         //나중에 실행할 파워가 양수: 현재는 잃은 상태, 음수: 현재는 얻은 상태
         this.name = powerToApply.name + " " + (powerToApply.amount > 0 ? "상실" : "유지") + " (" + turns + "턴)";
         this.ID = POWER_ID + "_" + powerToApply.ID + "_" + turns; // 여러 종류의 버프가 걸릴 수 있으므로 ID를 고유하게 설정
@@ -35,7 +35,7 @@ public class DelayedPower extends AbstractPower {
         this.type = PowerType.DEBUFF;
         this.isTurnBased = true;
 
-        this.untilNext = untilNext;
+        this.atStart = atStart;
 
         // 아이콘은 나중에 사라질 파워의 아이콘을 그대로 가져와서 씁니다 (직관적)
         this.region48 = powerToApply.region48;
@@ -52,7 +52,7 @@ public class DelayedPower extends AbstractPower {
 
     @Override
     public void atStartOfTurn() {
-        if (!untilNext)
+        if (!atStart)
             return;
         this.delayedTurn--;
         if (this.delayedTurn <= 0) {
@@ -66,7 +66,7 @@ public class DelayedPower extends AbstractPower {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        if (untilNext)
+        if (atStart)
             return;
         this.delayedTurn--;
         if (this.delayedTurn <= 0) {

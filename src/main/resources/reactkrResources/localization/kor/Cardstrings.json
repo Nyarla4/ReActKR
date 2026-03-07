@@ -543,6 +543,14 @@
     "NAME": "스타일리시",
     "DESCRIPTION": "${ModID}:랭크가 오를 때마다 방어도를 !B! 얻습니다."
   },
+  "${ModID}:ChicagoTypewriter": {
+    "NAME": "시카고 타자기",
+    "DESCRIPTION": "이번 턴 동안 적에게 ${ModID}:회피를 !M! 부여합니다. NL X 피해를 !M! 번 줍니다."
+  },
+  "${ModID}:Aiming": {
+    "NAME": "조준",
+    "DESCRIPTION": "턴 시작 시 패의 카드 !M! 장을 가장 왼쪽으로 옮깁니다."
+  },
 
   "${ModID}:Latte_Strike": {
     "NAME": "타격",

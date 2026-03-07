@@ -23,12 +23,9 @@ public class MK_01_MajitomoRelic extends AbstractEasyRelic {
     public void atBattleStart() {
         this.flash(); // 유물이 반짝이는 시각 효과
 
-        // 1. 살아있는 몬스터 중 무작위 하나 선택
         AbstractMonster target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
 
         if (target != null) {
-            // 2. 선택된 적에게 디버프(예: 취약 1) 부여
-            // addToTop을 사용하여 전투 시작 시 가장 먼저 처리되도록 합니다.
             addToTop(new ApplyPowerAction(target, AbstractDungeon.player,
                     new MK_01_Majinai_Power(target, 1), 1));
         }

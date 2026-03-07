@@ -75,10 +75,7 @@ public class MM_01_UltPower extends AbstractEasyPower {
 
     @Override
     public void stackPower(int amount) {
-        if (this.amount > maxAmount - 1) {
-            return;
-        }
-        super.stackPower(amount);
+        this.amount = Math.min(this.amount + amount, maxAmount);
     }
 
     static {

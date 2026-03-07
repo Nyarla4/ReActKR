@@ -212,6 +212,13 @@
       "장 보존합니다."
     ]
   },
+  "${ModID}:AimPower": {
+    "NAME": "조준",
+    "DESCRIPTIONS": [
+      "턴 시작 시 패의 카드 ",
+      " 장을 가장 왼쪽으로 옮깁니다."
+    ]
+  },
 
   "${ModID}:NoBadWordPower": {
     "NAME": "나쁜 말 금지",

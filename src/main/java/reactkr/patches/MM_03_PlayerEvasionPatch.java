@@ -1,5 +1,6 @@
 package reactkr.patches;
 
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatches;
@@ -11,10 +12,12 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.powers.mayo.MM_03_EvasionPower;
 import reactkr.powers.mayo.MM_04_CounterPower;
+import reactkr.relics.mayo.MM_04_tempRelic;
 
 @SpirePatches({
         @SpirePatch(clz = AbstractPlayer.class, method = "damage", paramtypez = {DamageInfo.class}),
@@ -37,9 +40,19 @@ public class MM_03_PlayerEvasionPatch {
             if (rand <= pow.amount) {
 
                 pow.flash();
-                pow.amount /= 2;
+                int decrease = pow.amount/2;
+                if (__instance instanceof AbstractPlayer) {
+                    AbstractPlayer p = (AbstractPlayer) __instance;
+                    if (p.hasRelic(MM_04_tempRelic.ID)) {
+                        decrease = pow.amount/4;
+                    }
+                }
+                pow.amount -= decrease;
+
+                AbstractDungeon.effectList.add(new TextAboveCreatureEffect(info.owner.hb.cX, info.owner.hb.cY, "감나빗!", Color.LIME.cpy()));
+
                 // *반격
-                if(__instance.hasPower(MM_04_CounterPower.POWER_ID)){
+                if (__instance.hasPower(MM_04_CounterPower.POWER_ID)) {
                     AbstractDungeon.actionManager.addToTop(new DamageAction(info.owner, new DamageInfo(__instance, __instance.getPower(MM_04_CounterPower.POWER_ID).amount)));
                 }
                 // 5. 즉시 종료
