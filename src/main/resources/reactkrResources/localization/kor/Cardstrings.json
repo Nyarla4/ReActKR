@@ -553,7 +553,7 @@
   },
   "${ModID}:tempShot": {
     "NAME": "이름없음3",
-    "DESCRIPTION": "${ModID}:총기 NL 자신포함 무작위 대상에게 피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 대상에서 본인을 제외합니다."
+    "DESCRIPTION": "${ModID}:총기 NL 본인포함 무작위 대상에게 피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 대상에서 본인을 제외합니다."
   },
 
   "${ModID}:Latte_Strike": {

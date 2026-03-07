@@ -21,6 +21,7 @@ public class MM_42_tempShot extends AbstractAimedCard {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL);
         baseDamage = damage = 8;
         baseSecondDamage = secondDamage = 12;
+        useAim = true;
     }
 
     @Override
