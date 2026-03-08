@@ -4,7 +4,7 @@
     <groupId>UnimportantInfo</groupId>
 
     <artifactId>ReActKR</artifactId>
-    <version>1.7.8.0.5</version>
+    <version>1.7.8.0.6</version>
     <name>Re:Act KR Fan mode</name>
     <description>
 ReAct KR 팬모드에요
@@ -12,6 +12,9 @@ ReAct KR 팬모드에요
 쿠로카 개발 완료
 마요 개발중
 라떼 개발중
+
+슬더스2는 개발자 측에서 베이스 만들어주면 할거에요
+맨땅인 지금은 힘들어...
     </description>
     <!-- Change the above for mod information. -->
 
