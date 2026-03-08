@@ -555,6 +555,18 @@
     "NAME": "이름없음3",
     "DESCRIPTION": "${ModID}:총기 NL 본인포함 무작위 대상에게 피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 대상에서 본인을 제외합니다."
   },
+  "${ModID}:tempAimedDraw": {
+    "NAME": "이름없음4",
+    "DESCRIPTION": "왼쪽에서 2장을 버립니다. 카드를 !M! 장 뽑습니다."
+  },
+  "${ModID}:ISO": {
+    "NAME": "아이소",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 방어도를 !B! 얻습니다. NL ${ModID}:궁극기 : 적이 둘 이상이라면, 다른 무작위 적을 ${ModID}:기절 시킵니다."
+  },
+  "${ModID}:JETT": {
+    "NAME": "제트",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL ${ModID}:궁극기 : 방어도를 모두 잃고, 그만큼 ${ModID}:회피를 얻습니다."
+  },
 
   "${ModID}:Latte_Strike": {
     "NAME": "타격",

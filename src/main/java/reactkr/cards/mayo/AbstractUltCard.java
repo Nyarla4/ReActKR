@@ -23,15 +23,16 @@ public abstract class AbstractUltCard extends AbstractEasyCard_Mayo {
         normalUse(p, m);
         if (p.hasPower(MM_01_UltPower.POWER_ID)) {
             if (p.getPower(MM_01_UltPower.POWER_ID).amount >= MM_01_UltPower.maxAmount) {
-                ultUse(p, m);
-                addToBot(new RemoveSpecificPowerAction(p, p, MM_01_UltPower.POWER_ID));
+                if(ultUse(p, m)) {
+                    addToBot(new RemoveSpecificPowerAction(p, p, MM_01_UltPower.POWER_ID));
+                }
             }
         }
     }
 
     abstract void normalUse(AbstractPlayer p, AbstractMonster m);
 
-    abstract void ultUse(AbstractPlayer p, AbstractMonster m);
+    abstract boolean ultUse(AbstractPlayer p, AbstractMonster m);
 
     protected boolean ultCharged() {
         AbstractPlayer p = AbstractDungeon.player;

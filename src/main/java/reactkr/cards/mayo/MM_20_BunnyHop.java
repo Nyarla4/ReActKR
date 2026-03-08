@@ -31,7 +31,8 @@ public class MM_20_BunnyHop extends AbstractUltCard {
     }
 
     @Override
-    void ultUse(AbstractPlayer p, AbstractMonster m) {
+    boolean ultUse(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new BlurPower(p, 3));
+        return true;
     }
 }

@@ -32,7 +32,7 @@ public class MM_03_ParticleBarrier extends AbstractUltCard {
     }
 
     @Override
-    void ultUse(AbstractPlayer p, AbstractMonster m) {
+    boolean ultUse(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new IntangiblePower(p, 1));
         if (p.hasPower(MM_02_ParticleBarrierUltPower.POWER_ID)) {
             AbstractPower pow = p.getPower(MM_02_ParticleBarrierUltPower.POWER_ID);
@@ -46,5 +46,6 @@ public class MM_03_ParticleBarrier extends AbstractUltCard {
             applyToSelf(pow);
             pow.updateDescription();
         }
+        return true;
     }
 }
