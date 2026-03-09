@@ -2,12 +2,16 @@ package reactkr.cards.mayo;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.GainGoldTextEffect;
+import com.megacrit.cardcrawl.vfx.RainingGoldEffect;
 import reactkr.actions.TripleSlotAction;
 import reactkr.cards.AbstractEasyCard_Mayo;
 import reactkr.powers.mayo.MM_03_EvasionPower;
@@ -33,30 +37,38 @@ public class MM_23_LuckyDice extends AbstractAimedCard {
 
         // 롤 결과
         int roll = AbstractDungeon.cardRandomRng.random(1, 100);
-        if(isAimed()){
-            baseDamage = 7;
+        if (isAimed()) {
+            damage = 7;
+        } else {
+            damage = (roll <= secondMagic) ? 7 : AbstractDungeon.cardRandomRng.random(1, 6);
         }
-        else{
-            baseDamage = (roll <= secondMagic) ? 7 : AbstractDungeon.cardRandomRng.random(1, 6);
-        }
-        results[0] = baseDamage;
+        results[0] = damage;
 
         roll = AbstractDungeon.cardRandomRng.random(1, 100);
-        baseBlock = (roll <= secondMagic) ? 7 : AbstractDungeon.cardRandomRng.random(1, 6);
-        results[1] = baseBlock;
+        block = (roll <= secondMagic) ? 7 : AbstractDungeon.cardRandomRng.random(1, 6);
+        results[1] = block;
 
         roll = AbstractDungeon.cardRandomRng.random(1, 100);
-        baseMagicNumber = (roll <= secondMagic) ? 7 : AbstractDungeon.cardRandomRng.random(1, 6);
-        results[2] = baseMagicNumber;
+        magicNumber = (roll <= secondMagic) ? 7 : AbstractDungeon.cardRandomRng.random(1, 6);
+        results[2] = magicNumber;
 
         // 슬롯머신 효과
         this.addToBot(new TripleSlotAction(results));
 
-        dmg(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
-        addToBot(new GainBlockAction(p, baseBlock));
-        applyToSelf(new MM_03_EvasionPower(p, baseMagicNumber));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+        addToBot(new GainBlockAction(p, block));
+        addToBot(new ApplyPowerAction(p, p, new MM_03_EvasionPower(p, magicNumber)));
 
-        p.gainGold(baseDamage * baseBlock * baseMagicNumber);
+        int goldAmount = damage * block * magicNumber;
+        this.addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                AbstractDungeon.player.gainGold(goldAmount);
+                AbstractDungeon.effectList.add(new RainingGoldEffect(goldAmount));
+                AbstractDungeon.effectList.add(new GainGoldTextEffect(goldAmount));
+                this.isDone = true;
+            }
+        });
     }
 
     @Override

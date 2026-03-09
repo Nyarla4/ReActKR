@@ -40,10 +40,10 @@ public class MM_02_ParticleBarrierUltPower extends AbstractEasyPower {
         return damageAmount;
     }
 
-    @Override
-    public void atStartOfTurn() {
-        this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, POWER_ID));
-    }
+//    @Override
+//    public void atStartOfTurn() {
+//        this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, POWER_ID));
+//    }
 
     @Override
     public void updateDescription() {
