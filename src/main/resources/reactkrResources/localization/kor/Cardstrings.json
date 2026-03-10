@@ -292,7 +292,10 @@
   },
   "${ModID}:PepZeLi": {
     "NAME": "펩제라",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. 다음 턴에 에너지를 !M! 얻습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. 다음 턴에 에너지를 !M! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "피해를 !M! 받습니다니다. NL "
+    ]
   },
   "${ModID}:SpicyNakjiKimchiJook": {
     "NAME": "매콤낙지김치죽",
@@ -566,6 +569,10 @@
   "${ModID}:JETT": {
     "NAME": "제트",
     "DESCRIPTION": "방어도를 !B! 얻습니다. NL ${ModID}:궁극기 : 방어도를 모두 잃고, 그만큼 ${ModID}:회피를 얻습니다."
+  },
+  "${ModID}:EternalEvasion": {
+    "NAME": "영구 회피",
+    "DESCRIPTION": "이번 전투동안 영구적인 ${ModID}:회피를 !M! 얻습니다."
   },
 
   "${ModID}:Latte_Strike": {

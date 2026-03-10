@@ -81,13 +81,6 @@ public class P2WRelic extends AbstractEasyRelic implements ClickableRelic {
     }
 
     @Override
-    public boolean canSpawn() {
-        return AbstractDungeon.player.chosenClass == Kuroka.Enums.THE_KUROKA ||
-                AbstractDungeon.player.chosenClass == Mayo.Enums.THE_MAYO ||
-                AbstractDungeon.player.chosenClass == Latte.Enums.THE_LATTE;
-    }
-
-    @Override
     public void onRightClick() {
         // 1. 전투 중인지 확인
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
@@ -106,5 +99,12 @@ public class P2WRelic extends AbstractEasyRelic implements ClickableRelic {
             else
                 addToBot(new GainBlockAction(p, 1));//방어도
         }
+    }
+
+    @Override
+    public boolean canSpawn() {
+        return AbstractDungeon.player.chosenClass.equals(Kuroka.Enums.THE_KUROKA) ||
+                AbstractDungeon.player.chosenClass.equals(Mayo.Enums.THE_MAYO) ||
+                AbstractDungeon.player.chosenClass.equals(Latte.Enums.THE_LATTE);
     }
 }

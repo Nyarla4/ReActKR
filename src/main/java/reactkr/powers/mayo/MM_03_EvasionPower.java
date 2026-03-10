@@ -26,6 +26,7 @@ public class MM_03_EvasionPower extends AbstractEasyPower {
     public static final String[] DESCRIPTIONS;
     private static final Logger logger = LogManager.getLogger(MM_03_EvasionPower.class.getName());
     private static final int maxAmount = 100;
+    public int ETERNAL_AMOUNT = 0;
 
     public MM_03_EvasionPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
@@ -33,16 +34,19 @@ public class MM_03_EvasionPower extends AbstractEasyPower {
 
     @Override
     public void stackPower(int amount) {
-        if(this.amount + amount <= 0) {
+        if (this.amount + amount + this.ETERNAL_AMOUNT <= 0) {
             this.addToBot(new RemoveSpecificPowerAction(this.owner, AbstractDungeon.player, POWER_ID));
             return;
         }
-        this.amount = Math.min(amount + this.amount, maxAmount);
+        this.amount = Math.min(amount + this.amount, maxAmount - this.ETERNAL_AMOUNT);
     }
 
     @Override
     public void updateDescription() {
-        this.description = this.amount + DESCRIPTIONS[0];
+        this.description = (this.amount + this.ETERNAL_AMOUNT) + DESCRIPTIONS[0];
+        if (this.ETERNAL_AMOUNT > 0) {
+            this.description += (DESCRIPTIONS[1] + this.ETERNAL_AMOUNT + DESCRIPTIONS[2]);
+        }
     }
 
     static {

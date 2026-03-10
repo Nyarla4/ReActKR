@@ -277,11 +277,13 @@ public abstract class AbstractEasyCard extends CustomCard {
         if (this.keywords.contains(makeID("주문")) && !this.keywords.contains(makeID("주문강화"))) {
             this.keywords.add(makeID("주문강화"));
         }
-        if (this.keywords.contains(makeID("저격탄")) && !this.keywords.contains(makeID("조준"))) {
-            this.keywords.add(makeID("조준"));
-        }
-        if (this.keywords.contains(makeID("경량탄")) && !this.keywords.contains(makeID("조준"))) {
-            this.keywords.add(makeID("조준"));
+        if (!this.keywords.contains(makeID("조준"))) {
+            if (this.keywords.contains(makeID("저격탄")) ||
+                    this.keywords.contains(makeID("경량탄")) ||
+                    this.keywords.contains(makeID("분쇄탄")) ||
+                    this.keywords.contains(makeID("추공탄"))) {
+                this.keywords.add(makeID("조준"));
+            }
         }
     }
 }

@@ -33,11 +33,11 @@ public class MM_03_PlayerEvasionPatch {
         // 3. 적이 때린 일반 공격이고, 플레이어에게 '회피 파워'가 있다면
         if (info.type == DamageInfo.DamageType.NORMAL && info.owner != __instance && __instance.hasPower(MM_03_EvasionPower.POWER_ID)) {
 
-            AbstractPower pow = __instance.getPower(MM_03_EvasionPower.POWER_ID);
+            MM_03_EvasionPower pow = (MM_03_EvasionPower)__instance.getPower(MM_03_EvasionPower.POWER_ID);
             // 4. 난수 판정
             int rand = AbstractDungeon.cardRandomRng.random(1, 100);
             logger.info(rand);
-            if (rand <= pow.amount) {
+            if (rand <= pow.amount + pow.ETERNAL_AMOUNT) {
 
                 pow.flash();
                 int decrease = pow.amount/2;
@@ -47,7 +47,7 @@ public class MM_03_PlayerEvasionPatch {
                         decrease = pow.amount/4;
                     }
                 }
-                pow.amount -= decrease;
+                pow.amount = Math.max(pow.amount - decrease, pow.ETERNAL_AMOUNT);
 
                 AbstractDungeon.effectList.add(new TextAboveCreatureEffect(info.owner.hb.cX, info.owner.hb.cY, "감나빗!", Color.LIME.cpy()));
 

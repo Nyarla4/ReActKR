@@ -72,8 +72,8 @@ public class SiahRelic extends AbstractEasyRelic {
 
     @Override
     public boolean canSpawn() {
-        return AbstractDungeon.player.chosenClass == Kuroka.Enums.THE_KUROKA ||
-                AbstractDungeon.player.chosenClass == Mayo.Enums.THE_MAYO ||
-                AbstractDungeon.player.chosenClass == Latte.Enums.THE_LATTE;
+        return AbstractDungeon.player.chosenClass.equals(Kuroka.Enums.THE_KUROKA) ||
+                AbstractDungeon.player.chosenClass.equals(Mayo.Enums.THE_MAYO) ||
+                AbstractDungeon.player.chosenClass.equals(Latte.Enums.THE_LATTE);
     }
 }
