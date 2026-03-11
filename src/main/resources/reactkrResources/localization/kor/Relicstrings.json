@@ -55,12 +55,19 @@
       "매 턴 시작 시 에너지를 1 추가로 얻습니다. 전투 시작 시 모든 적이 #y인공물을 1 추가로 얻습니다."
     ]
   },
+  "${ModID}:KurokaUpgradeItemRelic": {
+    "NAME": "초청초",
+    "FLAVOR": "초청초는 거꾸로해도 초청초.",
+    "DESCRIPTIONS": [
+      "전투 시작 시 모든 적에게 #y주문을 1 겁니다."
+    ]
+  },
 
   "${ModID}:MayoStartItemRelic": {
-    "NAME": "화변기",
-    "FLAVOR": "이제는 양변기입니다.",
+    "NAME": "뭐하지",
+    "FLAVOR": "ㄹㅇ 뭐하지.",
     "DESCRIPTIONS": [
-      "첫 턴에만 1장의 카드를 추가로 뽑습니다. 이후 카드를 2장까지 버릴 수 있습니다."
+      "전투 시작 시 #y회피를 7 얻습니다."
     ]
   },
   "${ModID}:NezmingRelic": {
@@ -101,6 +108,20 @@
       "이미 채워져있다."
     ]
   },
+  "${ModID}:ToiletRelic": {
+    "NAME": "화변기",
+    "FLAVOR": "이제는 양변기입니다.",
+    "DESCRIPTIONS": [
+      "첫 턴에만 1장의 카드를 추가로 뽑습니다. 이후 카드를 2장까지 버릴 수 있습니다."
+    ]
+  },
+  "${ModID}:MayoUpgradeItemRelic": {
+  "NAME": "뭐하지",
+  "FLAVOR": "ㄹㅇ 뭐하지.",
+  "DESCRIPTIONS": [
+    "전투 시작 시 이번 전투동안 영구적으로 #y회피를 7 얻습니다."
+  ]
+},
 
   "${ModID}:LatteStartItemRelic": {
     "NAME": "주문한 메뉴",

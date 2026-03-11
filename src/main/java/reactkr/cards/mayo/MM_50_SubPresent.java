@@ -24,7 +24,7 @@ public class MM_50_SubPresent extends AbstractEasyCard_Mayo {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-        addToBot(new CardChangeAction(p.hand, cardsToPreview.makeStatEquivalentCopy()));
+        addToBot(new CardChangeAction(p.hand, cardsToPreview.makeStatEquivalentCopy(), 1));
     }
 
     @Override

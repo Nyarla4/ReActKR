@@ -21,26 +21,22 @@ public class MM_11_SantaNezmingPower extends AbstractEasyPower {
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
 
-    private final boolean upgraded;
+    private final AbstractCard target = new MM_50_NowYouNezming();
     private static final Logger logger = LogManager.getLogger(MM_11_SantaNezmingPower.class.getName());
 
-    public MM_11_SantaNezmingPower(AbstractCreature owner, boolean upgraded) {
-        super(POWER_ID, NAME, PowerType.BUFF, false, owner, -1);
-        this.upgraded = upgraded;
+    public MM_11_SantaNezmingPower(AbstractCreature owner, int amount) {
+        super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
         updateDescription();
     }
 
     @Override
     public void atStartOfTurnPostDraw() {
-        AbstractCard target = new MM_50_NowYouNezming();
-        if (upgraded)
-            target.upgrade();
-        addToBot(new CardChangeAction(AbstractDungeon.player.drawPile, target.makeStatEquivalentCopy()));
+        addToBot(new CardChangeAction(AbstractDungeon.player.drawPile, target.makeStatEquivalentCopy(), this.amount));
     }
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + ((new MM_50_NowYouNezming()).name) + (upgraded ? "+" : "") + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
     static {

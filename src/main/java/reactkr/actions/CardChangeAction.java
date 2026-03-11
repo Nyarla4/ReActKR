@@ -10,9 +10,10 @@ public class CardChangeAction extends AbstractGameAction {
     private final AbstractCard targetCard;
     private final CardGroup group;
 
-    public CardChangeAction(CardGroup cg, AbstractCard c) {
+    public CardChangeAction(CardGroup cg, AbstractCard c, int amount) {
         this.group = cg;
         this.targetCard = c;
+        this.amount = amount;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
     }
@@ -27,18 +28,20 @@ public class CardChangeAction extends AbstractGameAction {
 
         if (this.duration == Settings.ACTION_DUR_FAST) {
 
+            int actualAmount = Math.min(this.amount, this.group.size());
+
             // 구조적 분기: 타겟 그룹이 손패인가, 그 외(덱/버린패)인가?
             if (this.group.type == CardGroup.CardGroupType.HAND) {
-                AbstractDungeon.handCardSelectScreen.open("변환할 카드를 선택하세요.", 1, false, false);
+                AbstractDungeon.handCardSelectScreen.open("변환할 카드를 선택하세요.", actualAmount, false, false);
             } else {
                 // Grid 화면 열기: (대상 그룹, 고를 장수, 텍스트, 취소불가, 제한없음, 카드강조안함, 역순정렬안함)
-                AbstractDungeon.gridSelectScreen.open(this.group, 1, "변환할 카드를 선택하세요.", false, false, false, false);
+                AbstractDungeon.gridSelectScreen.open(this.group, actualAmount, "변환할 카드를 선택하세요.", false, false, false, false);
             }
             this.tickDuration();
             return;
         }
 
-        // 2. [손패]에서 선택을 마쳤을 때의 처리 흐름
+        // 2. [손패]에서 선택
         if (this.group.type == CardGroup.CardGroupType.HAND && !AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             for (AbstractCard selected : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
                 replaceCardStructurally(selected);
@@ -50,9 +53,10 @@ public class CardChangeAction extends AbstractGameAction {
             return;
         }
 
-        // 3. [덱/버린패] Grid 창에서 선택을 마쳤을 때의 처리 흐름
-        // (주의: Grid의 selectedCards는 CardGroup이 아니라 일반 ArrayList 구조입니다)
-        if (this.group.type != CardGroup.CardGroupType.HAND && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+        // 3. [덱/버린패] Grid 창에서 선택
+        if (this.group.type != CardGroup.CardGroupType.HAND &&
+                !AbstractDungeon.isScreenUp &&
+                !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             for (AbstractCard selected : AbstractDungeon.gridSelectScreen.selectedCards) {
                 replaceCardStructurally(selected);
             }

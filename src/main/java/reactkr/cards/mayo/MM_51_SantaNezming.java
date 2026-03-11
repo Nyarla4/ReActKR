@@ -18,29 +18,16 @@ public class MM_51_SantaNezming extends AbstractEasyCard_Mayo {
     public MM_51_SantaNezming() {
         super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
         cardsToPreview = new MM_50_NowYouNezming();
-        baseDamage = damage = 4;
+        baseMagicNumber = magicNumber = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new MM_11_SantaNezmingPower(p, upgraded)));
+        addToBot(new ApplyPowerAction(p, p, new MM_11_SantaNezmingPower(p, magicNumber)));
     }
 
     @Override
     public void upp() {
         updateCost(-1);
-        cardsToPreview.upgrade();
-    }
-
-    @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (!super.canUse(p, m)) {
-            return false;
-        }
-        if (p.hasPower(MM_11_SantaNezmingPower.POWER_ID)){
-            this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-            return false;
-        }
-        return true;
     }
 }

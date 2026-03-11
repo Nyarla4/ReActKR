@@ -1,5 +1,7 @@
 package reactkr.powers.mayo;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -9,6 +11,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import org.apache.logging.log4j.LogManager;
@@ -30,6 +33,7 @@ public class MM_03_EvasionPower extends AbstractEasyPower {
 
     public MM_03_EvasionPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+        updateDescription();
     }
 
     @Override
@@ -53,5 +57,31 @@ public class MM_03_EvasionPower extends AbstractEasyPower {
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
         NAME = powerStrings.NAME;
         DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    }
+
+    @Override
+    public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
+        // 1. 합산 수치 계산 (구조적인 데이터를 참조만 함)
+        int totalEvasion = this.amount + this.ETERNAL_AMOUNT;
+
+        // 2. 총 회피율이 0보다 클 때만
+        if (totalEvasion > 0) {
+
+            if (!this.isTurnBased) {
+                greenColor2.a = c.a;
+                c = greenColor2;
+            }
+
+            // 3. UI 흐름: 슬더스 원본 엔진의 폰트 렌더러를 직접 호출
+            FontHelper.renderFontRightTopAligned(
+                    sb,
+                    FontHelper.powerAmountFont,
+                    Integer.toString(totalEvasion),
+                    x,
+                    y,
+                    this.fontScale,
+                    c
+            );
+        }
     }
 }
