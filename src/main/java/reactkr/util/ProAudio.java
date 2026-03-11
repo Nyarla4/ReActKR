@@ -31,6 +31,10 @@ public enum ProAudio {
     SEVENORFIVE,
     SASI,
     YAMI,
+    BAB,
+    CHONG,
+    DONG,
+    YOURAT,
 
     SIAH,
     URU,

@@ -7,8 +7,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import reactkr.cards.AbstractEasyCard_Mayo;
+import reactkr.util.ProAudio;
 
 import static reactkr.ModFile.makeID;
+import static reactkr.util.Wiz.playAudio;
 
 public class MM_32_Dongkk extends AbstractEasyCard_Mayo {
     public final static String ID = makeID("Dongkk");
@@ -27,6 +29,7 @@ public class MM_32_Dongkk extends AbstractEasyCard_Mayo {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        playAudio(ProAudio.DONG);
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
         AbstractCard target = new MM_32_Chongkk();
         if(upgraded)

@@ -29,7 +29,7 @@ public class MM_44_ISO extends AbstractUltCard {
     }
 
     @Override
-    boolean ultUse(AbstractPlayer p, AbstractMonster m) {
+    public boolean ultUse(AbstractPlayer p, AbstractMonster m) {
         boolean usable = false;
         for (AbstractMonster mon : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (!mon.isDeadOrEscaped() && !mon.equals(m)) {

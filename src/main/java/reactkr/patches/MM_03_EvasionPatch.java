@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,14 +22,14 @@ import reactkr.relics.mayo.MM_04_tempRelic;
         @SpirePatch(clz = AbstractPlayer.class, method = "damage", paramtypez = {DamageInfo.class}),
         @SpirePatch(clz = AbstractMonster.class, method = "damage", paramtypez = {DamageInfo.class})
 })
-public class MM_03_PlayerEvasionPatch {
-    private static final Logger logger = LogManager.getLogger(MM_03_PlayerEvasionPatch.class.getName());
+public class MM_03_EvasionPatch {
+    private static final Logger logger = LogManager.getLogger(MM_03_EvasionPatch.class.getName());
 
     // 2. 방어도가 깎이기 전, 메서드의 가장 첫 줄(rloc=0)에
     @SpireInsertPatch(rloc = 0)
     public static SpireReturn<Void> Insert(AbstractCreature __instance, DamageInfo info) {
 
-        // 3. 적이 때린 일반 공격이고, 플레이어에게 '회피 파워'가 있다면
+        // 3. 상대의 공격이 일반 공격이고, 대상에게 '회피 파워'가 있다면
         if (info.type == DamageInfo.DamageType.NORMAL && info.owner != __instance && __instance.hasPower(MM_03_EvasionPower.POWER_ID)) {
 
             MM_03_EvasionPower pow = (MM_03_EvasionPower)__instance.getPower(MM_03_EvasionPower.POWER_ID);

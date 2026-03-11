@@ -6,8 +6,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import reactkr.cards.AbstractEasyCard_Mayo;
 import reactkr.cards.subcards.MM_32_Dongkk;
+import reactkr.util.ProAudio;
 
 import static reactkr.ModFile.makeID;
+import static reactkr.util.Wiz.playAudio;
 
 public class MM_32_Babkk extends AbstractEasyCard_Mayo {
     public final static String ID = makeID("Babkk");
@@ -26,6 +28,7 @@ public class MM_32_Babkk extends AbstractEasyCard_Mayo {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        playAudio(ProAudio.BAB);
         blck();
         AbstractCard target = new MM_32_Dongkk();
         if (upgraded)

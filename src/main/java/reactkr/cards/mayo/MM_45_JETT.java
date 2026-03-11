@@ -28,7 +28,7 @@ public class MM_45_JETT extends AbstractUltCard {
     }
 
     @Override
-    boolean ultUse(AbstractPlayer p, AbstractMonster m) {
+    public boolean ultUse(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {

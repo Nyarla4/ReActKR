@@ -574,6 +574,39 @@
     "NAME": "영구 회피",
     "DESCRIPTION": "이번 전투동안 영구적인 ${ModID}:회피를 !M! 얻습니다."
   },
+  "${ModID}:YouRat": {
+    "NAME": "쥐새끼야!",
+    "DESCRIPTION": "!M! 턴동안 ${ModID}:기절 시킵니다. NL 소멸."
+  },
+  "${ModID}:tempLittle": {
+    "NAME": "이름없음5",
+    "DESCRIPTION": "${ModID}:조준 : 마나를 !M! 얻습니다. NL ${ModID}:퀵드로 : 카드를 !${ModID}:m2! 장 뽑습니다."
+  },
+  "${ModID}:Obscuration2": {
+    "NAME": "엄폐2",
+    "DESCRIPTION": "영구적이지 않은 ${ModID}:회피를 모두 잃습니다. NL 잃은 회피만큼 방어도를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "영구적이지 않은 ${ModID}:회피를 모두 잃습니다. NL 잃은 회피만큼 방어도를 얻습니다. NL 보존.",
+    "EXTENDED_DESCRIPTION": [
+      "잃을 회피가 없다."
+    ]
+  },
+  "${ModID}:SubPresent": {
+    "NAME": "구독권 선물",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 패의 카드 1장을 카드를 너 네즈밍 된거야 로 변화시킵니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 패의 카드 1장을 카드를 너 네즈밍 된거야+ 로 변화시킵니다."
+  },
+  "${ModID}:NowYouNezming": {
+    "NAME": "너 네즈밍 된거야",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 !${ModID}:m2! 장 뽑습니다. NL ${ModID}:고갈 !M!"
+  },
+  "${ModID}:SantaNezming": {
+    "NAME": "산타 네즈밍",
+    "DESCRIPTION": "내 턴 시작시 뽑을 카드 더미에서 카드 1장을 너 네즈밍 된거야 로 변화시킵니다. NL 중첩되지 않습니다.",
+    "UPGRADE_DESCRIPTION": "내 턴 시작시 뽑을 카드 더미에서 카드 1장을 너 네즈밍 된거야+ 로 변화시킵니다. NL 중첩되지 않습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "중첩되지 않는다."
+    ]
+  },
 
   "${ModID}:Latte_Strike": {
     "NAME": "타격",

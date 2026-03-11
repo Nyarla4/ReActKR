@@ -221,6 +221,13 @@
       " 장을 가장 왼쪽으로 옮깁니다."
     ]
   },
+  "${ModID}:SantaNezmingPower": {
+    "NAME": "산타 네즈밍",
+    "DESCRIPTIONS": [
+      "내 턴 시작시 뽑을 카드 더미에서 카드 1장을 ",
+      " 로 변화시킵니다."
+    ]
+  },
 
   "${ModID}:NoBadWordPower": {
     "NAME": "나쁜 말 금지",
