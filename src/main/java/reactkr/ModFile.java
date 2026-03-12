@@ -318,6 +318,12 @@ public class ModFile implements
         BaseMod.addEvent(new AddEventParams.Builder(Event_Tenten.ID, Event_Tenten.class)
                 .spawnCondition(Event_Tenten::canSpawn)
                 .create());
+        BaseMod.addEvent(new AddEventParams.Builder(Event_Lucky.ID, Event_Lucky.class)
+                .spawnCondition(Event_Lucky::canSpawn)
+                .create());
+        BaseMod.addEvent(new AddEventParams.Builder(Event_Casino.ID, Event_Casino.class)
+                .spawnCondition(Event_Casino::canSpawn)
+                .create());
     }
 
     private void AddModConfig() {

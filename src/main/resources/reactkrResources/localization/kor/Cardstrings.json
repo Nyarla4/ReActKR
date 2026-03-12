@@ -292,7 +292,7 @@
   },
   "${ModID}:PepZeLi": {
     "NAME": "펩제라",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. 다음 턴에 에너지를 !M! 얻습니다.",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. 다음 턴에 [E] 를 !M! 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       "피해를 !M! 받습니다니다. NL "
     ]

@@ -19,8 +19,8 @@ import java.util.Map;
 
 import static reactkr.ModFile.makeID;
 
-public class Event_Tenten extends AbstractImageEvent {
-    public static final String ID = makeID("Tenten");
+public class Event_Lucky extends AbstractImageEvent {
+    public static final String ID = makeID("Lucky");
     private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString(ID);
     private static final String NAME = eventStrings.NAME;
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
@@ -28,53 +28,48 @@ public class Event_Tenten extends AbstractImageEvent {
 
     private int screenNum = 0; // 현재 선택지 화면 번호
 
-    private ArrayList<AbstractCard> rareCards = new ArrayList<>();
-
-    public Event_Tenten() {
-        super(NAME, DESCRIPTIONS[0], "reactkrResources/images/events/Tenten.png");
-
-        // CardLibrary에 등록된 모든 카드를 순회합니다.
-        for (Map.Entry<String, AbstractCard> entry : CardLibrary.cards.entrySet()) {
-            AbstractCard card = entry.getValue();
-
-            if (card.rarity == AbstractCard.CardRarity.RARE) {
-                rareCards.add(card.makeCopy());
-                // 카드의 복사본(makeCopy)을 넣는 것이 안전합니다.
-            }
-        }
+    public Event_Lucky() {
+        super(NAME, DESCRIPTIONS[0], "reactkrResources/images/events/event_img.png");
 
         imageEventText.setDialogOption(OPTIONS[0]);
         imageEventText.setDialogOption(OPTIONS[1]);
-        imageEventText.setDialogOption(OPTIONS[2]);
-        imageEventText.setDialogOption(OPTIONS[3]);
     }
 
     @Override
     protected void buttonEffect(int buttonPressed) {
         switch (screenNum) {
             case 0:
-                if (buttonPressed == 2) { // 정답 선택 시
+                if (buttonPressed == 0) {
+                    int deckSize = AbstractDungeon.player.masterDeck.size();
 
-                    int idx = AbstractDungeon.eventRng.random(0, rareCards.size()-1);
-                    AbstractCard targetCard = rareCards.get(idx);
+                    for (int i = 0; i < deckSize; i++) {
 
-                    AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(targetCard, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f));
+                        // 기존 카드
+                        AbstractCard oldCard = AbstractDungeon.player.masterDeck.group.get(i);
+
+                        // 무작위 카드
+                        AbstractCard newCard = AbstractDungeon.returnTrulyRandomCardFromAvailable(oldCard, AbstractDungeon.cardRandomRng).makeCopy();
+
+                        // 강화 처리
+                        if (newCard.canUpgrade()) {
+                            newCard.upgrade();
+                        }
+
+                        // 교체
+                        AbstractDungeon.player.masterDeck.group.set(i, newCard);
+                    }
+
+                    //다른 소리로 바꿔도 됨
+                    CardCrawlGame.sound.play("GHOST_ORB_IGNITE_1");
 
                     this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
-                    this.imageEventText.updateDialogOption(0, OPTIONS[4]);
+                    this.imageEventText.updateDialogOption(0, OPTIONS[2]);
                     this.imageEventText.clearRemainingOptions();
                     screenNum = 1;
                 } else {
-
-                    AbstractDungeon.getCurrRoom().spawnRelicAndObtain(
-                            Settings.WIDTH / 2.0f,
-                            Settings.HEIGHT / 2.0f,
-                            new SulkTentenRelic()
-                    );
-
-                    this.imageEventText.loadImage("reactkrResources/images/events/tenten2.png");
+                    //this.imageEventText.loadImage("reactkrResources/images/events/tenten2.png");
                     this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
-                    this.imageEventText.updateDialogOption(0, OPTIONS[4]);
+                    this.imageEventText.updateDialogOption(0, OPTIONS[2]);
                     this.imageEventText.clearRemainingOptions();
                     screenNum = 1;
                 }
@@ -87,8 +82,6 @@ public class Event_Tenten extends AbstractImageEvent {
 
     public static boolean canSpawn() {
         AbstractPlayer p = AbstractDungeon.player;
-        return p.chosenClass.equals(Kuroka.Enums.THE_KUROKA) ||
-                p.chosenClass.equals(Mayo.Enums.THE_MAYO) ||
-                p.chosenClass.equals(Latte.Enums.THE_LATTE);
+        return p.chosenClass.equals(Mayo.Enums.THE_MAYO);
     }
 }

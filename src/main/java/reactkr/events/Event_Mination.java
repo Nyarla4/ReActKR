@@ -80,8 +80,8 @@ public class Event_Mination extends AbstractImageEvent {
 
     public static boolean canSpawn() {
         AbstractPlayer p = AbstractDungeon.player;
-        return p.chosenClass == Kuroka.Enums.THE_KUROKA ||
-                p.chosenClass == Mayo.Enums.THE_MAYO ||
-                p.chosenClass == Latte.Enums.THE_LATTE;
+        return p.chosenClass.equals(Kuroka.Enums.THE_KUROKA) ||
+                p.chosenClass.equals(Mayo.Enums.THE_MAYO) ||
+                p.chosenClass.equals(Latte.Enums.THE_LATTE);
     }
 }

@@ -125,7 +125,9 @@ public class Event_DontBelieveInR extends AbstractImageEvent {
     }
 
     public static boolean canSpawn() {
-        return AbstractDungeon.player.maxHealth < 96 && AbstractDungeon.player.maxHealth > 66 && AbstractDungeon.player.chosenClass == Kuroka.Enums.THE_KUROKA;
+        return AbstractDungeon.player.maxHealth < 96 &&
+                AbstractDungeon.player.maxHealth > 66 &&
+                AbstractDungeon.player.chosenClass.equals(Kuroka.Enums.THE_KUROKA);
     }
 
     public void update() {

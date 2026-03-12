@@ -36,9 +36,9 @@ public class Event_Fan extends AbstractImageEvent {
         AbstractPlayer p = AbstractDungeon.player;
         String option = "";
         if (p != null) {
-            previewRelic = p.chosenClass == Kuroka.Enums.THE_KUROKA ? new MK_01_MajitomoRelic() :
-                    p.chosenClass == Mayo.Enums.THE_MAYO ? new MM_01_NezmingRelic() :
-                    p.chosenClass == Latte.Enums.THE_LATTE ? new AL_01_TtediRelic() :
+            previewRelic = p.chosenClass.equals(Kuroka.Enums.THE_KUROKA) ? new MK_01_MajitomoRelic() :
+                    p.chosenClass.equals(Mayo.Enums.THE_MAYO) ? new MM_01_NezmingRelic() :
+                    p.chosenClass.equals(Latte.Enums.THE_LATTE) ? new AL_01_TtediRelic() :
                     null;
         }
 
@@ -94,8 +94,8 @@ public class Event_Fan extends AbstractImageEvent {
 
     public static boolean canSpawn() {
         AbstractPlayer p = AbstractDungeon.player;
-        return p.chosenClass == Kuroka.Enums.THE_KUROKA ||
-                p.chosenClass == Mayo.Enums.THE_MAYO ||
-                p.chosenClass == Latte.Enums.THE_LATTE;
+        return p.chosenClass.equals(Kuroka.Enums.THE_KUROKA) ||
+                p.chosenClass.equals(Mayo.Enums.THE_MAYO) ||
+                p.chosenClass.equals(Latte.Enums.THE_LATTE);
     }
 }
