@@ -570,9 +570,9 @@
     "NAME": "제트",
     "DESCRIPTION": "방어도를 !B! 얻습니다. NL ${ModID}:궁극기 : 방어도를 모두 잃고, 그만큼 ${ModID}:회피를 얻습니다."
   },
-  "${ModID}:EternalEvasion": {
-    "NAME": "영구 회피",
-    "DESCRIPTION": "이번 전투동안 영구적인 ${ModID}:회피를 !M! 얻습니다."
+  "${ModID}:Excited": {
+    "NAME": "신난다!",
+    "DESCRIPTION": "${ModID}:신난다를 !M! 얻습니다."
   },
   "${ModID}:YouRat": {
     "NAME": "쥐새끼야!",
@@ -602,6 +602,32 @@
   "${ModID}:SantaNezming": {
     "NAME": "산타 네즈밍",
     "DESCRIPTION": "내 턴 시작시 뽑을 카드 더미에서 카드 !M! 장을 너 네즈밍 된거야 로 변화시킵니다."
+  },
+  "${ModID}:LovelyPeriod": {
+    "NAME": "사랑하는 동기들",
+    "DESCRIPTION": "동기들 카드 중 랜덤으로 1장을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "동기들 카드 중 1장을 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "피해를 3 받습니다. NL 카드를 2 장 뽑습니다. NL 소멸.",
+      "피해를 16 줍니다. NL ${ModID}:맑음 : 피해가 2배가 됩니다. NL 소멸.",
+      "임시 로로카를 6 얻습니다. NL 소멸."
+    ]
+  },
+  "${ModID}:MayoSiah": {
+    "NAME": "마요식 시아",
+    "DESCRIPTION": "피해를 3 받습니다. NL 카드를 !M! 장 뽑습니다. NL 소멸."
+  },
+  "${ModID}:MayoUru": {
+    "NAME": "마요식 우루",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL ${ModID}:맑음 : 피해가 2배가 됩니다. NL 소멸."
+  },
+  "${ModID}:MayoKuroka": {
+    "NAME": "마요식 쿠로카",
+    "DESCRIPTION": "임시 로로카를 !M! 얻습니다. NL 소멸."
+  },
+  "${ModID}:Orisa": {
+    "NAME": "오리사",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:궁극기 : 방어도를 !B! 얻고 1턴간 피해를 반사합니다."
   },
 
   "${ModID}:Latte_Strike": {

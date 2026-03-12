@@ -26,6 +26,8 @@ public enum ProAudio {
     DAISUKICHU,
     ROROKABEAM,
 
+    MIDOMAYO1,
+    MIDOMAYO2,
     PIERCINGLAUGH,
     MAYO_KKINGKKING,
     SEVENORFIVE,

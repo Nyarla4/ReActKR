@@ -16,6 +16,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.powers.mayo.MM_03_EvasionPower;
 import reactkr.powers.mayo.MM_04_CounterPower;
+import reactkr.powers.mayo.MM_12_ExcitedPower;
 import reactkr.relics.mayo.MM_04_tempRelic;
 
 @SpirePatches({
@@ -32,21 +33,26 @@ public class MM_03_EvasionPatch {
         // 3. 상대의 공격이 일반 공격이고, 대상에게 '회피 파워'가 있다면
         if (info.type == DamageInfo.DamageType.NORMAL && info.owner != __instance && __instance.hasPower(MM_03_EvasionPower.POWER_ID)) {
 
-            MM_03_EvasionPower pow = (MM_03_EvasionPower)__instance.getPower(MM_03_EvasionPower.POWER_ID);
+            MM_03_EvasionPower pow = (MM_03_EvasionPower) __instance.getPower(MM_03_EvasionPower.POWER_ID);
             // 4. 난수 판정
             int rand = AbstractDungeon.cardRandomRng.random(1, 100);
             logger.info(rand);
-            if (rand <= pow.amount + pow.ETERNAL_AMOUNT) {
+            if (rand <= pow.amount) {
 
                 pow.flash();
-                int decrease = pow.amount/2;
+                int decrease = pow.amount / 2;
                 if (__instance instanceof AbstractPlayer) {
                     AbstractPlayer p = (AbstractPlayer) __instance;
                     if (p.hasRelic(MM_04_tempRelic.ID)) {
-                        decrease = pow.amount/4;
+                        decrease = pow.amount / 4;
                     }
                 }
-                pow.amount = Math.max(pow.amount - decrease, pow.ETERNAL_AMOUNT);
+                if (__instance.hasPower(MM_12_ExcitedPower.POWER_ID)) {
+                    int eternalAmount = __instance.getPower(MM_12_ExcitedPower.POWER_ID).amount;
+                    pow.amount = Math.max(pow.amount - decrease, eternalAmount);
+                } else {
+                    pow.amount -= decrease;
+                }
 
                 AbstractDungeon.effectList.add(new TextAboveCreatureEffect(info.owner.hb.cX, info.owner.hb.cY, "감나빗!", Color.LIME.cpy()));
 

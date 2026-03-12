@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import reactkr.Mayo;
 import reactkr.powers.mayo.MM_03_EvasionPower;
+import reactkr.powers.mayo.MM_12_ExcitedPower;
 import reactkr.relics.AbstractEasyRelic;
 
 import static reactkr.ModFile.makeID;
@@ -19,15 +20,17 @@ public class MM_07_MayoUpgradeItemRelic extends AbstractEasyRelic {
     public void atBattleStart(){
         this.flash(); // 유물이 반짝이는 시각 효과
 
-        MM_03_EvasionPower pow = new MM_03_EvasionPower(AbstractDungeon.player, 0);
-        pow.ETERNAL_AMOUNT = 7;
-        pow.updateDescription();
-
         // 전투 시작 시 플레이어에게 영구 회피 부여
         addToTop(new ApplyPowerAction(
                 AbstractDungeon.player,
                 AbstractDungeon.player,
-                pow,
+                new MM_03_EvasionPower(AbstractDungeon.player, 7),
+                0
+        ));
+        addToTop(new ApplyPowerAction(
+                AbstractDungeon.player,
+                AbstractDungeon.player,
+                new MM_12_ExcitedPower(AbstractDungeon.player, 7),
                 0
         ));
     }

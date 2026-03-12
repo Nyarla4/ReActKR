@@ -29,7 +29,6 @@ public class MM_03_EvasionPower extends AbstractEasyPower {
     public static final String[] DESCRIPTIONS;
     private static final Logger logger = LogManager.getLogger(MM_03_EvasionPower.class.getName());
     private static final int maxAmount = 100;
-    public int ETERNAL_AMOUNT = 0;
 
     public MM_03_EvasionPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
@@ -38,50 +37,26 @@ public class MM_03_EvasionPower extends AbstractEasyPower {
 
     @Override
     public void stackPower(int amount) {
-        if (this.amount + amount + this.ETERNAL_AMOUNT <= 0) {
+        if (amount < 0 && this.owner.hasPower(MM_12_ExcitedPower.POWER_ID)) {
+            int minAmount = this.owner.getPower(MM_12_ExcitedPower.POWER_ID).amount;
+            this.amount = Math.max(this.amount + amount, minAmount);
+            return;
+        }
+        if (this.amount + amount <= 0) {
             this.addToBot(new RemoveSpecificPowerAction(this.owner, AbstractDungeon.player, POWER_ID));
             return;
         }
-        this.amount = Math.min(amount + this.amount, maxAmount - this.ETERNAL_AMOUNT);
+        this.amount = Math.min(this.amount + amount, maxAmount);
     }
 
     @Override
     public void updateDescription() {
-        this.description = (this.amount + this.ETERNAL_AMOUNT) + DESCRIPTIONS[0];
-        if (this.ETERNAL_AMOUNT > 0) {
-            this.description += (DESCRIPTIONS[1] + this.ETERNAL_AMOUNT + DESCRIPTIONS[2]);
-        }
+        this.description = (this.amount) + DESCRIPTIONS[0];
     }
 
     static {
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
         NAME = powerStrings.NAME;
         DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    }
-
-    @Override
-    public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
-        // 1. 합산 수치 계산 (구조적인 데이터를 참조만 함)
-        int totalEvasion = this.amount + this.ETERNAL_AMOUNT;
-
-        // 2. 총 회피율이 0보다 클 때만
-        if (totalEvasion > 0) {
-
-            if (!this.isTurnBased) {
-                greenColor2.a = c.a;
-                c = greenColor2;
-            }
-
-            // 3. UI 흐름: 슬더스 원본 엔진의 폰트 렌더러를 직접 호출
-            FontHelper.renderFontRightTopAligned(
-                    sb,
-                    FontHelper.powerAmountFont,
-                    Integer.toString(totalEvasion),
-                    x,
-                    y,
-                    this.fontScale,
-                    c
-            );
-        }
     }
 }

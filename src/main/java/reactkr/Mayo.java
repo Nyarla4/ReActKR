@@ -23,12 +23,17 @@ import reactkr.cards.mayo.MM_00_WarningShot;
 import reactkr.cards.mayo.Mayo_Defend;
 import reactkr.cards.mayo.Mayo_Strike;
 import reactkr.relics.mayo.MM_00_MayoStartItemRelic;
+import reactkr.util.ProAudio;
 
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static reactkr.Mayo.Enums.MAYO_COLOR;
 import static reactkr.ModFile.*;
 import static reactkr.ModFile.MM_SHOULDER1;
+import static reactkr.util.Wiz.playAudio;
 
 public class Mayo extends CustomPlayer {
 
@@ -80,7 +85,16 @@ public class Mayo extends CustomPlayer {
 
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("UNLOCK_PING", MathUtils.random(-0.2F, 0.2F));
+        playAudio(ProAudio.MIDOMAYO1);
+        Random rng = new Random();
+        if (rng.nextFloat() < 0.25f) { // 25% 확률
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    playAudio(ProAudio.MIDOMAYO2);
+                }
+            }, 2380); // 850ms 후에 실행
+        }
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
                 false);
     }
