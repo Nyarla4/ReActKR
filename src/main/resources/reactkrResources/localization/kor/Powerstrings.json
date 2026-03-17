@@ -300,5 +300,13 @@
     "DESCRIPTIONS": [
       "일부 카드 효과가 강화됩니다."
     ]
+  },
+
+
+  "${ModID}:OminousMassPower": {
+    "NAME": "불길한 덩어리",
+    "DESCRIPTIONS": [
+      "죽은 후 무작위 디버프를 겁니다."
+    ]
   }
 }

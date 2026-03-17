@@ -27,6 +27,7 @@ import reactkr.cards.AbstractEasyCard;
 import reactkr.cards.cardvars.AbstractEasyDynamicVariable;
 import reactkr.configs.ModConfig;
 import reactkr.events.*;
+import reactkr.monsters.WaruTomo;
 import reactkr.monsters.tempMonster;
 import reactkr.potions.AbstractEasyPotion;
 import reactkr.potions.nanikaSpecial.NanikaFirePotion;
@@ -298,7 +299,7 @@ public class ModFile implements
             ReplaceDate();
         }
         AddMonsters();
-        //AddEncounters();
+        AddEncounters();
     }
 
     private void AddEvent() {
@@ -366,21 +367,35 @@ public class ModFile implements
     //몬스터 추가
     private void AddMonsters() {
 
-        String encounterId = makeID("TempEncounter");
-        BaseMod.addMonster(encounterId, "기묘한 만남", () -> new tempMonster(0.0F, 0.0F, true));
+        String tempEncounterId = makeID("TempEncounter");
+        BaseMod.addMonster(tempEncounterId, "기묘한 만남", () -> new tempMonster(0.0F, 0.0F, true));
 
-        String encounter2Id = makeID("TempEncounter2");
-        BaseMod.addMonster(encounter2Id, "기묘한 만남들", () -> new MonsterGroup(
+        String tempEncounter2Id = makeID("TempEncounter2");
+        BaseMod.addMonster(tempEncounter2Id, "기묘한 만남들", () -> new MonsterGroup(
             new AbstractMonster[] {
                     new tempMonster(100.0F, 0.0F, true),
                     new tempMonster(-100.0F, 0.0F, true)
+            }
+        ));
+
+        String MajiEncounter1Id = makeID("SingleTomo");
+        BaseMod.addMonster(MajiEncounter1Id, "단일 와루토모", () -> new MonsterGroup(
+            new AbstractMonster[] {
+                    new WaruTomo(0.0F, 0.0F)
+            }
+        ));
+        String MajiEncounter2Id = makeID("DualTomo");
+        BaseMod.addMonster(MajiEncounter2Id, "이중 와루토모", () -> new MonsterGroup(
+            new AbstractMonster[] {
+                    new WaruTomo(100.0F, 0.0F),
+                    new WaruTomo(-100.0F, 0.0F)
             }
         ));
     }
 
     //인카운터(맵에서 나오도록) 추가
     private void AddEncounters(){
-        String encounterId = makeID("TempEncounter");
-        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(encounterId, 2.0F));
+        //String encounterId = makeID("TempEncounter");
+        //BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(encounterId, 2.0F));
     }
 }
