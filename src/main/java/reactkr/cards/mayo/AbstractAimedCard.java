@@ -71,8 +71,11 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
     /// 퀵드로 여부
     protected boolean isQuick() {
         AbstractPlayer p = AbstractDungeon.player;
-        // 유물 보유 여부에 따른 거리(n) 결정 로직을 구조적으로 분리
-        int threshold = p.hasRelic(MM_01_NezmingRelic.ID) ? 3 : 2;
+        int threshold = 1;// 기본거리
+        // 네즈밍 있으면 추가
+        if(p.hasRelic(MM_01_NezmingRelic.ID)){
+            threshold += 1;
+        }
         int curIdx = p.hand.group.indexOf(this);
 
         if (curIdx == -1) return false;
@@ -84,8 +87,11 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
     /// 조준 여부
     protected boolean isAimed() {
         AbstractPlayer p = AbstractDungeon.player;
-        // 유물 보유 여부에 따른 거리(n) 결정 로직을 구조적으로 분리
-        int threshold = p.hasRelic(MM_01_NezmingRelic.ID) ? 3 : 2;
+        int threshold = 1;// 기본거리
+        // 네즈밍 있으면 추가
+        if(p.hasRelic(MM_01_NezmingRelic.ID)){
+            threshold += 1;
+        }
         int curIdx = p.hand.group.indexOf(this);
 
         if (curIdx == -1) return false;
