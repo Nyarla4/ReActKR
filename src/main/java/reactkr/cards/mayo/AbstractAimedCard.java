@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.Mayo;
@@ -15,6 +16,7 @@ import reactkr.orbs.mayo.MM_01_SniperBulletOrb;
 import reactkr.orbs.mayo.MM_02_LightBulletOrb;
 import reactkr.orbs.mayo.MM_03_HPBulletOrb;
 import reactkr.orbs.mayo.MM_04_TCBulletOrb;
+import reactkr.powers.mayo.AbstractAddRangePower;
 import reactkr.relics.mayo.MM_01_NezmingRelic;
 
 public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
@@ -76,6 +78,12 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
         if(p.hasRelic(MM_01_NezmingRelic.ID)){
             threshold += 1;
         }
+        // 거리추가 버프있으면 추가
+        for (AbstractPower pow : p.powers){
+            if(pow instanceof AbstractAddRangePower){
+                threshold += ((AbstractAddRangePower) pow).amount2;
+            }
+        }
         int curIdx = p.hand.group.indexOf(this);
 
         if (curIdx == -1) return false;
@@ -91,6 +99,12 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
         // 네즈밍 있으면 추가
         if(p.hasRelic(MM_01_NezmingRelic.ID)){
             threshold += 1;
+        }
+        // 거리추가 버프있으면 추가
+        for (AbstractPower pow : p.powers){
+            if(pow instanceof AbstractAddRangePower){
+                threshold += pow.amount;
+            }
         }
         int curIdx = p.hand.group.indexOf(this);
 
