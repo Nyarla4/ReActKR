@@ -1,16 +1,10 @@
 package reactkr.powers;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.status.Wound;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
 import reactkr.cards.curse.CURSE_02_LesserKusa;
 
 import static reactkr.ModFile.makeID;
@@ -34,7 +28,7 @@ public class DurianMonsterPower extends AbstractEasyPower {
     @Override
     public void onInflictDamage(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (damageAmount > 0 && info.type != DamageInfo.DamageType.THORNS) {
-            this.addToBot(new MakeTempCardInDiscardAction(new CURSE_02_LesserKusa(), 1));
+            this.addToBot(new MakeTempCardInDiscardAction(new CURSE_02_LesserKusa(), 2));
         }
     }
 

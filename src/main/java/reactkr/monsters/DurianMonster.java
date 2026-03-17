@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.powers.FrailPower;
 import reactkr.powers.DurianMonsterPower;
 import reactkr.powers.monster.OminousMassPower;
 
@@ -20,17 +21,16 @@ public class DurianMonster extends AbstractCustomMonster{
 
     private static final byte MOVE_BUFF = 1;
     private static final byte MOVE_WEAK_ATTACK = 2;
-    private static final byte MOVE_STRONG_ATTACK = 3;
-
-    private static final int WEAK_ATTACK_PERC = 80;
+    private static final byte MOVE_MED_ATTACK = 3;  // 새로 추가된 중타(3연타)
+    private static final byte MOVE_STRONG_ATTACK = 4;
 
     public DurianMonster(float x, float y) {
         // 이름, ID, 최대 체력, 히트박스 좌표 및 크기, 이미지 경로 등을 지정합니다.
         super(NAME, MonsterID, 50, -8.0F, 10.0F, 230.0F, 240.0F, "reactkrResources/images/monsters/TempMajitomo.png", x, y);
 
-        // 💡 2. 무기 등록 (구조 세팅)
-        this.damage.add(new DamageInfo(this, 4));  // 0번 주머니: 약한 공격
-        this.damage.add(new DamageInfo(this, 12)); // 1번 주머니: 강한 공격
+        this.damage.add(new DamageInfo(this, 6));  // 0번 주머니: 약타 (6)
+        this.damage.add(new DamageInfo(this, 8));  // 1번 주머니: 중타 (8)
+        this.damage.add(new DamageInfo(this, 12)); // 2번 주머니: 강타 (12)
     }
 
     @Override
@@ -42,48 +42,60 @@ public class DurianMonster extends AbstractCustomMonster{
 
     @Override
     protected byte decideMoveByte(int turn, int rngNum) {
-        // [구조 결정] 0번째 턴(첫 턴)에는 난수를 무시하고 무조건 버프를 선택합니다.
         if (turn == 0) {
             return MOVE_BUFF;
         }
 
-        // [구조 결정] 1번째 턴부터는 80:20 확률 구조로 분기합니다.
-        if (rngNum < WEAK_ATTACK_PERC) { // 0 ~ 79 (80%)
+        // [구조 결정] 0~99 난수를 바탕으로 3가지 공격 확률 분기
+        if (rngNum < 40) {               // 40% 확률로 약타
             return MOVE_WEAK_ATTACK;
-        } else {                         // 80 ~ 99 (20%)
+        } else if (rngNum < 80) {        // 40% 확률로 중타
+            return MOVE_MED_ATTACK;
+        } else {                         // 20% 확률로 강타
             return MOVE_STRONG_ATTACK;
         }
     }
+
     @Override
     protected void setIntentByByte(byte moveByte) {
-        // [구조 선언] 결정된 식별자에 맞춰 몬스터 머리 위에 띄울 의도(Intent)를 세팅합니다.
         if (moveByte == MOVE_BUFF) {
             this.setMove(MOVE_BUFF, Intent.BUFF);
         } else if (moveByte == MOVE_WEAK_ATTACK) {
-            this.setMove(MOVE_WEAK_ATTACK, Intent.ATTACK, this.damage.get(0).base);
+            // 약타: 데미지와 함께 디버프를 주므로 Intent.ATTACK_DEBUFF 사용
+            this.setMove(MOVE_WEAK_ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
+        } else if (moveByte == MOVE_MED_ATTACK) {
+            // 🌟 중타: 1번 주머니(8 데미지)를 꺼내고, 3번(연타 횟수) 때리며, 연타여부(true)를 명시합니다.
+            this.setMove(MOVE_MED_ATTACK, Intent.ATTACK, this.damage.get(1).base, 3, true);
         } else if (moveByte == MOVE_STRONG_ATTACK) {
-            // 강한 공격은 단순히 타격만 주므로 Intent.ATTACK을 씁니다. (디버프를 동반한다면 Intent.ATTACK_DEBUFF 사용)
-            this.setMove(MOVE_STRONG_ATTACK, Intent.ATTACK, this.damage.get(1).base);
+            this.setMove(MOVE_STRONG_ATTACK, Intent.ATTACK, this.damage.get(2).base);
         }
     }
 
     @Override
     protected void executeTurnFlow(byte moveByte) {
-        // [실행 흐름] 결정된 식별자에 맞는 실제 액션을 큐(Queue)에 삽입합니다.
         if (moveByte == MOVE_BUFF) {
-            // 첫 턴에 '불길한 덩어리' 파워를 자신에게 부여
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
                     this, this, new OminousMassPower(this)
             ));
         } else if (moveByte == MOVE_WEAK_ATTACK) {
-            // 약타
+            // [약타 흐름] 1. 타격 액션 -> 2. 손상(Frail) 1 부여 액션
             AbstractDungeon.actionManager.addToBottom(new DamageAction(
                     AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT
             ));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+                    AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, 1, true)
+            ));
+        } else if (moveByte == MOVE_MED_ATTACK) {
+            // 🌟 [중타 흐름] for 문을 이용해 동일한 타격 액션을 3번 반복해서 큐에 밀어 넣습니다.
+            for (int i = 0; i < 3; i++) {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(
+                        AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SLASH_DIAGONAL
+                ));
+            }
         } else if (moveByte == MOVE_STRONG_ATTACK) {
-            // 강타
+            // [강타 흐름] 묵직한 한 방
             AbstractDungeon.actionManager.addToBottom(new DamageAction(
-                    AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_HEAVY
+                    AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.BLUNT_HEAVY
             ));
         }
     }
