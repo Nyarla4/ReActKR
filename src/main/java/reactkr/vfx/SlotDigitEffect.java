@@ -1,4 +1,4 @@
-package reactkr.effects;
+package reactkr.vfx;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;

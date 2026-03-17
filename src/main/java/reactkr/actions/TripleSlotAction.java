@@ -3,7 +3,7 @@ package reactkr.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import reactkr.effects.SlotDigitEffect;
+import reactkr.vfx.SlotDigitEffect;
 
 public class TripleSlotAction extends AbstractGameAction {
     private int[] results;

@@ -1,19 +1,15 @@
 package reactkr.cards.subcards;
 
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import reactkr.cards.AbstractEasyCard_Kuroka;
+import reactkr.cards.AbstractEasyCard_Mayo;
 import reactkr.util.ProAudio;
 
 import static reactkr.ModFile.makeID;
-import static reactkr.util.Wiz.applyToSelf;
 import static reactkr.util.Wiz.playAudio;
 
-public class MM_12_Five extends AbstractEasyCard_Kuroka {
+public class MM_12_Five extends AbstractEasyCard_Mayo {
     public final static String ID = makeID("Five");
     // intellij stuff skill, self, uncommon, , , , , ,
 

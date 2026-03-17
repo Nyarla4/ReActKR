@@ -27,7 +27,7 @@ public class HideCardLibrary {
                     c.cardID.equals(makeID("Five"))
             ;
             if (!ModConfig.showMayo) {
-                result = result || c.color == MAYO_COLOR;
+                result = result || c.color == MAYO_COLOR || c.cardID.contains("Mayo");
             }
             if (!ModConfig.showLatte) {
                 result = result || c.color == LATTE_COLOR;

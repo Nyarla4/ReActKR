@@ -20,10 +20,6 @@ public class SulkTentenRelic extends AbstractEasyRelic {
         this.counter = 3;
     }
 
-    public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
-    }
-
     public void atBattleStart() {
         if (this.counter > 0) {
             --this.counter;

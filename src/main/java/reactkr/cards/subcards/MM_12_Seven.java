@@ -1,17 +1,11 @@
 package reactkr.cards.subcards;
 
-import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import reactkr.actions.EasyModalChoiceAction;
-import reactkr.cards.AbstractEasyCard_Kuroka;
-import reactkr.cards.EasyModalChoiceCard;
+import reactkr.cards.AbstractEasyCard_Mayo;
 import reactkr.util.ProAudio;
 
 import java.util.ArrayList;
@@ -19,7 +13,7 @@ import java.util.ArrayList;
 import static reactkr.ModFile.makeID;
 import static reactkr.util.Wiz.*;
 
-public class MM_12_Seven extends AbstractEasyCard_Kuroka {
+public class MM_12_Seven extends AbstractEasyCard_Mayo {
     public final static String ID = makeID("Seven");
     // intellij stuff skill, self, uncommon, , , , , ,
 

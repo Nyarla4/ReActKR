@@ -1,16 +1,17 @@
 package reactkr.events;
 
-import com.badlogic.gdx.Gdx;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.localization.EventStrings;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import reactkr.Kuroka;
 import reactkr.Latte;
 import reactkr.Mayo;
-
-import java.util.Random;
+import reactkr.monsters.DurianMonster;
+import reactkr.monsters.WaruTomo;
+import reactkr.relics.DurianMonsterRelic;
 
 import static reactkr.ModFile.makeID;
 
@@ -35,22 +36,36 @@ public class Event_Durian extends AbstractImageEvent {
         switch (screenNum) {
             case 0://이벤트 시작 화면
                 if (buttonPressed == 0) {
-                    this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
-                    this.imageEventText.updateDialogOption(0, OPTIONS[2], AbstractDungeon.player.gold < 100);
-                    this.imageEventText.updateDialogOption(1, OPTIONS[3], AbstractDungeon.player.gold < 200);
-                    this.imageEventText.setDialogOption(OPTIONS[4], AbstractDungeon.player.gold < 300);
-                    this.imageEventText.setDialogOption(OPTIONS[1]);
                     screenNum = 2;
                 } else {
-                    //this.imageEventText.loadImage("reactkrResources/images/events/tenten2.png");
-                    this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
-                    this.imageEventText.updateDialogOption(0, OPTIONS[8]);
+                    this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
+                    this.imageEventText.updateDialogOption(0, OPTIONS[1]);
                     this.imageEventText.clearRemainingOptions();
                     screenNum = 1;
                 }
                 break;
             case 1:
                 openMap();
+                break;
+            case 2://싸운다" 버튼을 눌렀을 때
+
+                // 전투 대상 세팅
+                // 현재 방의 몬스터 그룹을 두리안 괴인으로 처리
+                AbstractDungeon.getCurrRoom().monsters = new MonsterGroup(new DurianMonster(0.0f, 0.0f));
+
+                // 보상 구조 세팅
+                AbstractDungeon.getCurrRoom().rewards.clear(); // 혹시 모를 초기화
+
+                // 일반적인 엘리트 전투 수준의 골드 추가 (약 25~35골드)
+                AbstractDungeon.getCurrRoom().addGoldToRewards(30);
+
+                // 두리안 괴인 유물 추가
+                AbstractDungeon.getCurrRoom().addRelicToRewards(new DurianMonsterRelic());
+
+                this.screenNum = 1;
+
+                // 전투
+                this.enterCombatFromImage();
                 break;
         }
     }
