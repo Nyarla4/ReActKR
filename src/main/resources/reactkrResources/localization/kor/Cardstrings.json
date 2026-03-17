@@ -629,6 +629,14 @@
     "NAME": "오리사",
     "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:궁극기 : 방어도를 !B! 얻고 1턴간 피해를 반사합니다."
   },
+  "${ModID}:tempPower1": {
+    "NAME": "임시 버프1",
+    "DESCRIPTION": "내 턴 시작시 ${ModID}:회피를 !M! ~ !${ModID}:m2! 얻습니다. NL 사용 시 고정됩니다."
+  },
+  "${ModID}:tempPower2": {
+    "NAME": "임시 버프2",
+    "DESCRIPTION": "내 턴 시작시 ${ModID}:회피를 !M! ~ !${ModID}:m2! 얻습니다. NL 내 턴 종료시 정해집니다."
+  },
 
   "${ModID}:Latte_Strike": {
     "NAME": "타격",

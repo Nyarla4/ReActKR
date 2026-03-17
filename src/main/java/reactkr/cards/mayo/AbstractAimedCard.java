@@ -19,6 +19,7 @@ import reactkr.relics.mayo.MM_01_NezmingRelic;
 
 public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
     protected int finalDamage;
+    protected int finalMagic;
     private static final Logger logger = LogManager.getLogger(AbstractAimedCard.class.getName());
     protected boolean useAim = false;
     protected boolean useQuick = false;
@@ -96,11 +97,11 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
 
     @Override
     public void triggerOnGlowCheck() {
-        this.glowColor = isAimed()&&useAim ?
+        this.glowColor = isAimed() && useAim ?
                 AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy() :
-                isQuick()&&useQuick ?
-                AbstractCard.GREEN_BORDER_GLOW_COLOR.cpy() :
-                AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+                isQuick() && useQuick ?
+                        AbstractCard.GREEN_BORDER_GLOW_COLOR.cpy() :
+                        AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
     }
 
     protected abstract boolean useBullet();
@@ -131,7 +132,12 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
     /// 피해량 계산
     private void applyCustomModifiers() {
         if (!isAimed()) {
-            finalDamage = AbstractDungeon.cardRandomRng.random(damage, secondDamage);
+            if (damage < secondDamage) {
+                finalDamage = AbstractDungeon.cardRandomRng.random(damage, secondDamage);
+            }
+            if (magicNumber < secondMagic) {
+                finalMagic = AbstractDungeon.cardRandomRng.random(magicNumber, secondMagic);
+            }
             return;
         }
         if (useBullet()) {
@@ -167,6 +173,7 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
             }
         }
         finalDamage = secondDamage;
+        finalMagic = secondMagic;
     }
 
     /// 피해량 계산
@@ -205,8 +212,14 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
 
         if (isAimed()) {
             finalDamage = secondDamage;
+            finalMagic = secondMagic;
         } else {
-            finalDamage = AbstractDungeon.cardRandomRng.random(damage, secondDamage);
+            if (damage < secondDamage) {
+                finalDamage = AbstractDungeon.cardRandomRng.random(damage, secondDamage);
+            }
+            if (magicNumber < secondMagic) {
+                finalMagic = AbstractDungeon.cardRandomRng.random(magicNumber, secondMagic);
+            }
         }
     }
 

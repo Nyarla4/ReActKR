@@ -1,5 +1,6 @@
 package reactkr.events;
 
+import com.badlogic.gdx.Gdx;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -27,8 +28,16 @@ public class Event_Casino extends AbstractImageEvent {
     private int pot;
     private int count;
 
+    private static final String[] FRAMES = {
+            "reactkrResources/images/events/event_img.png", // 이미지 A
+            "reactkrResources/images/events/event_img.png"  // 이미지 B
+    };
+    private static final float FRAME_TIME = 0.5f; // 이미지가 바뀌는 간격 (0.5초)
+    private float frameTimer = FRAME_TIME;
+    private int currentFrameIndex = 0;
+
     public Event_Casino() {
-        super(NAME, DESCRIPTIONS[0], "reactkrResources/images/events/event_img.png");
+        super(NAME, DESCRIPTIONS[0], FRAMES[0]);
 
         imageEventText.setDialogOption(OPTIONS[0]);
         imageEventText.setDialogOption(OPTIONS[1]);
@@ -123,6 +132,22 @@ public class Event_Casino extends AbstractImageEvent {
                     screenNum = 1;
                 }
                 break;
+        }
+    }
+
+    @Override
+    public void update() {
+        super.update();
+
+        // 이벤트 첫 화면에서만
+        if (this.screenNum == 0) {
+            this.frameTimer -= Gdx.graphics.getDeltaTime();
+
+            if (this.frameTimer <= 0.0f) {
+                this.frameTimer = FRAME_TIME;
+                this.currentFrameIndex = (this.currentFrameIndex + 1) % FRAMES.length;
+                this.imageEventText.loadImage(FRAMES[this.currentFrameIndex]);
+            }
         }
     }
 

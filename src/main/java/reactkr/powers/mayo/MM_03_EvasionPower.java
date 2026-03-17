@@ -37,14 +37,16 @@ public class MM_03_EvasionPower extends AbstractEasyPower {
 
     @Override
     public void stackPower(int amount) {
-        if (amount < 0 && this.owner.hasPower(MM_12_ExcitedPower.POWER_ID)) {
-            int minAmount = this.owner.getPower(MM_12_ExcitedPower.POWER_ID).amount;
-            this.amount = Math.max(this.amount + amount, minAmount);
-            return;
-        }
-        if (this.amount + amount <= 0) {
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, AbstractDungeon.player, POWER_ID));
-            return;
+        if (amount < 0) {
+            if (this.owner.hasPower(MM_12_ExcitedPower.POWER_ID)) {
+                int minAmount = this.owner.getPower(MM_12_ExcitedPower.POWER_ID).amount;
+                this.amount = Math.max(this.amount + amount, minAmount);
+                return;
+            }
+            if (this.amount + amount <= 0) {
+                this.addToBot(new RemoveSpecificPowerAction(this.owner, AbstractDungeon.player, POWER_ID));
+                return;
+            }
         }
         this.amount = Math.min(this.amount + amount, maxAmount);
     }
