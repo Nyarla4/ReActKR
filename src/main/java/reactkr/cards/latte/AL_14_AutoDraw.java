@@ -46,16 +46,6 @@ public class AL_14_AutoDraw extends AbstractAutoCard {
     }
 
     @Override
-    protected String getForbiddenStanceID() {
-        return null;
-    }
-
-    @Override
-    protected String getForbiddenMessage() {
-        return null;
-    }
-
-    @Override
     public void AutoAct() {
         this.addToBot(new DrawCardAction(magicNumber));
     }

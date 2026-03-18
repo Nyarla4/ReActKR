@@ -24,7 +24,6 @@ import reactkr.cards.latte.AL_00_GoWorkSong;
 import reactkr.cards.latte.Latte_Defend;
 import reactkr.cards.latte.Latte_Strike;
 import reactkr.relics.latte.AL_00_LatteStartItemRelic;
-import reactkr.stances.latte.LatteStance;
 
 import java.util.ArrayList;
 
@@ -172,12 +171,6 @@ public class Latte extends CustomPlayer {
     @Override
     public String getVampireText() {
         return TEXT[2];
-    }
-
-    @Override
-    public void applyStartOfCombatLogic() {
-        super.applyStartOfCombatLogic();
-        AbstractDungeon.player.stance = new LatteStance();
     }
 
     public static class Enums {

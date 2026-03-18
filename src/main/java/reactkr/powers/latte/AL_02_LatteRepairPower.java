@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.powers.AbstractEasyPower;
-import reactkr.stances.latte.MochaStance;
 
 import static reactkr.ModFile.makeID;
 

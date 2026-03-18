@@ -42,14 +42,4 @@ public class AL_02_McMorning extends AbstractEasyCard_Latte {
     protected int getPreviewUpgradeDescriptionIndex() {
         return -1;
     }
-
-    @Override
-    protected String getForbiddenStanceID() {
-        return null;
-    }
-
-    @Override
-    protected String getForbiddenMessage() {
-        return null;
-    }
 }

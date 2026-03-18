@@ -69,26 +69,4 @@ public abstract class AbstractEasyCard_Latte extends AbstractEasyCard {
         super.applyPowers();
         initializeSummaryPreview();
     }
-
-    // [구조적 정의] 어떤 자세에서 사용 불가능한지 하위 클래스에서 결정하도록 함
-    protected abstract String getForbiddenStanceID();
-
-    // [구조적 정의] 사용 불가 시 출력할 메시지 정의
-    protected abstract String getForbiddenMessage();
-
-    @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        // 1. 기본적인 사용 가능 여부(에너지 등) 체크
-        boolean canUse = super.canUse(p, m);
-        if (!canUse) return false;
-
-        String forbiddenID = getForbiddenStanceID();
-
-        if (p.stance.ID.equals(forbiddenID)) {
-            this.cantUseMessage = getForbiddenMessage();
-            return false;
-        }
-
-        return true;
-    }
 }

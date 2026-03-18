@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import reactkr.cards.AbstractEasyCard_Latte;
-import reactkr.stances.latte.LatteStance;
 
 import static reactkr.ModFile.makeID;
 
@@ -24,7 +23,6 @@ public class AL_04_TtediFault extends AbstractEasyCard_Latte {
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
         addToBot(new DrawCardAction(magicNumber));
-        addToBot(new ChangeStanceAction(new LatteStance()));
     }
 
     @Override
@@ -40,15 +38,5 @@ public class AL_04_TtediFault extends AbstractEasyCard_Latte {
     @Override
     protected int getPreviewUpgradeDescriptionIndex() {
         return -1;
-    }
-
-    @Override
-    protected String getForbiddenStanceID() {
-        return null;
-    }
-
-    @Override
-    protected String getForbiddenMessage() {
-        return null;
     }
 }

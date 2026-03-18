@@ -62,7 +62,7 @@
   },
   "${ModID}:LostDelusion": {
     "NAME": "로스트=딜루전",
-    "DESCRIPTION": "손의 카드를 모두 소멸시킵니다. 소멸한만큼 무작위 카드를 생성합니다. NL 생성된 카드의 비용을 1 감소합니다. NL 휘발성 NL 소멸."
+    "DESCRIPTION": "손의 카드를 모두 소멸시킵니다. 소멸한만큼 무작위 카드를 생성합니다. NL 생성된 카드의 비용을 1 감소합니다. NL 휘발성. NL 소멸."
   },
   "${ModID}:YuriJoa": {
     "NAME": "백합좋아",
@@ -126,8 +126,8 @@
   },
   "${ModID}:ColorBlack": {
     "NAME": "검정",
-    "DESCRIPTION": "피해를 !D! 줍니다. 약화를 !M! 줍니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 약화를 !M! 줍니다. NL 소멸. 보존."
+    "DESCRIPTION": "피해를 !D! 줍니다. 약화를 !M! 부여합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 약화를 !M! 부여합니다. NL 소멸. 보존."
   },
   "${ModID}:ColorRed": {
     "NAME": "빨강",
@@ -697,20 +697,6 @@
     "DESCRIPTION": "취약을 !M! 부여합니다. 피해를 !D! 줍니다. NL ${ModID}:모카는 사용불가 NL ${ModID}:라떼로 돌아갑니다.",
     "EXTENDED_DESCRIPTION": [
       "취약 부여 후 공격 NL 모카 사용 불가"
-    ]
-  },
-  "${ModID}:Brother": {
-    "NAME": "형...",
-    "DESCRIPTION": "${ModID}:모카를 부릅니다.",
-    "EXTENDED_DESCRIPTION": [
-      "모카"
-    ]
-  },
-  "${ModID}:Kansaiben": {
-    "NAME": "칸사이벤",
-    "DESCRIPTION": "${ModID}:아오토상을 부릅니다.",
-    "EXTENDED_DESCRIPTION": [
-      "あおとさん"
     ]
   },
   "${ModID}:NoBadWord": {

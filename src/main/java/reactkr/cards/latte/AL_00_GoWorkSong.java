@@ -41,14 +41,4 @@ public class AL_00_GoWorkSong extends AbstractMorningCard {
     protected int getPreviewUpgradeDescriptionIndex() {
         return -1;
     }
-
-    @Override
-    protected String getForbiddenStanceID() {
-        return null;
-    }
-
-    @Override
-    protected String getForbiddenMessage() {
-        return null;
-    }
 }

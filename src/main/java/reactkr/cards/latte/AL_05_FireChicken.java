@@ -48,14 +48,4 @@ public class AL_05_FireChicken extends AbstractMorningCard {
     protected int getPreviewUpgradeDescriptionIndex() {
         return -1;
     }
-
-    @Override
-    protected String getForbiddenStanceID() {
-        return null;
-    }
-
-    @Override
-    protected String getForbiddenMessage() {
-        return null;
-    }
 }

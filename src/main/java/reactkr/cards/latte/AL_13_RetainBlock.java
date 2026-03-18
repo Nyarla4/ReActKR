@@ -46,14 +46,4 @@ public class AL_13_RetainBlock extends AbstractRetainCard {
     protected int getPreviewUpgradeDescriptionIndex() {
         return -1;
     }
-
-    @Override
-    protected String getForbiddenStanceID() {
-        return null;
-    }
-
-    @Override
-    protected String getForbiddenMessage() {
-        return null;
-    }
 }

@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.powers.AbstractEasyPower;
-import reactkr.stances.latte.MochaStance;
 
 import static reactkr.ModFile.makeID;
 
@@ -22,11 +21,10 @@ public class AL_01_NoBadWordPower extends AbstractEasyPower {
     public static final String[] DESCRIPTIONS;
     private static final Logger logger = LogManager.getLogger(AL_01_NoBadWordPower.class.getName());
 
-    private int guard;
+    private int guard = 1;
 
     public AL_01_NoBadWordPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
-        guard = AbstractDungeon.player.stance.ID.equals(MochaStance.STANCE_ID) ? 1 : 0;
     }
 
     @Override

@@ -43,24 +43,41 @@ public class DurianMonster extends AbstractCustomMonster{
     @Override
     protected byte decideMoveByte(int turn, int rngNum) {
         if (turn == 0) {
-            return MOVE_BUFF;
+            return MOVE_WEAK_ATTACK;
         }
-
-        // [구조 결정] 0~99 난수를 바탕으로 3가지 공격 확률 분기
         if (rngNum < 40) {               // 40% 확률로 약타
+            if (this.lastMove(MOVE_WEAK_ATTACK)) { // 슬더스 내장 helper 메서드 활용
+                if (AbstractDungeon.aiRng.randomBoolean()) {
+                    return MOVE_MED_ATTACK;
+                } else {
+                    return MOVE_STRONG_ATTACK;
+                }
+            }
             return MOVE_WEAK_ATTACK;
         } else if (rngNum < 80) {        // 40% 확률로 중타
+            if (this.lastMove(MOVE_MED_ATTACK)) {
+                if (AbstractDungeon.aiRng.randomBoolean()) {
+                    return MOVE_WEAK_ATTACK;
+                } else {
+                    return MOVE_STRONG_ATTACK;
+                }
+            }
             return MOVE_MED_ATTACK;
         } else {                         // 20% 확률로 강타
+            if (this.lastMove(MOVE_STRONG_ATTACK)) {
+                if (AbstractDungeon.aiRng.randomBoolean()) {
+                    return MOVE_WEAK_ATTACK;
+                } else {
+                    return MOVE_MED_ATTACK;
+                }
+            }
             return MOVE_STRONG_ATTACK;
         }
     }
 
     @Override
     protected void setIntentByByte(byte moveByte) {
-        if (moveByte == MOVE_BUFF) {
-            this.setMove(MOVE_BUFF, Intent.BUFF);
-        } else if (moveByte == MOVE_WEAK_ATTACK) {
+        if (moveByte == MOVE_WEAK_ATTACK) {
             // 약타: 데미지와 함께 디버프를 주므로 Intent.ATTACK_DEBUFF 사용
             this.setMove(MOVE_WEAK_ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
         } else if (moveByte == MOVE_MED_ATTACK) {
@@ -73,11 +90,7 @@ public class DurianMonster extends AbstractCustomMonster{
 
     @Override
     protected void executeTurnFlow(byte moveByte) {
-        if (moveByte == MOVE_BUFF) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-                    this, this, new OminousMassPower(this)
-            ));
-        } else if (moveByte == MOVE_WEAK_ATTACK) {
+        if (moveByte == MOVE_WEAK_ATTACK) {
             // [약타 흐름] 1. 타격 액션 -> 2. 손상(Frail) 1 부여 액션
             AbstractDungeon.actionManager.addToBottom(new DamageAction(
                     AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT

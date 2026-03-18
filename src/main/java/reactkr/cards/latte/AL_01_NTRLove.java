@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import reactkr.stances.latte.MochaStance;
 
 import static reactkr.ModFile.makeID;
 import static reactkr.util.Wiz.atb;
@@ -46,15 +45,5 @@ public class AL_01_NTRLove extends AbstractMorningCard {
     @Override
     protected int getPreviewUpgradeDescriptionIndex() {
         return -1;
-    }
-
-    @Override
-    protected String getForbiddenStanceID() {
-        return MochaStance.STANCE_ID;
-    }
-
-    @Override
-    protected String getForbiddenMessage() {
-        return MochaStance.CantUseMessage;
     }
 }
