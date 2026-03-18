@@ -861,6 +861,14 @@
       "*쭈글호랭이+을 1장 얻습니다. "
     ]
   },
+  "${ModID}:TruckDriverTenten": {
+    "NAME": "트럭기사 텐텐",
+    "DESCRIPTION": "적 전체에게 !D! 피해를 줍니다."
+  },
+  "${ModID}:ThrowTheApple": {
+    "NAME": "사과던져잇",
+    "DESCRIPTION": "파워 카드를 낼 때마다 무작위 적에게 !M! 피해를 줍니다."
+  },
 
   "${ModID}:WimpyTiger": {
     "NAME": "쭈글호랭이",

@@ -308,6 +308,13 @@
       "일부 카드 효과가 강화됩니다."
     ]
   },
+  "${ModID}:ApplePower": {
+    "NAME": "사과",
+    "DESCRIPTIONS": [
+      "파워 카드를 낼 때마다 무작위 적에게 ",
+      " 피해를 줍니다."
+    ]
+  },
 
 
   "${ModID}:OminousMassPower": {

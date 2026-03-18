@@ -12,6 +12,8 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import reactkr.Kuroka;
 import reactkr.Latte;
 import reactkr.Mayo;
+import reactkr.cards.ThrowTheApple;
+import reactkr.cards.TruckDriverTenten;
 import reactkr.relics.SulkTentenRelic;
 
 import java.util.ArrayList;
@@ -28,20 +30,13 @@ public class Event_Tenten extends AbstractImageEvent {
 
     private int screenNum = 0; // 현재 선택지 화면 번호
 
-    private ArrayList<AbstractCard> rareCards = new ArrayList<>();
+    private ArrayList<AbstractCard> tentenCards = new ArrayList<>();
 
     public Event_Tenten() {
         super(NAME, DESCRIPTIONS[0], "reactkrResources/images/events/Tenten.png");
 
-        // CardLibrary에 등록된 모든 카드를 순회합니다.
-        for (Map.Entry<String, AbstractCard> entry : CardLibrary.cards.entrySet()) {
-            AbstractCard card = entry.getValue();
-
-            if (card.rarity == AbstractCard.CardRarity.RARE) {
-                rareCards.add(card.makeCopy());
-                // 카드의 복사본(makeCopy)을 넣는 것이 안전합니다.
-            }
-        }
+        tentenCards.add(new TruckDriverTenten());
+        tentenCards.add(new ThrowTheApple());
 
         imageEventText.setDialogOption(OPTIONS[0]);
         imageEventText.setDialogOption(OPTIONS[1]);
@@ -55,8 +50,8 @@ public class Event_Tenten extends AbstractImageEvent {
             case 0:
                 if (buttonPressed == 2) { // 정답 선택 시
 
-                    int idx = AbstractDungeon.eventRng.random(0, rareCards.size()-1);
-                    AbstractCard targetCard = rareCards.get(idx);
+                    int idx = AbstractDungeon.eventRng.random(0, tentenCards.size()-1);
+                    AbstractCard targetCard = tentenCards.get(idx);
 
                     AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(targetCard, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f));
 
