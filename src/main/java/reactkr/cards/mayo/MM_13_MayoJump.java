@@ -42,11 +42,6 @@ public class MM_13_MayoJump extends AbstractAimedCard {
     }
 
     @Override
-    public int basicDepletion() {
-        return -1;
-    }
-
-    @Override
     public void upp() {
         upgradeBaseCost(0);
     }

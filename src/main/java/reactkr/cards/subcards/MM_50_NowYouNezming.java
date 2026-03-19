@@ -19,6 +19,8 @@ public class MM_50_NowYouNezming extends AbstractAimedCard {
         baseBlock = block = 6;
         baseMagicNumber = magicNumber = 2;
         baseSecondMagic = secondMagic = 1;
+        usesDepletion = true;
+        depletionMax = 2;
     }
 
     @Override
@@ -30,11 +32,6 @@ public class MM_50_NowYouNezming extends AbstractAimedCard {
     @Override
     protected boolean useBullet() {
         return false;
-    }
-
-    @Override
-    public int basicDepletion() {
-        return 2;
     }
 
     @Override

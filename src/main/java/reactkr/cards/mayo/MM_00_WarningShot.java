@@ -34,11 +34,6 @@ public class MM_00_WarningShot extends AbstractAimedCard {
     }
 
     @Override
-    public int basicDepletion() {
-        return -1;
-    }
-
-    @Override
     public void upp() {
         upgradeDamage(3);
         upgradeSecondDamage(3);

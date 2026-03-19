@@ -42,11 +42,6 @@ public class MM_28_TenPerc extends AbstractAimedCard {
     }
 
     @Override
-    public int basicDepletion() {
-        return -1;
-    }
-
-    @Override
     public void upp() {
         upgradeMagicNumber(1);
     }

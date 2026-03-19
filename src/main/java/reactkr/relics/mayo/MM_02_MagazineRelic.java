@@ -44,10 +44,10 @@ public class MM_02_MagazineRelic extends AbstractEasyRelic implements ClickableR
                 AbstractPlayer p = AbstractDungeon.player;
 
                 boolean hasValidCard = p.hand.group.stream()
-                        .filter(f -> f instanceof AbstractAimedCard)         // 1. 타입 필터
-                        .map(f -> (AbstractAimedCard) f)                     // 2. 형변환
-                        .anyMatch(ac -> ac.basicDepletion() > -1 &&
-                                ac.baseMagicNumber < ac.basicDepletion());        // 3. 조건 확인
+                        .filter(f -> f instanceof AbstractAimedCard)
+                        .map(f -> (AbstractAimedCard) f)
+                        .anyMatch(ac -> ac.usesDepletion &&                    // ① 고갈 시스템 사용 여부
+                                ac.baseMagicNumber < ac.depletionMax);         // ② 탄창이 줄어있는가
                 if (!hasValidCard) {
                     // 1. [시각적 흐름] 플레이어 머리 위에 말풍선 생성
                     // SpeechBubble(x좌표, y좌표, 지속시간, 내용, 플레이어 대사 여부)

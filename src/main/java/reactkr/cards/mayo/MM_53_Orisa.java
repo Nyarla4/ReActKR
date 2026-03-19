@@ -59,11 +59,6 @@ public class MM_53_Orisa extends AbstractAimedCard implements IUltCard {
     }
 
     @Override
-    public int basicDepletion() {
-        return -1;
-    }
-
-    @Override
     public void upp() {
     }
 

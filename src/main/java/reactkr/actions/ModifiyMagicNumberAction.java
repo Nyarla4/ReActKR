@@ -27,6 +27,7 @@ public class ModifiyMagicNumberAction extends AbstractGameAction {
         this.isReset = isReset;
     }
 
+    @Override
     public void update() {
         for (AbstractCard c : GetAllInBattleInstances.get(this.uuid)) {
             if (c instanceof AbstractEasyCard) {
@@ -34,7 +35,11 @@ public class ModifiyMagicNumberAction extends AbstractGameAction {
                 if (isReset) {
                     if (ec instanceof AbstractAimedCard) {
                         AbstractAimedCard ac = (AbstractAimedCard) ec;
-                        ac.baseMagicNumber = ac.basicDepletion();
+                        // basicDepletion() 대신 depletionMax 필드 참조
+                        ac.baseMagicNumber = ac.depletionMax;
+                    } else {
+                        // AimedCard 가 아닌 경우의 리셋 처리
+                        ec.baseMagicNumber = ec.baseMagicNumber;
                     }
                 } else {
                     ec.baseMagicNumber += this.amount;
@@ -44,7 +49,6 @@ public class ModifiyMagicNumberAction extends AbstractGameAction {
                 }
             }
         }
-
         this.isDone = true;
     }
 }

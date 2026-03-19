@@ -53,11 +53,6 @@ public class MM_17_MayoSaintSword extends AbstractAimedCard {
     }
 
     @Override
-    public int basicDepletion() {
-        return -1;
-    }
-
-    @Override
     public void upp() {
 
     }

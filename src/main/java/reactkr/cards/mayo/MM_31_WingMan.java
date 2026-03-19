@@ -36,11 +36,6 @@ public class MM_31_WingMan extends AbstractAimedCard{
     }
 
     @Override
-    public int basicDepletion() {
-        return -1;
-    }
-
-    @Override
     public void upp() {
 
     }

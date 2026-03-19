@@ -16,14 +16,13 @@ public class MM_10_VK47 extends AbstractAimedCard {
         baseDamage = damage = 5;
         baseSecondDamage = secondDamage = 9;
         baseMagicNumber = magicNumber = 3;
+        usesDepletion = true;
+        depletionMax = 3;
     }
 
     @Override
     public void normalUse(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, finalDamage)));
-//        if(magicNumber == 1){
-//            addToBot(new DamageAction(m, new DamageInfo(p, finalDamage)));
-//        }
     }
 
     @Override
@@ -31,19 +30,7 @@ public class MM_10_VK47 extends AbstractAimedCard {
         upgradeDamage(-2);
         upgradeSecondDamage(5);
         upgradeMagicNumber(1);
-    }
-
-    @Override
-    public void applyPowers() {
-        super.applyPowers();
-        if (magicNumber == 1) {
-            exhaust = true;
-        }
-    }
-
-    @Override
-    public int basicDepletion() {
-        return upgraded ? 4 : 3;
+        depletionMax = 4;
     }
 
     @Override

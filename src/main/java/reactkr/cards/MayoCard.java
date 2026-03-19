@@ -35,11 +35,6 @@ public class MayoCard extends AbstractAimedCard {
     }
 
     @Override
-    public int basicDepletion() {
-        return -1;
-    }
-
-    @Override
     public void normalUse(AbstractPlayer p, AbstractMonster m) {
         playAudio(ProAudio.MAYO);
         addToBot(new DamageAction(m, new DamageInfo(p, finalDamage)));
@@ -52,11 +47,6 @@ public class MayoCard extends AbstractAimedCard {
         } else {
             addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
         }
-    }
-
-    @Override
-    public void quickUse(AbstractPlayer p, AbstractMonster m) {
-
     }
 
     @Override

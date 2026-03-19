@@ -46,11 +46,6 @@ public class MM_48_tempLittle extends AbstractAimedCard {
     }
 
     @Override
-    public int basicDepletion() {
-        return -1;
-    }
-
-    @Override
     public void upp() {
         upgradeMagicNumber(1);
         upgradeSecondMagic(1);

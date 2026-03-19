@@ -17,6 +17,8 @@ public class MM_09_EVA extends AbstractAimedCard {
         baseSecondDamage = secondDamage = 8;
         baseBlock = block = 6;
         baseMagicNumber = magicNumber = 6;
+        usesDepletion = true;
+        depletionMax = 6;
     }
 
     @Override
@@ -32,19 +34,7 @@ public class MM_09_EVA extends AbstractAimedCard {
         upgradeDamage(3);
         upgradeSecondDamage(3);
         upgradeMagicNumber(-1);
-    }
-
-    @Override
-    public void applyPowers() {
-        super.applyPowers();
-        if (magicNumber == 1) {
-            exhaust = true;
-        }
-    }
-
-    @Override
-    public int basicDepletion() {
-        return upgraded ? 5 : 6;
+        depletionMax = 5;
     }
 
     @Override

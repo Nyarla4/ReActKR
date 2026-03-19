@@ -50,9 +50,4 @@ public class MM_21_Obscuration extends AbstractAimedCard {
         upgradeSecondDamage(5);
         upgradeMagicNumber(1);
     }
-
-    @Override
-    public int basicDepletion() {
-        return -1;
-    }
 }

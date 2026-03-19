@@ -8,8 +8,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static reactkr.ModFile.makeID;
 
 public class MM_08_R301 extends AbstractAimedCard {
+
     public final static String ID = makeID("R301");
-    // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public MM_08_R301() {
         super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
@@ -18,11 +18,13 @@ public class MM_08_R301 extends AbstractAimedCard {
         baseBlock = block = 6;
         baseMagicNumber = magicNumber = 2;
         useAim = true;
+        usesDepletion = true;
+        depletionMax = 2;
     }
 
     @Override
     public void normalUse(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, finalDamage)));
+        addToBot(new DamageAction(m, new DamageInfo(p, finalDamage, this.damageTypeForTurn)));
     }
 
     @Override
@@ -35,11 +37,7 @@ public class MM_08_R301 extends AbstractAimedCard {
         upgradeDamage(3);
         upgradeSecondDamage(3);
         upgradeMagicNumber(1);
-    }
-
-    @Override
-    public int basicDepletion() {
-        return upgraded ? 3 : 2;
+        depletionMax = 3;
     }
 
     @Override

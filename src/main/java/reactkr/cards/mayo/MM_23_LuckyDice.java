@@ -80,9 +80,4 @@ public class MM_23_LuckyDice extends AbstractAimedCard {
     protected boolean useBullet() {
         return false;
     }
-
-    @Override
-    public int basicDepletion() {
-        return -1;
-    }
 }
