@@ -30,11 +30,6 @@ public class MM_50_NowYouNezming extends AbstractAimedCard {
     }
 
     @Override
-    protected boolean useBullet() {
-        return false;
-    }
-
-    @Override
     public void upp() {
         upgradeBlock(2);
     }

@@ -1,11 +1,10 @@
 package reactkr.cards.mayo;
 
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import reactkr.cards.AbstractEasyCard_Mayo;
-import reactkr.orbs.mayo.MM_01_SniperBulletOrb;
-import reactkr.orbs.mayo.MM_03_HPBulletOrb;
+import reactkr.powers.mayo.AbstractBulletPower;
+import reactkr.powers.mayo.MM_B_03_HPBulletPower;
 
 import static reactkr.ModFile.makeID;
 
@@ -23,7 +22,7 @@ public class MM_18_GetHP extends AbstractEasyCard_Mayo {
     }
 
     @Override
-    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToTop(new ChannelAction(new MM_03_HPBulletOrb(magicNumber)));
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractBulletPower.load(p, new MM_B_03_HPBulletPower(p));
     }
 }

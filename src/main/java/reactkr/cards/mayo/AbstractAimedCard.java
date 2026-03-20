@@ -5,57 +5,32 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactkr.Mayo;
 import reactkr.cards.AbstractEasyCard_Mayo;
-import reactkr.orbs.mayo.MM_01_SniperBulletOrb;
-import reactkr.orbs.mayo.MM_02_LightBulletOrb;
-import reactkr.orbs.mayo.MM_03_HPBulletOrb;
-import reactkr.orbs.mayo.MM_04_TCBulletOrb;
-import reactkr.powers.mayo.AbstractAddRangePower;
+import reactkr.powers.mayo.*;
 import reactkr.relics.mayo.MM_01_NezmingRelic;
+
+import static reactkr.powers.mayo.AbstractBulletPower.BulletTrigger;
 
 public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
 
     private static final Logger logger = LogManager.getLogger(AbstractAimedCard.class.getName());
 
-    // ── 서브클래스 노출 필드 ────────────────────────────────────────────────────
-
-    /** use() / aimedUse() 안에서 읽어 실제 데미지 처리에 사용 */
+    // ── 서브클래스 노출 필드 ──────────────────────────────────
     protected int finalDamage;
     protected int finalMagic;
 
-    /** true 이면 카드 좌단 조준 글로우 + aimedUse() 발동 */
-    protected boolean useAim = false;
-
-    /** true 이면 카드 우단 속사 글로우 + quickUse() 발동 */
+    protected boolean useAim   = false;
     protected boolean useQuick = false;
 
-    /**
-     * true 이면 이 카드는 고갈(Depletion) 시스템을 사용합니다.
-     * use() 시 magicNumber 1 감소 → 0 이하면 소멸(Exhaust).
-     * 자식 클래스 생성자에서 this.usesDepletion = true 로 활성화합니다.
-     */
-    public boolean usesDepletion = false;
-
-    /**
-     * true 이면 턴 종료 시 패에 들고 있으면 고갈 수치가 깎입니다.
-     * usesDepletion 이 false 면 이 값은 무시됩니다.
-     */
+    public boolean usesDepletion    = false;
     protected boolean depleteOnTurnEnd = false;
+    public int depletionMax         = 0;
 
-    /**
-     * 고갈 시스템의 최대 탄창 수치. isReset 리셋 시 기준값으로 사용됩니다.
-     * usesDepletion = true 인 경우 생성자에서 반드시 설정하십시오.
-     * 업그레이드 시 upgradeMagicNumber() 와 함께 갱신해야 합니다.
-     */
-    public int depletionMax = 0;
-
-    // ── 생성자 ────────────────────────────────────────────────────────────────
-
+    // ── 생성자 ───────────────────────────────────────────────
     public AbstractAimedCard(String cardID, int cost, CardType type,
                              CardRarity rarity, CardTarget target) {
         this(cardID, cost, type, rarity, target, Mayo.Enums.MAYO_COLOR);
@@ -66,40 +41,71 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
         super(cardID, cost, type, rarity, target, color);
     }
 
-    // ── 서브클래스 구현 인터페이스 ─────────────────────────────────────────────
-
-    /** 조준 여부와 무관하게 항상 실행되는 기본 처리. */
+    // ── 서브클래스 구현 인터페이스 ────────────────────────────
     public abstract void normalUse(AbstractPlayer p, AbstractMonster m);
-
-    /** 조준(Aimed) 상태일 때 추가 실행. 기본 구현은 없음. */
     public void aimedUse(AbstractPlayer p, AbstractMonster m) { }
-
-    /** 속사(Quick) 상태일 때 추가 실행. 기본 구현은 없음. */
     public void quickUse(AbstractPlayer p, AbstractMonster m) { }
 
     /**
-     * 조준/속사 판정에서 총알 오브를 소비할지 여부.
-     * 총알 오브가 없는 카드는 false 를 반환하면 됩니다.
+     * 이 카드가 총알을 소비하는 시나리오를 반환.
+     * 총알을 쓰지 않는 카드는 null 반환.
+     *
+     * 임시 구현: 서브클래스에서 아래 중 하나를 반환
+     *   BulletTrigger.AIMED    — 조준 시만
+     *   BulletTrigger.QUICKED  — 속사 시만
+     *   BulletTrigger.OR       — 조준 또는 속사 시
+     *   BulletTrigger.ALWAYS   — 항상
+     *   null                   — 총알 미사용
      */
-    protected abstract boolean useBullet();
+    protected BulletTrigger bulletTrigger() {
+        return null;
+    }
 
-    // ── 카드 사용 흐름 ────────────────────────────────────────────────────────
+    // ── 총알 소비 여부 판정 ───────────────────────────────────
+    /**
+     * 현재 상태에서 실제로 총알을 소비할지 최종 판정.
+     * use() 와 데미지 계산 양쪽에서 동일한 기준으로 사용.
+     */
+    private boolean shouldConsumeBullet() {
+        BulletTrigger trigger = bulletTrigger();
+        if (trigger == null) return false;
+        switch (trigger) {
+            case AIMED:   return isAimed();
+            case QUICKED: return isQuick();
+            case OR:      return isAimed() || isQuick();
+            case ALWAYS:  return true;
+            default:      return false;
+        }
+    }
 
+    // ── 카드 사용 흐름 ────────────────────────────────────────
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         normalUse(p, m);
 
-        if (this.usesDepletion) {
-            triggerDepletionFlow();
-        }
+        if (this.usesDepletion) triggerDepletionFlow();
+
+        // 총알 소비는 ALWAYS / OR 시나리오 중복 방지를 위해
+        // shouldConsumeBullet() 기준으로 1회만 처리
+        boolean consumed = false;
 
         if (isAimed()) {
-            if (useBullet()) useOrb();
+            if (!consumed && shouldConsumeBullet()) {
+                usePower();
+                consumed = true;
+            }
             aimedUse(p, m);
         }
         if (isQuick()) {
-            if (useBullet()) useOrb();
+            if (!consumed && shouldConsumeBullet()) {
+                usePower();
+                consumed = true;
+            }
             quickUse(p, m);
+        }
+        // ALWAYS: 조준도 속사도 아닌 경우에도 소비
+        if (!consumed && shouldConsumeBullet()) {
+            usePower();
         }
     }
 
@@ -107,24 +113,26 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
     public void triggerOnEndOfPlayerTurn() {
         super.triggerOnEndOfPlayerTurn();
         if (this.usesDepletion && this.depleteOnTurnEnd) {
-            this.superFlash(); // "안 써서 깎였다"는 시각적 피드백
+            this.superFlash();
             triggerDepletionFlow();
         }
     }
 
-    // ── 고갈(Depletion) 흐름 ─────────────────────────────────────────────────
+    // ── 총알 Power 헬퍼 ──────────────────────────────────────
 
-    /**
-     * magicNumber 감소와 소멸 판정을 단일 액션 틱 안에서 원자적으로 처리합니다.
-     *
-     * [설계 근거]
-     * - baseMagicNumber 를 직접 수정해 "지금 손에 든 이 카드 인스턴스의 탄창"만 깎습니다.
-     *   UUID 기반 액션(ModifiyMagicNumberAction)을 쓰면 덱·버린 덱의 동명 카드까지
-     *   전부 깎이므로 총기 시스템 기획 의도와 맞지 않습니다.
-     * - 감소와 exhaust 판정이 동일 틱에서 실행되므로 타이밍 엇박자가 없습니다.
-     * - 액션 완료 후 엔진이 applyPowers() 를 자동 재호출하여 UI 를 올바르게 갱신합니다.
-     *   isMagicNumberModified 를 별도로 세울 필요가 없습니다.
-     */
+    /** 장전된 총알 발사. fire() 내부에서 onFire() + 제거 처리됨. */
+    protected void usePower() {
+        AbstractBulletPower bullet =
+                AbstractBulletPower.getLoaded(AbstractDungeon.player);
+        if (bullet != null) bullet.fire();
+    }
+
+    /** 특정 클래스의 총알이 장전되어 있는지 확인. 데미지 계산에서 사용. */
+    private boolean hasBulletPower(Class<? extends AbstractBulletPower> cls) {
+        return AbstractBulletPower.isLoaded(AbstractDungeon.player, cls);
+    }
+
+    // ── 고갈(Depletion) 흐름 ─────────────────────────────────
     private void triggerDepletionFlow() {
         final AbstractCard self = this;
         addToBot(new AbstractGameAction() {
@@ -132,23 +140,19 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
             public void update() {
                 self.baseMagicNumber -= 1;
                 self.magicNumber = self.baseMagicNumber;
-                if (self.magicNumber <= 0) {
-                    self.exhaust = true;
-                }
+                if (self.magicNumber <= 0) self.exhaust = true;
                 this.isDone = true;
             }
         });
     }
 
-    // ── 조준(Aimed) / 속사(Quick) 판정 ───────────────────────────────────────
-
+    // ── 조준(Aimed) / 속사(Quick) 판정 ───────────────────────
     protected boolean isAimed() {
         AbstractPlayer p = AbstractDungeon.player;
         int threshold = 1;
         if (p.hasRelic(MM_01_NezmingRelic.ID)) threshold++;
-        for (AbstractPower pow : p.powers) {
+        for (AbstractPower pow : p.powers)
             if (pow instanceof AbstractAddRangePower) threshold += pow.amount;
-        }
         int curIdx = p.hand.group.indexOf(this);
         if (curIdx == -1) return false;
         return curIdx < threshold;
@@ -158,10 +162,9 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
         AbstractPlayer p = AbstractDungeon.player;
         int threshold = 1;
         if (p.hasRelic(MM_01_NezmingRelic.ID)) threshold++;
-        for (AbstractPower pow : p.powers) {
+        for (AbstractPower pow : p.powers)
             if (pow instanceof AbstractAddRangePower)
                 threshold += ((AbstractAddRangePower) pow).amount2;
-        }
         int curIdx = p.hand.group.indexOf(this);
         if (curIdx == -1) return false;
         return (p.hand.size() - 1 - curIdx) < threshold;
@@ -169,69 +172,29 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
 
     @Override
     public void triggerOnGlowCheck() {
-        this.glowColor = (isAimed() && useAim)   ? AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy()
-                : (isQuick() && useQuick) ? AbstractCard.GREEN_BORDER_GLOW_COLOR.cpy()
-                : AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        this.glowColor = (isAimed() && useAim)    ? AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy()
+                : (isQuick() && useQuick)  ? AbstractCard.GREEN_BORDER_GLOW_COLOR.cpy()
+                :                            AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
     }
 
-    // ── 탄환(Orb) 소비 및 헬퍼 ────────────────────────────────────────────────
+    // ── 데미지 계산 파이프라인 ────────────────────────────────
 
-    protected void useOrb() {
-        AbstractDungeon.player.orbs.stream()
-                .filter(orb -> !(orb instanceof EmptyOrbSlot)
-                        && (orb.ID.equals(MM_01_SniperBulletOrb.ID)
-                        || orb.ID.equals(MM_02_LightBulletOrb.ID)))
-                .findFirst()
-                .ifPresent(orb -> {
-                    orb.passiveAmount -= 1;
-                    orb.updateDescription();
-                    orb.showEvokeValue();
-                });
-    }
-
-    private boolean hasBulletOrb(String orbID) {
-        return AbstractDungeon.player.orbs.stream()
-                .anyMatch(orb -> !(orb instanceof EmptyOrbSlot) && orb.ID.equals(orbID));
-    }
-
-    // ── 데미지 계산 파이프라인 ─────────────────────────────────────────────────
-    //
-    // STS 엔진 호출 흐름:
-    //   applyPowers()           마우스 오버 / 패 갱신 시
-    //   calculateCardDamage(mo) 몬스터 타겟팅 시 (방어력·취약 포함)
-    //
-    // 두 경우 모두 super 가 baseDamage 를 출발점으로
-    // Strength · Weak · Vigor 등을 반영해 this.damage 를 세팅합니다.
-    //
-    // [주의] super 호출 이후 this.damage = this.baseDamage 로 리셋하면
-    //        파워 보정 전체가 날아갑니다.
-    //        여기서는 super 결과 위에 배율만 곱합니다.
-
-    /**
-     * [Step 1] secondDamage 파워 보정 + sniper/light 총알 배율.
-     *
-     * super 는 this.damage 만 보정하므로 동일한 파워 델타를
-     * secondDamage 에 수동 적용합니다.
-     */
     private void applyPowerScalingAndBullets() {
-        // secondDamage 파워 보정
         int powerDelta = this.damage - this.baseDamage;
         this.secondDamage = Math.max(0, this.baseSecondDamage + powerDelta);
         this.isSecondDamageModified = (this.secondDamage != this.baseSecondDamage);
 
-        // super 가 건드리지 않는 커스텀 필드 리셋
         this.magicNumber = this.baseMagicNumber;
         this.secondMagic = this.baseSecondMagic;
 
-        // 코스트 리셋
         this.isCostModifiedForTurn = false;
         this.costForTurn = this.cost;
 
-        // sniper / light 총알 배율 — 조준 + useBullet() 일 때만
-        if (!isAimed() || !useBullet()) return;
+        // 총알 배율은 실제 소비 조건이 충족될 때만 미리보기에 반영
+        if (!shouldConsumeBullet()) return;
 
-        boolean sniperBullet = hasBulletOrb(MM_01_SniperBulletOrb.ID);
-        boolean lightBullet  = hasBulletOrb(MM_02_LightBulletOrb.ID);
+        boolean sniperBullet = hasBulletPower(MM_B_01_SniperBulletPower.class);
+        boolean lightBullet  = hasBulletPower(MM_B_02_LightBulletPower.class);
 
         if (sniperBullet) {
             this.damage       *= 2;
@@ -250,25 +213,19 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
         }
     }
 
-    /**
-     * [Step 2] HP/TC 총알 배율 — calculateCardDamage 전용.
-     * Step 1 이후 호출되므로 sniper/light 배율 위에 추가로 곱해집니다.
-     * 비조준 상태이거나 useBullet() == false 면 건너뜁니다.
-     */
     private void applyMonsterBulletModifiers(AbstractMonster m) {
-        if (!isAimed() || !useBullet()) return;
+        if (!shouldConsumeBullet()) return;
 
-        boolean hpBullet = hasBulletOrb(MM_03_HPBulletOrb.ID);
-        boolean tcBullet = hasBulletOrb(MM_04_TCBulletOrb.ID);
+        boolean hpBullet = hasBulletPower(MM_B_03_HPBulletPower.class);
+        boolean tcBullet = hasBulletPower(MM_B_04_TCBulletPower.class);
 
         if (hpBullet) {
-            scaleDamage(m.currentBlock > 0);  // 방어막 있으면 2배, 없으면 0.5배
+            scaleDamage(m.currentBlock > 0);
         } else if (tcBullet) {
-            scaleDamage(m.currentBlock == 0); // 방어막 없으면 2배, 있으면 0.5배
+            scaleDamage(m.currentBlock == 0);
         }
     }
 
-    /** doubled == true 면 2배, false 면 내림 0.5배. */
     private void scaleDamage(boolean doubled) {
         if (doubled) {
             this.damage       *= 2;
@@ -281,14 +238,6 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
         this.isSecondDamageModified = true;
     }
 
-    /**
-     * [Step 3] finalDamage / finalMagic 확정.
-     * 항상 갱신하여 이전 값이 잔류하는 버그를 원천 차단합니다.
-     *
-     * 조준 상태  : secondDamage / secondMagic (최댓값)
-     * 비조준 상태: [damage, secondDamage] 범위 랜덤.
-     *             범위가 역전·동일이면 damage / magicNumber 그대로 사용.
-     */
     private void computeFinalValues() {
         if (isAimed()) {
             finalDamage = this.secondDamage;
@@ -303,22 +252,18 @@ public abstract class AbstractAimedCard extends AbstractEasyCard_Mayo {
         }
     }
 
-    // ── STS 엔진 오버라이드 ───────────────────────────────────────────────────
-
-    /** 마우스 오버 / 패 갱신 시 호출. super → this.damage = baseDamage + 파워 */
     @Override
     public void applyPowers() {
-        super.applyPowers();           // ① this.damage = baseDamage + 파워
-        applyPowerScalingAndBullets(); // ② secondDamage 보정 + sniper/light 총알
-        computeFinalValues();          // ③ finalDamage / finalMagic 확정
+        super.applyPowers();
+        applyPowerScalingAndBullets();
+        computeFinalValues();
     }
 
-    /** 몬스터 타겟팅 시 호출. super → this.damage = baseDamage + 파워 + 몬스터 방어 */
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);   // ① this.damage = baseDamage + 파워 + 몬스터 방어
-        applyPowerScalingAndBullets();   // ② secondDamage 보정 + sniper/light 총알
-        applyMonsterBulletModifiers(mo); // ③ HP/TC 총알
-        computeFinalValues();            // ④ finalDamage / finalMagic 확정
+        super.calculateCardDamage(mo);
+        applyPowerScalingAndBullets();
+        applyMonsterBulletModifiers(mo);
+        computeFinalValues();
     }
 }

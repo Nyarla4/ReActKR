@@ -40,11 +40,6 @@ public class MM_21_Obscuration extends AbstractAimedCard {
     }
 
     @Override
-    protected boolean useBullet() {
-        return false;
-    }
-
-    @Override
     public void upp() {
         upgradeDamage(-2);
         upgradeSecondDamage(5);

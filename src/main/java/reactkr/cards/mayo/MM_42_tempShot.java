@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import reactkr.cards.AbstractEasyCard_Mayo;
+import reactkr.powers.mayo.AbstractBulletPower;
 import reactkr.powers.mayo.MM_10_AimPower;
 
 import java.util.ArrayList;
@@ -36,8 +37,8 @@ public class MM_42_tempShot extends AbstractAimedCard {
     }
 
     @Override
-    protected boolean useBullet() {
-        return true;
+    protected AbstractBulletPower.BulletTrigger bulletTrigger() {
+        return AbstractBulletPower.BulletTrigger.ALWAYS;
     }
 
     @Override

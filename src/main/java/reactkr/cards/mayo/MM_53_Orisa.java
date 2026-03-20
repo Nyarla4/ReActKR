@@ -54,11 +54,6 @@ public class MM_53_Orisa extends AbstractAimedCard implements IUltCard {
     }
 
     @Override
-    protected boolean useBullet() {
-        return false;
-    }
-
-    @Override
     public void upp() {
     }
 

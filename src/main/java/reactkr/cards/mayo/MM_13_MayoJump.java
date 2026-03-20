@@ -45,9 +45,4 @@ public class MM_13_MayoJump extends AbstractAimedCard {
     public void upp() {
         upgradeBaseCost(0);
     }
-
-    @Override
-    protected boolean useBullet() {
-        return false;
-    }
 }

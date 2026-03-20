@@ -75,9 +75,4 @@ public class MM_23_LuckyDice extends AbstractAimedCard {
     public void upp() {
         upgradeSecondMagic(2);
     }
-
-    @Override
-    protected boolean useBullet() {
-        return false;
-    }
 }

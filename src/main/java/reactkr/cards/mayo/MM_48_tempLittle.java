@@ -39,12 +39,6 @@ public class MM_48_tempLittle extends AbstractAimedCard {
         addToBot(new DrawCardAction(secondMagic));
     }
 
-
-    @Override
-    protected boolean useBullet() {
-        return false;
-    }
-
     @Override
     public void upp() {
         upgradeMagicNumber(1);

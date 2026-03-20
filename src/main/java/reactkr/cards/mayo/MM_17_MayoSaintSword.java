@@ -56,9 +56,4 @@ public class MM_17_MayoSaintSword extends AbstractAimedCard {
     public void upp() {
 
     }
-
-    @Override
-    protected boolean useBullet() {
-        return false;
-    }
 }

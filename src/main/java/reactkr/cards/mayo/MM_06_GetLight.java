@@ -1,10 +1,10 @@
 package reactkr.cards.mayo;
 
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import reactkr.cards.AbstractEasyCard_Mayo;
-import reactkr.orbs.mayo.MM_02_LightBulletOrb;
+import reactkr.powers.mayo.AbstractBulletPower;
+import reactkr.powers.mayo.MM_B_02_LightBulletPower;
 
 import static reactkr.ModFile.makeID;
 
@@ -22,7 +22,7 @@ public class MM_06_GetLight extends AbstractEasyCard_Mayo {
     }
 
     @Override
-    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToTop(new ChannelAction(new MM_02_LightBulletOrb(magicNumber)));
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractBulletPower.load(p, new MM_B_02_LightBulletPower(p));
     }
 }

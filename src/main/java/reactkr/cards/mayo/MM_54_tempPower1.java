@@ -50,11 +50,6 @@ public class MM_54_tempPower1 extends AbstractAimedCard {
     }
 
     @Override
-    protected boolean useBullet() {
-        return false;
-    }
-
-    @Override
     public void upp() {
         upgradeMagicNumber(6);
     }

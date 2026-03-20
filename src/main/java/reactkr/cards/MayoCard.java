@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import reactkr.cards.mayo.AbstractAimedCard;
 import reactkr.powers.ReactKRRangersPower;
+import reactkr.powers.mayo.AbstractBulletPower;
 import reactkr.util.ProAudio;
 
 import static reactkr.ModFile.makeID;
@@ -50,8 +51,8 @@ public class MayoCard extends AbstractAimedCard {
     }
 
     @Override
-    protected boolean useBullet() {
-        return true;
+    protected AbstractBulletPower.BulletTrigger bulletTrigger() {
+        return AbstractBulletPower.BulletTrigger.ALWAYS;
     }
 
     @Override

@@ -37,11 +37,6 @@ public class MM_28_TenPerc extends AbstractAimedCard {
     }
 
     @Override
-    protected boolean useBullet() {
-        return false;
-    }
-
-    @Override
     public void upp() {
         upgradeMagicNumber(1);
     }

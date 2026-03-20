@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import reactkr.powers.mayo.AbstractBulletPower;
 
 import static reactkr.ModFile.makeID;
 
@@ -34,7 +35,7 @@ public class MM_10_VK47 extends AbstractAimedCard {
     }
 
     @Override
-    protected boolean useBullet() {
-        return true;
+    protected AbstractBulletPower.BulletTrigger bulletTrigger() {
+        return AbstractBulletPower.BulletTrigger.ALWAYS;
     }
 }

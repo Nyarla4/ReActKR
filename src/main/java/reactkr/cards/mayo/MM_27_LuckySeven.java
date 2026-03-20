@@ -32,11 +32,6 @@ public class MM_27_LuckySeven extends AbstractAimedCard {
     }
 
     @Override
-    protected boolean useBullet() {
-        return false;
-    }
-
-    @Override
     public void upp() {
         upgradeMagicNumber(1);
     }
