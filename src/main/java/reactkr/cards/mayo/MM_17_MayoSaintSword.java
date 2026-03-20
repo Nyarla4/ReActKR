@@ -54,6 +54,7 @@ public class MM_17_MayoSaintSword extends AbstractAimedCard {
 
     @Override
     public void upp() {
-
+        upgradeDamage(14);
+        upgradeSecondDamage(12);
     }
 }

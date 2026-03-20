@@ -376,11 +376,13 @@
   },
   "${ModID}:GetSniper": {
     "NAME": "저격탄",
-    "DESCRIPTION": "${ModID}:저격탄을 !M! 얻습니다."
+    "DESCRIPTION": "${ModID}:저격탄을 얻습니다. NL ${ModID}:고갈 !M!",
+    "UPGRADE_DESCRIPTION": "${ModID}:저격탄을 얻습니다. NL ${ModID}:고갈 !M! NL 보존."
   },
   "${ModID}:GetLight": {
     "NAME": "경량탄",
-    "DESCRIPTION": "${ModID}:경량탄을 !M! 얻습니다."
+    "DESCRIPTION": "${ModID}:경량탄을 얻습니다. NL ${ModID}:고갈 !M!",
+    "UPGRADE_DESCRIPTION": "${ModID}:경량탄을 얻습니다. NL ${ModID}:고갈 !M! NL 보존."
   },
   "${ModID}:R301": {
     "NAME": "R-301 카빈",
@@ -442,11 +444,13 @@
   },
   "${ModID}:GetHP": {
     "NAME": "분쇄탄",
-    "DESCRIPTION": "${ModID}:분쇄탄을 !M! 얻습니다."
+    "DESCRIPTION": "${ModID}:분쇄탄을 얻습니다. NL ${ModID}:고갈 !M!",
+    "UPGRADE_DESCRIPTION": "${ModID}:분쇄탄을 얻습니다. NL ${ModID}:고갈 !M! NL 보존."
   },
   "${ModID}:GetTC": {
     "NAME": "추공탄",
-    "DESCRIPTION": "${ModID}:추공탄을 !M! 얻습니다."
+    "DESCRIPTION": "${ModID}:추공탄을 얻습니다. NL ${ModID}:고갈 !M!",
+    "UPGRADE_DESCRIPTION": "${ModID}:추공탄을 얻습니다. NL ${ModID}:고갈 !M! NL 보존."
   },
   "${ModID}:BunnyHop": {
     "NAME": "버니합",
@@ -563,11 +567,11 @@
     "DESCRIPTION": "왼쪽에서 2장을 버립니다. 카드를 !M! 장 뽑습니다."
   },
   "${ModID}:ISO": {
-    "NAME": "아이소",
+    "NAME": "대비책",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 방어도를 !B! 얻습니다. NL ${ModID}:궁극기 : 적이 둘 이상이라면, 다른 무작위 적을 ${ModID}:기절 시킵니다."
   },
   "${ModID}:JETT": {
-    "NAME": "제트",
+    "NAME": "순풍",
     "DESCRIPTION": "방어도를 !B! 얻습니다. NL ${ModID}:궁극기 : 방어도를 모두 잃고, 그만큼 ${ModID}:회피를 얻습니다."
   },
   "${ModID}:Excited": {

@@ -8,19 +8,23 @@ import reactkr.powers.mayo.MM_B_01_SniperBulletPower;
 
 import static reactkr.ModFile.makeID;
 
-public class MM_05_GetSniper extends AbstractEasyCard_Mayo {
+public class MM_05_GetSniper extends AbstractAimedCard {
     public final static String ID = makeID("GetSniper");
 
     public MM_05_GetSniper() {
         super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 2;
+        usesDepletion = true;
+        depletionMax = 2;
     }
 
     @Override
-    public void upp() { }
+    public void upp() {
+        this.selfRetain = true;
+    }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void normalUse(AbstractPlayer p, AbstractMonster m) {
         AbstractBulletPower.load(p, new MM_B_01_SniperBulletPower(p));
     }
 }

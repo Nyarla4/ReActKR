@@ -55,6 +55,8 @@ public class MM_53_Orisa extends AbstractAimedCard implements IUltCard {
 
     @Override
     public void upp() {
+        upgradeDamage(1);
+        upgradeSecondDamage(1);
     }
 
     @Override

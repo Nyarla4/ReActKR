@@ -26,29 +26,44 @@ public class AddRorokaHPAction extends AbstractGameAction {
         if (AbstractDungeon.player == null) {
             return;
         }
-        if (!(AbstractDungeon.player instanceof Kuroka)) {
-            return;
-        }
-        Kuroka p = (Kuroka) AbstractDungeon.player;
-        int additionalMaxHealth = 0;
-        for (AbstractPower pow : p.powers){
-            if(pow instanceof AbstractRorokaPower){
-                additionalMaxHealth += pow.amount;
-            }
-        }
-
-        int healAmount = (Integer) TempHPField.tempHp.get(this.target) + this.amount;
-        healAmount = Math.min(healAmount, p.RorokaMaxHp + additionalMaxHealth);
-        if (this.duration == 0.5F) {
-            TempHPField.tempHp.set(this.target, healAmount);
-            if (this.amount > 0) {
-                AbstractDungeon.effectsQueue.add(new HealEffect(this.target.hb.cX - this.target.animX, this.target.hb.cY, this.amount));
-                this.target.healthBarUpdatedEvent();
+        if (AbstractDungeon.player instanceof Kuroka) {
+            Kuroka p = (Kuroka) AbstractDungeon.player;
+            int additionalMaxHealth = 0;
+            for (AbstractPower pow : p.powers) {
+                if (pow instanceof AbstractRorokaPower) {
+                    additionalMaxHealth += pow.amount;
+                }
             }
 
-            if (p.orbs.isEmpty() || p.orbs.get(0) instanceof com.megacrit.cardcrawl.orbs.EmptyOrbSlot) {
-                // [수행 과정] 구체가 없다면 MK_00_RorokaOrb를 생성하여 채널링 흐름에 추가
-                this.addToTop(new ChannelAction(new MK_00_RorokaOrb()));
+            int healAmount = (Integer) TempHPField.tempHp.get(this.target) + this.amount;
+            healAmount = Math.min(healAmount, p.RorokaMaxHp + additionalMaxHealth);
+            if (this.duration == 0.5F) {
+                TempHPField.tempHp.set(this.target, healAmount);
+                if (this.amount > 0) {
+                    AbstractDungeon.effectsQueue.add(new HealEffect(this.target.hb.cX - this.target.animX, this.target.hb.cY, this.amount));
+                    this.target.healthBarUpdatedEvent();
+                }
+
+                if (p.orbs.isEmpty() || p.orbs.get(0) instanceof com.megacrit.cardcrawl.orbs.EmptyOrbSlot) {
+                    // [수행 과정] 구체가 없다면 MK_00_RorokaOrb를 생성하여 채널링 흐름에 추가
+                    this.addToTop(new ChannelAction(new MK_00_RorokaOrb()));
+                }
+            }
+        } else {
+            AbstractPlayer p = AbstractDungeon.player;
+
+            int healAmount = (Integer) TempHPField.tempHp.get(this.target) + this.amount;
+            if (this.duration == 0.5F) {
+                TempHPField.tempHp.set(this.target, healAmount);
+                if (this.amount > 0) {
+                    AbstractDungeon.effectsQueue.add(new HealEffect(this.target.hb.cX - this.target.animX, this.target.hb.cY, this.amount));
+                    this.target.healthBarUpdatedEvent();
+                }
+
+                if (p.orbs.isEmpty() || p.orbs.get(0) instanceof com.megacrit.cardcrawl.orbs.EmptyOrbSlot) {
+                    // [수행 과정] 구체가 없다면 MK_00_RorokaOrb를 생성하여 채널링 흐름에 추가
+                    this.addToTop(new ChannelAction(new MK_00_RorokaOrb()));
+                }
             }
         }
 

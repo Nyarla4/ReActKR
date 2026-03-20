@@ -38,30 +38,6 @@ public class MK_00_RorokaOrb extends CustomOrb {
 
     }
 
-//    @Override
-//    public void onStartOfTurn() {
-//        AbstractPlayer p = AbstractDungeon.player;
-//
-//        if (p.hasPower(MK_14_RoroHochi_Power.POWER_ID)) {
-//            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p,
-//                    DamageInfo.createDamageMatrix(3, true),
-//                    DamageInfo.DamageType.NORMAL,
-//                    AbstractGameAction.AttackEffect.NONE));
-//        } else {
-//            ArrayList<AbstractMonster> aliveMonsters = new ArrayList<>();
-//            for (AbstractMonster mon : AbstractDungeon.getMonsters().monsters) {
-//                if (!mon.isDeadOrEscaped()) {
-//                    aliveMonsters.add(mon);
-//                }
-//            }
-//            if (!aliveMonsters.isEmpty()) {
-//                Collections.shuffle(aliveMonsters, new Random(AbstractDungeon.cardRandomRng.randomLong()));
-//                AbstractMonster randomMonster = aliveMonsters.get(0);
-//                AbstractDungeon.actionManager.addToBottom(new DamageAction(randomMonster, new DamageInfo(p, 3)));
-//            }
-//        }
-//    }
-
     @Override
     public AbstractOrb makeCopy() {
         return new MK_00_RorokaOrb();
@@ -72,15 +48,22 @@ public class MK_00_RorokaOrb extends CustomOrb {
         if (TempHPField.tempHp == null || AbstractDungeon.player == null) {
             return;
         }
-        Kuroka p = (Kuroka) AbstractDungeon.player;
-        int additionalMaxHealth = 0;
-        for (AbstractPower pow : p.powers){
-            if(pow instanceof AbstractRorokaPower){
-                additionalMaxHealth += pow.amount;
+        if(AbstractDungeon.player instanceof Kuroka) {
+            Kuroka p = (Kuroka) AbstractDungeon.player;
+            int additionalMaxHealth = 0;
+            for (AbstractPower pow : p.powers){
+                if(pow instanceof AbstractRorokaPower){
+                    additionalMaxHealth += pow.amount;
+                }
             }
+
+            int curHp = TempHPField.tempHp.get(AbstractDungeon.player);
+            this.description = "로로카가 대신해서 피해를 받습니다. 남은 체력: #b" + curHp + "/" + (p.RorokaMaxHp + additionalMaxHealth);
         }
-        int curHp = TempHPField.tempHp.get(AbstractDungeon.player);
-        this.description = "로로카가 대신해서 피해를 받습니다. 남은 체력: #b" + curHp + "/" + (p.RorokaMaxHp + additionalMaxHealth);
+        else {
+            int curHp = TempHPField.tempHp.get(AbstractDungeon.player);
+            this.description = "로로카가 대신해서 피해를 받습니다. 남은 체력: #b" + curHp;
+        }
     }
 
     @Override

@@ -8,13 +8,15 @@ import reactkr.powers.mayo.MM_B_04_TCBulletPower;
 
 import static reactkr.ModFile.makeID;
 
-public class MM_19_GetTC extends AbstractEasyCard_Mayo {
+public class MM_19_GetTC extends AbstractAimedCard {
     public final static String ID = makeID("GetTC");
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public MM_19_GetTC() {
         super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 2;
+        usesDepletion = true;
+        depletionMax = 2;
     }
 
     @Override
@@ -22,7 +24,7 @@ public class MM_19_GetTC extends AbstractEasyCard_Mayo {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void normalUse(AbstractPlayer p, AbstractMonster m) {
         AbstractBulletPower.load(p, new MM_B_04_TCBulletPower(p));
     }
 }

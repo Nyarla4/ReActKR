@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.HealEffect;
+import reactkr.actions.AddRorokaHPAction;
 import reactkr.cards.AbstractEasyCard_Mayo;
 
 import static reactkr.ModFile.makeID;
@@ -21,7 +22,7 @@ public class MM_52_MayoKuroka extends AbstractEasyCard_Mayo {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AddTemporaryHPAction(p, p, magicNumber));
+        addToBot(new AddRorokaHPAction(p, p, this.magicNumber));
     }
 
     @Override
