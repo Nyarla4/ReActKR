@@ -35,8 +35,11 @@ public class MM_43_tempAimedDraw extends AbstractEasyCard_Mayo {
                     for (int i = 0; i < discardCount; i++) {
                         targets.add(p.hand.group.get(i));
                     }
+
                     for (AbstractCard c : targets) {
-                        p.hand.moveToDiscardPile(c);
+                        AbstractDungeon.actionManager.addToTop(
+                                new com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction(c, p.hand)
+                        );
                     }
                 }
                 this.isDone = true;

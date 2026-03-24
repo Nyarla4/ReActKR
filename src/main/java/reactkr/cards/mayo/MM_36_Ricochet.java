@@ -39,6 +39,7 @@ public class MM_36_Ricochet extends AbstractEasyCard_Mayo {
         return false;
     }
 
+    @Override
     public void triggerOnManualDiscard() {
         ArrayList<AbstractMonster> aliveMonsters = new ArrayList<>();
         for (AbstractMonster mon : AbstractDungeon.getMonsters().monsters) {

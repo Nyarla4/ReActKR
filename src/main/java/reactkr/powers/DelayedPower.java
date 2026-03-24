@@ -15,8 +15,8 @@ public class DelayedPower extends AbstractPower {
 
     private static final Logger logger = LogManager.getLogger(DelayedPower.class.getName());
     private int delayedTurn;
-    private boolean isLose;
-    private boolean atStart;
+    private final boolean isLose;
+    private final boolean atStart;
 
     // 파라미터: 소유자, 유지 턴 수, 나중에 실행할 파워 객체
     public DelayedPower(AbstractCreature owner, int turns, AbstractPower powerToApply) {
@@ -55,6 +55,8 @@ public class DelayedPower extends AbstractPower {
         if (!atStart)
             return;
         this.delayedTurn--;
+        this.name = powerToApply.name + " " + (powerToApply.amount > 0 ? "상실" : "유지") + " (" + delayedTurn + "턴)";
+        this.ID = POWER_ID + "_" + powerToApply.ID + "_" + delayedTurn;
         if (this.delayedTurn <= 0) {
             // 저장해둔 마이너스 파워를 실제로 적용
             this.addToBot(new ApplyPowerAction(this.owner, this.owner, powerToApply, this.amount * (isLose ? -1 : 1)));
@@ -69,6 +71,8 @@ public class DelayedPower extends AbstractPower {
         if (atStart)
             return;
         this.delayedTurn--;
+        this.name = powerToApply.name + " " + (powerToApply.amount > 0 ? "상실" : "유지") + " (" + delayedTurn + "턴)";
+        this.ID = POWER_ID + "_" + powerToApply.ID + "_" + delayedTurn;
         if (this.delayedTurn <= 0) {
             // 저장해둔 마이너스 파워를 실제로 적용
             this.addToBot(new ApplyPowerAction(this.owner, this.owner, powerToApply, this.amount * (isLose ? -1 : 1)));
