@@ -1,18 +1,17 @@
 package reactkr.cards.mayo;
 
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import reactkr.Kuroka;
 import reactkr.Latte;
-import reactkr.actions.ExhaustAndGenerateAction;
+import reactkr.actions.DiscoveryColorAction;
 import reactkr.cards.AbstractEasyCard_Mayo;
 import reactkr.configs.ModConfig;
 
 import java.util.ArrayList;
 
 import static reactkr.ModFile.makeID;
-import static reactkr.util.Wiz.applyToSelf;
 
 public class MM_16_CallMeMama extends AbstractEasyCard_Mayo {
     public final static String ID = makeID("CallMeMama");
@@ -30,7 +29,11 @@ public class MM_16_CallMeMama extends AbstractEasyCard_Mayo {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ExhaustAndGenerateAction(colors, magicNumber, secondMagic));
+        this.addToBot(new ExhaustAction(this.magicNumber, false, false));
+        for (int i = 0; i < this.secondMagic; i++) {
+            // 여기서 amount 위치에 1을 넣으면 1장씩 여러 번 고르게 됩니다.
+            this.addToBot(new DiscoveryColorAction(colors, 1));
+        }
     }
 
     @Override

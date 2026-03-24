@@ -2,17 +2,11 @@ package reactkr.cards.mayo;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import reactkr.Kuroka;
-import reactkr.Latte;
-import reactkr.actions.ExhaustAndGenerateAction;
-import reactkr.cards.AbstractEasyCard_Mayo;
-import reactkr.configs.ModConfig;
 
 import java.util.ArrayList;
 

@@ -58,7 +58,7 @@ public class Event_Casino extends AbstractImageEvent {
                 } else {
                     //this.imageEventText.loadImage("reactkrResources/images/events/tenten2.png");
                     this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
-                    this.imageEventText.updateDialogOption(0, OPTIONS[8]);
+                    this.imageEventText.updateDialogOption(0, OPTIONS[9]);
                     this.imageEventText.clearRemainingOptions();
                     screenNum = 1;
                 }
@@ -74,7 +74,8 @@ public class Event_Casino extends AbstractImageEvent {
                     this.imageEventText.updateBodyText(DESCRIPTIONS[3] + this.pot + DESCRIPTIONS[4]);
                     this.imageEventText.clearRemainingOptions();
                     this.imageEventText.updateDialogOption(0, OPTIONS[5]);
-                    this.imageEventText.setDialogOption(OPTIONS[6] + (pot ) + OPTIONS[7]);
+                    this.imageEventText.setDialogOption(OPTIONS[6]);
+                    this.imageEventText.setDialogOption(OPTIONS[7] + (pot ) + OPTIONS[8]);
                     screenNum = 3;
                 } else if (buttonPressed == 1) {
                     stakes = 200;
@@ -83,7 +84,8 @@ public class Event_Casino extends AbstractImageEvent {
                     this.imageEventText.updateBodyText(DESCRIPTIONS[3] + this.pot + DESCRIPTIONS[4]);
                     this.imageEventText.clearRemainingOptions();
                     this.imageEventText.updateDialogOption(0, OPTIONS[5]);
-                    this.imageEventText.setDialogOption(OPTIONS[6] + (pot) + OPTIONS[7]);
+                    this.imageEventText.setDialogOption(OPTIONS[6]);
+                    this.imageEventText.setDialogOption(OPTIONS[7] + (pot ) + OPTIONS[8]);
                     screenNum = 3;
                 } else if (buttonPressed == 2) {
                     stakes = 300;
@@ -92,17 +94,18 @@ public class Event_Casino extends AbstractImageEvent {
                     this.imageEventText.updateBodyText(DESCRIPTIONS[3] + this.pot + DESCRIPTIONS[4]);
                     this.imageEventText.clearRemainingOptions();
                     this.imageEventText.updateDialogOption(0, OPTIONS[5]);
-                    this.imageEventText.setDialogOption(OPTIONS[6] + (pot) + OPTIONS[7]);
+                    this.imageEventText.setDialogOption(OPTIONS[6]);
+                    this.imageEventText.setDialogOption(OPTIONS[7] + (pot ) + OPTIONS[8]);
                     screenNum = 3;
                 } else if (buttonPressed == 3) {
                     this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
-                    this.imageEventText.updateDialogOption(0, OPTIONS[8]);
+                    this.imageEventText.updateDialogOption(0, OPTIONS[9]);
                     this.imageEventText.clearRemainingOptions();
                     screenNum = 1;
                 }
                 break;
             case 3://도박
-                if (buttonPressed == 0) {
+                if (buttonPressed == 0 || buttonPressed == 1) {
                     if (count < 10) {
                         Random random = new Random();
                         if (random.nextInt(2) > 0) {
@@ -110,24 +113,25 @@ public class Event_Casino extends AbstractImageEvent {
                             this.pot += (this.pot / 2);
                             this.imageEventText.updateBodyText(DESCRIPTIONS[3] + this.pot + DESCRIPTIONS[4]);
                             this.imageEventText.updateDialogOption(0, OPTIONS[5]);
-                            this.imageEventText.updateDialogOption(1, OPTIONS[6] + (pot) + OPTIONS[7]);
+                            this.imageEventText.updateDialogOption(1, OPTIONS[6]);
+                            this.imageEventText.updateDialogOption(2,OPTIONS[7] + (pot ) + OPTIONS[8]);
                         } else {
                             this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
-                            this.imageEventText.updateDialogOption(0, OPTIONS[8]);
+                            this.imageEventText.updateDialogOption(0, OPTIONS[9]);
                             this.imageEventText.clearRemainingOptions();
                             screenNum = 1;
                         }
                     } else {
                         AbstractDungeon.player.gainGold(pot);
                         this.imageEventText.updateBodyText(DESCRIPTIONS[5]);
-                        this.imageEventText.updateDialogOption(0, OPTIONS[8]);
+                        this.imageEventText.updateDialogOption(0, OPTIONS[9]);
                         this.imageEventText.clearRemainingOptions();
                         screenNum = 1;
                     }
-                } else if (buttonPressed == 1) {
+                } else {
                     AbstractDungeon.player.gainGold(pot);
                     this.imageEventText.updateBodyText(DESCRIPTIONS[6]);
-                    this.imageEventText.updateDialogOption(0, OPTIONS[8]);
+                    this.imageEventText.updateDialogOption(0, OPTIONS[9]);
                     this.imageEventText.clearRemainingOptions();
                     screenNum = 1;
                 }

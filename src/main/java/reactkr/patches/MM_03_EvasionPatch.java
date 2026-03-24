@@ -55,6 +55,7 @@ public class MM_03_EvasionPatch {
                 }
 
                 AbstractDungeon.effectList.add(new TextAboveCreatureEffect(info.owner.hb.cX, info.owner.hb.cY, "감나빗!", Color.LIME.cpy()));
+                AbstractDungeon.effectList.add(new TextAboveCreatureEffect(__instance.hb.cX, __instance.hb.cY, "회피!", Color.GREEN.cpy()));
 
                 // *반격
                 if (__instance.hasPower(MM_04_CounterPower.POWER_ID)) {
