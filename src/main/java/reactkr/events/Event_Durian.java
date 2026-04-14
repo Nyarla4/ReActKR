@@ -36,7 +36,15 @@ public class Event_Durian extends AbstractImageEvent {
         switch (screenNum) {
             case 0://이벤트 시작 화면
                 if (buttonPressed == 0) {
-                    screenNum = 2;
+                    this.screenNum = 2; // 전투 종료 후 화면 상태(case 2)로 번호 변경
+
+                    AbstractDungeon.getCurrRoom().monsters = new MonsterGroup(new DurianMonster(0.0f, 0.0f));
+                    AbstractDungeon.getCurrRoom().rewards.clear();
+                    AbstractDungeon.getCurrRoom().addGoldToRewards(30);
+                    AbstractDungeon.getCurrRoom().addRelicToRewards(new DurianMonsterRelic());
+
+                    // 전투
+                    this.enterCombatFromImage();
                 } else {
                     this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
                     this.imageEventText.updateDialogOption(0, OPTIONS[1]);
@@ -45,28 +53,22 @@ public class Event_Durian extends AbstractImageEvent {
                 }
                 break;
             case 1:
+            case 2://싸운다" 버튼을 눌렀을 때
                 openMap();
                 break;
-            case 2://싸운다" 버튼을 눌렀을 때
+        }
+    }
 
-                // 전투 대상 세팅
-                // 현재 방의 몬스터 그룹을 두리안 괴인으로 처리
-                AbstractDungeon.getCurrRoom().monsters = new MonsterGroup(new DurianMonster(0.0f, 0.0f));
+    @Override
+    public void reopen() {
+        if (this.screenNum == 2) {
+            // 필수: 전투 렌더링 상태를 이미지 이벤트 렌더링 상태로 강제 전환
+            this.enterImageFromCombat();
 
-                // 보상 구조 세팅
-                AbstractDungeon.getCurrRoom().rewards.clear(); // 혹시 모를 초기화
-
-                // 일반적인 엘리트 전투 수준의 골드 추가 (약 25~35골드)
-                AbstractDungeon.getCurrRoom().addGoldToRewards(30);
-
-                // 두리안 괴인 유물 추가
-                AbstractDungeon.getCurrRoom().addRelicToRewards(new DurianMonsterRelic());
-
-                this.screenNum = 1;
-
-                // 전투
-                this.enterCombatFromImage();
-                break;
+            // 복귀 후 띄워줄 텍스트와 버튼(구조) 재정의
+            this.imageEventText.updateBodyText("두리안 괴인 잘 키워주세용. NL 감샤샤샤샤샤 합니당 NL 꾸벅");
+            this.imageEventText.updateDialogOption(0, "떠난다.");
+            this.imageEventText.clearRemainingOptions();
         }
     }
 
