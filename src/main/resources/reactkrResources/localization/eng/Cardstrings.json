@@ -62,7 +62,7 @@
   },
   "${ModID}:LostDelusion": {
     "NAME": "로스트=딜루전",
-    "DESCRIPTION": "손의 카드를 모두 소멸시킵니다. 소멸한만큼 무작위 카드를 생성합니다. NL 생성된 카드의 비용을 1 감소합니다. NL 휘발성 NL 소멸."
+    "DESCRIPTION": "손의 카드를 모두 소멸시킵니다. 소멸한만큼 무작위 카드를 생성합니다. NL 생성된 카드의 비용을 1 감소합니다. NL 휘발성. NL 소멸."
   },
   "${ModID}:YuriJoa": {
     "NAME": "백합좋아",
@@ -126,8 +126,8 @@
   },
   "${ModID}:ColorBlack": {
     "NAME": "검정",
-    "DESCRIPTION": "피해를 !D! 줍니다. 약화를 !M! 줍니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 약화를 !M! 줍니다. NL 소멸. 보존."
+    "DESCRIPTION": "피해를 !D! 줍니다. 약화를 !M! 부여합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 약화를 !M! 부여합니다. NL 소멸. 보존."
   },
   "${ModID}:ColorRed": {
     "NAME": "빨강",
@@ -292,7 +292,10 @@
   },
   "${ModID}:PepZeLi": {
     "NAME": "펩제라",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. 다음 턴에 에너지를 !M! 얻습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. 다음 턴에 [E] 를 !M! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "피해를 !M! 받습니다니다. NL "
+    ]
   },
   "${ModID}:SpicyNakjiKimchiJook": {
     "NAME": "매콤낙지김치죽",
@@ -373,11 +376,13 @@
   },
   "${ModID}:GetSniper": {
     "NAME": "저격탄",
-    "DESCRIPTION": "${ModID}:저격탄을 !M! 얻습니다."
+    "DESCRIPTION": "${ModID}:저격탄을 얻습니다. NL ${ModID}:고갈 !M!",
+    "UPGRADE_DESCRIPTION": "${ModID}:저격탄을 얻습니다. NL ${ModID}:고갈 !M! NL 보존."
   },
   "${ModID}:GetLight": {
     "NAME": "경량탄",
-    "DESCRIPTION": "${ModID}:경량탄을 !M! 얻습니다."
+    "DESCRIPTION": "${ModID}:경량탄을 얻습니다. NL ${ModID}:고갈 !M!",
+    "UPGRADE_DESCRIPTION": "${ModID}:경량탄을 얻습니다. NL ${ModID}:고갈 !M! NL 보존."
   },
   "${ModID}:R301": {
     "NAME": "R-301 카빈",
@@ -431,7 +436,7 @@
   },
   "${ModID}:CallMeMama": {
     "NAME": "마망이라고 불러",
-    "DESCRIPTION": "카드를 !M! 장 소멸시킵니다. 무작위 다른 멤버 카드 !${ModID}:m2!장을 얻습니다."
+    "DESCRIPTION": "카드를 !M! 장 소멸시킵니다. 무작위 다른 멤버의 카드 !${ModID}:m2!장을 골라서 가져옵니다."
   },
   "${ModID}:MayoSaintSword": {
     "NAME": "마요 성검",
@@ -439,11 +444,13 @@
   },
   "${ModID}:GetHP": {
     "NAME": "분쇄탄",
-    "DESCRIPTION": "${ModID}:분쇄탄을 !M! 얻습니다."
+    "DESCRIPTION": "${ModID}:분쇄탄을 얻습니다. NL ${ModID}:고갈 !M!",
+    "UPGRADE_DESCRIPTION": "${ModID}:분쇄탄을 얻습니다. NL ${ModID}:고갈 !M! NL 보존."
   },
   "${ModID}:GetTC": {
     "NAME": "추공탄",
-    "DESCRIPTION": "${ModID}:추공탄을 !M! 얻습니다."
+    "DESCRIPTION": "${ModID}:추공탄을 얻습니다. NL ${ModID}:고갈 !M!",
+    "UPGRADE_DESCRIPTION": "${ModID}:추공탄을 얻습니다. NL ${ModID}:고갈 !M! NL 보존."
   },
   "${ModID}:BunnyHop": {
     "NAME": "버니합",
@@ -555,6 +562,89 @@
     "NAME": "이름없음3",
     "DESCRIPTION": "${ModID}:총기 NL 본인포함 무작위 대상에게 피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 대상에서 본인을 제외합니다."
   },
+  "${ModID}:tempAimedDraw": {
+    "NAME": "이름없음4",
+    "DESCRIPTION": "왼쪽에서 2장을 버립니다. 카드를 !M! 장 뽑습니다."
+  },
+  "${ModID}:ISO": {
+    "NAME": "대비책",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 방어도를 !B! 얻습니다. NL ${ModID}:궁극기 : 적이 둘 이상이라면, 다른 무작위 적을 ${ModID}:기절 시킵니다."
+  },
+  "${ModID}:JETT": {
+    "NAME": "순풍",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL ${ModID}:궁극기 : 방어도를 모두 잃고, 그만큼 ${ModID}:회피를 얻습니다."
+  },
+  "${ModID}:Excited": {
+    "NAME": "신난다!",
+    "DESCRIPTION": "${ModID}:신난다를 !M! 얻습니다."
+  },
+  "${ModID}:YouRat": {
+    "NAME": "쥐새끼야!",
+    "DESCRIPTION": "!M! 턴동안 ${ModID}:기절 시킵니다. NL 소멸."
+  },
+  "${ModID}:tempLittle": {
+    "NAME": "이름없음5",
+    "DESCRIPTION": "${ModID}:조준 : 마나를 !M! 얻습니다. NL ${ModID}:퀵드로 : 카드를 !${ModID}:m2! 장 뽑습니다."
+  },
+  "${ModID}:Obscuration2": {
+    "NAME": "엄폐2",
+    "DESCRIPTION": "영구적이지 않은 ${ModID}:회피를 모두 잃습니다. NL 잃은 회피만큼 방어도를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "영구적이지 않은 ${ModID}:회피를 모두 잃습니다. NL 잃은 회피만큼 방어도를 얻습니다. NL 보존.",
+    "EXTENDED_DESCRIPTION": [
+      "잃을 회피가 없다."
+    ]
+  },
+  "${ModID}:SubPresent": {
+    "NAME": "구독권 선물",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 패의 카드 1장을 카드를 너 네즈밍 된거야 로 변화시킵니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 패의 카드 1장을 카드를 너 네즈밍 된거야+ 로 변화시킵니다."
+  },
+  "${ModID}:NowYouNezming": {
+    "NAME": "너 네즈밍 된거야",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 !${ModID}:m2! 장 뽑습니다. NL ${ModID}:고갈 !M!"
+  },
+  "${ModID}:SantaNezming": {
+    "NAME": "산타 네즈밍",
+    "DESCRIPTION": "내 턴 시작시 뽑을 카드 더미에서 카드 !M! 장을 너 네즈밍 된거야 로 변화시킵니다."
+  },
+  "${ModID}:LovelyPeriod": {
+    "NAME": "사랑하는 동기들",
+    "DESCRIPTION": "동기들 카드 중 랜덤으로 1장을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "동기들 카드 중 1장을 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "피해를 3 받습니다. NL 카드를 2 장 뽑습니다. NL 소멸.",
+      "피해를 16 줍니다. NL ${ModID}:맑음 : 피해가 2배가 됩니다. NL 소멸.",
+      "임시 로로카를 6 얻습니다. NL 소멸."
+    ]
+  },
+  "${ModID}:MayoSiah": {
+    "NAME": "마요식 시아",
+    "DESCRIPTION": "피해를 3 받습니다. NL 카드를 !M! 장 뽑습니다. NL 소멸."
+  },
+  "${ModID}:MayoUru": {
+    "NAME": "마요식 우루",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL ${ModID}:맑음 : 피해가 2배가 됩니다. NL 소멸."
+  },
+  "${ModID}:MayoKuroka": {
+    "NAME": "마요식 쿠로카",
+    "DESCRIPTION": "임시 로로카를 !M! 얻습니다. NL 소멸."
+  },
+  "${ModID}:Orisa": {
+    "NAME": "오리사",
+    "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:궁극기 : 방어도를 !B! 얻고 1턴간 피해를 반사합니다."
+  },
+  "${ModID}:tempPower1": {
+    "NAME": "임시 버프1",
+    "DESCRIPTION": "내 턴 시작시 ${ModID}:회피를 !M! ~ !${ModID}:m2! 얻습니다. NL 사용 시 고정됩니다."
+  },
+  "${ModID}:tempPower2": {
+    "NAME": "임시 버프2",
+    "DESCRIPTION": "내 턴 시작시 ${ModID}:회피를 !M! ~ !${ModID}:m2! 얻습니다. NL 내 턴 종료시 정해집니다."
+  },
+  "${ModID}:Training": {
+    "NAME": "훈련장",
+    "DESCRIPTION": "${ModID}:조준의 범위를 !M! 늘립니다."
+  },
 
   "${ModID}:Latte_Strike": {
     "NAME": "타격",
@@ -594,7 +684,7 @@
   },
   "${ModID}:TtediFault": {
     "NAME": "떼디탓",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. 카드를 !M! 장 뽑습니다. NL ${ModID}:라떼로 돌아갑니다.",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. 카드를 !M! 장 뽑습니다.",
     "EXTENDED_DESCRIPTION": [
       "방어도 쌓고 카드 뽑고"
     ]
@@ -608,23 +698,9 @@
   },
   "${ModID}:Sekuhara": {
     "NAME": "세쿠하라",
-    "DESCRIPTION": "취약을 !M! 부여합니다. 피해를 !D! 줍니다. NL ${ModID}:모카는 사용불가 NL ${ModID}:라떼로 돌아갑니다.",
+    "DESCRIPTION": "취약을 !M! 부여합니다. 피해를 !D! 줍니다.",
     "EXTENDED_DESCRIPTION": [
-      "취약 부여 후 공격 NL 모카 사용 불가"
-    ]
-  },
-  "${ModID}:Brother": {
-    "NAME": "형...",
-    "DESCRIPTION": "${ModID}:모카를 부릅니다.",
-    "EXTENDED_DESCRIPTION": [
-      "모카"
-    ]
-  },
-  "${ModID}:Kansaiben": {
-    "NAME": "칸사이벤",
-    "DESCRIPTION": "${ModID}:아오토상을 부릅니다.",
-    "EXTENDED_DESCRIPTION": [
-      "あおとさん"
+      "취약 부여 후 공격"
     ]
   },
   "${ModID}:NoBadWord": {
@@ -765,6 +841,10 @@
     "NAME": "악취",
     "DESCRIPTION": "사용불가 NL 턴 종료 시, 취약을 1 받습니다."
   },
+  "${ModID}:LesserKusa": {
+    "NAME": "구리구리함",
+    "DESCRIPTION": "적에게 힘을 1 부여합니다. NL 소멸."
+  },
   "${ModID}:Kira_Chat": {
     "NAME": "저챗키라",
     "DESCRIPTION": "1턴간 힘을 !M! 얻습니다. NL 턴 종료시 *노래키라로 바뀝니다. NL 보존."
@@ -784,6 +864,14 @@
       "*쭈글호랭이을 1장 얻습니다. ",
       "*쭈글호랭이+을 1장 얻습니다. "
     ]
+  },
+  "${ModID}:TruckDriverTenten": {
+    "NAME": "트럭기사 텐텐",
+    "DESCRIPTION": "적 전체에게 !D! 피해를 줍니다."
+  },
+  "${ModID}:ThrowTheApple": {
+    "NAME": "사과던져잇",
+    "DESCRIPTION": "파워 카드를 낼 때마다 무작위 적에게 !M! 피해를 줍니다."
   },
 
   "${ModID}:WimpyTiger": {

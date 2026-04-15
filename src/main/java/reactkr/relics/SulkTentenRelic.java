@@ -53,6 +53,6 @@ public class SulkTentenRelic extends AbstractEasyRelic {
     }
 
     public AbstractRelic makeCopy() {
-        return new NeowsLament();
+        return new SulkTentenRelic();
     }
 }

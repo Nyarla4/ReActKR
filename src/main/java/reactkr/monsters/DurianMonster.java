@@ -10,8 +10,10 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import reactkr.powers.DurianMonsterPower;
 import reactkr.powers.monster.OminousMassPower;
+import reactkr.util.ProAudio;
 
 import static reactkr.ModFile.makeID;
+import static reactkr.util.Wiz.playAudio;
 
 public class DurianMonster extends AbstractCustomMonster{
     public static final String MonsterID = makeID("DurianMonster");
@@ -26,8 +28,7 @@ public class DurianMonster extends AbstractCustomMonster{
 
     public DurianMonster(float x, float y) {
         // 이름, ID, 최대 체력, 히트박스 좌표 및 크기, 이미지 경로 등을 지정합니다.
-        super(NAME, MonsterID, 50, -8.0F, 10.0F, 230.0F, 240.0F, "reactkrResources/images/monsters/TempMajitomo.png", x, y);
-
+        super(NAME, MonsterID, AbstractDungeon.monsterHpRng.random(140, 150), -8.0F, 10.0F, 230.0F, 440.0F, "reactkrResources/images/monsters/Durian.png", x, y);
         this.damage.add(new DamageInfo(this, 6));  // 0번 주머니: 약타 (6)
         this.damage.add(new DamageInfo(this, 8));  // 1번 주머니: 중타 (8)
         this.damage.add(new DamageInfo(this, 12)); // 2번 주머니: 강타 (12)
@@ -91,6 +92,7 @@ public class DurianMonster extends AbstractCustomMonster{
     @Override
     protected void executeTurnFlow(byte moveByte) {
         if (moveByte == MOVE_WEAK_ATTACK) {
+            playAudio(ProAudio.MUTN);
             // [약타 흐름] 1. 타격 액션 -> 2. 손상(Frail) 1 부여 액션
             AbstractDungeon.actionManager.addToBottom(new DamageAction(
                     AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT
@@ -101,11 +103,19 @@ public class DurianMonster extends AbstractCustomMonster{
         } else if (moveByte == MOVE_MED_ATTACK) {
             // 🌟 [중타 흐름] for 문을 이용해 동일한 타격 액션을 3번 반복해서 큐에 밀어 넣습니다.
             for (int i = 0; i < 3; i++) {
+                AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        playAudio(ProAudio.MUTN);
+                        isDone = true;
+                    }
+                });
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(
                         AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SLASH_DIAGONAL
                 ));
             }
         } else if (moveByte == MOVE_STRONG_ATTACK) {
+            playAudio(ProAudio.HERGIRLDUNG);
             // [강타 흐름] 묵직한 한 방
             AbstractDungeon.actionManager.addToBottom(new DamageAction(
                     AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.BLUNT_HEAVY

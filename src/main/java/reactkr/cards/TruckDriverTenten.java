@@ -39,6 +39,7 @@ public class TruckDriverTenten extends AbstractEasyCard {
 
     @Override
     public void upp() {
+        upgradeDamage(6);
     }
 
 }

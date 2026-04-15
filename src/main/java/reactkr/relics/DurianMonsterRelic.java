@@ -20,6 +20,12 @@ public class DurianMonsterRelic extends AbstractEasyRelic {
     }
 
     @Override
+    public String getUpdatedDescription() {
+        int displayCounter = (this.counter == -1) ? 1 : this.counter;
+        return displayCounter + DESCRIPTIONS[0];
+    }
+
+    @Override
     public void atBattleStart() {
         if (this.counter > 0) {
             this.flash(); // 유물 번쩍임 이펙트
@@ -28,11 +34,6 @@ public class DurianMonsterRelic extends AbstractEasyRelic {
                     new StrengthPower(AbstractDungeon.player, this.counter), this.counter
             ));
         }
-    }
-
-    @Override
-    public String getUpdatedDescription() {
-        return this.counter + DESCRIPTIONS[0];
     }
 
     @Override

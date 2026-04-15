@@ -3,6 +3,8 @@ package reactkr.events;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
@@ -25,7 +27,7 @@ public class Event_Durian extends AbstractImageEvent {
     private int screenNum = 0; // 현재 선택지 화면 번호
 
     public Event_Durian() {
-        super(NAME, DESCRIPTIONS[0], "reactkrResources/images/events/event_img.png");
+        super(NAME, DESCRIPTIONS[0], "reactkrResources/images/events/durian1.png");
 
         imageEventText.setDialogOption(OPTIONS[0]);
         imageEventText.setDialogOption(OPTIONS[1]);
@@ -65,18 +67,18 @@ public class Event_Durian extends AbstractImageEvent {
             // 필수: 전투 렌더링 상태를 이미지 이벤트 렌더링 상태로 강제 전환
             this.enterImageFromCombat();
 
-            // 복귀 후 띄워줄 텍스트와 버튼(구조) 재정의
+            this.imageEventText.loadImage("reactkrResources/images/events/durian2.png");
             this.imageEventText.updateBodyText("두리안 괴인 잘 키워주세용. NL 감샤샤샤샤샤 합니당 NL 꾸벅");
-            this.imageEventText.updateDialogOption(0, "떠난다.");
+            this.imageEventText.updateDialogOption(0, OPTIONS[2]);
             this.imageEventText.clearRemainingOptions();
         }
     }
 
     public static boolean canSpawn() {
-//        AbstractPlayer p = AbstractDungeon.player;
-//        return p.chosenClass.equals(Kuroka.Enums.THE_KUROKA) ||
-//                p.chosenClass.equals(Mayo.Enums.THE_MAYO) ||
-//                p.chosenClass.equals(Latte.Enums.THE_LATTE);
-        return false;
+        AbstractPlayer p = AbstractDungeon.player;
+        return (p.chosenClass.equals(Kuroka.Enums.THE_KUROKA) ||
+                p.chosenClass.equals(Mayo.Enums.THE_MAYO) ||
+                p.chosenClass.equals(Latte.Enums.THE_LATTE))
+                && AbstractDungeon.id.equals(TheCity.ID);
     }
 }

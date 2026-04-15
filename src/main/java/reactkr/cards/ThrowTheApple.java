@@ -22,6 +22,7 @@ public class ThrowTheApple extends AbstractEasyCard {
 
     @Override
     public void upp() {
+        upgradeMagicNumber(2);
     }
 
 }

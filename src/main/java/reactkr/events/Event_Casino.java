@@ -30,7 +30,7 @@ public class Event_Casino extends AbstractImageEvent {
 
     private static final String[] FRAMES = {
             "reactkrResources/images/events/event_img.png", // 이미지 A
-            "reactkrResources/images/events/event_img.png"  // 이미지 B
+            "reactkrResources/images/events/DontBelieveInR.png"  // 이미지 B
     };
     private static final float FRAME_TIME = 0.5f; // 이미지가 바뀌는 간격 (0.5초)
     private float frameTimer = FRAME_TIME;
