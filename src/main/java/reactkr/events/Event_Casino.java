@@ -29,7 +29,7 @@ public class Event_Casino extends AbstractImageEvent {
     private int count;
 
     private static final String[] FRAMES = {
-            "reactkrResources/images/events/event_img.png", // 이미지 A
+            "reactkrResources/images/events/Casino.png", // 이미지 A
             "reactkrResources/images/events/DontBelieveInR.png"  // 이미지 B
     };
     private static final float FRAME_TIME = 0.5f; // 이미지가 바뀌는 간격 (0.5초)
@@ -139,27 +139,26 @@ public class Event_Casino extends AbstractImageEvent {
         }
     }
 
-    @Override
-    public void update() {
-        super.update();
-
-        // 이벤트 첫 화면에서만
-        if (this.screenNum == 0) {
-            this.frameTimer -= Gdx.graphics.getDeltaTime();
-
-            if (this.frameTimer <= 0.0f) {
-                this.frameTimer = FRAME_TIME;
-                this.currentFrameIndex = (this.currentFrameIndex + 1) % FRAMES.length;
-                this.imageEventText.loadImage(FRAMES[this.currentFrameIndex]);
-            }
-        }
-    }
+//    @Override
+//    public void update() {
+//        super.update();
+//
+//        // 이벤트 첫 화면에서만
+//        if (this.screenNum == 0) {
+//            this.frameTimer -= Gdx.graphics.getDeltaTime();
+//
+//            if (this.frameTimer <= 0.0f) {
+//                this.frameTimer = FRAME_TIME;
+//                this.currentFrameIndex = (this.currentFrameIndex + 1) % FRAMES.length;
+//                this.imageEventText.loadImage(FRAMES[this.currentFrameIndex]);
+//            }
+//        }
+//    }
 
     public static boolean canSpawn() {
-//        AbstractPlayer p = AbstractDungeon.player;
-//        return p.chosenClass.equals(Kuroka.Enums.THE_KUROKA) ||
-//                p.chosenClass.equals(Mayo.Enums.THE_MAYO) ||
-//                p.chosenClass.equals(Latte.Enums.THE_LATTE);
-        return false;
+        AbstractPlayer p = AbstractDungeon.player;
+        return p.chosenClass.equals(Kuroka.Enums.THE_KUROKA) ||
+                p.chosenClass.equals(Mayo.Enums.THE_MAYO) ||
+                p.chosenClass.equals(Latte.Enums.THE_LATTE);
     }
 }

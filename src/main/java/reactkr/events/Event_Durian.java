@@ -27,7 +27,7 @@ public class Event_Durian extends AbstractImageEvent {
     private int screenNum = 0; // 현재 선택지 화면 번호
 
     public Event_Durian() {
-        super(NAME, DESCRIPTIONS[0], "reactkrResources/images/events/durian1.png");
+        super(NAME, DESCRIPTIONS[0], "reactkrResources/images/events/Durian1.png");
 
         imageEventText.setDialogOption(OPTIONS[0]);
         imageEventText.setDialogOption(OPTIONS[1]);
@@ -67,7 +67,7 @@ public class Event_Durian extends AbstractImageEvent {
             // 필수: 전투 렌더링 상태를 이미지 이벤트 렌더링 상태로 강제 전환
             this.enterImageFromCombat();
 
-            this.imageEventText.loadImage("reactkrResources/images/events/durian2.png");
+            this.imageEventText.loadImage("reactkrResources/images/events/Durian2.png");
             this.imageEventText.updateBodyText("두리안 괴인 잘 키워주세용. NL 감샤샤샤샤샤 합니당 NL 꾸벅");
             this.imageEventText.updateDialogOption(0, OPTIONS[2]);
             this.imageEventText.clearRemainingOptions();
