@@ -3,7 +3,6 @@ package reactkr.events;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
@@ -77,6 +76,6 @@ public class Event_Durian extends AbstractImageEvent {
         return (p.chosenClass.equals(Kuroka.Enums.THE_KUROKA) ||
                 p.chosenClass.equals(Mayo.Enums.THE_MAYO) ||
                 p.chosenClass.equals(Latte.Enums.THE_LATTE))
-                && AbstractDungeon.id.equals(TheCity.ID);
+                ;
     }
 }
