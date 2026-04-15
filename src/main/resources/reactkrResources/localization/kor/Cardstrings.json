@@ -833,7 +833,7 @@
     "NAME": "마요",
     "DESCRIPTION": "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 취약을 !M! 부여합니다. NL ${ModID}:퀵드로 : 약화를 !M! 부여합니다.",
     "EXTENDED_DESCRIPTION": [
-      "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 취약을 !M! 부여합니다. NL ${ModID}:퀵드로 : 약화를 !${ModID}:m2! 부여합니다."
+      "피해를 !D! ~ !${ModID}:sd! 줍니다. NL ${ModID}:조준 : 취약을 !${ModID}:m2! 부여합니다. NL ${ModID}:퀵드로 : 약화를 !${ModID}:m2! 부여합니다."
     ]
   },
 

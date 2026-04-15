@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import reactkr.cards.mayo.AbstractAimedCard;
 import reactkr.powers.ReactKRRangersPower;
 import reactkr.powers.mayo.AbstractBulletPower;
@@ -24,6 +25,9 @@ public class MayoCard extends AbstractAimedCard {
         baseSecondDamage = secondDamage = 13;
         baseMagicNumber = magicNumber = 5;
         baseSecondMagic = secondMagic = 7;
+
+        useAim   = true;
+        useQuick = true;
     }
 
     @Override
@@ -47,6 +51,15 @@ public class MayoCard extends AbstractAimedCard {
             addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, secondMagic, false)));
         } else {
             addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
+        }
+    }
+
+    @Override
+    public void quickUse(AbstractPlayer p, AbstractMonster m) {
+        if (p.hasPower(ReactKRRangersPower.POWER_ID)) {
+            addToBot(new ApplyPowerAction(m, p, new WeakPower(m, secondMagic, false)));
+        } else {
+            addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false)));
         }
     }
 

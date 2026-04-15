@@ -1,42 +1,12 @@
 package reactkr.relics;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
-import reactkr.Kuroka;
-import reactkr.Latte;
-import reactkr.Mayo;
 import reactkr.cards.KurokaCard;
 
-import static reactkr.ModFile.makeID;
-
-public class KurokaRelic extends AbstractEasyRelic {
-    public static final String ID = makeID("KurokaRelic");
-
-    public KurokaRelic() {
-        super(ID, RelicTier.RARE, LandingSound.FLAT, null);
-    }
-
-    public void onEquip() {
-        AbstractCard card = new KurokaCard();
-
-        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(
-                card,
-                (float) Settings.WIDTH / 2.0F,
-                (float) Settings.HEIGHT / 2.0F
-        ));
-    }
-
-    public AbstractRelic makeCopy() {
-        return new KurokaRelic();
-    }
-
-    @Override
-    public boolean canSpawn() {
-        return AbstractDungeon.player.chosenClass.equals(Kuroka.Enums.THE_KUROKA) ||
-                AbstractDungeon.player.chosenClass.equals(Mayo.Enums.THE_MAYO) ||
-                AbstractDungeon.player.chosenClass.equals(Latte.Enums.THE_LATTE);
-    }
+public class KurokaRelic extends AbstractRangerRelic {
+    public static final String ID = RangerRelicConstants.KUROKA_ID;
+    public KurokaRelic() { super(ID); }
+    @Override protected AbstractCard createCard() { return new KurokaCard(); }
+    @Override public AbstractRelic makeCopy() { return new KurokaRelic(); }
 }
