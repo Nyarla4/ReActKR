@@ -116,12 +116,20 @@
     ]
   },
   "${ModID}:MayoUpgradeItemRelic": {
-  "NAME": "뭐하지",
-  "FLAVOR": "ㄹㅇ 뭐하지.",
-  "DESCRIPTIONS": [
-    "전투 시작 시 이번 전투동안 영구적으로 #y회피를 7 얻습니다."
-  ]
-},
+    "NAME": "뭐하지",
+    "FLAVOR": "ㄹㅇ 뭐하지.",
+    "DESCRIPTIONS": [
+      "전투 시작 시 이번 전투동안 영구적으로 #y회피를 7 얻습니다."
+    ]
+  },
+  "${ModID}:DororongDarkRelic": {
+    "NAME": "도로롱 다크",
+    "FLAVOR": "도로롱...5막...",
+    "DESCRIPTIONS": [
+      "획득시 #y고기 카드 3장을 획득합니다."
+    ]
+  },
+
 
   "${ModID}:LatteStartItemRelic": {
     "NAME": "주문한 메뉴",

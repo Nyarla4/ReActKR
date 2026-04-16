@@ -170,6 +170,13 @@
       "% 확률로 적의 공격을 회피합니다. 회피 성공시 반을 잃습니다."
     ]
   },
+  "${ModID}:ExcitedPower": {
+    "NAME": "신난다!",
+    "DESCRIPTIONS": [
+      "이번 전투동안 회피율이 ",
+      "% 밑으로 떨어지지 않습니다."
+    ]
+  },
   "${ModID}:CounterPower": {
     "NAME": "반격",
     "DESCRIPTIONS": [
@@ -219,6 +226,44 @@
       " 장을 가장 왼쪽으로 옮깁니다."
     ]
   },
+  "${ModID}:SantaNezmingPower": {
+    "NAME": "산타 네즈밍",
+    "DESCRIPTIONS": [
+      "내 턴 시작시 뽑을 카드 더미에서 카드 ",
+      "장을 너 네즈밍 된거야 로 변화시킵니다."
+    ]
+  },
+  "${ModID}:ReflectPower": {
+    "NAME": "피해반사",
+    "DESCRIPTIONS": [
+      "턴간 받는 피해를 반사합니다."
+    ]
+  },
+  "${ModID}:tempPower1": {
+    "NAME": "임시 버프1",
+    "DESCRIPTIONS": [
+      "내 턴 시작시 회피를 ",
+      " 얻습니다.",
+      " 잃습니다."
+    ]
+  },
+  "${ModID}:tempPower2": {
+    "NAME": "임시 버프2",
+    "DESCRIPTIONS": [
+      "내 턴 시작시 회피를 ",
+      " 얻습니다.",
+      " 잃습니다.",
+      "내 턴 시작시 회피에 변화가 없습니다.",
+      " 얻거나 잃을 회피의 값은 턴 종료시 결정됩니다."
+    ]
+  },
+  "${ModID}:TrainingPower": {
+    "NAME": "훈련",
+    "DESCRIPTIONS": [
+      "조준의 범위를 ",
+      " 늘립니다."
+    ]
+  },
 
   "${ModID}:NoBadWordPower": {
     "NAME": "나쁜 말 금지",
@@ -261,6 +306,27 @@
     "NAME": "리액트KR 레인저스",
     "DESCRIPTIONS": [
       "일부 카드 효과가 강화됩니다."
+    ]
+  },
+  "${ModID}:ApplePower": {
+    "NAME": "사과",
+    "DESCRIPTIONS": [
+      "파워 카드를 낼 때마다 무작위 적에게 ",
+      " 피해를 줍니다."
+    ]
+  },
+
+
+  "${ModID}:OminousMassPower": {
+    "NAME": "불길한 덩어리",
+    "DESCRIPTIONS": [
+      "죽은 후 무작위 디버프를 겁니다."
+    ]
+  },
+  "${ModID}:DurianMonsterPower": {
+    "NAME": "두리안 오오라",
+    "DESCRIPTIONS": [
+      "이 적에게 막히지 않은 피해를 입을 때마다, 구리구리함 카드를 뽑을 카드 더미에 1장, 버린 카드 더미에 1장 섞어 넣습니다."
     ]
   }
 }

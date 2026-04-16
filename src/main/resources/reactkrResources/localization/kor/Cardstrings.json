@@ -645,6 +645,42 @@
     "NAME": "훈련장",
     "DESCRIPTION": "${ModID}:조준의 범위를 !M! 늘립니다."
   },
+  "${ModID}:Rabbit": {
+    "NAME": "토끼",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 턴 종료시 *익은 *토끼로 바뀝니다. NL 보존. 소멸."
+  },
+  "${ModID}:CookedRabbit": {
+    "NAME": "익은 토끼",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 턴 종료시 *썩은 *토끼로 바뀝니다. NL 보존. 소멸."
+  },
+  "${ModID}:RottenRabbit": {
+    "NAME": "썩은 토끼",
+    "DESCRIPTION": "썩었습니다..."
+  },
+  "${ModID}:Deer": {
+    "NAME": "사슴",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 !M! 장 뽑습니다. NL 턴 종료시 *익은 *사슴으로 바뀝니다. NL 보존. 소멸."
+  },
+  "${ModID}:CookedDeer": {
+    "NAME": "익은 사슴",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 !M! 장 뽑습니다. NL 턴 종료시 *썩은 *사슴으로 바뀝니다. NL 보존. 소멸."
+  },
+  "${ModID}:RottenDeer": {
+    "NAME": "썩은 사슴",
+    "DESCRIPTION": "썩었습니다..."
+  },
+  "${ModID}:Wolf": {
+    "NAME": "늑대",
+    "DESCRIPTION": "피해를 !M! 받습니다. NL 방어도를 !B! 얻습니다. NL 턴 종료시 *익은 *늑대로 바뀝니다. NL 보존. 소멸."
+  },
+  "${ModID}:CookedWolf": {
+    "NAME": "익은 늑대",
+    "DESCRIPTION": "피해를 !M! 받습니다. NL 방어도를 !B! 얻습니다. NL 턴 종료시 *썩은 *늑대로 바뀝니다. NL 보존. 소멸."
+  },
+  "${ModID}:RottenWolf": {
+    "NAME": "썩은 늑대",
+    "DESCRIPTION": "썩었습니다..."
+  },
 
   "${ModID}:Latte_Strike": {
     "NAME": "타격",

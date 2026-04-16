@@ -24,7 +24,9 @@ public class HideCardLibrary {
             result = c.cardID.startsWith(makeID("TheThing")) ||
                     c.cardID.startsWith(makeID("Select")) ||
                     c.cardID.equals(makeID("Seven")) ||
-                    c.cardID.equals(makeID("Five"))
+                    c.cardID.equals(makeID("Five")) ||
+                    c.cardID.startsWith(makeID("Cooked")) ||
+                    c.cardID.startsWith(makeID("Rotten"))
             ;
             if (!ModConfig.showMayo) {
                 result = result || c.color == MAYO_COLOR || c.cardID.contains("Mayo");
