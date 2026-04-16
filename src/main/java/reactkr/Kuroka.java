@@ -105,27 +105,17 @@ public class Kuroka extends CustomPlayer {
         playAudio(ProAudio.MAJIHI);
         Random rng = new Random();
         if (rng.nextFloat() < 0.25f) { // 25% 확률
-            shouldPlayDelayedAudio = true;
-            audioDelayTimer = 0.85f;
-            // 기존의 타이머 생성: 신규 스레드 생성
-            // >차라리 update에서 if문 체크하는 게 스레드보다는 덜 무거움
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    playAudio(ProAudio.ROROHI);
+                }
+            }, 850); // 850ms 후에 실행
         }
-        //CardCrawlGame.sound.playA("UNLOCK_PING", MathUtils.random(-0.2F, 0.2F));
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
                 false);
     }
 
-    @Override
-    public void update(float deltaTime) {
-        if (shouldPlayDelayedAudio) {
-            audioDelayTimer -= deltaTime;
-            if (audioDelayTimer <= 0.0f) {
-                playAudio(ProAudio.ROROHI);
-                shouldPlayDelayedAudio = false; // 실행 후 상태 초기화
-            }
-        }
-    }
-    
     private static final String[] orbTextures = {
             makeCharacterPath("kuroka/orb/layer1.png"),
             makeCharacterPath("kuroka/orb/layer2.png"),
