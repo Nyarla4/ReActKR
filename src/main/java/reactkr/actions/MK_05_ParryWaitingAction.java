@@ -28,37 +28,20 @@ public class MK_05_ParryWaitingAction extends AbstractGameAction {
             MK_05_ParryManager.startWindow((AbstractMonster)this.target);
         }
 
-        // [핵심] 드래그가 아니라 마우스가 카드 위에 있고 '클릭된 순간' 바로 가로챕니다.
         if (AbstractDungeon.player != null) {
             AbstractDungeon.player.updateInput(); // 마우스 위치 갱신
-
             for (AbstractCard c : AbstractDungeon.player.hand.group) {
                 // 마우스가 카드 위에 있고, 왼쪽 버튼이 눌렸다면
                 if (c.hb.hovered && com.badlogic.gdx.Gdx.input.isButtonPressed(0)) {
                     if (c instanceof MK_05_ParryMan) { // 패링맨 카드인지 확인
                         // 1. 즉시 효과 발동
                         c.use(AbstractDungeon.player, (AbstractMonster)this.target);
-
                         // 2. 카드 제거
-//                        AbstractDungeon.player.hand.removeCard(c);
-
-                            //기존
-                            //c.onMoveToDiscard();
-
-                            //2.5-1. 소멸 효과
                             c.exhaust = true;
                             AbstractDungeon.effectsQueue.add(new ExhaustCardEffect(c));
                             c.triggerOnExhaust();
                             AbstractDungeon.player.hand.moveToExhaustPile(c);
-//                        atb(new ExhaustSpecificCardAction(c, AbstractDungeon.player.hand, false));
-
-                            //2.5-2. 사용 효과
-//                            c.shrink();
-//                            AbstractDungeon.effectsQueue.add(new ShowCardAndAddToDiscardEffect(c));
-//                            c.onMoveToDiscard();
-
                             AbstractDungeon.player.hand.refreshHandLayout();
-
                         // 3. 성공 처리 및 종료
                         MK_05_ParryManager.parrySuccess = true;
                         this.isDone = true;
