@@ -49,6 +49,9 @@ public class Kuroka extends CustomPlayer {
 
     public int baseBattlePotionSlots;
 
+    private float audioDelayTimer = 0.0f;
+    private boolean shouldPlayDelayedAudio = false;
+    
     private static final Logger logger = LogManager.getLogger(Kuroka.class.getName());
 
     public Kuroka(String name, PlayerClass setClass) {
@@ -88,12 +91,6 @@ public class Kuroka extends CustomPlayer {
         for (int i = 0; i < 4; i++) {
             retVal.add(Kuroka_Defend.ID);
         }
-//        retVal.add(MK_15_JingaiJoa.ID);
-//        retVal.add(MK_15_JingaiJoa.ID);
-//        retVal.add(MK_15_JingaiJoa.ID);
-//        retVal.add(MK_13_YuriJoa.ID);
-//        retVal.add(MK_13_YuriJoa.ID);
-//        retVal.add(MK_13_YuriJoa.ID);
         return retVal;
     }
 
@@ -108,19 +105,27 @@ public class Kuroka extends CustomPlayer {
         playAudio(ProAudio.MAJIHI);
         Random rng = new Random();
         if (rng.nextFloat() < 0.25f) { // 25% 확률
-            //logger.info("25%");
-            new Timer().schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    playAudio(ProAudio.ROROHI);
-                }
-            }, 850); // 850ms 후에 실행
+            shouldPlayDelayedAudio = true;
+            audioDelayTimer = 0.85f;
+            // 기존의 타이머 생성: 신규 스레드 생성
+            // >차라리 update에서 if문 체크하는 게 스레드보다는 덜 무거움
         }
         //CardCrawlGame.sound.playA("UNLOCK_PING", MathUtils.random(-0.2F, 0.2F));
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
                 false);
     }
 
+    @Override
+    public void update(float deltaTime) {
+        if (shouldPlayDelayedAudio) {
+            audioDelayTimer -= deltaTime;
+            if (audioDelayTimer <= 0.0f) {
+                playAudio(ProAudio.ROROHI);
+                shouldPlayDelayedAudio = false; // 실행 후 상태 초기화
+            }
+        }
+    }
+    
     private static final String[] orbTextures = {
             makeCharacterPath("kuroka/orb/layer1.png"),
             makeCharacterPath("kuroka/orb/layer2.png"),
@@ -230,11 +235,8 @@ public class Kuroka extends CustomPlayer {
             sb.setColor(Color.WHITE);
 
             if (this.witchTexture != null) {
-                float width = (float)this.witchTexture.getWidth() * Settings.scale;   // 약 166.6
-                float height = (float)this.witchTexture.getHeight() * Settings.scale; // 약 200.0 (예상)
-                logger.info("scale: " + Settings.scale);
-                // 1. [X축] 많이 왼쪽이므로, -width(166) 대신 절반 정도인 -80~90 픽셀만 밀어봅니다.
-                // 2. [Y축] 살짝 위이므로, 기준점에서 10~20 픽셀 정도 아래로 내립니다.
+                float width = (float)this.witchTexture.getWidth() * Settings.scale;
+                float height = (float)this.witchTexture.getHeight() * Settings.scale;
                 sb.draw(
                         this.witchTexture,
                         this.drawX + this.animX - (width * 0.4f),
@@ -253,7 +255,7 @@ public class Kuroka extends CustomPlayer {
         }
     }
 
-    public List<CutscenePanel> getCutscenePanels() {
+    public List<CutscenePanel> getCutscenePanels() {// 엔딩 패널
         List<CutscenePanel> panels = new ArrayList();
         panels.add(new CutscenePanel("reactkrResources/images/BG/MajinaiKuroka_BG0.png"));
         panels.add(new CutscenePanel("reactkrResources/images/BG/MajinaiKuroka_BG1.png", "majihi2"));
