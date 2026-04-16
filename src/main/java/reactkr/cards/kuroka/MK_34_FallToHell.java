@@ -34,7 +34,7 @@ public class MK_34_FallToHell extends AbstractEasyCard_Kuroka {
 
         if (m != null) {
             if (!m.hasPower(MK_01_Majinai_Power.POWER_ID)) {
-                this.cantUseMessage = "주문에 걸려있지 않습니다.";
+                this.cantUseMessage = "주문에 걸려있지 않아...";
                 return false;
             }
         }
