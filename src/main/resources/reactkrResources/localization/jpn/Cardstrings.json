@@ -681,6 +681,10 @@
     "NAME": "썩은 늑대",
     "DESCRIPTION": "썩었습니다..."
   },
+  "${ModID}:MayoDororong": {
+    "NAME": "마요 도로롱",
+    "DESCRIPTION": "카드를 !M! 장 소멸시키고 카드를 !${ModID}:m2! 장 뽑습니다. NL 저주나 상태이상 카드를 소멸시켰을 시 에너지를 1 얻습니다."
+  },
 
   "${ModID}:Latte_Strike": {
     "NAME": "타격",
@@ -908,6 +912,10 @@
   "${ModID}:ThrowTheApple": {
     "NAME": "사과던져잇",
     "DESCRIPTION": "파워 카드를 낼 때마다 무작위 적에게 !M! 피해를 줍니다."
+  },
+  "${ModID}:mouthten": {
+    "NAME": "입니기리",
+    "DESCRIPTION": "귀엽습니다."
   },
 
   "${ModID}:WimpyTiger": {

@@ -31,7 +31,6 @@ public class MM_16_CallMeMama extends AbstractEasyCard_Mayo {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new ExhaustAction(this.magicNumber, false, false));
         for (int i = 0; i < this.secondMagic; i++) {
-            // 여기서 amount 위치에 1을 넣으면 1장씩 여러 번 고르게 됩니다.
             this.addToBot(new DiscoveryColorAction(colors, 1));
         }
     }
