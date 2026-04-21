@@ -64,8 +64,8 @@
   },
 
   "${ModID}:MayoStartItemRelic": {
-    "NAME": "뭐하지",
-    "FLAVOR": "ㄹㅇ 뭐하지.",
+    "NAME": "리액트KR 지부장",
+    "FLAVOR": "아니라구요? 공식이 뭘알아",
     "DESCRIPTIONS": [
       "전투 시작 시 #y회피를 7 얻습니다."
     ]
