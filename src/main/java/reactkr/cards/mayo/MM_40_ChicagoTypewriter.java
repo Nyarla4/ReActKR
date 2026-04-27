@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import reactkr.cards.AbstractEasyCard_Mayo;
 import reactkr.powers.DelayedPower;
@@ -30,6 +31,10 @@ public class MM_40_ChicagoTypewriter extends AbstractEasyCard_Mayo {
         }
         if (p.hasRelic("Chemical X")) {
             damageX += 2;
+        }
+
+        if(p.hasPower(StrengthPower.POWER_ID)){
+            damageX += p.getPower(StrengthPower.POWER_ID).amount;
         }
 
         if (!this.freeToPlayOnce) {
