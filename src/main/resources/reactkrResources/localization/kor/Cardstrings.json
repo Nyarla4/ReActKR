@@ -552,7 +552,8 @@
   },
   "${ModID}:ChicagoTypewriter": {
     "NAME": "시카고 타자기",
-    "DESCRIPTION": "이번 턴 동안 적에게 ${ModID}:회피를 !M! 부여합니다. NL X 피해를 !M! 번 줍니다."
+    "DESCRIPTION": "적에게 ${ModID}:회피를 !M! 부여합니다. NL X 피해를 10 번 줍니다.",
+    "UPGRADE_DESCRIPTION": "적에게 ${ModID}:회피를 !M! 부여합니다. NL X+1 피해를 10 번 줍니다."
   },
   "${ModID}:Aiming": {
     "NAME": "조준",

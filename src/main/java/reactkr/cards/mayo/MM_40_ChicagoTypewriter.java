@@ -19,7 +19,7 @@ public class MM_40_ChicagoTypewriter extends AbstractEasyCard_Mayo {
 
     public MM_40_ChicagoTypewriter() {
         super(ID, -1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseMagicNumber = magicNumber = 10;
+        baseMagicNumber = magicNumber = 16;
     }
 
     @Override
@@ -37,17 +37,20 @@ public class MM_40_ChicagoTypewriter extends AbstractEasyCard_Mayo {
             damageX += p.getPower(StrengthPower.POWER_ID).amount;
         }
 
+        if(this.upgraded){
+            damageX += 1;
+        }
+
         if (!this.freeToPlayOnce) {
             p.energy.use(EnergyPanel.totalCount);
         }
 
         addToBot(new ApplyPowerAction(m, p, new MM_03_EvasionPower(m, magicNumber)));
-        addToBot(new ApplyPowerAction(m, p, new DelayedPower(m, 1, new MM_03_EvasionPower(m, -magicNumber), true)));
         int finalDamageX = damageX;
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-            for (int i = 0; i < magicNumber; i++) {
+            for (int i = 0; i < 10; i++) {
                 this.addToTop(new DamageAction(m, new DamageInfo(p, finalDamageX, DamageInfo.DamageType.NORMAL), AttackEffect.BLUNT_LIGHT));
             }
             this.isDone = true;
@@ -57,6 +60,5 @@ public class MM_40_ChicagoTypewriter extends AbstractEasyCard_Mayo {
 
     @Override
     public void upp() {
-        upgradeMagicNumber(5);
     }
 }

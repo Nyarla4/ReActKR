@@ -24,6 +24,5 @@ public class MM_33_OIIA extends AbstractEasyCard_Mayo {
     @Override
     public void upp() {
         upgradeMagicNumber(1);
-        this.isInnate = true;
     }
 }
