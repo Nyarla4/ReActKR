@@ -1,10 +1,4 @@
 {
-  "${ModID}:RankS": {
-    "NAME": "S랭크",
-    "DESCRIPTION": [
-      "가장 높은 랭크입니다."
-    ]
-  },
   "${ModID}:Latte": {
     "NAME": "아오토 라떼",
     "DESCRIPTION": [

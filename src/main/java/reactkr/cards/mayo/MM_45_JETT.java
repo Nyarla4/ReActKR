@@ -20,11 +20,15 @@ public class MM_45_JETT extends AbstractUltCard {
     public MM_45_JETT() {
         super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseBlock = block = 12;
+        baseMagicNumber = magicNumber = 3;
     }
 
     @Override
     void normalUse(AbstractPlayer p, AbstractMonster m) {
         blck();
+        if(upgraded) {
+            addToBot(new ApplyPowerAction(p, p, new MM_03_EvasionPower(p, magicNumber)));
+        }
     }
 
     @Override

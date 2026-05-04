@@ -137,14 +137,6 @@
     ],
     "DESCRIPTION": "이번 전투동안 회피가 X 밑으로 떨어지지 않습니다."
   },
-  {
-    "PROPER_NAME": "랭크",
-    "NAMES": [
-      "랭크",
-      "랭크가"
-    ],
-    "DESCRIPTION": "미구현 상태입니다."
-  },
 
   {
     "PROPER_NAME": "아침",

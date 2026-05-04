@@ -38,6 +38,6 @@ public class MM_31_WingMan extends AbstractAimedCard{
 
     @Override
     public void upp() {
-
+        upgradeSecondDamage(6);
     }
 }
